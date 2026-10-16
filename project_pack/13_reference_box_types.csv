@@ -1,0 +1,83 @@
+nursery,code,type,multiplier,description,cellsPerContainer,notes
+JHSN,BAG,STORE,1000,Bag(s),,
+JHSN,BAG24,STORE,1000,"Bag(s) 24""",9,Cells/Cont = Rack Factor
+JHSN,BAG30,STORE,1000,"Bag(s) 30""",7,Cells/Cont = # per rack
+JHSN,BAG40,STORE,1000,"Bag(s) 40""",5,Cells/Cont = # per rack
+JHSN,BAG72,STORE,1000,"Bag(s) 40""X72""",2,Cells/Cont = # per rack
+JHSN,BAGLB,STORE,1,Bag(s) (Lbs),5,Cells/Cont = # per rack(bag40)
+JHSN,BALE,STORE,1,Bale(s),,
+JHSN,BBX21,STORE,1000,"Bag(s) in Box(s) 21""",9,Cells/Cont = Rack Factor
+JHSN,BBX24,STORE,1000,"Bag(s) in Box(s) 24""",9,Cells/Cont = Rack Factor
+JHSN,BBX30,STORE,1000,"Bag(s) in Box(s) 30""",7,Cells/Cont = # per rack
+JHSN,BBX40,STORE,1000,"Bag(s) in Box(s) 40""",5,Cells/Cont = # per rack
+JHSN,BGBX,STORE,1000,Bag(s) in Box(s),,
+JHSN,BGUBX,STORE,1000,Bag(s) in Used Box(s),,
+JHSN,BLB24,STORE,1,"Box(s) (Lbs) 24""",9,Cells/Cont = # per rack(box24)
+JHSN,BLB30,STORE,1,"Box(s) (Lbs) 30""",7,Cells/Cont = # per rack(box30)
+JHSN,BLB36,STORE,1,"Box(s) (Lbs) 36""",5,Cells/Cont = # per rack(box36)
+JHSN,BLB40,STORE,1,"Box(s) (Lbs) 40""",5,Cells/Cont = # per rack(box40)
+JHSN,BOX,STORE,1000,Box(s),,
+JHSN,BOX24,STORE,1000,"Box(s) 24""",9,Cells/Cont = Rack Factor
+JHSN,BOX30,STORE,1000,"Box(s) 30""",7,Cells/Cont = # per rack
+JHSN,BOX40,STORE,1000,"Box(s) 40""",5,Cells/Cont = # per rack
+JHSN,BOXU,STORE,1000,Used Box(s),,
+JHSN,BRL,STORE,1,Barrels,,
+JHSN,BU,STORE,1,Bushels,,
+JHSN,BXLB,STORE,1,Box(s) (Lbs),5,Cells/Cont = # per rack(box40
+JHSN,GCBX,STORE,100,Grow Container(s) in Box(s),,
+JHSN,RACK,STORE,1000,Rack(s),,
+JHSN,SIGC,STORE,1000,Ship In Grow Container,,
+JHSN,TOTE,STORE,1000,Tote(s),,
+JHSN,TRAY,STORE,1000,Tray(s),,
+LPN,BAG,STORE,1000,Bag(s),,
+LPN,BB,Store,1000,Bag in a Box,,
+LPN,BBXUW,Store,1000,Bag(s) in UnWaxed Box(s),,
+LPN,BGBX,STORE,1000,Bag(s) in Box(s),,
+LPN,BGUBX,STORE,1000,Bag(s) in Used Box(s),,
+LPN,BOX,STORE,1000,Box(s),,
+LPN,BOXU,STORE,1000,Used Box(s),,
+LPN,BRL,STORE,1,Barrels,,
+LPN,BU,STORE,1,Bushels,,
+LPN,BXUW,STORE,1000,"Box(s), UnWaxed",,
+LPN,C,Store,1,Container,,
+LPN,GCBX,STORE,1000,Grow Container(s) in a Box,,
+LPN,LUBG,STORE,1,Lunch Bag,,
+LPN,PLYBG,Store,1,Seed Poly-Bags,,
+LPN,RACK,STORE,1000,Rack(s),200,
+LPN,SIGC,STORE,1000,Ship In Grow Container(s),,
+LPN,TOTE,STORE,1000,Tote(s),,
+LPN,TRAY,STORE,1,Tray(s),,
+PN,BAG,STORE,1000,Bag(s),,
+PN,BB,Store,1000,Bag in a Box,,
+PN,BBXUW,Store,1000,Bag(s) in UnWaxed Box(s),,
+PN,BGBX,STORE,1000,Bag(s) in Box(s),,
+PN,BGUBX,STORE,1000,Bag(s) in Used Box(s),,
+PN,BOX,STORE,1000,Box(s),,
+PN,BOXU,STORE,1000,Used Box(s),,
+PN,BRL,STORE,1,Barrels,,
+PN,BU,STORE,1,Bushels,,
+PN,BXUW,STORE,1000,"Box(s), UnWaxed",,
+PN,C,Store,1,Container,,
+PN,PLYBG,Store,1,Seed Poly-Bags,,
+PN,RACK,STORE,1000,Rack(s),200,
+PN,SIGC,STORE,1000,Ship In Grow Container,,
+PN,TOTE,STORE,1,Tote(s),,
+PN,TRAY,STORE,1000,Tray(s),,
+TN,BAG,STORE,1000,Bag(s),,
+TN,BB,Store,1000,Bag in a Box,,
+TN,BBXUW,Store,1000,Bag(s) in UnWaxed Box(s),,
+TN,BGBX,STORE,1000,Bag(s) in Box(s),,
+TN,BGUBX,STORE,1000,Bag(s) in Used Box(s),,
+TN,BOX,STORE,1000,Box(s),,
+TN,BOXU,STORE,1000,Used Box(s),,
+TN,BRL,STORE,1,Barrels,,
+TN,BU,STORE,1,Bushels,,
+TN,BXUW,STORE,1000,"Box(s), UnWaxed",,
+TN,C,Store,1,Container,,
+TN,GCBX,STORE,1000,Grow Container(s) in a Box,,
+TN,LUBG,STORE,1,Lunch Bag,,
+TN,PLYBG,Store,1,Seed Poly-Bags,,
+TN,RACK,STORE,1000,Rack(s),200,
+TN,SIGC,STORE,1000,Ship In Grow Container(s),,
+TN,TOTE,STORE,1000,Tote(s),,
+TN,TRAY,STORE,1,Tray(s),,

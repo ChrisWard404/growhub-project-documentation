@@ -1,0 +1,74 @@
+current,desired,description,stockType,cellDiameter,cellDepth,cellsPerContainer,width,length,height,drillRows,historical
+D16,D16,"Deepot 16 cu in (2"" dia X 7"" deep (5x10))",Container,2,7,50,12,24,6.75,,
+D25L,D25L,"Deepot 25 cu in (2.0"" dia X 10"" deep (5x10))",Container,2,10,50,12,24,6.75,,
+D40,D40,"Deepot 40 cu in (2.5"" dia X 10"" deep (4x5))",Container,2.5,10,20,12,14.8,9.4,,
+E150,EA150,"Ellepot Air Tray 150 (1.18"" dia X 3.54"" deep)",Container,1.18,3.54,150,14.8,23.56,3.54,,
+FLAT,FLAT,"Flat for germination (16"" X 16"" x 2"" deep)",Container,,,1,16,16,2,,
+FT128,FT128,"FT128 Forestry Tracy 8 cu in (1.55"" dia X 6"" deep (8x16))",Container,1.55,6,128,13.5,26.5,6,,
+HB200,HB200,"Hortiblock 200 19ml (1""x2.25"" (10x20))",Container,1,2.25,200,13.5,26.5,3,,
+JPOT,JPOT,Jiffy Pot,Container,,,1,,,,,Yes
+MT251,TP2510,"Mini-Treepot MT2510 52 cu. in. (2.5"" X 2.5"" X 10"" deep)",Container,2.5,10,36,13,17,11,,
+MT49,TP49,"Mini-Treepot MT49 100 cu.in. (4"" X 4"" X 9.5"" deep)",Container,4,9.5,1,17,17,9,,Yes
+PAP3,PAP3,"Paper Pot 3""",Container,,,192,,,,,Yes
+RL10,RL10,"Ray Leach Cell 10 cu. In. (1.5"" dia X 8.25"" deep (7x14))",Container,1.5,8.25,98,15,25,9,,
+RL3,RL3,"Ray Leach Cell 3 cu. in. (1"" dia X 4.75"" deep (10x20))",Container,1,4.75,200,12,24,6.75,,
+RL7,RL7,"Ray Leach Cell 7 cu. in. (1.5"" dia X 5.5"" deep (7x14))",Container,1.5,5.5,98,15,25,6.75,,
+RP1G,RP1G,"Round Pot 1 Gallon (6"" dia X 7"" deep)",Container,6,7,1,6,6,7,,Yes
+RP5G,RP5G,Round Pot 5 Gallon,Container,,,,,,,,
+RT10,RT10,"Rootrainer 10.5 cu. in. (1.5"" X 1.5"" X 5"" deep)",Container,1.5x1.5,5,32,16,21,7,,Yes
+RT20,RT20,"Rootrainer 21.5 cu. in. (1.5"" X 2"" X 8"" deep)",Container,1.5x2,8,40,19,23,11,,Yes
+S112,S112,"112/105 Styro 6 - 6.6 cu. In. (1.4"" dia X 5.9"" deep (8x14))",Container,1.4,5.9,112,14,24,5.9,,
+S112D,S112D,"112/164 Styro 10D - 10 8"" deep (1.4"" dia X 8"" deep (8x14))",Container,1.4,8,112,14,24,8,,
+S144,S144,"144/95 Styro 6A - 5.8 cu. In. (1.3"" dia X 5.2"" deep)",Container,1.3,5.2,144,14,24,5.2,,
+S160,S160,"160/90 Styro 5 - 5.5 cu. In. (1.2"" dia X 6"" deep (10x16))",Container,1.2,6,160,14,24,6,,
+S160D,S160D,"160/120 Styro 7 - 7.3 cu. In. (1.2"" dia X 9"" deep (10x16))",Container,1.2,9,160,14,24,9,,
+S198,S198,"198/50 Styro 2.9 cu. In. (1.1"" dia X 4.8"" deep (11x18))",Container,1.1,4.8,198,14,24,4.8,,
+S198D,S198D,"198/60 Styro 4A 3.7 cu. In. (1.1"" dia X 5.2"" deep (11x18))",Container,1.1,5.2,198,14,24,5.2,,
+S240,S240,"240/40 Styro 2A - 2.4 cu. In. (1"" dia X 4.5"" deep (12x20))",Container,1,4.5,240,14,24,4.5,,
+S408,S408,"408/116 Styro 1 - 1 cu. In. (0.66"" dia X 4.1"" deep (17x24))",Container,0.66,4.1,408,14,24,4.1,,
+S45,S45,"45/340 Styro 20 - 20.5 cu. In. (2.4"" dia X 6"" deep (5x9))",Container,2.4,6,45,14,24,6,,
+S45C,S45C,"45/340 Styro 20 - Copper (2.4"" dia X 6"" deep (5x9))",Container,2.4,6,45,14,24,6,,
+S45D,S45D,"45/450 Styro 28 - 26.9 cu. In. (2.4"" dia X 8"" deep (5x9))",Container,2.4,8,45,14,24,8,,
+S60,S60,"60/250 Styro 15 - 15.3 cu. In. (2"" dia X 6"" deep (6x10))",Container,2,6,60,14,24,6,,
+S60C,S60C,"60/250 Styro 15 - Copper (2"" dia X 6"" deep (6x10))",Container,2,6,60,14,24,6,,
+S77,S77,"77/170 Styro 10 - 9.8 cu. In. (1.7"" dia X 6"" deep (7x11))",Container,1.7,6,77,14,24,6,,
+S77C,S77C,"77/170 Styro 10 - Copper (1.7"" dia X 6"" deep (7x11))",Container,1.7,6,77,14,24,6,,
+S91,S91,"91/130 Styro 8 - 7.9 cu. In. (1.5"" dia X 6"" deep (7x13))",Container,1.5,6,91,14,24,6,,
+SB,SB8,Seed Bed 8 row (1' x 1'),Bareroot,12,,4,48,12,,8,
+SP37,SP37,"Square Pot, 3.5""x3.5""x3"" (3.5"" X 3.5"" X 3"" deep)",Container,3.5,3,1,3.5,3.5,3,,Yes
+SP56,SP56,"Square Pot, 4""x4""x3.5"" (4"" X 4"" X 3.5"" deep)",Container,4,3.5,1,4,4,3.5,,Yes
+SPB,SPB,Seed Production Bed (1' X 6.333' (0.0001458 Ac)),Bareroot,12,,4,75.996,12,,4,
+ST10C,S77C,"77/170 Styro 10 - Copper (1.7"" dia X 6"" deep (7x11))",Container,1.7,6,77,14,24,6,,
+ST10D,S112D,"112/164 Styro 10D - 10 8"" deep (1.4"" dia X 8"" deep (8x14))",Container,1.4,8,112,14,24,8,,
+ST15C,S60C,"60/250 Styro 15 - Copper (2"" dia X 6"" deep (6x10))",Container,2,6,60,14,24,6,,
+ST20C,S45C,"45/340 Styro 20 - Copper (2.4"" dia X 6"" deep (5x9))",Container,2.4,6,45,14,24,6,,
+STB,STB,Stoolbed (1' X 1'),Bareroot,12,,4,48,12,,,
+STP,TP49,"Short Tree Pot (3.75"" X 3.75"" X 9.5"" deep)",Container,3.75,9.5,1,3.75,3.75,9.5,,Yes
+STY10,S77,"77/170 Styro 10 - 9.8 cu. In. (1.7"" dia X 6"" deep (7x11))",Container,1.7,6,77,14,24,6,,
+STY15,S60,"60/250 Styro 15 - 15.3 cu. In. (2"" dia X 6"" deep (6x10))",Container,2,6,60,14,24,6,,
+STY20,S45,"45/340 Styro 20 - 20.5 cu. In. (2.4"" dia X 6"" deep (5x9))",Container,2.4,6,45,14,24,6,,
+STY28,S45D,"45/450 Styro 28 - 26.9 cu. In. (2.4"" dia X 8"" deep (5x9))",Container,2.4,8,45,14,24,8,,
+STY2A,S240,"240/40 Styro 2A - 2.4 cu. In. (1"" dia X 4.5"" deep (12x20))",Container,1,4.5,240,14,24,4.5,,
+STY45,S45,"45/340 Styro 20 - 20.5 cu. In. (2.4"" dia X 6"" deep (5x9))",Container,2.4,6,45,14,24,6,,
+STY4A,S198D,"198/60 Styro 4A 3.7 cu. In. (1.1"" dia X 5.2"" deep (11x18))",Container,1.1,5.2,198,14,24,5.2,,
+STY5,S160,"160/90 Styro 5 - 5.5 cu. In. (1.2"" dia X 6"" deep (10x16))",Container,1.2,6,160,14,24,6,,
+STY6,S112,"112/105 Styro 6 - 6.6 cu. In. (1.4"" dia X 5.9"" deep (8x14))",Container,1.4,5.9,112,14,24,5.9,,
+STY6A,S144,"144/95 Styro 6A - 5.8 cu. In. (1.3"" dia X 5.2"" deep)",Container,1.3,5.2,144,14,24,5.2,,
+STY7,S160D,"160/120 Styro 7 - 7.3 cu. In. (1.2"" dia X 9"" deep (10x16))",Container,1.2,9,160,14,24,9,,
+STY8,S91,"91/130 Styro 8 - 7.9 cu. In. (1.5"" dia X 6"" deep (7x13))",Container,1.5,6,91,14,24,6,,
+STYM,S408,"408/116 Styro 1 - 1 cu. In. (0.66"" dia X 4.1"" deep (17x24))",Container,0.66,4.1,408,14,24,4.1,,
+Styro 20,S45,"45/340 Styro 20 - 20.5 cu. In. (2.4"" dia X 6"" deep (5x9))",Container,2.4,6,45,14,24,6,,
+T12,T12,"PVC Tube 12""x3"" (3"" dia X 12"" deep)",Container,3,12,1,3,3,12,,Yes
+T18,T18,"PVC Tube 18""x3"" (3"" dia X 18"" deep)",Container,3,18,1,3,3,18,,Yes
+T24,T24,"PVC Tube 24""x3"" (3"" dia X 24"" deep)",Container,3,24,1,3,3,24,,Yes
+TB,TB5,Transplant Bed 5 row (1'x1'),Bareroot,12,,4,48,12,,5,
+TB3G,TB3G,Tree Bag 3 Gallon (10w x 8 1/2h grey #3),Container,10,8.5,1,10,10,8.5,,
+TB9,TB9,Transplant Bed 9 row (1'x1'),Bareroot,12,,4,48,12,,9,
+TP1G,TP1G,"Tree Pot 1 Gallon (4"" X 4"" X 14"" deep)",Container,4,14,1,4,4,14,,Yes
+TP2G,TP2G,"Tree Pot 2 Gallon (6"" X 6"" X 16"" deep)",Container,6,16,1,6,6,16,,
+TP3G,TP3G,"Tree Pot 3 Gallon (7"" X 7"" X 14"" deep)",Container,7,14,1,7,7,14,,
+TP414,TP414,"Tree Pot Tall One 175 cu.in. (4"" X 4"" X 14"" deep)",Container,4,14,16,,,,,
+TP49,TP49,"Tree Pot Short One 100 cu.in. (4"" X 4"" X 9.5"" deep)",Container,4,9.5,16,,,,,
+TP4G,TP4G,"Tree Pot 4 Gallon (7"" X 7"" X 18"" deep)",Container,7,18,1,7,7,18,,
+TP5G,TP5G,"Tree Pot 5 Gallon (10"" dia X 20"" deep)",Container,10,20,1,10,10,20,,
+TP8G,TP8G,"Tree Pot 8 Gallon (11"" dia X 24"" deep)",Container,11,24,1,11,11,24,,

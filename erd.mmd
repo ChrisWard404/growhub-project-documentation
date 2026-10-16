@@ -1,0 +1,1217 @@
+erDiagram
+    Lifting_Priorties {
+        field Priority
+        field Lot
+        field Feet
+        field Species FK
+        field Location
+        field Age
+        field BED_SORT_ORDER
+        field Net
+        field Added
+        field Ft
+        field LIFTED
+    }
+    NMIS_ACCESS_USER_NURSERY {
+        field Set_As_User
+        field Nursery_Associate_Code FK
+        field Default4N
+        field Default1D
+        field Default2N
+        field Default3N
+        field Default5N
+        field User_Nursery_Code
+        field Default1N
+        field Field_Index_Increment_Default
+        field ID_Offset
+        field Nursery_Owned_Code
+        field User_Nursery
+        field Default1
+        field Default2
+        field Default3
+        field Default4
+        field Default6N
+        field Inv_Plot_Area_Default
+    }
+    NMIS_ACTIVITY_CHARGES {
+        field ACTIVITY_CODE PK,FK
+        field FISCAL_YEAR FK
+        field CATEGORY_CODE FK
+        field MGMT_CODE
+        field CHARGE_PER_ACTIVITY
+        field UNIT_CODE FK
+        field CHARGE_PER_AMT
+        field CHARGE_PER_HOUR
+        field CHARGE_PER_UNIT
+    }
+    NMIS_ACTIVITY_CODES {
+        field CN PK
+        field ACTIVITY_CODE
+        field PARENT_ACTIVITY_CODE
+        field ACTIVITY_NAME
+        field ACTIVITY_CODE_NO
+        field BALANCE_EFFECT
+        field NOTE
+        field DEFAULT_CONTRACT_ITEM
+        field PROPERTIES_MODULE
+        field AGREEMENT_LOT_CN FK
+        field ACTIVITY_DATE
+    }
+    NMIS_AGREEMENTS {
+        field CN PK
+        field CLIENT_ASSOCIATE FK
+        field AGREEMENT_LOT_CN FK
+        field SOURCE_LOT_CN FK
+        field AMOUNT_REQUESTED
+        field CONTACT_CN FK
+        field SPECIES_PRODUCT_CN FK
+        field END_FY
+        field BEGIN_FY
+        field ORIG_AMOUNT_REQUESTED
+        field NOTE
+        field INSERTED_DATE
+        field INSERTED_BY
+        field Index
+        field INSERTED_INSTANCE
+        field MODIFIED_BY
+        field MODIFIED_DATE
+        field MODIFIED_INSTANCE
+        field TRANSFERRED_BY
+        field TRANSFERRED_DATE
+        field TRANSFERRED_INSTANCE
+        field PLNTMSTR_SYMBOL FK
+        field ASSOCIATE FK
+        field CONTAINER_FACTOR
+        field CONTAINER_FACTOR_1
+        field CONTAINER_FACTOR_2
+        field CONTAINER_FACTOR_3
+        field DESIRED_DENSITY
+        field GROSS_PER_CONTAINER
+        field HARVEST_FACTOR
+        field HARVEST_FACTOR_1
+        field HARVEST_FACTOR_2
+        field HARVEST_FACTOR_3
+        field HARVEST_FACTOR_4
+        field ID
+        field MAXIMUM_DENSITY
+        field Major_Client
+        field PRODUCT_DESC
+        field SIZE_SPEC_STRING
+        field SOURCE_PER_AGREEMENT_UNIT
+        field SOURCE_REQUIRED
+        field SPECIES_PRODUCT_DESC
+        field TOTAL_REQUEST
+        field like_associate
+        field Requery
+    }
+    NMIS_AGREEMENT_LOTS {
+        field CN PK
+        field ID
+        field SPECIES_PRODUCT_CN FK
+        field BEGIN_FY FK
+        field SOURCE_LOT_CN FK
+        field CATEGORY_CODE FK
+        field TOTAL_REQUEST
+        field END_FY
+        field NURSERY_ASSOCIATE FK
+        field SOURCE_REQUIRED
+        field EST_CONTAINERS_REQUIRED
+        field PREVIOUS_AGREEMENT_LOT_CN
+        field ID_ORIGINAL
+        field NOTE
+        field PREVIOUS_NURSERY_ASSOCIATE FK
+        field AKA
+        field INSERTED_DATE
+        field SOURCE_GERM_PCT
+        field GROSS_SOURCE_PER_UNIT
+        field Index
+        field HARVEST_ASF_ADJUSTMENT
+        field HARVEST_FACTOR_1
+        field INSERTED_BY
+        field SOURCE_PURITY_PCT
+        field CALIBRATION_TRAVEL_PER_REV
+        field HARVEST_FACTOR_4
+        field HARVEST_FACTOR_2
+        field HARVEST_FACTOR_3
+        field CALIBRATION_FUNNEL_SETTING_ID
+        field MODIFIED_DATE
+        field PLNTMSTR_SYMBOL FK
+        field CALIBRATION_REV_SOURCE_UNITS
+        field CALIBRATION_SOURCE_UNITS
+        field CALIBRATION_REVS_USED
+        field CONTAINER_FACTOR_3
+        field SOWING_PRIORITY
+        field THINNING_PROBABILITY_PCT
+        field CALIBRATION_SUBLOTS
+        field NUMBER_CALIBRATION_CONTAINERS
+        field AGREEMENT_LOT_CN
+        field BEGIN_INDEX
+        field Begin_Counter
+        field DIST_FROM_BED_BEG
+        field END_INDEX
+        field End_Counter
+        field INDEX_MAX
+        field LOCATION
+        field LOCATION_CN FK
+        field DESIRED_DENSITY
+        field MODIFIED_BY
+        field SOURCE_STRATIFIED
+        field CONTAINER_PROBABILITY_PCT
+        field ASSOCIATE FK
+        field ASSOCIATE_NAME
+        field CATEGORY_DESC
+        field LOCATION_TYPE FK
+        field Major_Client
+        field NURSERY
+        field PREVIOUS_SPECIES_PRODUCT_CN FK
+        field PRODUCT_CLASS
+        field PRODUCT_CN FK
+        field PRODUCT_DESC
+        field SOURCE_CODE
+        field SPECIES_PRODUCT_DESC
+        field SUBLOT_NO
+        field CONTAINER_ASF_ADJUSTMENT
+        field CONTAINER_FACTOR_1
+        field CONTAINER_FACTOR_2
+        field ORDER_CN FK
+    }
+    NMIS_ASSOCIATES {
+        field ASSOCIATE PK
+        field ASSOCIATE_NAME
+        field PARENT_ASSOCIATE
+        field HISTORICAL
+        field ASSOCIATE_NAME_UPPER
+        field NURSERY
+        field STATE
+        field STREET_ADDR
+        field MAIL_ADDR
+        field ZIPCODE
+        field CITY
+        field SHIP_ADDR
+        field SHIP_MILES
+        field SHIP_CITY
+        field SHIP_ZIPCODE
+        field SHIP_STATE
+        field DEPARTMENT
+        field EMAIL_ADDR
+        field STORAGE_ASSOCIATE
+        field BEGIN_FY
+        field GENUS
+        field NOTE
+        field PLNTMSTR_SYMBOL FK
+        field PRINT_LABEL
+        field SPECIES
+        field SPECIES_GROUP FK
+        field VERNACULAR
+        field COUNTRY
+        field Entered_By
+        field Entered_Date
+        field SOURCE_CODE_TYPE
+    }
+    NMIS_ASSOCIATE_GROUPS {
+        field GROUP_CN FK
+        field ASSOCIATE FK
+    }
+    NMIS_CATEGORIES {
+        field CATEGORY_CODE PK
+        field CATEGORY_DESC
+        field NURSERY_ASSOCIATE FK
+        field CATEGORY_CODE_CONDENSED
+        field ASSOCIATE FK
+        field ASSOCIATE_NAME
+        field BEGIN_FY
+        field HISTORICAL
+        field NURSERY
+        field FUND_CODE
+    }
+    NMIS_CLIENT_MGMT_CODES {
+        field CLIENT_ASSOCIATE FK
+        field MGMT_CODE
+        field ORDER_CN FK
+        field MGMT_CODE_PCT
+        field FISCAL_YEAR_USED
+        field ACTIVITY_ID_CN FK
+        field AGREEMENT_CN FK
+        field SOURCE_CN FK
+    }
+    NMIS_CONTACTS {
+        field CN PK
+        field FIRST_NAME
+        field LAST_NAME
+        field CONTACT_NAME_UPPER
+        field HISTORICAL
+        field HOME_ASSOCIATE FK
+        field EMAIL_ADDR
+        field CONTACT_DESC
+        field MIDDLE_INITIAL
+        field NOTE
+        field Index
+        field RNS_USERNAME
+    }
+    NMIS_CONTACT_LINKS {
+        field CONTACT_CN FK
+        field LINK_ASSOCIATE FK
+    }
+    NMIS_CONTRACTS {
+        field CONTRACT_NO PK
+        field FISCAL_YEAR FK
+        field PROJECT
+        field ASSOCIATE FK
+        field ORIGINAL_CONTRACT_AMT
+        field INDEFINITE_QUANTITY
+        field NOTE
+    }
+    NMIS_CONTRACT_ITEMS {
+        field FISCAL_YEAR FK
+        field CONTRACT_ITEM
+        field CONTRACT_ITEM_DESC
+        field CONTRACT_NO FK
+        field PAYMENT_PER_UNIT
+        field PAYMENT_PER_AMT
+        field PAYMENT_PER_AMT_GROSS
+        field UNIT_CODE FK
+        field EST_UNITS
+        field FIELD_CONTAINER
+        field DEFAULT_ACTIVITY_CODE
+        field NURSERY_ASSOCIATE FK
+        field Requery
+    }
+    NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE {
+        field CONTRACT_NO FK
+        field ESTIMATE_NO
+        field FISCAL_YEAR FK
+        field END_DATE
+        field DATE_SIGNED
+        field PROJECT_NAME
+        field DEDUCTION
+        field DISCOUNT_PCT
+        field INCREASES_DECREASES
+        field NET_CONTRACT_AMOUNT
+        field REMARKS
+        field RETENTION_PCT
+        field BEGIN_DATE
+        field DATE_PMT_RECOMMENDED
+        field ESTIMATE_NO_PREVIOUS
+        field PREVIOUS_PAYMENTS
+    }
+    NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE_DETAIL {
+        field CONTRACT_NO FK
+        field ESTIMATE_NO FK
+        field Item_No FK
+        field sort
+        field Level
+        field FISCAL_YEAR FK
+        field Item
+        field Unit_Price
+        field Prev_Est
+        field Total_Earned_to_Date
+        field Contract
+        field ESTIMATE_NO_PREVIOUS
+        field Unit
+        field Total_To_Date
+        field Changes
+        field Rev_Tot
+        field This_Est
+    }
+    NMIS_CONTRACT_WORK_ORDERS {
+        field ESTIMATE_NO
+        field CONTRACT_NO FK
+        field FISCAL_YEAR FK
+        field REFERENCE
+        field WORK_ORDERED
+        field AMENDMENT
+        field DATE
+        field NON_COMPLIANCE
+        field SIGNATURE_TITLE
+        field WORK_ORDER
+    }
+    NMIS_FACTORS {
+        field CN PK
+        field SPECIES_PRODUCT_CN FK
+        field HARVEST_FACTOR_1
+        field LIKE_ASSOCIATE FK
+        field CONTAINER_FACTOR_1
+        field CONTAINER_FACTOR_2
+        field CONTAINER_FACTOR_3
+        field HARVEST_FACTOR_2
+        field HARVEST_FACTOR_3
+        field HARVEST_FACTOR_4
+        field CONTAINER_FACTOR
+        field DESIRED_DENSITY
+        field HARVEST_FACTOR
+        field MAXIMUM_DENSITY
+        field GERM_MAX
+        field GERM_MIN
+        field GROSS_PER_CONTAINER
+        field Index
+        field SOURCE_PER_AGREEMENT_UNIT
+        field ELEVATION_MAX
+        field ELEVATION_MIN
+    }
+    NMIS_FACTOR_CODES {
+        field FACTOR_CODE
+        field FACTOR_DESC
+        field FORMULA_DIVIDE_BY_100
+        field FORMULA_INVERSE
+        field FORMULA_OP
+    }
+    NMIS_FISCAL_YEARS {
+        field FISCAL_YEAR PK
+        field BEGIN_DATE
+        field END_DATE
+        field FISCAL_YEAR_NUMBER
+        field CLIENT_SURPLUS_AVAILABLE
+        field END_FY
+        field NOTE
+        field NURSERY_SURPLUS_AVALIABLE
+        field PREVIOUS_NURSERY_ASSOCIATE FK
+        field PREVIOUS_SPECIES_PRODUCT_CN
+        field SOURCE_LOT_CN FK
+        field TOTAL_REQUEST
+        field ID
+        field SOURCE_CODE
+    }
+    NMIS_GROUPS {
+        field CN PK
+        field GROUP_NAME
+        field Index
+    }
+    NMIS_ID_ACTIVITIES {
+        field CN PK
+        field ACTIVITY_CODE FK
+        field AGREEMENT_LOT_CN FK
+        field ACTIVITY_DATE
+        field FISCAL_YEAR FK
+        field ORDER_CN FK
+        field SOURCE_LOT_CN FK
+        field TICKET_CN FK
+        field ACTIVITY_UNITS
+        field UNIT_CODE FK
+        field CHARGE_PER_UNIT_OVERRIDE
+        field NOTE
+        field CONTRACT_ITEM FK
+        field AMT_PER_UNIT
+        field CHARGE_PER_AMT_OVERRIDE
+        field ACTIVITY_HOURS
+        field DESTINATION_ASSOCIATE FK
+        field CHARGE_PER_ACTIVITY_OVERRIDE
+        field Index
+        field ACTIVITY_TIME
+        field CHARGE_PER_HOUR_OVERRIDE
+        field ACTIVITY_UNITS_PRESCRIBED
+        field TREATMENT_PRODUCT_ID
+        field ID_ACTIVITY_CN
+        field ID_LOCATION_CN FK
+        field Samples_Taken
+        field Total_Activity_Units
+        field sumX
+    }
+    NMIS_ID_LOCATIONS {
+        field CN PK
+        field UNIT_CODE FK
+        field LOCATION_CN FK
+        field AGREEMENT_LOT_CN FK
+        field SUBLOT_NO
+        field SOURCE_LOT_CN FK
+        field BEGIN_INDEX
+        field END_INDEX
+        field BEGIN_DATE
+        field Index
+        field DIST_FROM_BED_BEG
+        field END_COUNTER
+        field END_DATE
+        field BEGIN_COUNTER
+        field LOCATION
+        field ID_LOCATION_CN
+        field AMT_PER_UNIT
+        field ID_ACTIVITY_CN
+        field MODIFIED_BY
+        field NOTE
+        field SOWN_BACKWARDS
+        field CATEGORY_CODE FK
+        field LOCATION_TYPE FK
+        field Number_of_Activity_Units
+        field PLNTMSTR_SYMBOL FK
+        field PRODUCT_CLASS
+        field PRODUCT_CN FK
+        field PROPERTIES_MODULE
+        field SPECIES_PRODUCT_CN FK
+        field UNIT_MULTIPLIER
+        field VERNACULAR
+    }
+    NMIS_LOCATIONS {
+        field CN PK
+        field LOCATION
+        field LOCATION_TYPE FK
+        field LOCATION_DESC
+        field INDEX_MAX
+        field NOTE
+        field ZONE
+        field SOW_DIRECTION
+        field Index
+        field NURSERY_ASSOCIATE FK
+    }
+    NMIS_LOCATION_ACTIVITIES {
+        field CN PK
+        field LOCATION_BEGIN_INDEX
+        field BEGIN_LOCATION_CN
+        field END_LOCATION_CN FK
+        field ACTIVITY_CODE FK
+        field ACTIVITY_DATE
+        field ACTIVITY_UNITS_PRESCRIBED
+        field FISCAL_YEAR FK
+        field LOCATION_END_INDEX
+        field ACTIVITY_TIME
+        field ACTIVITY_UNITS
+        field ALL_LOCATIONS
+        field AMT_PER_UNIT
+        field Index
+        field NOTE
+        field TICKET_CN FK
+        field TREATMENT_PRODUCT_ID
+        field UNIT_CODE FK
+    }
+    NMIS_LOCATION_TYPES {
+        field LOCATION_TYPE PK
+        field LOCATION_TYPE_DESC
+    }
+    NMIS_ORDERS {
+        field CN PK
+        field AGREEMENT_LOT_CN FK
+        field CLIENT_ASSOCIATE FK
+        field FISCAL_YEAR FK
+        field ACTIVITY_CODE FK
+        field SPEC_MAX
+        field CALIPER_MIN
+        field SPEC_MIN
+        field ROOT_PRUNE_TARGET
+        field ORDER_AMT
+        field CONTACT_CN FK
+        field CONTRACT_ITEM FK
+        field OVERRUN_ALL
+        field OVERRUN_AMT
+        field MODIFIED_DATE
+        field SECONDARY_CONTACT_CN FK
+        field INSERTED_BY
+        field INSERTED_DATE
+        field NURSERY_NOTE
+        field CLIENT_NOTE
+        field MODIFIED_BY
+        field Index
+        field PROCESSING_ORDER
+        field DESTINATION_ASSOCIATE FK
+        field NURSERY_ASSOCIATE FK
+        field ROOT_PRUNE_MIN
+        field BE_AT_PACK
+        field DESIRED_DATE
+        field MODIFIED_INSTANCE
+    }
+    NMIS_ORDERS_BILLED {
+        field ORDER_CN FK
+        field BILLED
+    }
+    NMIS_ORDER_GRADES {
+        field ORDER_CN FK
+        field PRODUCT_GRADE FK
+        field GRADE_PCT
+        field CHARGE_PER_AMT_OVERRIDE
+        field CHARGE_PER_UNIT_OVERRIDE
+    }
+    NMIS_ORDER_SERVICES {
+        field ACTIVITY_CODE FK
+        field ORDER_CN FK
+        field CHARGE_PER_AMT_OVERRIDE
+        field CONTRACT_ITEM FK
+        field CHARGE_PER_UNIT_OVERRIDE
+        field ACTIVITY_PCT
+        field DEFAULT_ACTIVITY
+    }
+    NMIS_OYJORD_CALIBRATION_SPECIES_DEFAULTS {
+        field PLNTMSTR_SYMBOL FK
+        field DRILL_MAX_REV_UNITS
+        field DRILL_MIN_REV_UNITS
+        field DRILL_FUNNEL_SETTING
+    }
+    NMIS_PHONE_NUMBERS {
+        field CN PK
+        field PHONE_TYPE_CN FK
+        field CONTACT_CN FK
+        field PHONE_NUMBER
+        field ASSOCIATE FK
+        field Index
+    }
+    NMIS_PHONE_TYPES {
+        field CN PK
+        field PHONE_TYPE
+    }
+    NMIS_PROCESSING_QI_COUNTS {
+        field COUNT_ACTUAL
+        field COUNT_DATE
+        field COUNT_DESIRED
+        field COUNT_TIME
+        field ORDER_CN FK
+    }
+    NMIS_PROCESSING_QI_NOTES {
+        field DATE
+        field NOTE
+        field TIME
+        field ORDER_CN FK
+    }
+    NMIS_PROCESSING_QI_SAMPLES {
+        field ORDER_CN FK
+        field SAMPLE_DATE
+        field SAMPLE_MODE
+        field SAMPLE_STATION
+        field SAMPLE_TIME
+        field HEIGHT
+        field SAMPLE_SIZE
+        field CALIPER
+        field CALIPER_HALF
+        field HEIGHT_HALF
+        field OTHER_DEFECT
+        field PRUNE_INCIDENTALS
+        field PRUNE_LONG
+        field PRUNE_LONG_MARGINAL
+        field PRUNE_SHORT
+        field PRUNE_SHORT_MARGINAL
+        field ROOT_MECH_DAMAGE
+        field ROOT_SWEPT
+        field TOP_INSECT_DAMAGE
+        field SHELF
+        field POOR_DEVELOPMENT
+        field ROOT_DISEASED
+        field ROOT_INSECT_DAMAGE
+        field ROOT_NAT_SHORT
+        field TOP_BOTTLE_BRUSH
+        field TOP_BURNT_NEEDLES
+        field TOP_DISEASED
+        field TOP_MECH_DAMAGE
+        field TOP_MULTIPLE_TOPS
+    }
+    NMIS_PRODUCTS {
+        field CN PK
+        field PRODUCT_CLASS
+        field PRODUCT_DESC
+        field CATEGORY_CODE FK
+        field END_PRODUCT_TYPE FK
+        field PRODUCT_CLASS_CONDENSED
+        field BEGIN_PRODUCT_TYPE FK
+        field HISTORICAL
+        field UNIT_CODE FK
+        field HARVEST_1_FACTOR_CODE FK
+        field HARVEST_2_FACTOR_CODE FK
+        field HARVEST_3_FACTOR_CODE FK
+        field HARVEST_4_FACTOR_CODE FK
+        field INV_1_FACTOR_CODE FK
+        field INV_2_FACTOR_CODE FK
+        field INV_3_FACTOR_CODE FK
+        field PRODUCT_CN
+        field CONTAINER_1_FACTOR_CODE FK
+        field CONTAINER_2_FACTOR_CODE FK
+        field CONTAINER_3_FACTOR_CODE FK
+        field NURSERY_ASSOCIATE FK
+        field NOTE
+        field Index
+        field CONTAINER_FACTOR
+        field CONTAINER_FACTOR_1
+        field CONTAINER_FACTOR_2
+        field CONTAINER_FACTOR_3
+        field DESIRED_DENSITY
+        field ELEVATION_MAX
+        field ELEVATION_MIN
+        field GERM_MAX
+        field GERM_MIN
+        field GROSS_PER_CONTAINER
+        field HARVEST_FACTOR
+        field HARVEST_FACTOR_1
+        field HARVEST_FACTOR_2
+        field HARVEST_FACTOR_3
+        field HARVEST_FACTOR_4
+        field LIKE_ASSOCIATE FK
+        field MAXIMUM_DENSITY
+        field SOURCE_PER_AGREEMENT_UNIT
+        field SPECIES_PRODUCT_CN FK
+    }
+    NMIS_PRODUCT_CHARGES {
+        field PRODUCT_CN FK
+        field ACTIVITY_CODE FK
+        field FISCAL_YEAR FK
+        field CATEGORY_CODE FK
+        field CHARGE_PER_AMT
+        field PRODUCT_GRADE
+        field CHARGE_PER_UNIT
+    }
+    NMIS_PRODUCT_GRADES {
+        field PRODUCT_GRADE
+        field PRODUCT_GRADE_Desc
+    }
+    NMIS_PRODUCT_INVENTORIES {
+        field ID_ACTIVITY_CN FK
+        field GROSS_INV
+        field NET_INV
+        field SPEC_MAX
+        field SPEC_MIN
+        field CALIPER_MIN
+        field TARGET_FACTOR
+        field SPEC_MIN_ALT
+        field NET_INV_ALT
+        field CALIPER_MIN_ALT
+        field SPEC_MAX_ALT
+        field TARGET_FACTOR_ALT
+        field SAMPLES
+        field INV_FACTOR_1
+        field INV_FACTOR_2
+        field INV_FACTOR_3
+    }
+    NMIS_PRODUCT_INVENTORY_SAMPLES {
+        field ID_ACTIVITY_CN FK
+        field SAMPLE_NO
+        field SAMPLE_COUNT
+        field SMALL
+        field TARGET
+        field LARGE
+    }
+    NMIS_PRODUCT_INVENTORY_SIZES {
+        field ID_ACTIVITY_CN FK
+        field COUNT
+        field CALIPER
+        field HEIGHT
+        field SAMPLE_NO
+    }
+    NMIS_PRODUCT_MGMT_CODES {
+        field FISCAL_YEAR FK
+        field PRODUCT_CN FK
+        field CATEGORY_CODE FK
+        field ACTIVITY_CODE FK
+        field MGMT_CODE
+        field PERCENT_OF_CHARGE
+        field PRODUCT_GRADE
+    }
+    NMIS_PRODUCT_TYPES {
+        field PRODUCT_TYPE PK
+        field PRODUCT_GROUP
+        field PRODUCT_TYPE_DESC
+        field BEGIN_SEASON_CODE
+        field CALIPER_MIN
+        field END_SEASON_CODE
+        field SPECIES_PRODUCT_DESC
+        field SPEC_MAX
+        field SPEC_MIN
+        field TOTAL_NUMBER_OF_FY
+        field UNIT_CODE FK
+    }
+    NMIS_PROPAGULE_HARVEST_PRIORITIES {
+        field AGREEMENT_LOT_CN FK
+        field HARVEST_FY
+        field HARVEST_DATE
+        field HARVEST_PRIORITY
+        field NOTE
+        field HARVEST
+        field HARVEST_METHOD
+    }
+    NMIS_Processing_Table_Priorities {
+        field TABLE
+        field ORDER_CN FK
+        field PROCESSING_PRIORITY
+        field PROCESSING_DATE
+        field COLUMN
+        field PROCESS
+        field NOTE
+        field AMT_OVERRIDE
+        field PROCESSING_FY
+    }
+    NMIS_SEASONS {
+        field SEASON_DESC
+        field SEASON_CODE
+    }
+    NMIS_SOURCE_LOTS {
+        field CN PK
+        field PLNTMSTR_SYMBOL FK
+        field ID
+        field STORED_FOR_ASSOCIATE FK
+        field SOURCE_CODE
+        field CATEGORY_CODE FK
+        field STORED_AT_ASSOCIATE FK
+        field SEED_ZONE
+        field INSERTED_DATE
+        field INSERTED_BY
+        field ORIGIN_ELEVATION
+        field COLLECT_METHOD
+        field BREEDING_ZONE
+        field PRODUCT_CN FK
+        field NOTE
+        field COLLECTED_BY_ASSOCIATE FK
+        field DATE_COLLECTED
+        field ID2
+        field GEOGRAPHIC_LOCATION
+        field MODIFIED_BY
+        field MODIFIED_DATE
+        field TRANSFERRED_BY
+        field TRANSFERRED_DATE
+        field INSERTED_INSTANCE
+        field MODIFIED_INSTANCE
+        field TRANSFERRED_INSTANCE
+        field CERT_CODE
+        field GENETIC_BASE
+        field HABITAT
+        field HUC
+        field TREE_NUMBER
+        field PROAG_ELEVATION
+        field BREEDING_SUBUNIT
+        field SPECIES_PRODUCT_CN FK
+        field CROP_YEAR
+        field CONTAINER_ASF_ADJUSTMENT
+        field CONTAINER_FACTOR_1
+        field CONTAINER_FACTOR_2
+        field CONTAINER_FACTOR_3
+        field CONTAINER_PROBABILITY_PCT
+        field EST_CONTAINERS_REQUIRED
+        field GROSS_SOURCE_PER_UNIT
+        field HARVEST_ASF_ADJUSTMENT
+        field HARVEST_FACTOR_1
+        field HARVEST_FACTOR_2
+        field HARVEST_FACTOR_3
+        field HARVEST_FACTOR_4
+        field SOURCE_GERM_PCT
+        field SOURCE_PURITY_PCT
+        field SOURCE_REQUIRED
+        field SOURCE_STRATIFIED
+        field THINNING_PROBABILITY_PCT
+        field LATTITUDE
+        field LONGITUDE
+        field RANGE
+        field SECTION
+        field SOURCE_CODE_OLD
+        field TOWNSHIP
+        field BEGIN_FY
+        field COMBINED
+        field MERIDIAN
+        field SOURCE_LOT_CN
+        field Index
+        field ACTIVITY_CODE FK
+        field ACTIVITY_DATE
+        field CALIBRATION_FUNNEL_SETTING_ID
+        field CALIBRATION_REVS_USED
+        field CALIBRATION_REV_SOURCE_UNITS
+        field CALIBRATION_SOURCE_UNITS
+        field CALIBRATION_SUBLOTS
+        field CALIBRATION_TRAVEL_PER_REV
+        field NUMBER_CALIBRATION_CONTAINERS
+        field PARENT_ACTIVITY_CODE
+        field BREEDING_ZONE_OLD
+    }
+    NMIS_SOURCE_LOTS_TI {
+        field CN_SOURCE_LOT FK
+        field ACCESSION
+        field TREE
+    }
+    NMIS_SOURCE_PERFORMANCE {
+        field AGREEMENT_LOT_CN FK
+        field SOURCE_CN FK
+        field LOT_ID
+        field SPECIES_PRODUCT_CN FK
+        field BEGIN_FY
+        field SOURCE_ID
+        field END_FY
+        field GROSS_INV
+        field Gross_Calc
+        field SOURCE_GERM_PCT
+    }
+    NMIS_SOURCE_PRICE_LINKS {
+        field PRICE_RATE_CODE FK
+        field FY FK
+        field PLNTMSTR_SYMBOL FK
+    }
+    NMIS_SOURCE_PRICE_RATES {
+        field FY FK
+        field PRICE_RATE_CODE
+        field DESCRIPTION
+        field AMOUNT
+    }
+    NMIS_SOURCE_PRICE_RATES_BASE {
+        field FY FK
+        field BASE_AMOUNT
+    }
+    NMIS_SOURCE_PROCESSING_LINKS {
+        field PLNTMSTR_SYMBOL FK
+        field FY FK
+        field PROCESSING_RATE_CODE FK
+    }
+    NMIS_SOURCE_PROCESSING_RATES {
+        field FY FK
+        field PROCESSING_RATE_CODE
+        field DESCRIPTION
+        field MAX
+        field MIN
+        field ACTIVITY_CODE FK
+        field CATEGORY_CODE FK
+        field UNIT_CODE FK
+        field AMOUNT
+        field CHARGE_PER_ACTIVITY
+        field CHARGE_PER_UNIT
+        field MGMT_CODE
+    }
+    NMIS_SOURCE_TESTS {
+        field CN PK
+        field SOURCE_LOT_CN FK
+        field TEST_DATE
+        field GERM_PCT
+        field GROSS_SOURCE_PER_UNIT
+        field TYPE_OF_TEST
+        field FILLED_PCT
+        field PURITY_PCT
+        field STRATIFIED
+        field NOTE
+        field ID_ACTIVITY_CN FK
+        field CHECK_STRAT
+        field MOISTURE_PCT
+        field TEST_DOCUMENT
+        field Index
+        field TESTED_BY_ASSOCIATE FK
+    }
+    NMIS_SOURCE_TEST_RESULTS {
+        field SOURCE_TEST_CN FK
+        field DAYS
+        field DAYS_STRAT
+        field GERM_PCT
+        field ID_ACTIVITY_CN FK
+        field SOURCE_CN
+    }
+    NMIS_SOWING_ORDER {
+        field SOWING_ORDER_CODE
+        field DESCRIPTION
+        field GROUP
+        field SOWING_ORDER
+    }
+    NMIS_SPECIES {
+        field PLNTMSTR_SYMBOL PK
+        field DIVERSE
+        field VERNACULAR
+        field SPECIES_GROUP FK
+        field SPECIES_NO
+        field SPECIES
+        field GENUS
+        field SPECIES_ABBREVIATION
+        field HIDE
+        field SPP
+        field SUBSP
+        field VAR
+        field VARIETY
+        field XGENUS
+        field XSPECIES
+        field CULTIVAR
+        field ENTERED_BY
+        field ENTERED_DATE
+    }
+    NMIS_SPECIES_GROUP {
+        field SPECIES_GROUP PK
+    }
+    NMIS_SPECIES_PRODUCTS {
+        field CN PK
+        field PRODUCT_CN FK
+        field PLNTMSTR_SYMBOL FK
+        field SPECIES_PRODUCT_DESC
+        field END_SEASON_CODE FK
+        field SPEC_MAX
+        field SPEC_MIN
+        field CALIPER_MIN
+        field BEGIN_SEASON_CODE
+        field AGE_STRING
+        field SOWING_GROUP FK
+        field SPECS_UNIT_CODE
+        field UNIT_CODE FK
+        field TOTAL_NUMBER_OF_FY
+        field HISTORICAL
+        field Index
+        field TRANSPLANT_GROUP FK
+        field AGREEMENT_LOT_CN FK
+        field SPECIES_PRODUCT_CN
+        field CONTAINER_1_FACTOR_CODE
+        field CONTAINER_2_FACTOR_CODE
+        field CONTAINER_3_FACTOR_CODE
+        field HARVEST_1_FACTOR_CODE
+        field HARVEST_2_FACTOR_CODE
+        field HARVEST_3_FACTOR_CODE
+        field HARVEST_4_FACTOR_CODE
+        field PRODUCT_DESC
+        field DRILL_FUNNEL_SETTING
+        field DRILL_MAX_REV_UNITS
+        field DRILL_MIN_REV_UNITS
+        field BEGIN_FY
+        field CALIPER_MIN_ALT
+        field INSERTED_BY
+        field INSERTED_DATE
+        field INSERTED_INSTANCE
+        field MODIFIED_BY
+        field MODIFIED_DATE
+        field MODIFIED_INSTANCE
+        field PRODUCT_CLASS_CONDENSED
+        field SPEC_MAX_ALT
+        field SPEC_MIN_ALT
+        field TRANSFERRED_BY
+        field TRANSFERRED_DATE
+        field TRANSFERRED_INSTANCE
+    }
+    NMIS_SPECIES_PRODUCT_CYCLES {
+        field SPECIES_PRODUCT_CN FK
+        field CURRENT_PRODUCT_CN FK
+        field UNIT FK
+        field NUMBER_OF_FY_MIN
+        field INV_SIZE_SAMPLE
+        field CYCLE_REQUIRES_PROCESSING
+        field INV_FACTOR_1
+        field INV_FACTOR_2
+        field INV_MAX_CV
+        field INV_TARGET_PCT
+        field INV_FACTOR_3
+        field NUMBER_OF_FY_MAX
+        field CURRENT_SPECIES_PRODUCT_CN
+    }
+    NMIS_SPECIES_RETEST {
+        field PLNTMSTR_SYMBOL FK
+        field FIRST_RETEST_YEARS
+        field INTERVAL_RETEST_YEARS
+        field MIN_RETEST_AMT
+        field NURSERY_ASSOCIATE FK
+    }
+    NMIS_TICKETS {
+        field CN PK
+        field TKT_NO
+        field DELIVERED_TO_ASSOCIATE FK
+        field EXT_DOC_REF
+        field FY FK
+        field TICKET_TYPE
+        field NURSERY_CONTACT_CN FK
+        field NOTE
+        field DELIVERED_BY_ASSOCIATE FK
+        field DESIRED_DATE
+        field CHARGE_PER_TICKET
+        field CONTACT_CN FK
+        field GBL_PCT
+        field NURSERY_ASSOCIATE FK
+        field Index
+    }
+    NMIS_TRANSACTIONS {
+        field ID_ACTIVITY_CN FK
+        field ID_LOCATION_CN FK
+        field NUMBER_OF_ACTIVITY_UNITS
+        field AMT_PER_UNIT
+        field CONTRACT_ITEM FK
+        field AMT_PER_UNIT_INV_GROSS
+        field FISCAL_YEAR FK
+        field AMT_PER_UNIT_PACK_CONTRACT_GROSS
+        field CHARGE_PER_AMT_OVERRIDE
+        field CHARGE_PER_UNIT_OVERRIDE
+    }
+    NMIS_UNITS {
+        field UNIT_CODE PK
+        field UNIT_TYPE
+        field UNIT_DESC
+        field CELLS_PER_CONTAINER
+        field UNIT_MULTIPLIER
+        field AREA_PER_CONTAINER
+        field INV_DENSITIES_PER_CONTAINER
+        field CELL_DIMENSIONS
+        field INV_SAMPLES_PER_CONTAINER
+    }
+    NMIS_UNIT_DRILL_ROWS {
+        field DRILL_ROWS
+        field UNIT_CODE FK
+    }
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_AGREEMENT_LOTS : "SPECIES_PRODUCT_CN"
+    NMIS_PRODUCTS ||--o{ NMIS_SPECIES_PRODUCTS : "PRODUCT_CN"
+    NMIS_SPECIES ||--o{ NMIS_SOURCE_LOTS : "PLNTMSTR_SYMBOL"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_ORDERS : "AGREEMENT_LOT_CN"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_ID_ACTIVITIES : "ACTIVITY_CODE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_AGREEMENT_LOTS : "SOURCE_LOT_CN"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_ID_ACTIVITIES : "AGREEMENT_LOT_CN"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_TRANSACTIONS : "ID_ACTIVITY_CN"
+    NMIS_UNITS ||--o{ NMIS_ID_LOCATIONS : "UNIT_CODE"
+    NMIS_ID_LOCATIONS ||--o{ NMIS_TRANSACTIONS : "ID_LOCATION_CN"
+    NMIS_SPECIES ||--o{ NMIS_SPECIES_PRODUCTS : "PLNTMSTR_SYMBOL"
+    NMIS_LOCATIONS ||--o{ NMIS_ID_LOCATIONS : "LOCATION_CN"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_AGREEMENTS : "AGREEMENT_LOT_CN"
+    NMIS_ORDERS ||--o{ NMIS_ID_ACTIVITIES : "ORDER_CN"
+    NMIS_PRODUCT_TYPES ||--o{ NMIS_PRODUCTS : "END_PRODUCT_TYPE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_ID_ACTIVITIES : "SOURCE_LOT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_ORDERS : "CLIENT_ASSOCIATE"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_PRODUCT_INVENTORIES : "ID_ACTIVITY_CN"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_AGREEMENTS : "SOURCE_LOT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_AGREEMENTS : "CLIENT_ASSOCIATE"
+    NMIS_TICKETS ||--o{ NMIS_ID_ACTIVITIES : "TICKET_CN"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_ID_LOCATIONS : "AGREEMENT_LOT_CN"
+    NMIS_CONTACTS ||--o{ NMIS_CONTACT_LINKS : "CONTACT_CN"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_AGREEMENTS : "SPECIES_PRODUCT_CN"
+    NMIS_CONTACTS ||--o{ NMIS_AGREEMENTS : "CONTACT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_SOURCE_LOTS : "STORED_FOR_ASSOCIATE"
+    NMIS_PRODUCTS ||--o{ NMIS_PRODUCT_CHARGES : "PRODUCT_CN"
+    NMIS_CONTACTS ||--o{ NMIS_PHONE_NUMBERS : "CONTACT_CN"
+    NMIS_PHONE_TYPES ||--o{ NMIS_PHONE_NUMBERS : "PHONE_TYPE_CN"
+    NMIS_PRODUCTS ||--o{ NMIS_SPECIES_PRODUCT_CYCLES : "CURRENT_PRODUCT_CN"
+    NMIS_ORDERS ||--o{ NMIS_CLIENT_MGMT_CODES : "ORDER_CN"
+    NMIS_CONTACTS ||--o{ NMIS_ORDERS : "CONTACT_CN"
+    NMIS_ORDERS ||--o{ NMIS_ORDER_SERVICES : "ORDER_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_TICKETS : "DELIVERED_TO_ASSOCIATE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_SOURCE_TESTS : "SOURCE_LOT_CN"
+    NMIS_CATEGORIES ||--o{ NMIS_SOURCE_LOTS : "CATEGORY_CODE"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_SPECIES_PRODUCT_CYCLES : "SPECIES_PRODUCT_CN"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_ORDER_SERVICES : "ACTIVITY_CODE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_ID_LOCATIONS : "SOURCE_LOT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_AGREEMENT_LOTS : "PREVIOUS_NURSERY_ASSOCIATE"
+    NMIS_PRODUCT_TYPES ||--o{ NMIS_PRODUCTS : "BEGIN_PRODUCT_TYPE"
+    NMIS_CONTACTS ||--o{ NMIS_TICKETS : "NURSERY_CONTACT_CN"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_PRODUCT_INVENTORY_SIZES : "ID_ACTIVITY_CN"
+    NMIS_ORDERS ||--o{ NMIS_Processing_Table_Priorities : "ORDER_CN"
+    NMIS_ORDERS ||--o{ NMIS_ORDERS_BILLED : "ORDER_CN"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_PROPAGULE_HARVEST_PRIORITIES : "AGREEMENT_LOT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_CONTRACTS : "ASSOCIATE"
+    NMIS_AGREEMENTS ||--o{ NMIS_CLIENT_MGMT_CODES : "AGREEMENT_CN"
+    NMIS_ORDERS ||--o{ NMIS_ORDER_GRADES : "ORDER_CN"
+    NMIS_SOWING_ORDER ||--o{ NMIS_SPECIES_PRODUCTS : "SOWING_GROUP"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_ORDERS : "ACTIVITY_CODE"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_PRODUCT_INVENTORY_SAMPLES : "ID_ACTIVITY_CN"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_CLIENT_MGMT_CODES : "ACTIVITY_ID_CN"
+    NMIS_UNITS ||--o{ NMIS_SPECIES_PRODUCTS : "UNIT_CODE"
+    NMIS_CONTACTS ||--o{ NMIS_ORDERS : "SECONDARY_CONTACT_CN"
+    NMIS_CONTACTS ||--o{ NMIS_TICKETS : "CONTACT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_CONTACT_LINKS : "LINK_ASSOCIATE"
+    NMIS_PRODUCT_CHARGES ||--o{ NMIS_SPECIES_PRODUCTS : "PRODUCT_CN"
+    NMIS_GROUPS ||--o{ NMIS_ASSOCIATE_GROUPS : "GROUP_CN"
+    NMIS_SPECIES ||--o{ NMIS_SOURCE_PRICE_LINKS : "PLNTMSTR_SYMBOL"
+    NMIS_SPECIES_PRODUCT_CYCLES ||--o{ NMIS_AGREEMENT_LOTS : "SPECIES_PRODUCT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_ASSOCIATE_GROUPS : "ASSOCIATE"
+    NMIS_CONTRACTS ||--o{ NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE : "CONTRACT_NO"
+    NMIS_ASSOCIATES ||--o{ NMIS_CONTACTS : "HOME_ASSOCIATE"
+    NMIS_ASSOCIATES ||--o{ NMIS_TICKETS : "DELIVERED_BY_ASSOCIATE"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_FACTORS : "SPECIES_PRODUCT_CN"
+    NMIS_SOURCE_TESTS ||--o{ NMIS_SOURCE_TEST_RESULTS : "SOURCE_TEST_CN"
+    NMIS_PRODUCTS ||--o{ NMIS_SOURCE_LOTS : "PRODUCT_CN"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_SOURCE_PERFORMANCE : "AGREEMENT_LOT_CN"
+    NMIS_SOURCE_PRICE_RATES ||--o{ NMIS_SOURCE_PRICE_LINKS : "PRICE_RATE_CODE"
+    NMIS_CONTRACT_ITEMS ||--o{ NMIS_ORDER_SERVICES : "CONTRACT_ITEM"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_PRODUCT_CHARGES : "ACTIVITY_CODE"
+    NMIS_ASSOCIATES ||--o{ NMIS_PHONE_NUMBERS : "ASSOCIATE"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_SOURCE_PERFORMANCE : "SPECIES_PRODUCT_CN"
+    NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE ||--o{ NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE_DETAIL : "ESTIMATE_NO"
+    NMIS_SOWING_ORDER ||--o{ NMIS_SPECIES_PRODUCTS : "TRANSPLANT_GROUP"
+    NMIS_ORDERS ||--o{ NMIS_PROCESSING_QI_SAMPLES : "ORDER_CN"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_SOURCE_TESTS : "ID_ACTIVITY_CN"
+    NMIS_PRODUCTS ||--o{ NMIS_PRODUCT_MGMT_CODES : "PRODUCT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_SOURCE_LOTS : "STORED_AT_ASSOCIATE"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_AGREEMENT_LOTS : "BEGIN_FY"
+    NMIS_CONTACT_LINKS ||--o{ NMIS_AGREEMENTS : "CONTACT_CN"
+    NMIS_UNITS ||--o{ NMIS_PRODUCTS : "UNIT_CODE"
+    NMIS_UNITS ||--o{ NMIS_SPECIES_PRODUCT_CYCLES : "UNIT"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "INV_1_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "INV_2_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "INV_3_FACTOR_CODE"
+    NMIS_ID_ACTIVITIES ||--o{ NMIS_SOURCE_TEST_RESULTS : "ID_ACTIVITY_CN"
+    NMIS_CONTRACT_ITEMS ||--o{ NMIS_TRANSACTIONS : "CONTRACT_ITEM"
+    NMIS_SPECIES ||--o{ Lifting_Priorties : "Species"
+    NMIS_LOCATION_TYPES ||--o{ NMIS_LOCATIONS : "LOCATION_TYPE"
+    NMIS_CONTACT_LINKS ||--o{ NMIS_ORDERS : "CONTACT_CN"
+    NMIS_ACTIVITY_CHARGES ||--o{ NMIS_ID_ACTIVITIES : "ACTIVITY_CODE"
+    NMIS_CONTRACT_ITEMS ||--o{ NMIS_ORDERS : "CONTRACT_ITEM"
+    NMIS_ASSOCIATES ||--o{ NMIS_AGREEMENT_LOTS : "NURSERY_ASSOCIATE"
+    NMIS_CATEGORIES ||--o{ NMIS_PRODUCTS : "CATEGORY_CODE"
+    NMIS_ASSOCIATES ||--o{ NMIS_SOURCE_LOTS : "COLLECTED_BY_ASSOCIATE"
+    NMIS_CONTRACTS ||--o{ NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE_DETAIL : "CONTRACT_NO"
+    NMIS_CATEGORIES ||--o{ NMIS_AGREEMENT_LOTS : "CATEGORY_CODE"
+    NMIS_SEASONS ||--o{ NMIS_SPECIES_PRODUCTS : "END_SEASON_CODE"
+    NMIS_AGREEMENTS ||--o{ NMIS_ORDERS : "AGREEMENT_LOT_CN"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "CONTAINER_1_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "CONTAINER_2_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "CONTAINER_3_FACTOR_CODE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_CLIENT_MGMT_CODES : "SOURCE_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_ORDERS : "DESTINATION_ASSOCIATE"
+    NMIS_ASSOCIATES ||--o{ NMIS_CLIENT_MGMT_CODES : "CLIENT_ASSOCIATE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_SOURCE_PERFORMANCE : "SOURCE_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_ID_ACTIVITIES : "DESTINATION_ASSOCIATE"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_SOURCE_LOTS_TI : "CN_SOURCE_LOT"
+    NMIS_CONTRACTS ||--o{ NMIS_CONTRACT_WORK_ORDERS : "CONTRACT_NO"
+    NMIS_CONTRACT_ITEMS ||--o{ NMIS_ID_ACTIVITIES : "CONTRACT_ITEM"
+    NMIS_PRODUCT_GRADES ||--o{ NMIS_ORDER_GRADES : "PRODUCT_GRADE"
+    NMIS_CONTRACT_ITEMS ||--o{ NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE_DETAIL : "Item_No"
+    NMIS_CATEGORIES ||--o{ NMIS_ACTIVITY_CHARGES : "CATEGORY_CODE"
+    NMIS_LOCATIONS ||--o{ NMIS_LOCATION_ACTIVITIES : "END_LOCATION_CN"
+    NMIS_SPECIES_GROUP ||--o{ NMIS_SPECIES : "SPECIES_GROUP"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "HARVEST_1_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "HARVEST_2_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "HARVEST_3_FACTOR_CODE"
+    NMIS_FACTOR_CODES ||--o{ NMIS_PRODUCTS : "HARVEST_4_FACTOR_CODE"
+    NMIS_CATEGORIES ||--o{ NMIS_PRODUCT_MGMT_CODES : "CATEGORY_CODE"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_AGREEMENT_LOTS : "PREVIOUS_SPECIES_PRODUCT_CN"
+    NMIS_ASSOCIATES ||--o{ NMIS_SOURCE_TESTS : "TESTED_BY_ASSOCIATE"
+    NMIS_SPECIES ||--o{ NMIS_SOURCE_PROCESSING_LINKS : "PLNTMSTR_SYMBOL"
+    NMIS_SOURCE_PROCESSING_RATES ||--o{ NMIS_SOURCE_PROCESSING_LINKS : "PROCESSING_RATE_CODE"
+    NMIS_ORDERS ||--o{ NMIS_AGREEMENT_LOTS : "ORDER_CN (by name)"
+    NMIS_SPECIES ||--o{ NMIS_AGREEMENT_LOTS : "PLNTMSTR_SYMBOL (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_AGREEMENT_LOTS : "ASSOCIATE (by name)"
+    NMIS_LOCATIONS ||--o{ NMIS_AGREEMENT_LOTS : "LOCATION_CN (by name)"
+    NMIS_LOCATION_TYPES ||--o{ NMIS_AGREEMENT_LOTS : "LOCATION_TYPE (by name)"
+    NMIS_PRODUCTS ||--o{ NMIS_AGREEMENT_LOTS : "PRODUCT_CN (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_ID_ACTIVITIES : "FISCAL_YEAR (by name)"
+    NMIS_UNITS ||--o{ NMIS_ID_ACTIVITIES : "UNIT_CODE (by name)"
+    NMIS_ID_LOCATIONS ||--o{ NMIS_ID_ACTIVITIES : "ID_LOCATION_CN (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_ORDERS : "FISCAL_YEAR (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_ORDERS : "NURSERY_ASSOCIATE (by name)"
+    NMIS_LOCATION_TYPES ||--o{ NMIS_ID_LOCATIONS : "LOCATION_TYPE (by name)"
+    NMIS_CATEGORIES ||--o{ NMIS_ID_LOCATIONS : "CATEGORY_CODE (by name)"
+    NMIS_SPECIES ||--o{ NMIS_ID_LOCATIONS : "PLNTMSTR_SYMBOL (by name)"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_ID_LOCATIONS : "SPECIES_PRODUCT_CN (by name)"
+    NMIS_PRODUCTS ||--o{ NMIS_ID_LOCATIONS : "PRODUCT_CN (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_TRANSACTIONS : "FISCAL_YEAR (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_LOCATIONS : "NURSERY_ASSOCIATE (by name)"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_SPECIES_PRODUCTS : "AGREEMENT_LOT_CN (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_CONTRACT_ITEMS : "FISCAL_YEAR (by name)"
+    NMIS_CONTRACTS ||--o{ NMIS_CONTRACT_ITEMS : "CONTRACT_NO (by name)"
+    NMIS_UNITS ||--o{ NMIS_CONTRACT_ITEMS : "UNIT_CODE (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_CONTRACT_ITEMS : "NURSERY_ASSOCIATE (by name)"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_SOURCE_LOTS : "SPECIES_PRODUCT_CN (by name)"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_SOURCE_LOTS : "ACTIVITY_CODE (by name)"
+    NMIS_SPECIES_GROUP ||--o{ NMIS_ASSOCIATES : "SPECIES_GROUP (by name)"
+    NMIS_SPECIES ||--o{ NMIS_ASSOCIATES : "PLNTMSTR_SYMBOL (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_PRODUCTS : "NURSERY_ASSOCIATE (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_PRODUCTS : "LIKE_ASSOCIATE (by name)"
+    NMIS_SPECIES_PRODUCTS ||--o{ NMIS_PRODUCTS : "SPECIES_PRODUCT_CN (by name)"
+    NMIS_SPECIES ||--o{ NMIS_AGREEMENTS : "PLNTMSTR_SYMBOL (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_AGREEMENTS : "ASSOCIATE (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_PRODUCT_CHARGES : "FISCAL_YEAR (by name)"
+    NMIS_CATEGORIES ||--o{ NMIS_PRODUCT_CHARGES : "CATEGORY_CODE (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_TICKETS : "FY (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_TICKETS : "NURSERY_ASSOCIATE (by name)"
+    NMIS_UNITS ||--o{ NMIS_PRODUCT_TYPES : "UNIT_CODE (by name)"
+    NMIS_AGREEMENT_LOTS ||--o{ NMIS_ACTIVITY_CODES : "AGREEMENT_LOT_CN (by name)"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_PRODUCT_MGMT_CODES : "ACTIVITY_CODE (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_PRODUCT_MGMT_CODES : "FISCAL_YEAR (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_CATEGORIES : "NURSERY_ASSOCIATE (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_CATEGORIES : "ASSOCIATE (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_FISCAL_YEARS : "PREVIOUS_NURSERY_ASSOCIATE (by name)"
+    NMIS_SOURCE_LOTS ||--o{ NMIS_FISCAL_YEARS : "SOURCE_LOT_CN (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_CONTRACTS : "FISCAL_YEAR (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE : "FISCAL_YEAR (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_ACCESS_USER_NURSERY : "Nursery_Associate_Code (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_SOURCE_PRICE_RATES : "FY (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_SOURCE_PROCESSING_RATES : "FY (by name)"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_SOURCE_PROCESSING_RATES : "ACTIVITY_CODE (by name)"
+    NMIS_CATEGORIES ||--o{ NMIS_SOURCE_PROCESSING_RATES : "CATEGORY_CODE (by name)"
+    NMIS_UNITS ||--o{ NMIS_SOURCE_PROCESSING_RATES : "UNIT_CODE (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE_DETAIL : "FISCAL_YEAR (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_ACTIVITY_CHARGES : "FISCAL_YEAR (by name)"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_ACTIVITY_CHARGES : "ACTIVITY_CODE (by name)"
+    NMIS_UNITS ||--o{ NMIS_ACTIVITY_CHARGES : "UNIT_CODE (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_CONTRACT_WORK_ORDERS : "FISCAL_YEAR (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_FACTORS : "LIKE_ASSOCIATE (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_LOCATION_ACTIVITIES : "FISCAL_YEAR (by name)"
+    NMIS_ACTIVITY_CODES ||--o{ NMIS_LOCATION_ACTIVITIES : "ACTIVITY_CODE (by name)"
+    NMIS_UNITS ||--o{ NMIS_LOCATION_ACTIVITIES : "UNIT_CODE (by name)"
+    NMIS_TICKETS ||--o{ NMIS_LOCATION_ACTIVITIES : "TICKET_CN (by name)"
+    NMIS_SPECIES ||--o{ NMIS_OYJORD_CALIBRATION_SPECIES_DEFAULTS : "PLNTMSTR_SYMBOL (by name)"
+    NMIS_ORDERS ||--o{ NMIS_PROCESSING_QI_COUNTS : "ORDER_CN (by name)"
+    NMIS_ORDERS ||--o{ NMIS_PROCESSING_QI_NOTES : "ORDER_CN (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_SOURCE_PRICE_LINKS : "FY (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_SOURCE_PRICE_RATES_BASE : "FY (by name)"
+    NMIS_FISCAL_YEARS ||--o{ NMIS_SOURCE_PROCESSING_LINKS : "FY (by name)"
+    NMIS_ASSOCIATES ||--o{ NMIS_SPECIES_RETEST : "NURSERY_ASSOCIATE (by name)"
+    NMIS_SPECIES ||--o{ NMIS_SPECIES_RETEST : "PLNTMSTR_SYMBOL (by name)"
+    NMIS_UNITS ||--o{ NMIS_UNIT_DRILL_ROWS : "UNIT_CODE (by name)"

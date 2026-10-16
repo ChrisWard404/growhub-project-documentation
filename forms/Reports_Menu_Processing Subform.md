@@ -1,0 +1,1897 @@
+# Form: Reports_Menu_Processing Subform
+
+**Caption:** Reports_Menu_Processing Subform  
+**Record source:**
+
+```sql
+NMIS_FISCAL_YEARS
+```
+
+**Backend tables referenced:** `NMIS_FISCAL_YEARS`  
+**Embedded in:** `Form:REPORTS Form`  
+**Opens:** `Form:99_Associate_Orders_by_Associate`, `Form:99_Associate_Orders_by_ID`, `Form:Agreement_Lot_Destroy_Checklist`, `Form:Agreement_Lot_Higrade_Checklist`, `Form:Agreement_lot_by_End_Season`, `Form:Agreement_lot_multiple_req_amt_from_last_inv`, `Form:CLIENT_BILLING_PREVIEW_BILLING`, `Form:CLIENT_BILL_INVOICE`, `Form:CLIENT_BILL_INVOICE_COMBINED`, `Form:CLIENT_BILL_INVOICE_COMBINED2`, `Form:CLIENT_BILL_INVOICE_w_lot_detail`, `Form:CLIENT_BILL_INVOICE_w_lot_detail_no_spcsvc`, `Form:CLIENT_BILL_INVOICE_wo_lot_detail`, `Form:Client_Bill_Menu`, `Form:Contract_Payment_Estimate_Invoice`, `Form:Drying_Tray_Input_Form`, `Form:Field_Map Form`, `Form:LIFT_CONTRACT_ACCUMULATED`, `Form:LIFT_CONTRACT_ESTIMATE_INVOICE`, `Form:LIFT_CONTRACT_WEEKLY`, `Form:LIFT_FIELD_CONTAINER_DENSITY`, `Form:LOTS_LIFTED_DAILY`, `Form:LOTS_LIFTED_DAILY_CONTRACT`, `Form:LOTS_LIFTED_DAILY_CONTRACT_Daily_Summary`, `Form:LOTS_LIFTED_DAILY_CONTRACT_Summary`, `Form:LOTS_PACKED_DAILY_BY_AGE_CLASS_Summary`, `Form:LOTS_PACKED_DAILY_CONTRACT_Daily_Summary`, `Form:LOTS_WO_EXTRACTION_AMOUNTS`, `Form:LOTS_WO_LIFT_AMOUNTS`, `Form:LOTS_WO_PACK_AMOUNTS`, `Form:Lift_Location_Worksheet`, `Form:Lifting_Locations_Form`, `Form:Lifting_Priorties`, `Form:NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST`, `Form:NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST_By_Contact`, `Form:NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_Prop_CHECKLIST`, `Form:NMIS_ASSOC_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST_By_Contact_SPD`, `Form:NMIS_ORDERS Review_CItems`, `Form:NMIS_ORDERS Without_CItems`, `Form:NMIS_ORDERS_Generic_Scheduled_Transplant`, `Form:NMIS_ORDERS_PROCESSING_TABLE_SIGN`, `Form:NMIS_ORDERS_Reports`, `Form:NMIS_ORDER_COMFIRMATION_FORM`, `Form:NMIS_PROCESS_LABELS_MAIN`, `Form:NMIS_SPLUS_LIST`, `Form:NMIS_SPLUS_LIST_FS`, `Form:Native_Seed_Harvest_Summary`, `Form:ORDER_CONFIRM_MT`, `Form:ORDER_FORM_BY_LIFT_DATE`, `Form:ORDER_STATUS`, `Form:ORDER_STATUS_DETAILED`, `Form:ORDER_STATUS_Packed`, `Form:ORDER_STATUS_Packed_No`, `Form:ORDER_STATUS_Packed_Shortage`, `Form:Order_Pack_Form`, `Form:Order_Status_Input_SPD`, `Form:Orders_Shipped_to_other_than_Packed_For`, `Form:PROCESS_PAYMENT_ESTIMATE_INVOICE`, `Form:PRODUCT_STORAGE_RECORD`, `Form:PRODUCT_TICKET`, `Form:PROOF_ALL`, `Form:Pack_act_tot_vs_trans_total_checklist`, `Form:Packed_for_Outplant_Checklist_by_Class`, `Form:Packed_for_Outplant_Checklist_by_Class_Client`, `Form:Packed_for_Outplant_Summary_by_Class`, `Form:Packed_for_Outplant_Summary_by_Class_Client`, `Form:Packed_for_Outplant_Summary_by_Species`, `Form:Packed_for_Outplant_Summary_by_region`, `Form:Packed_for_Surplus_Sales_Checklist_by_Class`, `Form:Packed_for_Surplus_Sales_Checklist_by_Class_Bid_List`, `Form:Plant_Processing_Table_Priorties`, `Form:Precooler_Destroy Form`, `Form:Precooler_Destroy_Short Form`, `Form:Processing_Orders_To_Client_Form`, `Form:Processing_QI_Daily_Checklist`, `Form:Processing_Review_by_Activity_Date`, `Form:Product_Storage_Containers_Used`, `Form:Product_Storage_Containers_Used_Stocktype`, `Form:Product_Storage_Containers_Used_by_client`, `Form:Product_Storage_Summary`, `Form:Propagule_Harvest_Priorties`, `Form:Review_Orders_DBSRT_Contract_Items`, `Form:Review_Pack_Activities_Not_Equal_Order`, `Form:SURPLUS_ORDER_STATUS`, `Form:Stock_Lifting_Worksheet`, `Form:TOLIFT_Condensed`, `Form:TOLIFT_Summary`, `Form:TOLIFT_Summary_spd`, `Form:TOLIFT_WOC`, `Form:XPLT_AT_JHSN`, `Form:XPLT_AT_JHSN_by_Client_Sp_age_class`, `Form:XPLT_AT_JHSN_by_Store_Loc`, `Form:transaction_Totals_by_location`, `Report:99_Associate_Orders_by_Associate`, `Report:99_Associate_Orders_by_ID`, `Report:Agreement_Lot_Destroy_Checklist`, `Report:Agreement_Lot_Higrade_Checklist`, `Report:Agreement_lot_by_End_Season`, `Report:Agreement_lot_multiple_req_amt_from_last_inv`, `Report:CLIENT_BILL_INVOICE`, `Report:CLIENT_BILL_INVOICE_COMBINED`, `Report:CLIENT_BILL_INVOICE_COMBINED2`, `Report:CLIENT_BILL_INVOICE_w_lot_detail`, `Report:CLIENT_BILL_INVOICE_w_lot_detail_no_spcsvc`, `Report:CLIENT_BILL_INVOICE_wo_lot_detail`, `Report:Client_Bill_Menu`, `Report:Contract_Payment_Estimate_Invoice`, `Report:Drying_Tray_Input_Form`, `Report:Field_Map Form`, `Report:LIFT_CONTRACT_ACCUMULATED`, `Report:LIFT_CONTRACT_ESTIMATE_INVOICE`, `Report:LIFT_CONTRACT_WEEKLY`, `Report:LIFT_FIELD_CONTAINER_DENSITY`, `Report:LOTS_LIFTED_DAILY`, `Report:LOTS_LIFTED_DAILY_CONTRACT`, `Report:LOTS_LIFTED_DAILY_CONTRACT_Daily_Summary`, `Report:LOTS_LIFTED_DAILY_CONTRACT_Summary`, `Report:LOTS_PACKED_DAILY_BY_AGE_CLASS_Summary`, `Report:LOTS_PACKED_DAILY_CONTRACT_Daily_Summary`, `Report:LOTS_WO_EXTRACTION_AMOUNTS`, `Report:LOTS_WO_LIFT_AMOUNTS`, `Report:LOTS_WO_PACK_AMOUNTS`, `Report:Lift_Location_Worksheet`, `Report:Lifting_Locations_Form`, `Report:Lifting_Priorties`, `Report:NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST`, `Report:NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST_By_Contact`, `Report:NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_Prop_CHECKLIST`, `Report:NMIS_ASSOC_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST_By_Contact_SPD`, `Report:NMIS_ORDERS Review_CItems`, `Report:NMIS_ORDERS Without_CItems`, `Report:NMIS_ORDERS_Generic_Scheduled_Transplant`, `Report:NMIS_ORDERS_PROCESSING_TABLE_SIGN`, `Report:NMIS_ORDERS_Reports`, `Report:NMIS_ORDER_COMFIRMATION_FORM`, `Report:NMIS_PROCESS_LABELS_MAIN`, `Report:NMIS_SPLUS_LIST`, `Report:NMIS_SPLUS_LIST_FS`, `Report:Native_Seed_Harvest_Summary`, `Report:ORDER_CONFIRM_MT`, `Report:ORDER_FORM_BY_LIFT_DATE`, `Report:ORDER_STATUS`, `Report:ORDER_STATUS_DETAILED`, `Report:ORDER_STATUS_Packed`, `Report:ORDER_STATUS_Packed_No`, `Report:ORDER_STATUS_Packed_Shortage`, `Report:Order_Status_Input_SPD`, `Report:Orders_Shipped_to_other_than_Packed_For`, `Report:PROCESS_PAYMENT`, `Report:PROCESS_PAYMENT_ESTIMATE_INVOICE`, `Report:PROCESS_PAYMENT_INCREMENTAL`, `Report:PRODUCT_STORAGE_RECORD`, `Report:PRODUCT_TICKET`, `Report:PROOF_ALL`, `Report:Pack_act_tot_vs_trans_total_checklist`, `Report:Packed_for_Outplant_Checklist_by_Class`, `Report:Packed_for_Outplant_Checklist_by_Class_Client`, `Report:Packed_for_Outplant_Summary_by_Class`, `Report:Packed_for_Outplant_Summary_by_Class_Client`, `Report:Packed_for_Outplant_Summary_by_Species`, `Report:Packed_for_Outplant_Summary_by_region`, `Report:Packed_for_Surplus_Sales_Checklist_by_Class`, `Report:Packed_for_Surplus_Sales_Checklist_by_Class_Bid_List`, `Report:Plant_Processing_Table_Priorties`, `Report:Precooler_Destroy Form`, `Report:Precooler_Destroy_Short Form`, `Report:Processing_Orders_To_Client_Form`, `Report:Processing_QI_Daily_Checklist`, `Report:Processing_Review_by_Activity_Date`, `Report:Product_Storage_Containers_Used`, `Report:Product_Storage_Containers_Used_Stocktype`, `Report:Product_Storage_Containers_Used_by_client`, `Report:Product_Storage_Summary`, `Report:Propagule_Harvest_Priorties`, `Report:Review_Orders_DBSRT_Contract_Items`, `Report:Review_Pack_Activities_Not_Equal_Order`, `Report:SURPLUS_ORDER_STATUS`, `Report:Stock_Lifting_Worksheet`, `Report:TOLIFT_Condensed`, `Report:TOLIFT_Summary`, `Report:TOLIFT_Summary_spd`, `Report:TOLIFT_WOC`, `Report:XPLT_AT_JHSN`, `Report:XPLT_AT_JHSN_by_Client_Sp_age_class`, `Report:XPLT_AT_JHSN_by_Store_Loc`, `Report:transaction_Totals_by_location`  
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TabControl | TabCtl2 |  |  |  |  | 0.15, 0.08, 8.48, 5.39 |
+| Page | Lifting | Orders |  |  |  | 0.24, 0.38, 8.29, 5.00 |
+| CommandButton | CmdSplusList | Surplus Sale Bid List |  |  | Click | 2.30, 0.45, 2.00, 0.00 |
+| CommandButton | ORD_CONFIRM_REP | Order Confirmation Reports... |  |  | Click | 0.25, 0.45, 2.00, 0.00 |
+| CommandButton | CmdOrdStat | Order Status Report... |  |  | Click | 2.30, 0.99, 2.00, 0.00 |
+| CommandButton | CmdSplsStat | Surplus Sale Orders Status |  |  | Click | 2.30, 2.61, 2.00, 0.00 |
+| CommandButton | 99_Associate_Orders_by_id | Other Sales by Agreement Lot... |  |  |  | 4.35, 0.72, 2.00, 0.00 |
+| CommandButton | Open_99_Associate_Orders_by_Associate_Name | Other Sales by Client Name... |  |  | Click | 4.35, 0.45, 2.00, 0.00 |
+| CommandButton | CmdOrdFrmBulk | Order/Pack/Quality Forms... |  |  | Click | 0.25, 2.34, 2.00, 0.00 |
+| CommandButton | CmdSplusLstFS | Surplus List - Govt |  |  | Click | 2.30, 0.72, 2.00, 0.00 |
+| CommandButton | Preview_Order_Form_Propagules | Order Form - Propagules... |  |  | Click | 0.25, 4.16, 2.00, 0.00 |
+| CommandButton | Multiple_ageement_checklist | Multiple Ageement Checklist |  |  | Click | 0.25, 3.43, 2.00, 0.00 |
+| CommandButton | Order_Checklist_Reports | Orders Checklist Reports... |  |  | Click | 0.25, 1.53, 2.00, 0.00 |
+| CommandButton | Fall_Processing_Checklist | End Season Process Checklist... |  |  | Click | 0.25, 3.70, 2.00, 0.00 |
+| CommandButton | Contacts_for_Current_fys_orders | Contacts for Current Orders... |  |  | Click | 0.25, 0.72, 2.00, 0.00 |
+| CommandButton | Order_Status_Packed | Order Status Report- Packed... |  |  | Click | 2.30, 1.80, 2.00, 0.00 |
+| CommandButton | Order_Status_Packed_Shortage | Order Status Report- Shortage... |  |  | Click | 2.30, 2.34, 2.00, 0.00 |
+| CommandButton | Process_Order_spd_to_Clients | Order Spreadsheet to Clients... |  |  | Click | 6.41, 0.45, 2.00, 0.00 |
+| CommandButton | Generic_Orders | Generic Orders... |  |  | Click | 0.25, 1.80, 2.00, 0.00 |
+| CommandButton | Generic_Orders_Scheduled_Transplant | Generic Orders Sched Xplnt... |  |  | Click | 0.25, 2.07, 2.00, 0.00 |
+| CommandButton | Contacts_for_Current_fys_Propagule_orders2 | Contacts for FY's Prop. Orders |  |  | Click | 0.25, 4.43, 2.00, 0.00 |
+| CommandButton | Order_Status_Packed_No | Order Status Report- No Pack... |  |  | Click | 2.30, 2.07, 2.00, 0.00 |
+| CommandButton | Contacts_for_Current_fys_orders_By_Contact | Contacts for Current Orders 2... |  |  | Click | 0.25, 0.99, 2.00, 0.00 |
+| CommandButton | CmdOrdStatSPD | Order Status Spreadsheet... |  |  | Click | 2.30, 1.53, 2.00, 0.00 |
+| CommandButton | CmdOrdStat_detailed | Order Status Report Detailed... |  |  | Click | 2.30, 1.26, 2.00, 0.00 |
+| CommandButton | Review_Orders_without_Contract_Items | Review Orders -  No Contact Item |  |  | Click | 0.24, 2.61, 2.00, 0.00 |
+| CommandButton | Review_Double_sort_CI | Review Orders - Double Sort CI |  |  | Click | 0.24, 3.16, 2.00, 0.00 |
+| CommandButton | Review_Order_Contract_Item | Review Orders - Review Ctr Item |  |  | Click | 0.24, 2.89, 2.00, 0.00 |
+| CommandButton | Contacts_for_Current_fys_orders_By_Contact_SPD | Contacts for Current Orders 2 SPD... |  |  | Click | 0.25, 1.26, 2.00, 0.00 |
+| Page | Packing Tab | Harvest/Lifting/Packing |  |  |  | 0.24, 0.38, 8.29, 5.00 |
+| CommandButton | TOLIFT_REP | Lots to be Lifted by Location... |  |  | Click | 0.25, 0.99, 2.00, 0.00 |
+| CommandButton | CmdLftDailyContr | Lift Contract Daily Diary Lot List... |  |  | Click | 6.42, 0.45, 2.00, 0.00 |
+| CommandButton | CmdLiftDaily | Lots Lifted Daily... |  |  | Click | 0.25, 1.80, 2.00, 0.00 |
+| CommandButton | CmdPrfPk | Proof Packing Data... |  |  | Click | 2.30, 0.72, 2.00, 0.00 |
+| CommandButton | Open_QM_Checklist_form | Daily Quality Monitor Checklist... |  |  | Click | 4.35, 0.45, 2.00, 0.00 |
+| CommandButton | Open_Bag_Box_Label_Form | Processing Bag/Box Labels... |  |  | Click | 4.35, 0.72, 2.00, 0.00 |
+| CommandButton | CmdLotswoPack | Orders w/o Pack Amount... |  |  | Click | 2.30, 0.99, 2.00, 0.00 |
+| CommandButton | CmdFldCntnrDensity | Field Container Density |  |  | Click | 2.30, 0.45, 2.00, 0.00 |
+| CommandButton | CmdLotswoLift | BR Orders WO Lift Activities... |  |  | Click | 2.30, 1.26, 2.00, 0.00 |
+| CommandButton | CmdXPLT | Packed for Transplant... |  |  | Click | 6.42, 1.80, 2.00, 0.00 |
+| CommandButton | Open_Drying_Tray_Tag_Form | Drying Tray Form... |  |  | Click | 0.25, 3.55, 2.00, 0.00 |
+| CommandButton | Propagule Harvest Summary | Propagule Harvest Summary... |  |  | Click | 0.25, 3.82, 2.00, 0.00 |
+| CommandButton | To_Be_Lifted_By_Age_Class | Harvest and Process Estimates... |  |  | Click | 0.25, 0.45, 2.00, 0.00 |
+| CommandButton | Edit_ Lift_Priorities | Lifting Priorities... |  |  | Click | 0.25, 1.26, 2.00, 0.00 |
+| CommandButton | Packed_for_Outplant_by_Class | Packed for Outplant by Class... |  |  | Click | 6.42, 2.89, 2.00, 0.00 |
+| CommandButton | Packed_for_Outplant_by_Class_Summary |  Packed for Outplant by Class2... |  |  | Click | 6.42, 3.16, 2.00, 0.00 |
+| CommandButton | Packed_for_Outplant_by_Species | Packed for Outplant by Species... |  |  | Click | 6.42, 3.70, 2.00, 0.00 |
+| CommandButton | Propagule_Harvest_Priorities | Propagule Harvest  Priorities... |  |  | Click | 0.25, 3.28, 2.00, 0.00 |
+| CommandButton | Processing_Table_Sign | Processing Table Sign... |  |  | Click | 4.35, 0.99, 2.00, 0.00 |
+| CommandButton | Packed_for_Outplant_by_CLIENT | Packed for Outplant by CLIENT... |  |  | Click | 6.42, 2.61, 2.00, 0.00 |
+| CommandButton | Packed_for_Outplant_by_Class_Client_Summary |  Packed for Outplant by Class3... |  |  | Click | 6.42, 3.43, 2.00, 0.00 |
+| CommandButton | Packed_for_Outplant_by_Region | Packed for Outplant by Region... |  |  | Click | 6.42, 3.97, 2.00, 0.00 |
+| CommandButton | CmdLftDailyContr_Sum | Lift Contract Item Summary... |  |  | Click | 6.42, 0.99, 2.00, 0.00 |
+| CommandButton | Contacts_for_Current_fys_Propagule_orders | Contacts for FY's Prop. Orders |  |  | Click | 0.26, 4.09, 2.00, 0.00 |
+| CommandButton | Stock_Lifting_Worksheet | Stock Lifting Worksheet Blank |  |  | Click | 0.25, 1.53, 2.00, 0.00 |
+| CommandButton | Lift_Location_Worksheet | Lift Location Worksheet Blank |  |  | Click | 0.25, 2.07, 2.00, 0.00 |
+| CommandButton | CmdXPLT_by_Store_Loc | Packed for Transplant by Loc |  |  | Click | 6.42, 2.34, 2.00, 0.00 |
+| CommandButton | Packed_for_Surplus_Sales_Donat | Packed forSurplus Sales/Donat |  |  | Click | 6.42, 4.24, 2.00, 0.00 |
+| CommandButton | CmdXPLT_by_Client | Packed for Transplant by Client... |  |  | Click | 6.42, 2.07, 2.00, 0.00 |
+| CommandButton | Map_For_Scheduled_Lifting | Locations for Scheduled Lift... |  |  | Click | 0.26, 2.34, 2.00, 0.00 |
+| CommandButton | CmdLotswoExtract | Container Orders WO Extract... |  |  | Click | 2.30, 1.53, 2.00, 0.00 |
+| CommandButton | CmdLftDailyContr_Daily_Sum | Lift Contract Daily Summary... |  |  | Click | 6.42, 0.72, 2.00, 0.00 |
+| CommandButton | CmdPackDailyContr_Daily_Sum | Pack Contract Daily Summary... |  |  | Click | 6.42, 1.26, 2.00, 0.00 |
+| CommandButton | CmdPackDailyStockType_Daily_Sum | Pack by Stocktype Daily Sum... |  |  | Click | 6.42, 1.53, 2.00, 0.00 |
+| CommandButton | Edit_ Process_Table_Priorities | Processing Table Asignments... |  |  | Click | 0.26, 2.61, 2.00, 0.00 |
+| CommandButton | Packed_for_Surplus_Bid_List | Packed forSurplus Bid List - Gov |  |  | Click | 6.42, 4.51, 2.00, 0.00 |
+| CommandButton | To_Be_Lifted_By_Age_Class_SPD | Harvest and Process Est SPD... |  |  | Click | 0.25, 0.73, 2.00, 0.00 |
+| Page | Storage Tab | Storage |  |  |  | 0.24, 0.38, 8.29, 5.00 |
+| CommandButton | CmdStrRec | Storage Record Form |  |  | Click | 0.25, 0.41, 2.00, 0.00 |
+| CommandButton | Product_Storage_Summary | Product Storage Summary... |  |  | Click | 0.25, 0.68, 2.00, 0.00 |
+| CommandButton | Contacts_for_Current_fys_orders2 | Contacts for Current FY's Orders |  |  | Click | 0.25, 0.95, 2.00, 0.00 |
+| CommandButton | inventory_by_location_type_and_lot | Totals by Location Type by Lot... |  |  | Click | 0.25, 1.22, 2.00, 0.00 |
+| Page | Page37 | Client Product Bills |  |  |  | 0.24, 0.38, 8.29, 5.00 |
+| CommandButton | BillPvwProc | Invoice Data Preview... |  |  | Click | 0.25, 1.23, 2.00, 0.00 |
+| CommandButton | CliBillInv | Client Bill Invoice... |  |  | Click | 2.30, 0.68, 2.00, 0.00 |
+| CommandButton | CliBillwoShip | Client Bill Inv w/o Shipping... |  |  | Click | 2.30, 1.22, 2.00, 0.00 |
+| CommandButton | CliBillShip | Client Bill Inv - Shipping Only... |  |  | Click | 2.30, 1.49, 2.00, 0.00 |
+| CommandButton | CliBillwoXPLT | Client Bill Inv-Transplant Only... |  |  | Click | 2.30, 1.76, 2.00, 0.00 |
+| CommandButton | Client Billing Summary Detail | Client Billing Summary, Detail |  |  | Click | 2.30, 2.05, 2.00, 0.00 |
+| CommandButton | Client Billing Summary | Client Billing Summary |  |  | Click | 2.30, 2.32, 2.00, 0.00 |
+| CheckBox | Client_Bill_Data_Processed | Client Bill Data Processed |  |  |  | 2.34, 2.65, 0.00, 0.00 |
+| CommandButton | Shipped_to_Other_Than_Ordered_by | Ship To Data Review |  |  | Click | 0.25, 0.42, 2.00, 0.00 |
+| CommandButton | CliBilInv_Lot_Detail | Client Invoice... |  |  | Click | 2.30, 0.41, 2.00, 0.00 |
+| CommandButton | CliBillwoSpcServices | Client Bill Inv w/o Spc Services... |  |  | Click | 2.29, 0.95, 2.00, 0.00 |
+| CommandButton | Plants_Destroyed_Checklist | Stock Destroyed Checklist... |  |  | Click | 0.25, 0.69, 2.00, 0.00 |
+| CommandButton | Plants_Higrade_Checklist | Stock Hi-Grade Checklist... |  |  | Click | 0.25, 0.96, 2.00, 0.00 |
+| Page | Labels Tab | Misc |  |  |  | 0.24, 0.38, 8.29, 5.00 |
+| CommandButton | CmdProofAll | Review All Processing Data... |  |  | Click | 0.25, 3.15, 2.00, 0.00 |
+| CommandButton | Contract_Payment | Process Pay Est Calculations... |  |  | Click | 0.25, 2.60, 2.00, 0.00 |
+| CommandButton | Precooler_Destroy_Form | Precooler Destroy Ticket |  |  | Click | 2.30, 0.45, 2.00, 0.00 |
+| CommandButton | Contract_Payment_Estimate_Invoice | FS-6300-30... |  |  | Click | 0.25, 2.88, 2.00, 0.00 |
+| CommandButton | Precooler_Destroy_Short_Form | Precooler Destroy Ticket Small |  |  | Click | 2.30, 0.72, 2.00, 0.00 |
+| CommandButton | Contract_Payment_Hourly_Review | Review Pack Data by Date... |  |  | Click | 0.25, 0.45, 2.00, 0.00 |
+| CommandButton | Product_Storage_Containers_Used | Storage Containers Used... |  |  | Click | 4.35, 0.44, 2.00, 0.00 |
+| CommandButton | Review_Pack_Act_vs_Trans_totals | Review Activity vs Trans Totals |  |  | Click | 0.25, 0.72, 2.00, 0.00 |
+| CommandButton | Product_Storage_Containers_Used_by_client | Storage Containers Used-Client... |  |  | Click | 4.35, 0.72, 2.00, 0.00 |
+| CommandButton | CmdLotswoLift2 | BR Lots Without Lift Activities... |  |  | Click | 0.25, 0.99, 2.00, 0.00 |
+| CommandButton | Product_Storage_Containers_Used_by_Stocktype | Storage Containers Used-Class... |  |  | Click | 4.35, 0.99, 2.00, 0.00 |
+| CommandButton | Review_Orders_without_Contract_Items2 | Review Orders -  No Contact Item |  |  | Click | 0.25, 1.79, 2.00, 0.00 |
+| CommandButton | Review_Double_sort_CI2 | Review Orders - Double Sort CI |  |  | Click | 0.25, 2.33, 2.00, 0.00 |
+| CommandButton | Review_Order_Contract_Item2 | Review Orders - Review Ctr Item |  |  | Click | 0.25, 2.06, 2.00, 0.00 |
+| CommandButton | Review_Order_Act_vs_Activity_AC | Review Activity Codes O vs A |  |  | Click | 0.25, 1.53, 2.00, 0.00 |
+
+## Code-behind (VBA)
+
+```vb
+Private Sub Command30_Click()
+
+End Sub
+
+
+Private Sub CliBilInv_Lot_Detail_Click()
+On Error GoTo Err_CliBilInv_Lot_Detail_Click
+    Dim stDocName As String
+
+    stDocName = "Client_Bill_Menu"
+    DoCmd.OpenForm stDocName, acNormal
+
+Exit_CliBilInv_Lot_Detail_Click:
+    Exit Sub
+
+Err_CliBilInv_Lot_Detail_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CliBilInv_Lot_Detail_Click
+End Sub
+
+Private Sub CliBillwoSpcServices_Click()
+On Error GoTo Err_CliBillwoSpcServices_Click
+
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-2 at"
+    'DoCmd.OpenQuery "CLIENT_BILL_3-3 at"  'Bills Client for Double Sort Hourly
+    DoCmd.OpenQuery "CLIENT_BILL_5 at"
+    
+    DoCmd.OpenQuery "CLIENT_BILL_3 dt"
+    
+    DoCmd.SetWarnings True
+    
+    Client_Bill_Data_Processed = False
+
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE_w_lot_detail_no_spcsvc"
+    DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_CliBillwoSpcServices_Click:
+    Exit Sub
+
+Err_CliBillwoSpcServices_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CliBillwoSpcServices_Click
+    
+End Sub
+
+Private Sub Client_Billing_Summary_Click()
+
+    '  turns warning (about to update/delete...) off
+    If Client_Bill_Data_Processed = False Then
+    
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-2 at"
+    'DoCmd.OpenQuery "CLIENT_BILL_3-3 at"  'Bills Client for Double Sort Hourly
+    DoCmd.OpenQuery "CLIENT_BILL_4 at"
+    DoCmd.OpenQuery "CLIENT_BILL_5 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_7 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3 dt"
+    
+    Client_Bill_Data_Processed = True
+        
+    DoCmd.SetWarnings True
+    End If
+    
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE_COMBINED2"
+    DoCmd.OpenReport stDocName, acPreview
+    
+    DoCmd.SetWarnings True
+    
+End Sub
+
+Private Sub Client_Billing_Summary_Detail_Click()
+
+    '  turns warning (about to update/delete...) off
+    If Client_Bill_Data_Processed = False Then
+    
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-2 at"
+    'DoCmd.OpenQuery "CLIENT_BILL_3-3 at"  'Bills Client for Double Sort Hourly
+    DoCmd.OpenQuery "CLIENT_BILL_4 at"
+    DoCmd.OpenQuery "CLIENT_BILL_5 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_7 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3 dt"
+    
+    Client_Bill_Data_Processed = True
+        
+    DoCmd.SetWarnings True
+    End If
+
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE_COMBINED"
+    DoCmd.OpenReport stDocName, acPreview
+    
+    DoCmd.SetWarnings True
+    
+End Sub
+
+Private Sub CmdLftDailyContr_Daily_Sum_Click()
+On Error GoTo Err_CmdLftDailyContr_Daily_Sum_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_LIFTED_DAILY_CONTRACT_Daily_Summary"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLftDailyContr_Daily_Sum_Click:
+    Exit Sub
+
+Err_CmdLftDailyContr_Daily_Sum_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLftDailyContr_Daily_Sum_Click
+    
+End Sub
+
+Private Sub CmdLftDailyContr_Sum_Click()
+On Error GoTo Err_CmdLftDailyContr_Sum_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_LIFTED_DAILY_CONTRACT_Summary"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLftDailyContr_Sum_Click:
+    Exit Sub
+
+Err_CmdLftDailyContr_Sum_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLftDailyContr_Sum_Click
+    
+End Sub
+
+Private Sub CmdLotswoExtract_Click()
+On Error GoTo Err_CmdLotswoExtract_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_WO_EXTRACTION_AMOUNTS"
+    
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+    
+    DoCmd.OpenQuery "PROOF_ALL Query"
+    DoCmd.OpenQuery "PROOF_ALL_CPR Query"
+    DoCmd.OpenQuery "PROOF_ALL_AGR Query"
+    DoCmd.OpenQuery "PROOF_ALL_ORD Query"
+    DoCmd.OpenQuery "PROOF_ALL_SOW Query"
+    DoCmd.OpenQuery "PROOF_ALL_LFT Query"
+    DoCmd.OpenQuery "PROOF_ALL_LCT Query"
+    DoCmd.OpenQuery "PROOF_ALL_PC Query"
+    
+    DoCmd.SetWarnings True
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLotswoExtract_Click:
+    Exit Sub
+
+Err_CmdLotswoExtract_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLotswoExtract_Click
+    
+End Sub
+
+Private Sub CmdLotswoLift2_Click()
+On Error GoTo Err_CmdLotswoLift2_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_WO_LIFT_AMOUNTS"
+    
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+    
+    DoCmd.OpenQuery "PROOF_ALL Query"
+    DoCmd.OpenQuery "PROOF_ALL_CPR Query"
+    DoCmd.OpenQuery "PROOF_ALL_AGR Query"
+    DoCmd.OpenQuery "PROOF_ALL_ORD Query"
+    DoCmd.OpenQuery "PROOF_ALL_SOW Query"
+    DoCmd.OpenQuery "PROOF_ALL_LFT Query"
+    DoCmd.OpenQuery "PROOF_ALL_LCT Query"
+    DoCmd.OpenQuery "PROOF_ALL_PC Query"
+    
+    DoCmd.SetWarnings True
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLotswoLift2_Click:
+    Exit Sub
+
+Err_CmdLotswoLift2_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLotswoLift2_Click
+    
+End Sub
+
+Private Sub CmdOrdStat_detailed_Click()
+On Error GoTo Err_CmdOrdStat_detailed_Click
+
+    Dim stDocName As String
+
+    stDocName = "ORDER_STATUS_DETAILED"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdOrdStat_detailed_Click:
+    Exit Sub
+
+Err_CmdOrdStat_detailed_Click:
+    'MsgBox Err.DESCRIPTION
+    Resume Exit_CmdOrdStat_detailed_Click
+    
+End Sub
+
+Private Sub CmdOrdStatSPD_Click()
+On Error GoTo Err_CmdOrdStatSPD_Click
+
+    Dim stDocName As String
+
+    stDocName = "Order_Status_Input_SPD"
+    DoCmd.OpenForm stDocName
+
+Exit_CmdOrdStatSPD_Click:
+    Exit Sub
+
+Err_CmdOrdStatSPD_Click:
+    'MsgBox Err.DESCRIPTION
+    Resume Exit_CmdOrdStatSPD_Click
+    
+End Sub
+
+Private Sub CmdPackDailyContr_Daily_Sum_Click()
+On Error GoTo Err_CmdPackDailyContr_Daily_Sum_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_PACKED_DAILY_CONTRACT_Daily_Summary"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdPackDailyContr_Daily_Sum_Click:
+    Exit Sub
+
+Err_CmdPackDailyContr_Daily_Sum_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdPackDailyContr_Daily_Sum_Click
+    
+End Sub
+
+Private Sub CmdPackDailyStockType_Daily_Sum_Click()
+On Error GoTo Err_CmdPackDailyStockType_Daily_Sum_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_PACKED_DAILY_BY_AGE_CLASS_Summary"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdPackDailyStockType_Daily_Sum_Click:
+    Exit Sub
+
+Err_CmdPackDailyStockType_Daily_Sum_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdPackDailyStockType_Daily_Sum_Click
+    
+End Sub
+
+Private Sub CmdXPLT_by_Client_Click()
+On Error GoTo Err_mdXPLT_by_Client_Click
+
+    Dim stDocName As String
+
+    stDocName = "XPLT_AT_JHSN_by_Client_Sp_age_class"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_mdXPLT_by_Client_Click:
+    Exit Sub
+
+Err_mdXPLT_by_Client_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_mdXPLT_by_Client_Click
+    
+End Sub
+
+Private Sub CmdXPLT_by_Store_Loc_Click()
+On Error GoTo Err_CmdXPLT_by_Store_Loc_Click
+
+    Dim stDocName As String
+
+    stDocName = "XPLT_AT_JHSN_by_Store_Loc"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdXPLT_by_Store_Loc_Click:
+    Exit Sub
+
+Err_CmdXPLT_by_Store_Loc_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdXPLT_by_Store_Loc_Click
+    
+End Sub
+
+
+
+
+Private Sub Contacts_for_Current_fys_orders_By_Contact_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST_By_Contact"
+    DoCmd.OpenReport stDocName, acPreview
+  
+End Sub
+
+Private Sub Contacts_for_Current_fys_orders_By_Contact_SPD_Click()
+Dim stDocName As String
+
+    stDocName = "NMIS_ASSOC_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST_By_Contact_SPD"
+    DoCmd.OpenQuery stDocName ', acPreview
+    
+End Sub
+
+Private Sub Contacts_for_Current_fys_orders_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST"
+    DoCmd.OpenReport stDocName, acPreview
+    
+End Sub
+
+Private Sub Contacts_for_Current_fys_orders2_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_CHECKLIST"
+    DoCmd.OpenReport stDocName, acPreview
+    
+End Sub
+
+Private Sub Contacts_for_Current_fys_Propagule_orders_Click()
+On Error GoTo Err_Contacts_for_Current_fys_Propagule_orders_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_Prop_CHECKLIST"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Contacts_for_Current_fys_Propagule_orders_Click:
+    Exit Sub
+
+Err_Contacts_for_Current_fys_Propagule_orders_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Contacts_for_Current_fys_Propagule_orders_Click
+    
+End Sub
+
+Private Sub Contacts_for_Current_fys_Propagule_orders2_Click()
+On Error GoTo Err_Contacts_for_Current_fys_Propagule_orders2_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ASSOCIATES_AND_PHONE_W_CURRENT_ORDERS_Prop_CHECKLIST"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Contacts_for_Current_fys_Propagule_orders2_Click:
+    Exit Sub
+
+Err_Contacts_for_Current_fys_Propagule_orders2_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Contacts_for_Current_fys_Propagule_orders2_Click
+    
+End Sub
+
+Private Sub Contract_Payment_Click()
+
+    'DoCmd.SetWarnings False
+    'DoCmd.OpenQuery "nmis_pack_amounts_del"
+    'DoCmd.OpenQuery "nmis_pack_amounts_ins"
+    'DoCmd.OpenQuery "nmis_pack_amount_new_net1"
+    'DoCmd.OpenQuery "nmis_pack_amount_new_net"
+    'DoCmd.OpenQuery "nmis_pack_amounts_update"
+    'DoCmd.OpenQuery "nmis_pack_payment_del"
+    'DoCmd.OpenQuery "nmis_pack_payment_ins"
+    'DoCmd.OpenReport "PROCESS_PAYMENT", acPreview
+    'DoCmd.OpenQuery "PROCESSING_INCREMENTAL_TEMP_MT"
+    'DoCmd.OpenReport "PROCESS_PAYMENT_INCREMENTAL", acPreview
+    'DoCmd.SetWarnings True
+    'PROCESS_PAYMENT_ESTIMATE_INVOICE
+    
+    Dim stDocName As String
+
+    stDocName = "PROCESS_PAYMENT_ESTIMATE_INVOICE"
+    DoCmd.OpenForm stDocName
+  
+End Sub
+
+Private Sub Contract_Payment_Estimate_Invoice_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Contract_Payment_Estimate_Invoice"
+    
+    DoCmd.OpenForm stDocName
+    Forms![Contract_Payment_Estimate_Invoice]![Processing_Calcs].Visible = True
+    Forms![Contract_Payment_Estimate_Invoice]!Update_Lift_Items.Visible = True
+    Forms![Contract_Payment_Estimate_Invoice]!Update_Pack_Items.Visible = True
+    
+End Sub
+
+Private Sub Contract_Payment_Hourly_Review_Click()
+On Error GoTo Err_Contract_Payment_Hourly_Review_Click
+
+    Dim stDocName As String
+    
+    stDocName = "Processing_Review_by_Activity_Date"
+    
+    DoCmd.OpenForm stDocName, acNormal
+    
+Exit_Contract_Payment_Hourly_Review_Click:
+    Exit Sub
+
+Err_Contract_Payment_Hourly_Review_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Contract_Payment_Hourly_Review_Click
+    
+End Sub
+
+Private Sub Ctl99_Associate_Orders_by_id_Click()
+    
+    Dim stDocName As String
+
+    stDocName = "99_Associate_Orders_by_ID"
+    DoCmd.OpenQuery stDocName, acPreview
+    
+End Sub
+
+Private Sub Edit__Lift_Priorities_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Lifting_Priorties"
+    DoCmd.OpenForm stDocName
+
+End Sub
+
+Private Sub LIFT_CONTRACT_ESTIMATE_INVOICE_Click()
+
+    Dim stDocName As String
+
+    stDocName = "LIFT_CONTRACT_ESTIMATE_INVOICE"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+
+Private Sub Edit__Process_Table_Priorities_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Plant_Processing_Table_Priorties"
+    DoCmd.OpenForm stDocName
+
+End Sub
+
+Private Sub Fall_Processing_Checklist_Click()
+On Error GoTo Err_Fall_Processing_Checklist_Click
+
+    Dim stDocName As String
+
+    stDocName = "Agreement_lot_by_End_Season"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Fall_Processing_Checklist_Click:
+    Exit Sub
+
+Err_Fall_Processing_Checklist_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Fall_Processing_Checklist_Click
+End Sub
+
+Private Sub Generic_Orders_Click()
+On Error GoTo Err_Generic_Orders_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS_Reports"
+    DoCmd.OpenForm stDocName
+    Forms![NMIS_ORDERS_Reports]![NMIS_ORDERS_GENERIC_CREATE].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Checklist].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Checklist_by_Lot_ID].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Summary].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Order_Info_Box].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Product_Services].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Root_Prune].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Nursery_Comment].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Like_Activity_Code].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Checklist_LiftInNote].Visible = False
+    [Forms]![NMIS_ORDERS_Reports]![Like_End_Season].Visible = False
+Exit_Generic_Orders_Click:
+    Exit Sub
+
+Err_Generic_Orders_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Generic_Orders_Click
+End Sub
+
+Private Sub Generic_Orders_Scheduled_Transplant_Click()
+On Error GoTo Err_Generic_Orders_Scheduled_Transplant_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS_Generic_Scheduled_Transplant"
+    DoCmd.OpenForm stDocName
+    
+Exit_Generic_Orders_Scheduled_Transplant_Click:
+    Exit Sub
+
+Err_Generic_Orders_Scheduled_Transplant_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Generic_Orders_Scheduled_Transplant_Click
+    
+End Sub
+
+Private Sub inventory_by_location_type_and_lot_Click()
+
+    On Error GoTo Err_inventory_by_location_type_and_lot_Click
+
+    Dim stLinkCriteria As String
+
+    stDocName = "transaction_Totals_by_location"
+    DoCmd.OpenForm stDocName
+    
+Exit_inventory_by_location_type_and_lot_Click:
+    Exit Sub
+
+Err_inventory_by_location_type_and_lot_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_inventory_by_location_type_and_lot_Click
+    
+End Sub
+
+Private Sub Lift_Location_Worksheet_Click()
+On Error GoTo Err_Lift_Location_Worksheet_Click
+
+    Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "Lift_Location_Worksheet"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Lift_Location_Worksheet_Click:
+    Exit Sub
+
+Err_Lift_Location_Worksheet_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Lift_Location_Worksheet_Click
+    
+End Sub
+
+Private Sub Map_For_Scheduled_Lifting_Click()
+On Error GoTo Err_Map_For_Scheduled_Lifting_Click
+
+    Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "Field_Map Form"
+    DoCmd.OpenForm stDocName, , , stLinkCriteria
+    Forms![Field_Map Form]![Current_FY_Lift] = True
+
+Exit_Map_For_Scheduled_Lifting_Click:
+    Exit Sub
+
+Err_Map_For_Scheduled_Lifting_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Map_For_Scheduled_Lifting_Click
+    
+End Sub
+
+Private Sub Multiple_ageement_checklist_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Agreement_lot_multiple_req_amt_from_last_inv"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+
+Private Sub Open_99_Associate_Orders_by_Associate_Name_Click()
+    
+    Dim stDocName As String
+
+    stDocName = "99_Associate_Orders_by_Associate"
+    DoCmd.OpenQuery stDocName, acPreview
+
+End Sub
+
+Private Sub Open_Bag_Box_Label_Form_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_PROCESS_LABELS_MAIN"
+    DoCmd.OpenForm stDocName
+    
+End Sub
+
+Private Sub Open_Drying_Tray_Tag_Form_Click()
+
+    Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "Drying_Tray_Input_Form"
+    DoCmd.OpenForm stDocName, , , stLinkCriteria
+
+End Sub
+
+Private Sub Open_QM_Checklist_form_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Processing_QI_Daily_Checklist"
+    DoCmd.OpenForm stDocName
+    
+End Sub
+
+Private Sub Order_Checklist_Reports_Click()
+On Error GoTo Err_Order_Checklist_Reports_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS_Reports"
+    DoCmd.OpenForm stDocName
+    Forms![NMIS_ORDERS_Reports]![NMIS_ORDERS_GENERIC_CREATE].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Order_Info_Box].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Product_Services].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Root_Prune].Visible = False
+    Forms![NMIS_ORDERS_Reports]![Nursery_Comment].Visible = False
+    Forms![NMIS_ORDERS_Reports]![XSSRPL_Orders].Visible = False
+    
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Checklist].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Checklist_by_Lot_ID].Visible = True
+    Forms![NMIS_ORDERS_Reports]![Preview_Orders_Summary].Visible = True
+
+    
+Exit_Order_Checklist_Reports_Click:
+    Exit Sub
+
+Err_Order_Checklist_Reports_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Order_Checklist_Reports_Click
+End Sub
+
+Private Sub Order_Status_Packed_Click()
+On Error GoTo Err_Order_Status_Packed_Click
+
+    Dim stDocName As String
+
+    stDocName = "ORDER_STATUS_Packed"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Order_Status_Packed_Click:
+    Exit Sub
+
+Err_Order_Status_Packed_Click:
+    'MsgBox Err.DESCRIPTION
+    Resume Exit_Order_Status_Packed_Click
+    
+End Sub
+
+Private Sub Order_Status_Packed_No_Click()
+On Error GoTo Err_Order_Status_Packed_No_Click
+
+    Dim stDocName As String
+
+    stDocName = "ORDER_STATUS_Packed_No"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Order_Status_Packed_No_Click:
+    Exit Sub
+
+Err_Order_Status_Packed_No_Click:
+    'MsgBox Err.DESCRIPTION
+    Resume Exit_Order_Status_Packed_No_Click
+    
+End Sub
+
+Private Sub Order_Status_Packed_Shortage_Click()
+On Error GoTo Err_Order_Status_Packed_Shortage_Click
+
+    Dim stDocName As String
+
+    stDocName = "ORDER_STATUS_Packed_Shortage"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Order_Status_Packed_Shortage_Click:
+    Exit Sub
+
+Err_Order_Status_Packed_Shortage_Click:
+    'MsgBox Err.DESCRIPTION
+    Resume Exit_Order_Status_Packed_Shortage_Click
+    
+End Sub
+
+Private Sub Packed_for_Outplant_by_Class_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Outplant_Checklist_by_Class"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+
+Private Sub Packed_for_Outplant_by_Class_Client_Summary_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Outplant_Summary_by_Class_Client"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+
+Private Sub Packed_for_Outplant_by_Class_Summary_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Outplant_Summary_by_Class"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+
+Private Sub Packed_for_Outplant_by_CLIENT_Click()
+On Error GoTo Err_Packed_for_Outplant_by_CLIENT_Click
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Outplant_Checklist_by_Class_Client"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Packed_for_Outplant_by_CLIENT_Click:
+    Exit Sub
+
+Err_Packed_for_Outplant_by_CLIENT_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Packed_for_Outplant_by_CLIENT_Click
+    
+End Sub
+
+Private Sub Packed_for_Outplant_by_Region_Click()
+On Error GoTo Err_Packed_for_Outplant_by_Region_Click
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Outplant_Summary_by_region"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Packed_for_Outplant_by_Region_Click:
+    Exit Sub
+
+Err_Packed_for_Outplant_by_Region_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Packed_for_Outplant_by_Region_Click
+    
+End Sub
+
+Private Sub Packed_for_Outplant_by_Species_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Outplant_Summary_by_Species"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+
+Private Sub Packed_for_Surplus_Bid_List_Click()
+On Error GoTo Err_Packed_for_Surplus_Bid_List_Click
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Surplus_Sales_Checklist_by_Class_Bid_List"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Packed_for_Surplus_Bid_List_Click:
+    Exit Sub
+
+Err_Packed_for_Surplus_Bid_List_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Packed_for_Surplus_Bid_List_Click
+    
+End Sub
+
+Private Sub Packed_for_Surplus_Sales_Donat_Click()
+On Error GoTo Err_Packed_for_Surplus_Sales_Donat_Click
+
+    Dim stDocName As String
+
+    stDocName = "Packed_for_Surplus_Sales_Checklist_by_Class"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Packed_for_Surplus_Sales_Donat_Click:
+    Exit Sub
+
+Err_Packed_for_Surplus_Sales_Donat_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Packed_for_Surplus_Sales_Donat_Click
+    
+End Sub
+
+Private Sub Plants_Destroyed_Checklist_Click()
+On Error GoTo Err_Plants_Destroyed_Checklist_Click
+
+    Dim stDocName As String
+
+    stDocName = "Agreement_Lot_Destroy_Checklist"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Plants_Destroyed_Checklist_Click:
+    Exit Sub
+
+Err_Plants_Destroyed_Checklist_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Plants_Destroyed_Checklist_Click
+    
+End Sub
+
+Private Sub Plants_Higrade_Checklist_Click()
+On Error GoTo Err_Plants_Higrade_Checklist_Click
+
+    Dim stDocName As String
+
+    stDocName = "Agreement_Lot_Higrade_Checklist"
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Plants_Higrade_Checklist_Click:
+    Exit Sub
+
+Err_Plants_Higrade_Checklist_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Plants_Higrade_Checklist_Click
+    
+End Sub
+
+Private Sub Precooler_Destroy_Form_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Precooler_Destroy Form"
+    DoCmd.OpenReport stDocName, acPreview
+    
+End Sub
+
+Private Sub Precooler_Destroy_Short_Form_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Precooler_Destroy_Short Form"
+    DoCmd.OpenReport stDocName, acPreview
+  
+End Sub
+
+Private Sub Preview_Order_Form_Propagules_Click()
+    On Error GoTo Err_Preview_Order_Form_Propagules_Click
+    
+    DoCmd.SetWarnings False
+    DoCmd.OpenQuery "Rollover_Propagule_Agreement_Lot_End_fy"
+    DoCmd.SetWarnings True
+    
+    DoCmd.OpenForm "Order_Pack_Form"
+    
+    [Forms]![Order_Pack_Form]![PRODUCT_GROUP] = "Propagule"
+    
+    Forms![Order_Pack_Form]![Order_Pack_form_Propagule].Visible = True
+    DoCmd.GoToControl "Order_Pack_Form_Propagule"
+    
+    Forms![Order_Pack_Form]![Contract].Visible = False
+    Forms![Order_Pack_Form]![Like_Stock_Type].Visible = False
+    Forms![Order_Pack_Form]![Lift_Date].Visible = False
+    Forms![Order_Pack_Form]![Order_Mod_Date].Visible = False
+    Forms![Order_Pack_Form]![BorC].Visible = False
+    Forms![Order_Pack_Form]![Order_Checklist].Visible = False
+    Forms![Order_Pack_Form]![Order_Form].Visible = False
+    Forms![Order_Pack_Form]![Order_Checklist_by_Lift_Date].Visible = False
+    Forms![Order_Pack_Form]![Order_Form_By_Lift_Date].Visible = False
+    Forms![Order_Pack_Form]![Processing_Quality_Inspection_Record].Visible = False
+    Forms![Order_Pack_Form]!Processing_Quality_Inspection_Record_by_lift_date.Visible = False
+    Forms![Order_Pack_Form]!Form_Style.Visible = False
+
+Exit_Preview_Order_Form_Propagules_Click:
+    Exit Sub
+
+Err_Preview_Order_Form_Propagules_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Preview_Order_Form_Propagules_Click
+    
+End Sub
+
+Private Sub Process_Order_spd_to_Clients_Click()
+On Error GoTo Err_Process_Order_spd_to_Clients_Click
+
+    Dim stDocName As String
+
+    stDocName = "Processing_Orders_To_Client_Form"
+    DoCmd.OpenForm stDocName
+
+Exit_Process_Order_spd_to_Clients_Click:
+    Exit Sub
+
+Err_Process_Order_spd_to_Clients_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Process_Order_spd_to_Clients_Click
+    
+End Sub
+
+Private Sub Processing_Table_Sign_Click()
+On Error GoTo Err_Processing_Table_Sign_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS_PROCESSING_TABLE_SIGN"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Processing_Table_Sign_Click:
+    Exit Sub
+
+Err_Processing_Table_Sign_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Processing_Table_Sign_Click
+    
+End Sub
+
+Private Sub Product_Storage_Containers_Used_by_client_Click()
+On Error GoTo Err_Product_Storage_Containers_Used_by_client_Click
+
+    Dim stDocName As String
+
+    stDocName = "Product_Storage_Containers_Used_by_client"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Product_Storage_Containers_Used_by_client_Click:
+    Exit Sub
+
+Err_Product_Storage_Containers_Used_by_client_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Product_Storage_Containers_Used_by_client_Click
+    
+End Sub
+
+Private Sub Product_Storage_Containers_Used_by_Stocktype_Click()
+On Error GoTo Err_Product_Storage_Containers_Used_by_Stocktype_Click
+
+    Dim stDocName As String
+
+    stDocName = "Product_Storage_Containers_Used_Stocktype"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Product_Storage_Containers_Used_by_Stocktype_Click:
+    Exit Sub
+
+Err_Product_Storage_Containers_Used_by_Stocktype_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Product_Storage_Containers_Used_by_Stocktype_Click
+    
+End Sub
+
+Private Sub Product_Storage_Containers_Used_Click()
+
+On Error GoTo Err_Product_Storage_Containers_Used_Click
+
+    Dim stDocName As String
+
+    stDocName = "Product_Storage_Containers_Used"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Product_Storage_Containers_Used_Click:
+    Exit Sub
+
+Err_Product_Storage_Containers_Used_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Product_Storage_Containers_Used_Click
+    
+End Sub
+
+Private Sub Product_Storage_Summary_Click()
+
+    stDocName = "Product_Storage_Summary"
+    
+    DoCmd.OpenForm stDocName
+    
+End Sub
+
+Private Sub Propagule_Harvest_Priorities_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Propagule_Harvest_Priorties"
+    DoCmd.OpenForm stDocName
+
+End Sub
+
+Private Sub Propagule_Harvest_Summary_Click()
+
+    stDocName = "Native_Seed_Harvest_Summary"
+    
+    DoCmd.OpenForm stDocName
+    
+End Sub
+
+Private Sub Review_Double_sort_CI_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Review_Orders_DBSRT_Contract_Items"
+    DoCmd.OpenQuery stDocName ', acPreview
+
+End Sub
+
+Private Sub Review_Double_sort_CI2_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Review_Orders_DBSRT_Contract_Items"
+    DoCmd.OpenQuery stDocName ', acPreview
+End Sub
+
+Private Sub Review_Order_Act_vs_Activity_AC_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Review_Pack_Activities_Not_Equal_Order"
+    DoCmd.OpenQuery stDocName ', acPreview
+    
+End Sub
+
+Private Sub Review_Order_Contract_Item_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS Review_CItems"
+    DoCmd.OpenQuery stDocName ', acPreview
+
+End Sub
+
+Private Sub Review_Order_Contract_Item2_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS Review_CItems"
+    DoCmd.OpenQuery stDocName ', acPreview
+End Sub
+
+Private Sub Review_Orders_without_Contract_Items_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS Without_CItems"
+    DoCmd.OpenQuery stDocName ', acPreview
+
+End Sub
+
+Private Sub Review_Orders_without_Contract_Items2_Click()
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_ORDERS Without_CItems"
+    DoCmd.OpenQuery stDocName ', acPreview
+
+End Sub
+
+Private Sub Review_Pack_Act_vs_Trans_totals_Click()
+On Error GoTo Err_Review_Pack_Act_vs_Trans_totals_Click
+
+    Dim stDocName As String
+    
+    stDocName = "Pack_act_tot_vs_trans_total_checklist"
+    
+    DoCmd.OpenReport stDocName, acPreview
+    
+Exit_Review_Pack_Act_vs_Trans_totals_Click:
+    Exit Sub
+
+Err_Review_Pack_Act_vs_Trans_totals_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Review_Pack_Act_vs_Trans_totals_Click
+    
+End Sub
+
+Private Sub Shipped_to_Other_Than_Ordered_by_Click()
+On Error GoTo Err_Shipped_to_Other_Than_Ordered_by_Click
+
+    stDocName = "Orders_Shipped_to_other_than_Packed_For"
+    DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_Shipped_to_Other_Than_Ordered_by_Click:
+    Exit Sub
+
+Err_Shipped_to_Other_Than_Ordered_by_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Shipped_to_Other_Than_Ordered_by_Click
+    
+End Sub
+
+Private Sub Stock_Lifting_Worksheet_Click()
+On Error GoTo Err_Stock_Lifting_Worksheet_Click
+
+    Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "Stock_Lifting_Worksheet"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Stock_Lifting_Worksheet_Click:
+    Exit Sub
+
+Err_Stock_Lifting_Worksheet_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Stock_Lifting_Worksheet_Click
+    
+End Sub
+
+Private Sub To_Be_Lifted_By_Age_Class_Click()
+On Error GoTo Err_To_Be_Lifted_By_Age_Class_Click
+
+    Dim stDocName As String
+
+    stDocName = "TOLIFT_Summary"
+    
+    DoCmd.OpenReport stDocName, acPreview
+    
+Exit_To_Be_Lifted_By_Age_Class_Click:
+    Exit Sub
+
+Err_To_Be_Lifted_By_Age_Class_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_To_Be_Lifted_By_Age_Class_Click
+    
+End Sub
+
+Private Sub To_Be_Lifted_By_Age_Class_SPD_Click()
+On Error GoTo Err_To_Be_Lifted_By_Age_Class_SPD_Click
+
+    Dim stDocName As String
+
+    stDocName = "TOLIFT_Summary_spd"
+    
+    DoCmd.OpenQuery stDocName
+    
+Exit_To_Be_Lifted_By_Age_Class_SPD_Click:
+    Exit Sub
+
+Err_To_Be_Lifted_By_Age_Class_SPD_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_To_Be_Lifted_By_Age_Class_SPD_Click
+    
+End Sub
+
+Private Sub TOLIFT_REP_Click()
+
+    Dim stDocName As String
+
+    stDocName = "Lifting_Locations_Form"
+    DoCmd.OpenForm stDocName
+
+End Sub
+Private Sub CmdOrdFrmLD_Click()
+On Error GoTo Err_CmdOrdFrmLD_Click
+
+    Dim stDocName As String
+
+    stDocName = "ORDER_FORM_BY_LIFT_DATE"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdOrdFrmLD_Click:
+    Exit Sub
+
+Err_CmdOrdFrmLD_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdOrdFrmLD_Click
+    
+End Sub
+Private Sub CmdSplusList_Click()
+On Error GoTo Err_CmdSplusList_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_SPLUS_LIST"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdSplusList_Click:
+    Exit Sub
+
+Err_CmdSplusList_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdSplusList_Click
+    
+End Sub
+
+Private Sub CmdStrRec_Click()
+On Error GoTo Err_CmdStrRec_Click
+
+
+    ' turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+    ' Deletes records from NMIS_ORDER_SERVICES_STRING table prior to updating string
+    DoCmd.OpenQuery "NMIS_SPCL_SVCS_DEL_QUERY", acNormal, acEdit
+    ' Selects ORDER_CN for NMIS_ORDER_SERVICE_STRING to match to NMIS_ORDERS!CN
+    DoCmd.OpenQuery "NMIS_SPCL_SVCS1_QUERY", acNormal, acEdit
+    ' Adds NMIS_ORDER_SERVICES as a string to NMIS_ORDER_SERVICE_STRING!SERVICES_STRING
+    DoCmd.OpenQuery "NMIS_SPCL_SVCS2_QUERY", acNormal, acEdit
+    DoCmd.SetWarnings True
+    
+    Dim stDocName As String
+
+    stDocName = "PRODUCT_STORAGE_RECORD"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdStrRec_Click:
+    Exit Sub
+
+Err_CmdStrRec_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdStrRec_Click
+    
+End Sub
+
+Private Sub ORD_CONFIRM_REP_Click()
+On Error GoTo Err_ORD_CONFIRM_REP_Click
+
+    Dim stDocName As String
+
+    'stDocName = "ORDER_CONFIRM_MT"
+    stDocName = "NMIS_ORDER_COMFIRMATION_FORM"
+    'DoCmd.SetWarnings False
+    'DoCmd.OpenQuery "Order_Confirm_MT_Query"
+    'DoCmd.OpenQuery "Order_Confirm_SS_MT_Query"
+    'DoCmd.OpenQuery "Order_Confirm_MC_MT_Query"
+    'DoCmd.SetWarnings True
+    DoCmd.OpenForm stDocName
+    'DoCmd.OpenReport stDocName, acPreview
+
+Exit_ORD_CONFIRM_REP_Click:
+    Exit Sub
+
+Err_ORD_CONFIRM_REP_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_ORD_CONFIRM_REP_Click
+    
+End Sub
+
+Private Sub CmdLftDailyContr_Click()
+On Error GoTo Err_CmdLftDailyContr_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_LIFTED_DAILY_CONTRACT"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLftDailyContr_Click:
+    Exit Sub
+
+Err_CmdLftDailyContr_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLftDailyContr_Click
+    
+End Sub
+Private Sub CmdLiftDaily_Click()
+On Error GoTo Err_CmdLiftDaily_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_LIFTED_DAILY"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLiftDaily_Click:
+    Exit Sub
+
+Err_CmdLiftDaily_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLiftDaily_Click
+    
+End Sub
+Private Sub CmdCIAccumLft_Click()
+On Error GoTo Err_CmdCIAccumLft_Click
+
+    Dim stDocName As String
+
+    stDocName = "LIFT_CONTRACT_ACCUMULATED"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdCIAccumLft_Click:
+    Exit Sub
+
+Err_CmdCIAccumLft_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdCIAccumLft_Click
+    
+End Sub
+Private Sub CmdPshiptkt_Click()
+On Error GoTo Err_CmdPshiptkt_Click
+
+    ' turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+    ' Deletes records from NMIS_ORDER_SERVICES_STRING table prior to updating string
+    DoCmd.OpenQuery "NMIS_SPCL_SVCS_DEL_QUERY", acNormal, acEdit
+    ' Selects ORDER_CN for NMIS_ORDER_SERVICE_STRING to match to NMIS_ORDERS!CN
+    DoCmd.OpenQuery "NMIS_SPCL_SVCS1_QUERY", acNormal, acEdit
+    ' Adds NMIS_ORDER_SERVICES as a string to NMIS_ORDER_SERVICE_STRING!SERVICES_STRING
+    DoCmd.OpenQuery "NMIS_SPCL_SVCS2_QUERY", acNormal, acEdit
+    DoCmd.SetWarnings True
+ 
+    Dim stDocName As String
+
+    stDocName = "PRODUCT_TICKET"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdPshiptkt_Click:
+    Exit Sub
+
+Err_CmdPshiptkt_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdPshiptkt_Click
+    
+End Sub
+Private Sub ToLftwoc_Click()
+On Error GoTo Err_ToLftwoc_Click
+
+    Dim stDocName As String
+
+    stDocName = "TOLIFT_WOC"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_ToLftwoc_Click:
+    Exit Sub
+
+Err_ToLftwoc_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_ToLftwoc_Click
+    
+End Sub
+Private Sub CmdOrdStat_Click()
+On Error GoTo Err_CmdOrdStat_Click
+
+    Dim stDocName As String
+
+    stDocName = "ORDER_STATUS"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdOrdStat_Click:
+    Exit Sub
+
+Err_CmdOrdStat_Click:
+    'MsgBox Err.DESCRIPTION
+    Resume Exit_CmdOrdStat_Click
+    
+End Sub
+Private Sub CmdLftWk_Click()
+On Error GoTo Err_CmdLftWk_Click
+
+    Dim stDocName As String
+
+    stDocName = "LIFT_CONTRACT_WEEKLY"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLftWk_Click:
+    Exit Sub
+
+Err_CmdLftWk_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLftWk_Click
+    
+End Sub
+Private Sub CmdSplsStat_Click()
+On Error GoTo Err_CmdSplsStat_Click
+
+    Dim stDocName As String
+
+    stDocName = "SURPLUS_ORDER_STATUS"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdSplsStat_Click:
+    Exit Sub
+
+Err_CmdSplsStat_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdSplsStat_Click
+    
+End Sub
+Private Sub BillPvwProc_Click()
+On Error GoTo Err_BillPvwProc_Click
+
+    DoCmd.OpenForm "CLIENT_BILLING_PREVIEW_BILLING"
+    '  turns warning (about to update/delete...) off
+    'DoCmd.SetWarnings False
+
+    'DoCmd.OpenQuery "CLIENT_BILL_PREVIEW delete"
+    'DoCmd.OpenQuery "CLIENT_BILL_PREVIEW_ORDERS"
+    'DoCmd.OpenQuery "CLIENT_BILL_PREVIEW_DESTROY"
+    'DoCmd.OpenQuery "CLIENT_BILL_PREVIEW_SHIP"
+    'DoCmd.OpenQuery "CLIENT_BILL_PREVIEW_XPLT"
+    'DoCmd.OpenQuery "CLIENT_BILL_PREVIEW_MISSING_BILLING_CODES_APPEND"
+        
+    'DoCmd.SetWarnings True
+
+    'Dim stDocName As String
+
+    'tDocName = "CLIENT_BILL_PREVIEW_LOTS"
+    'DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_BillPvwProc_Click:
+    Exit Sub
+
+Err_BillPvwProc_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_BillPvwProc_Click
+    
+End Sub
+
+Private Sub CliBillInv_Click()
+On Error GoTo Err_CliBillInv_Click
+
+    '  turns warning (about to update/delete...) off
+    If Client_Bill_Data_Processed = False Then
+    
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-2 at"
+    'DoCmd.OpenQuery "CLIENT_BILL_3-3 at"  'Bills Client for Double Sort Hourly
+    DoCmd.OpenQuery "CLIENT_BILL_4 at"
+    DoCmd.OpenQuery "CLIENT_BILL_5 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_7 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3 dt"
+    
+    Client_Bill_Data_Processed = True
+        
+    DoCmd.SetWarnings True
+    End If
+
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE_wo_lot_detail"
+    DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_CliBillInv_Click:
+    Exit Sub
+
+Err_CliBillInv_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CliBillInv_Click
+    
+End Sub
+
+Private Sub CliBillwoShip_Click()
+On Error GoTo Err_CliBillwoShip_Click
+
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_2 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_3-2 at"
+    'DoCmd.OpenQuery "CLIENT_BILL_3-3 at"  'Bills Client for Double Sort Hourly
+    DoCmd.OpenQuery "CLIENT_BILL_5 at"
+    
+    DoCmd.OpenQuery "CLIENT_BILL_3 dt"
+    
+    DoCmd.SetWarnings True
+    
+    Client_Bill_Data_Processed = False
+
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE_w_lot_detail"
+    DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_CliBillwoShip_Click:
+    Exit Sub
+
+Err_CliBillwoShip_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CliBillwoShip_Click
+    
+End Sub
+Private Sub CliBillShip_Click()
+On Error GoTo Err_CliBillShip_Click
+
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_7 at"
+    DoCmd.OpenQuery "CLIENT_BILL_4 at"
+    DoCmd.OpenQuery "CLIENT_BILL_5 at"
+    
+    DoCmd.SetWarnings True
+    
+    Client_Bill_Data_Processed = False
+   
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE"
+    DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_CliBillShip_Click:
+    Exit Sub
+
+Err_CliBillShip_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CliBillShip_Click
+    
+End Sub
+Private Sub CliBillwoXPLT_Click()
+On Error GoTo Err_CliBillwoXPLT_Click
+
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+
+    DoCmd.OpenQuery "CLIENT_BILL delete"
+    DoCmd.OpenQuery "CLIENT_BILL_6-1 at"
+    DoCmd.OpenQuery "CLIENT_BILL_6-2 at"
+        
+    DoCmd.SetWarnings True
+    Client_Bill_Data_Processed = False
+    
+    Dim stDocName As String
+
+    stDocName = "CLIENT_BILL_INVOICE"
+    DoCmd.OpenReport stDocName, acPreview
+
+
+Exit_CliBillwoXPLT_Click:
+    Exit Sub
+
+Err_CliBillwoXPLT_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CliBillwoXPLT_Click
+    
+End Sub
+
+Private Sub TOLIFT_REP_Condensed_Click()
+    Dim stDocName As String
+
+    stDocName = "TOLIFT_Condensed"
+    DoCmd.OpenReport stDocName, acPreview
+
+End Sub
+Private Sub CmdOrdFrmBulk_Click()
+On Error GoTo Err_CmdOrdFrmBulk_Click
+    
+    DoCmd.OpenForm "Order_Pack_Form"
+    
+    [Forms]![Order_Pack_Form]![PRODUCT_GROUP] = "Plant"
+    
+    Forms![Order_Pack_Form]![Order_Form].Visible = True
+    DoCmd.GoToControl "Order_Form"
+    
+    Forms![Order_Pack_Form]![Like_Stock_Type].Visible = True
+    Forms![Order_Pack_Form]![Lift_Date].Visible = True
+    Forms![Order_Pack_Form]![Order_Mod_Date].Visible = True
+    Forms![Order_Pack_Form]![BorC].Visible = True
+    Forms![Order_Pack_Form]![Order_Checklist].Visible = True
+    Forms![Order_Pack_Form]![Order_Checklist_by_Lift_Date].Visible = True
+    Forms![Order_Pack_Form]![Order_Form_By_Lift_Date].Visible = True
+    Forms![Order_Pack_Form]![Order_Pack_form_Propagule].Visible = True
+    Forms![Order_Pack_Form]![Order_Pack_form_Propagule].Visible = False
+    Forms![Order_Pack_Form]![Processing_Quality_Inspection_Record].Visible = True
+    Forms![Order_Pack_Form]![Processing_Quality_Inspection_Record_by_lift_date].Visible = True
+
+Exit_CmdOrdFrmBulk_Click:
+    Exit Sub
+
+Err_CmdOrdFrmBulk_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdOrdFrmBulk_Click
+    
+End Sub
+Private Sub CmdSplusLstFS_Click()
+On Error GoTo Err_CmdSplusLstFS_Click
+
+    Dim stDocName As String
+
+    stDocName = "NMIS_SPLUS_LIST_FS"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdSplusLstFS_Click:
+    Exit Sub
+
+Err_CmdSplusLstFS_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdSplusLstFS_Click
+    
+End Sub
+Private Sub CmdPrfPk_Click()
+On Error GoTo Err_CmdPrfPk_Click
+
+    Dim stDocName As String
+    Dim stLinkCriteria As String
+
+    stDocName = "Processing_Review_by_Activity_Date"
+    DoCmd.OpenForm stDocName, , , stLinkCriteria
+
+Exit_CmdPrfPk_Click:
+    Exit Sub
+
+Err_CmdPrfPk_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdPrfPk_Click
+    
+End Sub
+
+Private Sub CmdProofAll_Click()
+On Error GoTo Err_CmdProofAll_Click
+
+    stDocName = "PROOF_ALL"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdProofAll_Click:
+    Exit Sub
+
+Err_CmdProofAll_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdProofAll_Click
+    
+End Sub
+Private Sub Command57_Click()
+On Error GoTo Err_Command57_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_WO_PACK_AMOUNTS"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_Command57_Click:
+    Exit Sub
+
+Err_Command57_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_Command57_Click
+    
+End Sub
+Private Sub CmdLotswoPack_Click()
+On Error GoTo Err_CmdLotswoPack_Click
+
+    Dim stDocName As String
+    
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+    
+    DoCmd.OpenQuery "PROOF_ALL Query"
+    DoCmd.OpenQuery "PROOF_ALL_CPR Query"
+    DoCmd.OpenQuery "PROOF_ALL_AGR Query"
+    DoCmd.OpenQuery "PROOF_ALL_ORD Query"
+    DoCmd.OpenQuery "PROOF_ALL_SOW Query"
+    DoCmd.OpenQuery "PROOF_ALL_LFT Query"
+    DoCmd.OpenQuery "PROOF_ALL_LCT Query"
+    DoCmd.OpenQuery "PROOF_ALL_PC Query"
+    
+    DoCmd.SetWarnings True
+    
+    stDocName = "LOTS_WO_PACK_AMOUNTS"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLotswoPack_Click:
+    Exit Sub
+
+Err_CmdLotswoPack_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLotswoPack_Click
+    
+End Sub
+Private Sub CmdFldCntnrDensity_Click()
+On Error GoTo Err_CmdFldCntnrDensity_Click
+
+    Dim stDocName As String
+
+    stDocName = "LIFT_FIELD_CONTAINER_DENSITY"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdFldCntnrDensity_Click:
+    Exit Sub
+
+Err_CmdFldCntnrDensity_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdFldCntnrDensity_Click
+    
+End Sub
+Private Sub CmdLotswoLift_Click()
+On Error GoTo Err_CmdLotswoLift_Click
+
+    Dim stDocName As String
+
+    stDocName = "LOTS_WO_LIFT_AMOUNTS"
+    
+    '  turns warning (about to update/delete...) off
+    DoCmd.SetWarnings False
+    
+    DoCmd.OpenQuery "PROOF_ALL Query"
+    DoCmd.OpenQuery "PROOF_ALL_CPR Query"
+    DoCmd.OpenQuery "PROOF_ALL_AGR Query"
+    DoCmd.OpenQuery "PROOF_ALL_ORD Query"
+    DoCmd.OpenQuery "PROOF_ALL_SOW Query"
+    DoCmd.OpenQuery "PROOF_ALL_LFT Query"
+    DoCmd.OpenQuery "PROOF_ALL_LCT Query"
+    DoCmd.OpenQuery "PROOF_ALL_PC Query"
+    
+    DoCmd.SetWarnings True
+    
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdLotswoLift_Click:
+    Exit Sub
+
+Err_CmdLotswoLift_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdLotswoLift_Click
+    
+End Sub
+Private Sub CmdXPLT_Click()
+On Error GoTo Err_CmdXPLT_Click
+
+    Dim stDocName As String
+
+    stDocName = "XPLT_AT_JHSN"
+    DoCmd.OpenReport stDocName, acPreview
+
+Exit_CmdXPLT_Click:
+    Exit Sub
+
+Err_CmdXPLT_Click:
+    MsgBox Err.DESCRIPTION
+    Resume Exit_CmdXPLT_Click
+    
+End Sub
+```

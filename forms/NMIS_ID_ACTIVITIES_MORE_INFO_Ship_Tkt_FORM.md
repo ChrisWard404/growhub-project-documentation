@@ -1,0 +1,48 @@
+# Form: NMIS_ID_ACTIVITIES_MORE_INFO_Ship_Tkt_FORM
+
+**Caption:** Source Lot More Info  
+**Record source:**
+
+```sql
+NMIS_ID_ACTIVITIES_MORE_INFO Query
+```
+
+**Backend tables referenced:** `NMIS_ACTIVITY_CODES`, `NMIS_AGREEMENT_LOTS`, `NMIS_ASSOCIATES`, `NMIS_CATEGORIES`, `NMIS_SOURCE_LOTS`, `NMIS_SPECIES_PRODUCTS`, `NMIS_TICKETS`, `NMIS_UNITS`  
+**Opened from (VBA):** `Form_Seed_Ship_Ticket_ID_ACTIVITIES subform`, `Form_Seed_Sow_Withdrawal_Ticket_ID_ACTIVITIES subform`  
+
+## Section: FormHeader
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| Label | ACTIVITY_CODE_Label | Activity Code |  |  |  | 0.67, 0.70, 0.84, 0.35 |
+| Label | ACTIVITY_UNITS_Label | Activity Units |  |  |  | 1.55, 0.70, 0.81, 0.35 |
+| Label | ACTIVITY_DATE_Label | Activity Date |  |  |  | 0.07, 0.70, 0.57, 0.35 |
+| Label | UNIT_CODE_Label | Unit Code |  |  |  | 2.41, 0.70, 0.38, 0.35 |
+| Label | SOURCE_LOT_CN_Label | Source ID: |  |  |  | 0.08, 0.43, 0.67, 0.20 |
+| Label | Label20 | Source: |  |  |  | 2.38, 0.43, 0.52, 0.20 |
+| Label | Label122 | Agree Lot / Sow Order |  |  |  | 2.83, 0.70, 1.58, 0.35 |
+| Label | Label38 | Ticket ID |  |  |  | 5.24, 0.70, 0.81, 0.34 |
+| ComboBox | Combo19 |  | SOURCE_LOT_CN | SELECT NMIS_SOURCE_LOTS.CN, Source_Lot_ID_and_Source_string.SOURCE, NMIS_SOURCE_LOTS.ID FROM NMIS_SOURCE_LOTS INNER JOIN Source_Lot_ID_and_Source_string ON NMIS_SOURCE_LOTS.CN=Source_Lot_ID_and_Source_string.CN;  |  | 2.93, 0.42, 2.81, 0.21 |
+| ComboBox | SOURCE_LOT_CN |  | SOURCE_LOT_CN | SELECT NMIS_SOURCE_LOTS.CN, NMIS_SOURCE_LOTS.ID, Source_Lot_ID_and_Source_string.SOURCE FROM NMIS_SOURCE_LOTS INNER JOIN Source_Lot_ID_and_Source_string ON NMIS_SOURCE_LOTS.CN=Source_Lot_ID_and_Source_string.CN ORDER BY NMIS_SOURCE_LOTS.ID;  |  | 0.79, 0.42, 1.50, 0.21 |
+| Label | Label40 | Source Lot More Info |  |  |  | 3.48, 0.06, 2.09, 0.28 |
+| Label | Label41 | Destination Assoc |  |  |  | 4.45, 0.70, 0.75, 0.34 |
+| TextBox | Text43 |  | =Sum([ACTIVITY_UNITS_TO_SUM]) |  |  | 7.27, 0.76, 1.23, 0.28 |
+| Label | Label44 | Inv. Balance |  |  |  | 5.98, 0.76, 1.24, 0.28 |
+| Label | Label45 | Category: |  |  |  | 5.82, 0.43, 0.62, 0.20 |
+| ComboBox | Combo46 |  | SOURCE_LOT_CN | SELECT NMIS_SOURCE_LOTS.CN, [CATEGORY_DESC] & " (" & [NMIS_CATEGORIES].[CATEGORY_CODE] & ")" AS desc_n_code FROM NMIS_CATEGORIES INNER JOIN NMIS_SOURCE_LOTS ON (NMIS_CATEGORIES.CATEGORY_CODE = NMIS_SOURCE_LOTS.CATEGORY_CODE) AND (NMIS_CATEGORIES.CATEGORY_CODE = NMIS_SOURCE_LOTS.CATEGORY_CODE); |  | 6.48, 0.42, 1.90, 0.21 |
+| Label | Label47 | Charge/Activity Override: |  |  |  | 6.11, 0.70, 1.04, 0.34 |
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| ComboBox | ACTIVITY_CODE |  | ACTIVITY_CODE | SELECT NMIS_ACTIVITY_CODES.ACTIVITY_CODE, NMIS_ACTIVITY_CODES.ACTIVITY_CODE_NO, NMIS_ACTIVITY_CODES.ACTIVITY_NAME, NMIS_ACTIVITY_CODES.NOTE FROM NMIS_ACTIVITY_CODES WHERE (((NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="SDTRAN" Or (NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="SDTRMT")) ORDER BY NMIS_ACTIVITY_CODES.ACTIVITY_CODE;  |  | 0.68, 0.03, 0.85, 0.20 |
+| TextBox | ACTIVITY_UNITS |  | ACTIVITY_UNITS |  |  | 1.55, 0.03, 0.80, 0.20 |
+| TextBox | ACTIVITY_DATE |  | ACTIVITY_DATE |  |  | 0.08, 0.03, 0.57, 0.20 |
+| ComboBox | UNIT_CODE |  | UNIT_CODE | SELECT NMIS_UNITS.UNIT_CODE, NMIS_UNITS.UNIT_DESC, NMIS_UNITS.UNIT_TYPE FROM NMIS_UNITS;  |  | 2.41, 0.03, 0.39, 0.20 |
+| TextBox | NOTE | ID Activity Note: | NOTE |  |  | 1.29, 0.27, 7.08, 0.21 |
+| ComboBox | AGREEMENT_LOT_CN |  | AGREEMENT_LOT_CN | SELECT NMIS_AGREEMENT_LOTS.CN, NMIS_AGREEMENT_LOTS.ID, NMIS_AGREEMENT_LOTS.ID_ORIGINAL FROM NMIS_AGREEMENT_LOTS ORDER BY NMIS_AGREEMENT_LOTS.ID;  |  | 2.84, 0.03, 1.18, 0.20 |
+| ComboBox | Combo121 |  | AGREEMENT_LOT_CN | SELECT NMIS_AGREEMENT_LOTS.CN, NMIS_SPECIES_PRODUCTS.SOWING_GROUP FROM NMIS_SPECIES_PRODUCTS INNER JOIN NMIS_AGREEMENT_LOTS ON NMIS_SPECIES_PRODUCTS.CN=NMIS_AGREEMENT_LOTS.SPECIES_PRODUCT_CN;  |  | 4.04, 0.03, 0.39, 0.20 |
+| ComboBox | TICKET_CN |  | TICKET_CN | SELECT NMIS_TICKETS.CN, NMIS_TICKETS.TKT_NO, NMIS_TICKETS.NOTE FROM NMIS_TICKETS WHERE (((NMIS_TICKETS.TICKET_TYPE) Like "s*")) ORDER BY NMIS_TICKETS.FY DESC , NMIS_TICKETS.TKT_NO DESC; |  | 5.22, 0.03, 0.87, 0.20 |
+| ComboBox | DESTINATION_ASSOCIATE |  | DESTINATION_ASSOCIATE | SELECT NMIS_ASSOCIATES.ASSOCIATE, NMIS_ASSOCIATES.ASSOCIATE_NAME FROM NMIS_ASSOCIATES ORDER BY NMIS_ASSOCIATES.ASSOCIATE_NAME; |  | 4.45, 0.02, 0.74, 0.19 |
+| TextBox | CHARGE_PER_ACTIVITY_OVERRIDE |  | CHARGE_PER_ACTIVITY_OVERRIDE |  |  | 6.11, 0.02, 1.03, 0.22 |

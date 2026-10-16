@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NMIS GrowHub Explorer</title>
+<style>
+:root{--bg:#f7f7f5;--panel:#fff;--ink:#1d1d1b;--muted:#6b6b66;--line:#e2e1dc;--accent:#2f6f5e;--accent-soft:#e3f0ec;--warn:#9a5b13;--bad:#b23b3b;--bad-soft:#f7e3e1;--warn-soft:#f6ecd9;
+--w-label:#1d1d1b;--w-field:#fff;--w-field-b:#9aa3a0;--w-btn:#ecebe6;--w-sub:#f2f7f5;--w-sec:#fbfbf9;--code:#f3f2ee}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151614;--panel:#1d1f1c;--ink:#e8e7e2;--muted:#9c9b94;--line:#33352f;--accent:#7cc4ad;--accent-soft:#22332d;--warn:#e0a35a;--bad:#ec7b72;--bad-soft:#3a2321;--warn-soft:#3a2f1f;--w-label:#e8e7e2;--w-field:#232521;--w-field-b:#5b625f;--w-btn:#2c2e2a;--w-sub:#1f2a26;--w-sec:#191a18;--code:#232521}}
+:root[data-theme="dark"]{--bg:#151614;--panel:#1d1f1c;--ink:#e8e7e2;--muted:#9c9b94;--line:#33352f;--accent:#7cc4ad;--accent-soft:#22332d;--warn:#e0a35a;--bad:#ec7b72;--bad-soft:#3a2321;--warn-soft:#3a2f1f;--w-label:#e8e7e2;--w-field:#232521;--w-field-b:#5b625f;--w-btn:#2c2e2a;--w-sub:#1f2a26;--w-sec:#191a18;--code:#232521}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:16px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+header h1{font-size:15px;margin:0;font-weight:600}header .sub{color:var(--muted);font-size:12px}
+.tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:transparent;color:var(--ink);padding:4px 8px;border-radius:6px;cursor:pointer;font:inherit;font-size:12.5px}
+.tabs .grp{white-space:nowrap;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0 2px 0 10px;align-self:center}
+.tabs button.on{background:var(--accent);border-color:var(--accent);color:var(--panel)}
+.wrap{flex:1;display:flex;min-height:0}
+aside{width:300px;border-right:1px solid var(--line);display:flex;flex-direction:column;background:var(--panel);min-height:0}
+aside input{margin:10px;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+aside .opts{padding:0 12px 6px;color:var(--muted);font-size:12px}
+#list{overflow:auto;flex:1}#list div{padding:5px 12px;cursor:pointer;border-left:3px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+#list div:hover{background:var(--accent-soft)}#list div.on{border-left-color:var(--accent);background:var(--accent-soft)}
+#list .cap{color:var(--muted);font-size:11px;display:block}
+main{flex:1;overflow:auto;padding:20px 24px;min-width:0}
+h2{margin:0 0 4px;font-size:20px}h3{margin:24px 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.meta{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin:12px 0;font-size:13px}.meta b{color:var(--muted);font-weight:500}
+a.lnk{color:var(--accent);cursor:pointer;text-decoration:none;border-bottom:1px dotted}
+pre{background:var(--code);padding:10px 12px;border-radius:6px;overflow:auto;font:12px/1.5 ui-monospace,Menlo,monospace;margin:0;white-space:pre-wrap;word-break:break-word}
+table{border-collapse:collapse;width:100%;font-size:12.5px}th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}th{color:var(--muted);font-weight:500;position:sticky;top:0;background:var(--bg)}
+td code{font-size:11.5px;word-break:break-word}
+.wf-scroll{overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:10px}
+.sec{position:relative;background:var(--w-sec);border-bottom:1px dashed var(--line);margin-bottom:2px}
+.sec .sname{position:absolute;right:4px;top:2px;font-size:10px;color:var(--muted);z-index:2;background:var(--w-sec);padding:0 4px}
+.c{position:absolute;overflow:hidden;font-size:11px;line-height:1.15;white-space:nowrap;text-overflow:ellipsis}
+.c.Label{color:var(--w-label)}
+.c.TextBox,.c.ComboBox,.c.ListBox{background:var(--w-field);border:1px solid var(--w-field-b);padding:1px 3px;color:var(--muted)}
+.c.ComboBox::after{content:"▾";position:absolute;right:2px;top:0;color:var(--ink)}
+.c.CommandButton{background:var(--w-btn);border:1px solid var(--w-field-b);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.c.CheckBox::before{content:"☐ ";color:var(--ink)}
+.c.Subform{background:var(--w-sub);border:1.5px dashed var(--accent);color:var(--accent);padding:3px;cursor:pointer;white-space:normal}
+.c.Rectangle,.c.OptionGroup{border:1px solid var(--w-field-b)}.c.Line{border-top:1px solid var(--w-field-b)}
+.c.TabControl{border:1px solid var(--w-field-b);color:var(--muted);padding:2px}.c.Page{display:none}
+.c.Image,.c.ObjectFrame{border:1px dotted var(--w-field-b);color:var(--muted)}
+.c:hover{outline:2px solid var(--accent);z-index:5}
+.chips span{display:inline-block;padding:2px 8px;border:1px solid var(--line);border-radius:12px;margin:2px 4px 2px 0;font-size:12px}
+.note{color:var(--muted);font-size:12.5px;max-width:900px}
+.warn{color:var(--warn)}
+.cols{columns:3 220px;font-size:12.5px}.cols div{break-inside:avoid;padding:1px 0}
+#erd svg{max-width:none;height:auto}#erd.fit svg{max-width:100%!important;width:100%!important}
+.menu{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:10px 14px;margin:0 0 12px;max-width:760px}
+.menu h4{margin:0 0 6px}.menu li{margin:2px 0}
+.toggle.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.toggle{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:6px;padding:3px 8px;cursor:pointer;font:inherit;font-size:12px}
+
+.badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:middle}
+.badge.warn{border-color:var(--warn);color:var(--warn)}.badge.pk{border-color:var(--accent);color:var(--accent)}
+.enumv{display:inline-block;font:11px ui-monospace,Menlo,monospace;background:var(--code);border-radius:4px;padding:0 5px;margin:1px 2px 1px 0}
+details summary{cursor:pointer;color:var(--muted);font-size:12px}
+.hist{font-size:11.5px;color:var(--muted)}.hist div{margin:1px 0}
+#gerd{position:relative;overflow:hidden;height:calc(100vh - 230px);min-height:420px;border:1px solid var(--line);border-radius:8px;background:var(--panel);cursor:grab}
+#gerd svg{position:absolute;left:0;top:0;width:100%;height:100%}
+#gerd .tb rect.box{fill:var(--panel);stroke:var(--w-field-b)}#gerd .tb rect.hd{fill:var(--accent-soft);stroke:var(--w-field-b)}
+#gerd .tb text{fill:var(--ink);font:11px ui-monospace,Menlo,monospace}#gerd .tb text.h{font:600 12px -apple-system,sans-serif}#gerd .tb text.t{fill:var(--muted)}
+#gerd .tb{cursor:pointer}#gerd .tb:hover rect.box{stroke:var(--accent);stroke-width:2}
+#gerd path.l{fill:none;stroke:var(--w-field-b);stroke-width:1.2}#gerd path.l.hl{stroke:var(--accent);stroke-width:2.4}#gerd path.l.audit{stroke-dasharray:3 3;opacity:.5}
+#gerd .tb.dim{opacity:.25}#gerd path.l.dim{opacity:.08}
+.mig{border-bottom:1px solid var(--line);padding:8px 0}.mig .mt{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.mig .md{color:var(--muted);font:12px ui-monospace,Menlo,monospace;min-width:84px}
+
+.st{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;white-space:nowrap}
+.st.yes{background:var(--accent-soft);color:var(--accent)}.st.maybe,.st.other{background:var(--warn-soft);color:var(--warn)}.st.no{background:var(--bad-soft);color:var(--bad)}.st.blank{color:var(--muted);border:1px dashed var(--line)}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--line);min-width:120px}.bar span{display:block;height:100%}
+.bar .yes{background:var(--accent)}.bar .maybe,.bar .other{background:var(--warn)}.bar .no{background:var(--bad)}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.kpi{border:1px solid var(--line);border-radius:8px;padding:10px 14px;background:var(--panel);min-width:150px}.kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums}.kpi span{color:var(--muted);font-size:12px}
+tr.flag td{background:var(--bad-soft)}
+.miss{color:var(--bad)}.sug{color:var(--muted);font-size:11.5px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.mapcell{font-size:11.5px}
+.verb{display:inline-block;min-width:52px;font:600 11px ui-monospace,Menlo,monospace;padding:1px 6px;border-radius:4px;text-align:center;background:var(--code)}
+.verb.GET{color:var(--accent)}.verb.POST{color:#3b6fb6}.verb.PUT,.verb.PATCH{color:var(--warn)}.verb.DELETE{color:var(--bad)}
+.stamp{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:6px 10px;display:inline-block;margin:4px 0 10px;background:var(--panel)}
+.tree td:first-child{white-space:nowrap}
+.vd{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;white-space:nowrap}
+.vd.matches{background:var(--accent-soft);color:var(--accent)}.vd.differs,.vd.needs{background:var(--warn-soft);color:var(--warn)}.vd.missing,.vd.legacy{background:var(--bad-soft);color:var(--bad)}.vd.growhub{border:1px solid var(--line);color:var(--muted)}
+.sev{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.sev.high{color:var(--bad);font-weight:600}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}.cmp>div{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--panel);min-width:0}
+.cmp h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}.cmp .f{white-space:pre-wrap;margin-bottom:10px}
+.cmp pre{margin:4px 0 10px;white-space:pre;overflow:auto;max-height:420px;word-break:normal}.where{font:11px ui-monospace,Menlo,monospace;color:var(--muted)}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:8px 12px;border-radius:0 6px 6px 0;margin:12px 0}
+@media (max-width:900px){.cmp{grid-template-columns:1fr}}
+@media (max-width:760px){.wrap{flex-direction:column}aside{width:auto;max-height:40vh;border-right:0;border-bottom:1px solid var(--line)}main{padding:16px}header{flex-wrap:wrap}}
+</style></head><body>
+<header><div><h1>NMIS → GrowHub Explorer</h1><div class="sub" id="stats"></div></div>
+<div class="tabs" id="tabs"><span class="grp">Legacy Access</span><button data-t="Form" class="on">Forms</button><button data-t="Report">Reports</button><button data-t="Table">Tables</button><button data-t="ERD">ERD</button><button data-t="Menus">Menus</button><span class="grp">GrowHub frontend</span><button data-t="GScr">Screens</button><button data-t="FForm">Forms</button><button data-t="FReq">Requests</button><span class="grp">GrowHub backend</span><button data-t="BEnd">Endpoints</button><button data-t="GTable">Tables</button><button data-t="GERD">ERD</button><button data-t="GMig">Migrations</button><span class="grp">Migration</span><button data-t="Map">Mapping</button><button data-t="Rules">Business rules</button><button data-t="Ref">Reference data</button><button class="toggle" id="theme" title="Toggle theme">◐</button></div></header>
+<div class="wrap"><aside><input id="q" placeholder="Search names, captions, sources…"><div class="opts"><label>Show <select id="show" style="font:inherit;font-size:12px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:5px"><option value="reach">reachable from the menus</option><option value="nocopy">all except old copies</option><option value="all">everything</option></select></label><input type="checkbox" id="hideOld" checked style="display:none"></div><div id="list"></div></aside><main id="main"></main></div>
+<script id="data" type="application/json">__DATA__</script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const items=D.items, T=D.erd.tables, R=D.erd.relationships, G=D.growhub, GT=G.tables;
+const isMeta=c=>/^metadata/.test(c);
+const MP=D.mapping, MROWS=MP.domains.flatMap(d=>d.sections.flatMap(s=>s.rows.map(r=>({...r,sheet:d.sheet}))));
+const ghIdx={}, lgIdx={};
+MROWS.forEach(r=>{if(r.gh){((ghIdx[r.gh.table]=ghIdx[r.gh.table]||{})[r.gh.column]=ghIdx[r.gh.table][r.gh.column]||[]).push(r);}
+  (r.legacy||[]).forEach(l=>{((lgIdx[l.table]=lgIdx[l.table]||{})[l.column]=lgIdx[l.table][l.column]||[]).push(r);});});
+const ST={yes:'approved',maybe:'maybe',no:'not approved',other:'see note',blank:'not reviewed'};
+const stChip=(s,label)=>`<span class="st ${s.state}" title="${esc((label?label+': ':'')+(s.text||ST[s.state]))}">${esc(label?label+' '+(s.state==='blank'?'—':s.text||ST[s.state]):s.text||ST[s.state])}</span>`;
+const byKey={};items.forEach(i=>byKey[i.kind+':'+i.name]=i);
+let tab='Form',sel=null;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const isOld=n=>/^[*x~]|old|_bu\b|_bu\d|backup|^copy of/i.test(n);
+document.getElementById('stats').textContent=`Legacy: ${items.filter(i=>i.kind==='Form').length} forms · ${items.filter(i=>i.kind==='Report').length} reports · ${Object.keys(T).length} tables   |   GrowHub: ${Object.keys(GT).length} tables · ${G.migrations.length} migrations`;
+document.querySelectorAll('#tabs button[data-t]').forEach(b=>b.onclick=()=>{tab=b.dataset.t;document.querySelectorAll('#tabs button[data-t]').forEach(x=>x.classList.toggle('on',x===b));sel=null;renderList();renderMain();});
+document.getElementById('theme').onclick=()=>{const r=document.documentElement;const cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');r.dataset.theme=cur==='dark'?'light':'dark';if(tab==='ERD'||tab==='Table')renderMain();};
+document.getElementById('q').oninput=renderList;document.getElementById('hideOld').onchange=renderList;document.getElementById('show').onchange=renderList;
+const RCH=D.reach.objects, isReach=i=>RCH[i.kind+':'+i.name]?.reachable;
+// ---- GrowHub frontend screens (one per route component) ----
+const FE=D.fe, SCR={};
+FE.routes.forEach(r=>{if(!r.fieldCount&&!r.tables.length&&!r.endpoints.length)return;(SCR[r.component]=SCR[r.component]||{...r,paths:[]}).paths.push(r.path);});
+const scrIdx={};  // table -> column -> [component]
+for(const [cn,s] of Object.entries(SCR)){for(const c of s.components){for(const ctl of FE.components[c].controls)for(const h of ctl.gh){((scrIdx[h.table]=scrIdx[h.table]||{})[h.column]=scrIdx[h.table][h.column]||new Set()).add(cn);}}}
+const sref=cn=>SCR[cn]?`<a class="lnk" data-go="W:${esc(cn)}">${esc(SCR[cn].paths[0])}</a>`:esc(cn);
+function screensFor(rows){const c={};rows.forEach(r=>{if(!r.gh)return;for(const s of ((scrIdx[r.gh.table]||{})[r.gh.column]||[]))c[s]=(c[s]||0)+1;});return Object.entries(c).sort((a,b)=>b[1]-a[1]);}
+function listEntries(){
+  const q=document.getElementById('q').value.toLowerCase(),hide=document.getElementById('hideOld').checked;
+  const show=document.getElementById('show').value;
+  if(tab==='Form'||tab==='Report') return items.filter(i=>i.kind===tab&&(show==='all'||(show==='reach'?isReach(i):!isOld(i.name)))&&(!q||(i.name+' '+(i.caption||'')+' '+(i.recordSource||'')).toLowerCase().includes(q))).map(i=>({k:i.kind+':'+i.name,n:i.name,c:i.caption||''}));
+  if(tab==='Table') return Object.keys(T).sort().filter(t=>(!hide||!t.startsWith('*'))&&(!q||(t+' '+T[t].columns.join(' ')).toLowerCase().includes(q))).map(t=>({k:'T:'+t,n:t,c:T[t].columns.length+' columns seen'}));
+  if(tab==='GTable') return Object.keys(GT).sort().filter(n=>(!hide||!['migrations','typeorm_metadata','cycle_index_backup_fractional'].includes(n))&&(!q||(n+' '+GT[n].columns.map(c=>c.name).join(' ')).toLowerCase().includes(q))).map(n=>{const g=GT[n];const c=g.columns.filter(c=>!isMeta(c.name)).length;const cr=G.migrations.find(m=>m.file===g.createdIn);return {k:'G:'+n,n:n+(g.entity?'':' ⚠'),c:`${c} columns${cr?' · created '+cr.date:''}${g.entity?'':' · no entity in code'}`};});
+  if(tab==='Map') return MP.domains.flatMap(d=>d.sections.filter(s=>!q||(d.sheet+' '+s.name+' '+(s.table||'')+' '+s.rows.map(r=>r.field+' '+r.accessField).join(' ')).toLowerCase().includes(q)).map(s=>{const ap=s.rows.filter(r=>r.approved.state==='yes').length;return {k:'S:'+d.sheet+'|'+s.name,n:d.sheet+' › '+s.name,c:`${s.table||'?'} · ${ap}/${s.rows.length} approved${s.rows.some(r=>r.field&&s.table&&!r.gh)?' · ⚠ fields not in schema':''}`};}));
+  if(tab==='Rules') return (D.rules||[]).flatMap(d=>d.rules.filter(r=>!q||(r.id+' '+r.title+' '+r.verdict+' '+(r.impact||'')).toLowerCase().includes(q)).map(r=>({k:'B:'+r.id,n:r.id+' · '+r.title,c:d.domain+' · '+r.verdict+(r.severity&&r.severity!=='info'?' · '+r.severity:'')})));
+  if(tab==='Ref') return [['R:enums','Enum value mappings',MP.enums.length+' tables from SourceENUM'],['R:acc','Activity codes (Access)',MP.activityCodes.access.length+' codes across nurseries'],['R:ora','Activity codes (Oracle → GrowHub)',MP.activityCodes.oracle.length+' codes'],['R:units','Grow units',MP.growUnits.units.length+' Access units · '+MP.growUnits.desired.length+' target codes'],['R:boxes','Ship / storage box types',MP.boxTypes.length+' units']].filter(e=>!q||e[1].toLowerCase().includes(q)).map(e=>({k:e[0],n:e[1],c:e[2]}));
+  if(tab==='FForm') return FORMS.filter(f=>!q||(f.comp+' '+f.name+' '+flat(f.fields).map(x=>x.name).join(' ')).toLowerCase().includes(q)).map(f=>({k:'F:'+f.key,n:f.name.replace('returned by ','')+' · '+f.comp.replace(/Component$/,''),c:`${flat(f.fields).length} fields · ${f.requests.length} requests`}));
+  if(tab==='FReq') return FE.requests.map((r,ix)=>({r,ix})).filter(({r})=>!q||(r.service+' '+r.method+' '+r.url+' '+(r.endpoint||'')).toLowerCase().includes(q)).map(({r,ix})=>({k:'Q:'+ix,n:r.verb+' '+r.url.replace(/^\/api/,''),c:`${r.service}.${r.method}${r.endpoint?'':' · ⚠ no backend route'}`}));
+  if(tab==='BEnd') return BE.endpoints.map((e,ix)=>({e,ix})).filter(({e})=>!q||(e.verb+' '+e.path+' '+(e.handler.function||'')+' '+(e.handler.tables||[]).join(' ')).toLowerCase().includes(q)).map(({e,ix})=>({k:'E:'+ix,n:e.verb+' '+e.path.replace(/^\/api/,''),c:`${e.handler.function||'?'} · ${(reqByEp[epKey(e)]||[]).length} frontend requests`}));
+  if(tab==='GScr') return Object.entries(SCR).sort((a,b)=>a[1].paths[0].localeCompare(b[1].paths[0])).filter(([cn,s])=>!q||(s.paths.join(' ')+' '+cn).toLowerCase().includes(q)).map(([cn,s])=>({k:'W:'+cn,n:s.paths[0],c:`${cn} · ${s.fieldCount} fields`}));
+  if(tab==='GMig') return G.migrations.slice().reverse().filter(m=>!q||(m.name+' '+m.tables.join(' ')).toLowerCase().includes(q)).map(m=>({k:'M:'+m.file,n:m.name,c:m.date+' · '+m.tables.join(', ')}));
+  return [];
+}
+function renderList(){
+  const L=document.getElementById('list');const es=listEntries();
+  L.innerHTML=es.length?es.map(e=>`<div data-k="${esc(e.k)}" class="${e.k===sel?'on':''}">${esc(e.n)}<span class="cap">${esc(e.c)}</span></div>`).join(''):`<div style="color:var(--muted);cursor:default">${['ERD','Menus','GERD'].includes(tab)?'—':'No matches'}</div>`;
+  L.querySelectorAll('div[data-k]').forEach(d=>d.onclick=()=>go(d.dataset.k));
+}
+function go(k){
+  if(k.startsWith('F:')){if(tab!=='FForm'){tab='FForm';syncTabs();}}else if(k.startsWith('Q:')){if(tab!=='FReq'){tab='FReq';syncTabs();}}else if(k.startsWith('E:')){if(tab!=='BEnd'){tab='BEnd';syncTabs();}}else if(k.startsWith('B:')){if(tab!=='Rules'){tab='Rules';syncTabs();}}else if(k.startsWith('W:')){if(tab!=='GScr'){tab='GScr';syncTabs();}}else if(k.startsWith('S:')){if(tab!=='Map'){tab='Map';syncTabs();}}else if(k.startsWith('R:')){if(tab!=='Ref'){tab='Ref';syncTabs();}}else if(k.startsWith('G:')){if(tab!=='GTable'){tab='GTable';syncTabs();}}else if(k.startsWith('M:')){if(tab!=='GMig'){tab='GMig';syncTabs();}}else if(k.startsWith('T:')){if(tab!=='Table'){tab='Table';syncTabs();}}else{const kind=k.split(':')[0];if(tab!==kind){tab=kind;syncTabs();}}
+  sel=k;renderList();renderMain();document.getElementById('main').scrollTop=0;
+  const el=document.querySelector(`#list div[data-k="${CSS.escape(k)}"]`);if(el)el.scrollIntoView({block:'nearest'});
+}
+function syncTabs(){document.querySelectorAll('#tabs button[data-t]').forEach(x=>x.classList.toggle('on',x.dataset.t===tab));}
+function ref(s){ // "Form.X" / "Form:X" / "Report_X"
+  let m=/^(Form|Report)[.:](.+)$/.exec(s);if(m&&byKey[m[1]+':'+m[2]])return `<a class="lnk" data-go="${esc(m[1]+':'+m[2])}">${esc(s)}</a>`;
+  m=/^(Form|Report)_(.+)$/.exec(s);if(m&&byKey[m[1]+':'+m[2]])return `<a class="lnk" data-go="${esc(m[1]+':'+m[2])}">${esc(m[2])}</a> <span style="color:var(--muted)">(${m[1].toLowerCase()})</span>`;
+  return esc(s);
+}
+const tref=t=>T[t]?`<a class="lnk" data-go="T:${esc(t)}">${esc(t)}</a>`:esc(t);
+function bindLinks(root){root.querySelectorAll('[data-go]').forEach(a=>a.onclick=e=>{e.stopPropagation();go(a.dataset.go);});}
+function renderMain(){
+  const M=document.getElementById('main');
+  if(tab==='ERD') return renderERD(M);
+  if(tab==='Menus') return renderMenus(M);
+  if(tab==='GERD') return renderGERD(M);
+  if(tab==='GMig'&&!sel) return renderMigs(M);
+  if(tab==='GScr'&&!sel) return renderScrIntro(M);
+  if(tab==='FForm'&&!sel) return renderFormsHome(M);
+  if(tab==='FReq'&&!sel) return renderReqHome(M);
+  if(tab==='BEnd'&&!sel) return renderEpHome(M);
+  if(sel&&sel.startsWith('F:')) return renderForm(M,sel.slice(2));
+  if(sel&&sel.startsWith('Q:')) return renderReq(M,+sel.slice(2));
+  if(sel&&sel.startsWith('E:')) return renderEp(M,+sel.slice(2));
+  if(sel&&sel.startsWith('W:')) return renderScreen(M,sel.slice(2));
+  if(tab==='Map'&&!sel) return renderMapDash(M);
+  if(tab==='Rules'&&!sel) return renderRulesHome(M);
+  if(sel&&sel.startsWith('B:')) return renderRule(M,sel.slice(2));
+  if(tab==='Ref'&&!sel) return renderRef(M,'R:enums');
+  if(sel&&sel.startsWith('S:')) return renderMapSection(M,sel.slice(2));
+  if(sel&&sel.startsWith('R:')) return renderRef(M,sel);
+  if(!sel){M.innerHTML=tab==='GTable'?gIntro():intro();bindLinks(M);return;}
+  if(sel.startsWith('G:')) return renderGTable(M,sel.slice(2));
+  if(sel.startsWith('M:')) return renderMigs(M,sel.slice(2));
+  if(sel.startsWith('T:')) return renderTable(M,sel.slice(2));
+  const i=byKey[sel];if(!i)return;
+  if(i.error){M.innerHTML=`<h2>${esc(i.name)}</h2><p class="warn">Could not decode this object's design (${esc(i.error)}).</p>`;return;}
+  let h=`<h2>${esc(i.name)}</h2><div style="color:var(--muted)">${i.kind}${i.caption?' · “'+esc(i.caption)+'”':''}</div><div class="meta">`;
+  if(i.recordSource)h+=`<b>Record source</b><div><pre>${esc(i.recordSource.trim())}</pre></div>`;
+  if(i.orderBy)h+=`<b>Order by</b><div><code>${esc(i.orderBy)}</code></div>`;
+  if(i.groupBy.length)h+=`<b>Sorting / grouping</b><div>${i.groupBy.map(esc).join(' → ')}</div>`;
+  if(i.tablesUsed.length)h+=`<b>Backend tables</b><div class="chips">${i.tablesUsed.map(t=>'<span>'+tref(t)+'</span>').join('')}</div>`;
+  if(i.subforms.length)h+=`<b>Contains</b><div>${i.subforms.map(ref).join(', ')}</div>`;
+  if(i.usedAsSubformIn)h+=`<b>Embedded in</b><div>${[...new Set(i.usedAsSubformIn)].map(ref).join(', ')}</div>`;
+  if(i.opens.length)h+=`<b>Opens</b><div>${i.opens.map(ref).join(', ')}</div>`;
+  if(i.openedBy)h+=`<b>Opened from</b><div>${[...new Set(i.openedBy)].map(ref).join(', ')}</div>`;
+  if(i.kind==='Form'){const fc=formCoverage(i);if(fc.bound){h+=`<b>Migration</b><div>${fc.mapped} of ${fc.bound} bound fields have a GrowHub target (${fc.approved} approved). See the GrowHub column below.</div>`;
+    const sc=screensFor(fc.rows);if(sc.length)h+=`<b>GrowHub screens</b><div>${sc.slice(0,6).map(([cn,n])=>sref(cn)+' <span class="hist">('+n+' of '+fc.mapped+' fields)</span>').join(', ')}</div>`;}}
+  const rdom=(D.rules||[]).filter(d=>d.legacyForm===i.name&&i.kind==='Form');
+  if(rdom.length)h+=`<b>Business rules</b><div>${rdom.map(d=>'<a class="lnk" data-go="B:'+esc(d.rules[0].id)+'">'+d.rules.length+' catalogued ('+esc(d.domain)+')</a>').join(', ')}</div>`;
+  if(i.formEvents.length)h+=`<b>${i.kind} events</b><div>${i.formEvents.join(', ')}</div>`;
+  const rc=RCH[i.kind+':'+i.name];
+  if(rc&&rc.reachable)h+=`<b>Menu path</b><div>${rc.path.map((p,k)=>{const [kd,...nm]=p.node.split(':');const n2=nm.join(':');const lab=kd==='Form'||kd==='Report'?ref(kd+':'+n2):'<code>'+esc(n2)+'</code> <span style="color:var(--muted)">('+kd.toLowerCase()+')</span>';return (k?' <span style="color:var(--muted)">›</span> ':'')+lab+(k&&p.how?'<div class="hist" style="display:inline"> via '+esc(p.how)+'</div>':'');}).join('')}</div>`;
+  else if(rc)h+=`<b>Menu path</b><div><span class="badge warn">not reachable from the menus</span>${rc.inbound.length?' Referenced only from: '+[...new Set(rc.inbound.map(x=>x.from))].slice(0,8).map(x=>{const [kd,...nm]=x.split(':');return kd==='Form'||kd==='Report'?ref(kd+':'+nm.join(':')):esc(x)}).join(', ')+' (none of which are reachable)':' Nothing opens or embeds it.'}</div>`;
+  h+=`<b>Created / modified</b><div>${esc(i.created||'?')} / ${esc(i.updated||'?')}</div></div>`;
+  const pages=[...new Set(i.sections.flatMap(s=>s.controls).filter(c=>c.type==='Page').map(c=>c.name))];
+  h+=`<h3>Layout <button class="toggle" id="zoom">zoom</button></h3>${pages.length?'<div class="chips" id="pages" style="margin-bottom:8px">Tab page: '+pages.map((p,k)=>`<button class="toggle${k?'':' on'}" data-p="${esc(p)}">${esc(p.trim())}</button>`).join(' ')+'</div>':''}<div class="wf-scroll" id="wf"></div>`;
+  h+=`<h3>Controls</h3>`+controlsTable(i);
+  const code=D.vba[i.kind+'_'+i.name];
+  if(code&&code.trim()!=='Option Compare Database')h+=`<h3>Code-behind (VBA)</h3><pre>${esc(code.trim())}</pre>`;
+  M.innerHTML=h;let z=1/15;curPage=pages[0]||null;drawWF(i,z);bindLinks(M);
+  document.getElementById('zoom').onclick=()=>{z=z===1/15?1/10:z===1/10?1/22:1/15;drawWF(i,z);};
+  M.querySelectorAll('#pages button').forEach(b=>b.onclick=()=>{curPage=b.dataset.p;M.querySelectorAll('#pages button').forEach(x=>x.classList.toggle('on',x===b));drawWF(i,z);});
+}
+function controlsTable(i){
+  let rows='';
+  for(const s of i.sections){const labels={};s.controls.forEach(c=>{if(c.attachedTo&&c.type==='Label')labels[c.attachedTo]=c.Caption;});
+    for(const c of s.controls){if(c.attachedTo&&c.type==='Label')continue;if(['Line','Rectangle','Page'].includes(c.type))continue;
+      const cap=c.Caption||labels[c.name]||'';let bound=c.ControlSource||'';if(c.SourceObject)bound=ref(c.SourceObject)+(c.LinkMasterFields?` <span style="color:var(--muted)">master <code>${esc(c.LinkMasterFields)}</code> → child <code>${esc(c.LinkChildFields)}</code></span>`:'');else bound=bound?`<code>${esc(bound)}</code>`:'';
+      const extra=[c.Format&&'format '+c.Format,c.InputMask&&'mask '+c.InputMask,c.DefaultValue&&'default '+c.DefaultValue,c.ValidationRule&&'rule '+c.ValidationRule,c.ColumnWidths&&'cols '+c.ColumnWidths].filter(Boolean).map(esc).join('<br>');
+      const tip=c.StatusBarText||c.ControlTipText||'';
+      let ghm='';const fld=(c.ControlSource||'').replace(/^\[|\]$/g,'');
+      if(fld&&!/^=/.test(fld)){for(const tb of [...Object.keys(i.fieldLists||{}),...(i.tablesUsed||[])]){if((i.fieldLists[tb]||T[tb]?.columns||[]).includes(fld)&&(lgIdx[tb]||{})[fld]){ghm=lgMapCell(tb,fld);break;}}}
+      rows+=`<tr><td>${esc(s.name)}${c.page?'<div style="color:var(--muted)">tab: '+esc(c.page.trim())+'</div>':''}</td><td>${c.type}</td><td>${esc(c.name)}</td><td>${esc(cap)}</td><td>${bound}</td><td>${c.RowSource?'<code>'+esc(c.RowSource)+'</code>':''}</td><td>${extra}${tip?'<div style="color:var(--muted)">'+esc(tip)+'</div>':''}</td><td>${(c.events||[]).join(', ')}</td><td>${ghm}</td></tr>`;}}
+  return rows?`<div style="overflow:auto"><table><thead><tr><th>Section</th><th>Type</th><th>Name</th><th>Label</th><th>Bound to</th><th>Row source</th><th>Format / help</th><th>Events</th><th>GrowHub</th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="note">No data controls.</p>';
+}
+let curPage=null;
+function drawWF(i,z){
+  const W=document.getElementById('wf');let maxW=0;
+  i.sections.forEach(s=>s.controls.forEach(c=>{maxW=Math.max(maxW,c.left+c.width);}));
+  maxW=Math.max(maxW,2880);let h='';
+  for(const s of i.sections){let sh=s.height;s.controls.forEach(c=>sh=Math.max(sh,c.top+c.height));if(!s.controls.length&&!s.height)continue;
+    h+=`<div class="sec" style="width:${maxW*z+8}px;height:${Math.max(sh*z,14)+4}px"><span class="sname">${esc(s.name)}</span>`;
+    for(const c of s.controls){if(c.type==='Page')continue;if(c.page&&c.page!==curPage)continue;
+      const st=`left:${c.left*z}px;top:${c.top*z}px;width:${Math.max(c.width*z,c.type==='Line'?1:6)}px;height:${c.type==='Line'?0:Math.max(c.height*z,6)}px`;
+      let txt='';if(c.type==='Label'||c.type==='CommandButton')txt=c.Caption||c.name;else if(c.type==='Subform')txt='⊞ '+(c.SourceObject||c.name);else if(['TextBox','ComboBox','ListBox','CheckBox'].includes(c.type))txt=c.ControlSource||c.name;else if(c.type==='TabControl')txt='';
+      const go=c.type==='Subform'&&c.SourceObject?(()=>{const m=/^(Form|Report)\.(.+)$/.exec(c.SourceObject);return m&&byKey[m[1]+':'+m[2]]?` data-go="${esc(m[1]+':'+m[2])}"`:''})():'';
+      h+=`<div class="c ${c.type}" style="${st}" title="${esc(c.type+': '+(c.name||'')+(c.ControlSource?' = '+c.ControlSource:''))}"${go}>${esc(txt)}</div>`;}
+    h+='</div>';}
+  W.innerHTML=h||'<p class="note">No layout.</p>';bindLinks(W);
+}
+function relsOf(t){return R.filter(r=>r.parent===t||r.child===t);}
+function renderTable(M,t){
+  const tb=T[t];const rs=relsOf(t);
+  const users=items.filter(i=>(i.tablesUsed||[]).includes(t));
+  let h=`<h2>${esc(t)}</h2><div style="color:var(--muted)">Linked from <code>${esc(tb.backend)}</code>${tb.sourceTable&&tb.sourceTable!==t?' as <code>'+esc(tb.sourceTable)+'</code>':''}</div>`;
+  h+=`<h3>Columns seen in the frontend (${tb.columns.length})</h3><p class="note">Pulled from form field-list caches, saved queries, SQL row sources and VBA. Data types live in the backend file, so they aren't shown here.</p><div class="cols">${tb.columns.map(c=>{const fk=rs.find(r=>r.child===t&&r.fk===c);const pk=c==='CN'||rs.some(r=>r.parent===t&&r.pk===c);return `<div>${pk?'🔑 ':''}${esc(c)}${fk?' → '+tref(fk.parent)+'.'+esc(fk.pk):''} ${lgMapCell(t,c)}</div>`}).join('')||'<div class="warn">none found</div>'}</div>`;
+  h+=`<h3>Relationships</h3>`;
+  if(rs.length){h+=`<div id="mini"></div><div style="overflow:auto;margin-top:10px"><table><thead><tr><th>Parent</th><th>Key</th><th>Child</th><th>FK</th><th>Evidence</th></tr></thead><tbody>${rs.map(r=>`<tr><td>${tref(r.parent)}</td><td>${esc(r.pk)}</td><td>${tref(r.child)}</td><td>${esc(r.fk)}</td><td>${r.evidence?r.evidence+' joins'+(r.directed?'':' <span class="warn">(direction unclear)</span>'):'<span class="warn">column name only</span>'}${r.examples&&r.examples.length?'<div style="color:var(--muted);font-size:11px">e.g. '+r.examples.slice(0,3).map(esc).join(', ')+'</div>':''}</td></tr>`).join('')}</tbody></table></div>`;}
+  else h+='<p class="note">No joins found.</p>';
+  h+=`<h3>Used by ${users.length} forms/reports</h3><div class="chips">${users.map(u=>'<span>'+ref(u.kind+':'+u.name)+'</span>').join('')}</div>`;
+  M.innerHTML=h;bindLinks(M);
+  if(rs.length)mermaidDraw(document.getElementById('mini'),[t],rs.filter(r=>r.directed));
+}
+const mid=t=>t.replace(/\W/g,'_');
+function mermaidDraw(el,focus,rels,showCols){
+  if(!window.mermaid){el.innerHTML='<p class="note">Diagram needs the Mermaid library from cdn.jsdelivr.net; open this file while online. The tables below still list every relationship.</p>';return;}
+  const tables=[...new Set(rels.flatMap(r=>[r.parent,r.child]).concat(focus))];
+  let s='erDiagram\n';
+  for(const t of tables){const fks=rels.filter(r=>r.child===t).map(r=>r.fk);const pks=rels.filter(r=>r.parent===t).map(r=>r.pk);
+    const cols=showCols?(T[t]?.columns||[]):[...new Set([...pks,...fks])];
+    s+=`  ${mid(t)} {\n${cols.map(c=>`    field ${c.replace(/\W/g,'_')}${pks.includes(c)?' PK':''}${fks.includes(c)?(pks.includes(c)?',FK':' FK'):''}`).join('\n')}\n  }\n`;}
+  const seen=new Set();for(const r of rels){const k=r.parent+r.child+r.fk;if(seen.has(k))continue;seen.add(k);s+=`  ${mid(r.parent)} ||--o{ ${mid(r.child)} : "${r.fk}"\n`;}
+  const dark=(document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark';
+  mermaid.initialize({startOnLoad:false,theme:dark?'dark':'neutral',maxTextSize:500000,er:{useMaxWidth:false}});
+  mermaid.render('m'+Math.random().toString(36).slice(2),s).then(({svg})=>{el.innerHTML=svg;el.querySelectorAll('g[id^="entity-"]').forEach(g=>{});}).catch(e=>{el.innerHTML='<pre>'+esc(String(e))+'</pre>';});
+}
+function renderERD(M){
+  const core=R.filter(r=>r.directed&&!r.parent.startsWith('*')&&!r.child.startsWith('*'));
+  const ev=core.filter(r=>r.evidence>0);
+  M.innerHTML=`<h2>Entity relationship diagram</h2><p class="note">Built from ${R.filter(r=>r.evidence).length} distinct join conditions in saved queries and form/report SQL, plus <code>*_CN</code> / code-column naming. The tables live in the linked backend <code>NmisData.mdb</code>, which isn't in this file, so keys are inferred and data types are unknown. <code>CN</code> is the surrogate key on most tables.</p>
+  <p><label><input type="checkbox" id="byname"> include name-only links</label> &nbsp; <label><input type="checkbox" id="allcols"> show all columns</label> &nbsp; <label>min joins <input type="number" id="minj" value="15" min="0" style="width:56px"></label> &nbsp; <label><input type="checkbox" id="fit" checked> fit to width</label></p><div id="erd" class="wf-scroll"></div>`;
+  const draw=()=>{const bn=document.getElementById('byname').checked,mj=+document.getElementById('minj').value;
+    const rs=core.filter(r=>(r.evidence>=mj&&r.evidence>0)||(bn&&r.evidence===0));
+    mermaidDraw(document.getElementById('erd'),[],rs,document.getElementById('allcols').checked);};
+  ['byname','allcols','minj'].forEach(id=>document.getElementById(id).onchange=draw);draw();
+  document.getElementById('fit').onchange=e=>document.getElementById('erd').classList.toggle('fit',e.target.checked);document.getElementById('erd').classList.add('fit');
+}
+function renderMenus(M){
+  const ms=D.menus;const idx={};ms.forEach(m=>idx[m.id]=m);
+  const RS=D.reach.summary;
+  M.innerHTML=`<h2>Switchboard menus</h2><p class="note">From the <code>Switchboard Items</code> table: the app's main menu tree.</p>
+  <div class="kpis"><div class="kpi"><b>${RS.Form.reachable} / ${RS.Form.total}</b><span>forms reachable from the menus</span></div><div class="kpi"><b>${RS.Report.reachable} / ${RS.Report.total}</b><span>reports reachable</span></div><div class="kpi"><b>${RS.macros.reachable} / ${RS.macros.total}</b><span>macros reachable</span></div></div>
+  <p class="note">Reachable means there's a chain from the Switchboard through menu items, subforms, VBA <code>DoCmd.OpenForm/OpenReport</code> calls (including names assigned to variables first), called VBA procedures, macros, and macro or <code>=Function()</code> event properties. 17 opens build the name at runtime. Most of those read the same <code>Switchboard Items</code> table, which is already covered, so very few real screens should be missed. Everything else is probably dead: old copies, one-off utilities, or screens retired in place.</p>`+ms.map(m=>`<div class="menu" id="menu${m.id}"><h4>${esc(m.title)} <span style="color:var(--muted);font-weight:400">#${m.id}</span></h4><ul>${m.items.map(it=>{let a=esc(it.argument);if(it.command==='go to menu'&&idx[it.argument])a=`<a class="lnk" onclick="document.getElementById('menu${it.argument}').scrollIntoView({behavior:'smooth'})">→ ${esc(idx[it.argument].title)}</a>`;else if(it.command.startsWith('open form')&&byKey['Form:'+it.argument])a=ref('Form:'+it.argument);else if(it.command==='open report'&&byKey['Report:'+it.argument])a=ref('Report:'+it.argument);else if(it.command==='run code'&&it.argument)a='<code>'+a+'()</code>';return `<li>${esc(it.text)} <span style="color:var(--muted)">— ${esc(it.command)}</span> ${a}</li>`}).join('')}</ul></div>`).join('');
+  bindLinks(M);
+}
+function intro(){
+  const main=['Switchboard','NMIS_AGREEMENT_LOTS','NMIS_ORDER_ACT-TRANS-LOC','REPORTS Form','NMIS_SOURCE_LOTS'].filter(n=>byKey['Form:'+n]);
+  return `<h2>${tab==='Form'?'Forms':tab==='Report'?'Reports':'Backend tables'}</h2><p class="note">Pick an item on the left. Each form shows a wireframe drawn from the saved control positions, every control with its binding and row source, and the VBA behind it. Subforms, opened forms and tables are clickable.</p>${tab==='Form'?'<p>Good places to start: '+main.map(n=>ref('Form:'+n)).join(', ')+'</p>':''}`;
+}
+
+const gref=n=>GT[n]?`<a class="lnk" data-go="G:${esc(n)}">${esc(n)}</a>`:esc(n);
+const mref=f=>{const m=G.migrations.find(x=>x.file===f);return m?`<a class="lnk" data-go="M:${esc(f)}">${esc(m.name)}</a> <span style="color:var(--muted)">${m.date}</span>`:esc(f||'');};
+function gIntro(){
+  const noEnt=Object.keys(GT).filter(n=>!GT[n].entity&&!['migrations','typeorm_metadata'].includes(n));
+  return `<h2>GrowHub schema</h2><p class="note">${Object.keys(GT).length} tables in the <code>nmis</code> Postgres schema, from the pgAdmin ERD export. Types, keys and foreign keys are exact. Each table and column also shows the migrations that created or changed it (${G.migrations.length} migrations, through <code>${esc(G.migrations[G.migrations.length-1].name)}</code>).</p>
+  <p class="note">Every table carries the same embedded audit columns (<code>metadataCreatedby</code>, <code>metadataCreatedon</code>, …) with FKs to <code>user</code>. These are collapsed by default.</p>
+  <h3>Tables in the database with no entity class in code</h3><div class="chips">${noEnt.map(n=>'<span>'+gref(n)+'</span>').join('')}</div>
+  <p class="note">TypeORM won't create or drop these, so they're probably leftovers. <code>recieving_activity</code> is a misspelled twin of <code>receiving_activity</code>.</p>`;
+}
+function fkLabel(fk){return `→ ${gref(fk.refTable)}.${esc(fk.refColumn)}${fk.onDelete&&fk.onDelete!=='NO ACTION'?' <span class="badge">on delete '+esc(fk.onDelete.toLowerCase())+'</span>':''}`;}
+function histLine(h){return `<div>${h.date||''} · ${esc(h.action)}${h.detail?' <code>'+esc(h.detail.length>90?h.detail.slice(0,90)+'…':h.detail)+'</code>':''} <span>(${h.file?mref(h.file):''})</span></div>`;}
+function renderGTable(M,n){
+  const g=GT[n];if(!g){M.innerHTML='<p>Unknown table</p>';return;}
+  const fkBy={};g.fks.forEach(f=>fkBy[f.column]=f);
+  const uq=new Set(g.unique.filter(u=>u.length===1).map(u=>u[0]));
+  const incoming=[];for(const [on,o] of Object.entries(GT))for(const f of o.fks)if(f.refTable===n&&!(n==='user'&&isMeta(f.column)))incoming.push({table:on,...f});
+  const row=c=>{const fk=fkBy[c.name];const key=[g.pk.includes(c.name)?'<span class="badge pk">PK</span>':'',uq.has(c.name)?'<span class="badge">unique</span>':'',fk?fkLabel(fk):''].join(' ');
+    const typ=c.enumValues?`<code>${esc(c.type)}</code><div>${c.enumValues.map(v=>'<span class="enumv">'+esc(v)+'</span>').join('')}</div>`:`<code>${esc(c.type)}</code>`;
+    const h=c.history||[];const first=h[0];
+    const hist=h.length?`<details><summary>${first.date||''} ${esc(first.action)}${h.length>1?' · '+(h.length-1)+' later change'+(h.length>2?'s':''):''}</summary><div class="hist">${h.map(histLine).join('')}</div></details>`:'<span class="hist">—</span>';
+    return `<tr><td><b>${esc(c.name)}</b>${c.comment?'<div class="hist">'+esc(c.comment)+'</div>':''}</td><td>${typ}</td><td>${c.notNull?'required':'<span style="color:var(--muted)">nullable</span>'}</td><td>${c.default?'<code>'+esc(c.default)+'</code>':''}</td><td>${key}</td><td>${ghMapCell(n,c.name)}</td><td class="mapcell">${[...((scrIdx[n]||{})[c.name]||[])].map(sref).join('<br>')}</td><td>${hist}</td></tr>`;};
+  const main=g.columns.filter(c=>!isMeta(c.name)),meta=g.columns.filter(c=>isMeta(c.name));
+  const head='<thead><tr><th>Column</th><th>Type</th><th>Null</th><th>Default</th><th>Keys</th><th>Access source</th><th>Screens</th><th>History</th></tr></thead>';
+  const cr=g.history.find(h=>h.actions['create table']);
+  let h=`<h2>${esc(n)}${g.entity?'':' <span class="badge warn">no entity in code</span>'}</h2><div class="meta">`;
+  if(g.entity)h+=`<b>Entity</b><div><code>${esc(g.entity.class)}</code> · <code>${esc(g.entity.file)}</code></div>`;
+  if(g.controllers.length)h+=`<b>Controllers</b><div>${g.controllers.map(c=>'<code>'+esc(c)+'</code>').join('<br>')}</div>`;
+  if(cr)h+=`<b>Created</b><div>${mref(cr.file)}${g.copiedFrom?' — copied from <code>'+esc(g.copiedFrom)+'</code>':''}</div>`;
+  const ren=g.history.filter(x=>x.actions['rename table']);if(ren.length)h+=`<b>Renamed</b><div>${ren.map(x=>mref(x.file)).join(', ')}</div>`;
+  if(g.unique.some(u=>u.length>1))h+=`<b>Composite unique</b><div>${g.unique.filter(u=>u.length>1).map(u=>'<code>('+u.map(esc).join(', ')+')</code>').join(' ')}</div>`;
+  const mrows=Object.values(ghIdx[n]||{}).flat();
+  if(mrows.length)h+=`<b>Mapping</b><div>${mrows.length} fields in the mapping sheet, ${mrows.filter(r=>r.approved.state==='yes').length} approved · ${[...new Set(mrows.map(r=>r.sheet+'|'+r.section))].map(k=>'<a class="lnk" data-go="S:'+esc(k)+'">'+esc(k.replace('|',' › '))+'</a>').join(', ')}</div>`;
+  h+=`<b>Size</b><div>${main.length} columns + ${meta.length} audit columns · ${g.fks.filter(f=>!isMeta(f.column)).length} outgoing FKs · ${incoming.length} incoming</div></div>`;
+  h+=`<h3>Columns</h3><div style="overflow:auto"><table>${head}<tbody>${main.map(row).join('')}</tbody></table></div>`;
+  if(meta.length)h+=`<details style="margin-top:8px"><summary>${meta.length} audit columns</summary><table>${head}<tbody>${meta.map(row).join('')}</tbody></table></details>`;
+  h+=`<h3>Relationships</h3><div id="gmini"></div><div style="overflow:auto;margin-top:8px"><table><thead><tr><th>Direction</th><th>Table</th><th>Column</th><th>References</th><th>On delete</th></tr></thead><tbody>`+
+    g.fks.filter(f=>!isMeta(f.column)).map(f=>`<tr><td>references</td><td>${gref(f.refTable)}</td><td>${esc(f.column)}</td><td>${esc(f.refTable)}.${esc(f.refColumn)}</td><td>${esc(f.onDelete)}</td></tr>`).join('')+
+    incoming.map(f=>`<tr><td>referenced by</td><td>${gref(f.table)}</td><td>${esc(f.column)}</td><td>${esc(n)}.${esc(f.refColumn)}</td><td>${esc(f.onDelete)}</td></tr>`).join('')+`</tbody></table></div>`;
+  const eps=BE.endpoints.map((e,ix)=>({e,ix})).filter(({e})=>(e.handler.tables||[]).includes(n));
+  if(eps.length)h+=`<h3>Endpoints that touch ${esc(n)} (${eps.length})</h3><table><tbody>${eps.map(({e,ix})=>`<tr><td style="width:60px">${vb(e.verb)}</td><td><a class="lnk" data-go="E:${ix}">${esc(e.path)}</a></td><td><code>${esc(e.handler.function||'')}</code></td><td class="hist">${(reqByEp[epKey(e)]||[]).length} frontend requests</td></tr>`).join('')}</tbody></table>`;
+  h+=`<h3>Migration history (${g.history.length})</h3>`+g.history.slice().reverse().map(x=>`<div class="mig"><div class="mt"><span class="md">${x.date}</span>${mref(x.file)}</div><div class="hist">${Object.entries(x.actions).map(([a,c])=>esc(a)+(c>1?' ×'+c:'')).join(' · ')}${x.columns.length?' — '+x.columns.slice(0,14).map(esc).join(', ')+(x.columns.length>14?' …':''):''}</div></div>`).join('');
+  M.innerHTML=h;bindLinks(M);
+  const rels=[...g.fks.filter(f=>!isMeta(f.column)).map(f=>({parent:f.refTable,pk:f.refColumn,child:n,fk:f.column})),...incoming.map(f=>({parent:n,pk:f.refColumn,child:f.table,fk:f.column}))];
+  if(rels.length)mermaidDraw(document.getElementById('gmini'),[n],rels);else document.getElementById('gmini').innerHTML='<p class="note">No foreign keys besides audit columns.</p>';
+}
+
+function renderScrIntro(M){
+  const all=Object.values(FE.components).flatMap(c=>c.controls),calls=Object.values(FE.components).flatMap(c=>c.calls);
+  const dead=[...new Map(calls.filter(x=>!x.endpoint&&/^\/api\//.test(x.url)).map(x=>[x.verb+' '+x.url,x])).values()];
+  M.innerHTML=`<h2>GrowHub screens</h2><p class="note">Scraped from the Angular app in <code>Nursery-GrowHub-Frontend/frontend</code>. Each route's component and everything it embeds or opens as a dialog counts as one screen. Form fields come from the templates (<code>formControlName</code>, <code>[formControl]</code>, <code>ngModel</code>) with their labels and step/tab section. They're tied to GrowHub columns by name, using the screen's form groups, models and the tables behind the API calls it makes.</p>
+  <div class="kpis"><div class="kpi"><b>${Object.keys(SCR).length}</b><span>screens (${FE.routes.length} routes)</span></div><div class="kpi"><b>${all.length}</b><span>form fields</span></div><div class="kpi"><b>${all.filter(c=>c.gh.length).length}</b><span>tied to a GrowHub column</span></div><div class="kpi"><b>${calls.filter(x=>x.endpoint).length} / ${calls.length}</b><span>API calls traced to a backend route</span></div></div>
+  <h3>Screens</h3><table><thead><tr><th>Route</th><th>Component</th><th>Fields</th><th>Columns edited</th><th>Tables</th></tr></thead><tbody>${Object.entries(SCR).sort((a,b)=>b[1].fieldCount-a[1].fieldCount).map(([cn,s])=>`<tr><td>${sref(cn)}${s.paths.length>1?'<div class="hist">'+s.paths.slice(1).map(esc).join(', ')+'</div>':''}</td><td><code>${esc(cn)}</code></td><td>${s.fieldCount}</td><td>${s.boundColumns.length}</td><td class="mapcell">${s.tables.map(gref).join(', ')}</td></tr>`).join('')}</tbody></table>
+  ${dead.length?`<h3>Frontend calls with no matching backend route (${dead.length})</h3><p class="note">Either the parser missed the route, or the endpoint is gone. <code>/api/grow-locations</code>, for example, went away when <code>grow_location</code> was renamed to <code>bed_row</code>.</p><table><tbody>${dead.map(x=>`<tr><td>${x.verb}</td><td><code>${esc(x.url)}</code></td><td><code>${esc(x.service)}.${esc(x.method)}</code></td></tr>`).join('')}</tbody></table>`:''}`;
+  bindLinks(M);
+}
+function renderScreen(M,cn){
+  const s=SCR[cn];if(!s){M.innerHTML='?';return;}
+  let h=`<h2>${esc(s.paths[0])}</h2><div style="color:var(--muted)"><code>${esc(cn)}</code> · ${s.components.length} components · ${s.fieldCount} fields</div><div class="meta">`;
+  if(s.paths.length>1)h+=`<b>Also at</b><div>${s.paths.slice(1).map(p=>'<code>'+esc(p)+'</code>').join(', ')}</div>`;
+  if(s.guards.length)h+=`<b>Guards</b><div>${s.guards.map(esc).join(', ')}</div>`;
+  h+=`<b>Tables</b><div class="chips">${s.tables.map(t=>'<span>'+gref(t)+'</span>').join('')||'—'}</div>`;
+  // legacy forms that cover the same columns
+  const lcount={};
+  for(const bc of s.boundColumns){for(const r of ((ghIdx[bc.table]||{})[bc.column]||[]))for(const l of (r.legacy||[])){for(const i of legacyFormsFor(l.table,l.column))lcount[i]=(lcount[i]||0)+1;}}
+  const lf=Object.entries(lcount).sort((a,b)=>b[1]-a[1]).slice(0,12);
+  if(lf.length)h+=`<b>Legacy forms with the same data</b><div>${lf.map(([n,c])=>ref('Form:'+n)+' <span class="hist">('+c+')</span>').join(', ')}</div>`;
+  const rd=(D.rules||[]).filter(d=>d.growhubScreen===cn);
+  if(rd.length)h+=`<b>Business rules</b><div>${rd.map(d=>'<a class="lnk" data-go="B:'+esc(d.rules[0].id)+'">'+d.rules.length+' catalogued ('+esc(d.domain)+')</a>').join(', ')}</div>`;
+  h+=`<b>Files</b><div class="hist">${s.components.map(c=>'<code>'+esc(FE.components[c].file)+'</code>').join('<br>')}</div></div>`;
+  const shared=c=>/\/app\/components\//.test(FE.components[c].file)&&c!==cn;
+  const order=s.components.slice().sort((a,b)=>(a===cn?-1:b===cn?1:0)||(shared(a)-shared(b))||(FE.components[b].controls.length-FE.components[a].controls.length));
+  let inShared=false;
+  for(const c of order){const C=FE.components[c];if(!C.controls.length&&!C.configColumns.length&&!C.columns.length)continue;
+    if(shared(c)&&!inShared){inShared=true;h+=`<details style="margin-top:18px"><summary>Shared components used on this screen</summary>`;}
+    h+=`<h3>${esc(c)}${c===cn?' <span class="badge pk">route component</span>':''}</h3>`;
+    if(C.controls.length){h+=`<div style="overflow:auto"><table><thead><tr><th>Section</th><th>Label</th><th>Control</th><th>GrowHub column</th><th>Access source (mapping)</th></tr></thead><tbody>`+C.controls.map(x=>{
+      const likely=!x.gh.length&&x.ambiguous?x.ambiguous.filter(a=>s.tables.includes(a.table)):[];
+      const gh=x.gh.map(g=>gref(g.table)+'.<b>'+esc(g.column)+'</b>').join('<br>')||(likely.length===1?gref(likely[0].table)+'.<b>'+esc(likely[0].column)+'</b><div class="sug">likely, the only match among this screen\'s tables</div>':x.ambiguous?'<span class="sug">ambiguous: '+x.ambiguous.map(a=>esc(a.table+'.'+a.column)).join(', ')+'</span>':'<span class="hist">—</span>');
+      const acc=x.gh.map(g=>ghMapCell(g.table,g.column)).join('');
+      return `<tr><td class="hist">${esc(x.section.join(' › '))}</td><td>${esc(x.label||'')}${x.required?' <span class="badge">required</span>':''}</td><td style="min-width:170px"><code style="overflow-wrap:anywhere">${esc([...x.path,x.name].join('.'))}</code><div class="hist">${esc(x.tag)}${x.type?' '+esc(x.type):''}</div></td><td>${gh}${x.gh.length&&x.ghHow!=='form group'?'<div class="sug">matched via '+esc(x.ghHow)+'</div>':''}</td><td>${acc}</td></tr>`;}).join('')+`</tbody></table></div>`;}
+    const cols=[...C.configColumns,...C.columns];
+    if(cols.length)h+=`<details style="margin:6px 0"><summary>${cols.length} table columns shown</summary><div class="chips">${cols.map(x=>'<span>'+esc(x.header||x.def)+' <code>'+esc(x.def)+'</code></span>').join('')}</div></details>`;
+  }
+  if(inShared)h+='</details>';
+  const calls=[...new Map(s.components.flatMap(c=>FE.components[c].calls.map(x=>[x.verb+x.url,{...x,comp:c}]))).values()];
+  if(calls.length)h+=`<h3>API calls (${calls.length})</h3><table><thead><tr><th>Verb</th><th>URL</th><th>Backend route</th><th>Tables</th><th>From</th></tr></thead><tbody>${calls.map(x=>`<tr><td>${x.verb}</td><td><code>${esc(x.url)}</code></td><td>${x.endpointKey?epref(x.endpointKey):'<span class="miss">not found</span>'}</td><td>${x.tables.map(gref).join(', ')}</td><td class="hist">${esc(x.service)}.${esc(x.method)}</td></tr>`).join('')}</tbody></table>`;
+  M.innerHTML=h;bindLinks(M);
+}
+let _lff=null;
+function legacyFormsFor(table,col){ // reachable legacy forms that bind this legacy column
+  if(!_lff){_lff={};for(const i of items){if(i.kind!=='Form'||i.error||!isReach(i))continue;for(const s of i.sections)for(const c of s.controls){const f=(c.ControlSource||'').replace(/^\[|\]$/g,'');if(!f||f.startsWith('='))continue;
+    for(const tb of [...Object.keys(i.fieldLists||{}),...(i.tablesUsed||[])]){if((i.fieldLists[tb]||T[tb]?.columns||[]).includes(f)){(_lff[tb+'.'+f]=_lff[tb+'.'+f]||new Set()).add(i.name);break;}}}}}
+  return [...(_lff[table+'.'+col]||[])];
+}
+
+
+const ALLRULES=(D.rules||[]).flatMap(d=>d.rules.map(r=>({...r,dom:d})));
+const vdChip=v=>`<span class="vd ${esc((v||'').split(' ')[0].toLowerCase())}">${esc(v)}</span>`;
+const bref=id=>`<a class="lnk" data-go="B:${esc(id)}">${esc(id)}</a>`;
+function renderRulesHome(M){
+  let h=`<h2>Business rules</h2><p class="note">Calculations and checks from the legacy screens next to their GrowHub equivalents. Each rule is written by hand from reading both codebases. The code shown is pulled straight from the VBA, the form's calculated controls, the saved queries and the GrowHub TypeScript when the explorer is built. Rules live in <code>tools/rules/*.json</code>, one file per domain.</p>`;
+  for(const d of (D.rules||[])){
+    const c=k=>d.rules.filter(r=>r.verdict===k).length;
+    h+=`<h3>${esc(d.domain)}</h3><p>${esc(d.summary)}</p><p class="note">Legacy: ${ref('Form:'+d.legacyForm)} · GrowHub: ${sref(d.growhubScreen)}</p>
+    <div class="kpis">${['differs','missing','legacy bug','needs SME','matches','GrowHub only'].map(k=>`<div class="kpi"><b>${c(k)}</b><span>${vdChip(k)}</span></div>`).join('')}</div>
+    <table><thead><tr><th>Rule</th><th>What</th><th>Verdict</th><th>Severity</th><th>Open question</th></tr></thead><tbody>${d.rules.map(r=>`<tr><td>${bref(r.id)}</td><td>${esc(r.title)}</td><td>${vdChip(r.verdict)}</td><td><span class="sev ${esc(r.severity)}">${esc(r.severity)}</span></td><td class="mapcell">${esc(r.question||'')}</td></tr>`).join('')}</tbody></table>
+    <h3>Inputs: legacy ↔ GrowHub</h3><table><thead><tr><th>Meaning</th><th>Legacy</th><th>GrowHub</th><th>Note</th></tr></thead><tbody>${d.inputs.map(x=>`<tr><td>${esc(x.meaning)}</td><td><code>${esc(x.legacy||'—')}</code></td><td>${x.growhub?'<code>'+esc(x.growhub)+'</code>':'<span class="miss">no field</span>'}</td><td class="mapcell">${esc(x.note||'')}</td></tr>`).join('')}</tbody></table>
+    <h3>Questions for the SMEs</h3><ol>${d.rules.filter(r=>r.question).map(r=>`<li>${bref(r.id)} ${esc(r.question)}</li>`).join('')}</ol>`;
+  }
+  M.innerHTML=h;bindLinks(M);
+}
+function refBlock(ref){
+  if(!ref.code)return `<div class="where">${esc(JSON.stringify(ref))} (not found)</div>`;
+  return `<div class="where">${esc(ref.where)}</div><pre>${esc(ref.code.replace(/^\n+|\s+$/g,''))}</pre>`;
+}
+function renderRule(M,id){
+  const r=ALLRULES.find(x=>x.id===id);if(!r){M.innerHTML='?';return;}
+  const i=ALLRULES.indexOf(r),prev=ALLRULES[i-1],next=ALLRULES[i+1];
+  M.innerHTML=`<div class="hist">${esc(r.dom.domain)} › ${esc(r.id)}</div><h2>${esc(r.title)}</h2><div>${vdChip(r.verdict)} <span class="sev ${esc(r.severity)}">${esc(r.severity)}</span></div>
+  ${r.impact?`<div class="callout"><b>Why it matters.</b> ${esc(r.impact)}</div>`:''}
+  <div class="cmp"><div><h4>Legacy · ${ref('Form:'+r.dom.legacyForm)}</h4><div class="f">${esc(r.legacy.formula)}</div>${(r.legacy.refs||[]).map(refBlock).join('')}</div>
+  <div><h4>GrowHub · ${sref(r.dom.growhubScreen)}</h4><div class="f">${esc(r.growhub.formula)}</div>${(r.growhub.refs||[]).map(refBlock).join('')}</div></div>
+  ${r.evidence?`<p class="note"><b>Evidence:</b> ${esc(r.evidence)}</p>`:''}
+  ${r.question?`<p><b>Open question:</b> ${esc(r.question)}</p>`:''}
+  <p style="margin-top:18px">${prev?'← '+bref(prev.id)+' '+esc(prev.title):''}${prev&&next?' &nbsp;·&nbsp; ':''}${next?bref(next.id)+' '+esc(next.title)+' →':''}</p>`;
+  bindLinks(M);
+}
+
+
+// ---- GrowHub frontend forms/requests + backend endpoints ----
+const BE=D.be, epKey=e=>e.verb+' '+e.path, EPIX={};BE.endpoints.forEach((e,ix)=>EPIX[epKey(e)]=ix);
+const reqByEp={};FE.requests.forEach((r,ix)=>{if(r.endpointKey)(reqByEp[r.endpointKey]=reqByEp[r.endpointKey]||[]).push(ix);});
+const compScreens={};for(const [cn,s] of Object.entries(SCR))for(const c of s.components)(compScreens[c]=compScreens[c]||[]).push(cn);
+const FORMS=Object.entries(FE.components).flatMap(([cn,c])=>(c.forms||[]).map(f=>({...f,comp:cn,key:cn+'|'+f.name,file:c.file})));
+function flat(fields,path=[]){return fields.flatMap(f=>f.kind==='control'?[{...f,path}]:flat(f.fields||[],[...path,f.name+(f.kind==='array'?'[]':'')]));}
+const vb=v=>`<span class="verb ${esc(v)}">${esc(v)}</span>`;
+const epref=k=>EPIX[k]!=null?`<a class="lnk" data-go="E:${EPIX[k]}">${esc(k.split(' ').slice(1).join(' '))}</a>`:'<span class="miss">no backend route</span>';
+const qref=ix=>{const r=FE.requests[ix];return `<a class="lnk" data-go="Q:${ix}">${esc(r.service)}.${esc(r.method)}</a>`;};
+const reqIx=(svc,meth)=>FE.requests.map((r,ix)=>r.service===svc&&r.method===meth?ix:-1).filter(x=>x>=0);
+const stampLine=st=>st?`<div class="stamp">Scraped from <code>${esc(st.repo.split('/').pop())}</code> · branch <code>${esc(st.branch)}</code> · commit <code>${esc(st.commit)}</code> (${esc(st.commitDate)}) “${esc(st.subject)}”${st.dirty?' · <span class="miss">uncommitted changes</span>':''}</div>`:'';
+const fref=key=>`<a class="lnk" data-go="F:${esc(key)}">${esc(key.split('|')[1].replace('returned by ',''))}</a>`;
+function renderFormsHome(M){
+  const rows=FORMS.slice().sort((a,b)=>flat(b.fields).length-flat(a.fields).length);
+  M.innerHTML=`<h2>GrowHub forms</h2>${stampLine(FE.stamp)}<p class="note">Every reactive form defined in the Angular components (<code>formBuilder.group</code> / <code>new FormGroup</code>), with nested groups and arrays, default values and validators. Each field is matched to its GrowHub column and, through the mapping sheet, its Access source. A form's requests are the API calls made from component methods that use the form, so they're inferred from code structure.</p>
+  <div class="kpis"><div class="kpi"><b>${FORMS.length}</b><span>forms</span></div><div class="kpi"><b>${FORMS.reduce((n,f)=>n+flat(f.fields).length,0)}</b><span>fields</span></div><div class="kpi"><b>${FORMS.reduce((n,f)=>n+flat(f.fields).filter(x=>(x.validators||[]).some(v=>/required/.test(v))).length,0)}</b><span>required fields</span></div><div class="kpi"><b>${FORMS.reduce((n,f)=>n+flat(f.fields).filter(x=>x.gh&&x.gh.length).length,0)}</b><span>fields tied to a column</span></div></div>
+  <table><thead><tr><th>Form</th><th>Component</th><th>Fields</th><th>Required</th><th>Requests</th><th>Screens</th></tr></thead><tbody>${rows.map(f=>{const fl=flat(f.fields);return `<tr><td>${fref(f.key)}</td><td><code>${esc(f.comp)}</code></td><td>${fl.length}</td><td>${fl.filter(x=>(x.validators||[]).some(v=>/required/.test(v))).length}</td><td>${f.requests.length}</td><td class="mapcell">${(compScreens[f.comp]||[]).map(sref).join(', ')}</td></tr>`;}).join('')}</tbody></table>`;
+  bindLinks(M);
+}
+function renderForm(M,key){
+  const f=FORMS.find(x=>x.key===key);if(!f){M.innerHTML='?';return;}
+  const fl=flat(f.fields);
+  const reqs=[...new Map(f.requests.flatMap(r=>reqIx(r.service,r.method).map(ix=>[ix,{ix,via:r.via}]))).values()];
+  M.innerHTML=`<div class="hist">GrowHub frontend › Forms</div><h2>${esc(f.name)}</h2><div style="color:var(--muted)"><code>${esc(f.comp)}</code></div>
+  <div class="meta"><b>Defined in</b><div><code>${esc(f.file)}:${f.line}</code>${f.method?' in <code>'+esc(f.method)+'()</code>':''}</div>
+  <b>On screens</b><div>${(compScreens[f.comp]||[]).map(sref).join(', ')||'—'}</div>
+  ${f.groupValidators&&f.groupValidators.length?`<b>Form validators</b><div><code>${f.groupValidators.map(esc).join(', ')}</code></div>`:''}
+  ${f.sharedWith&&f.sharedWith.length?`<b>Also used by</b><div class="mapcell">${f.sharedWith.map(c=>'<code>'+esc(c)+'</code>').join(' ')} <span class="hist">(passed down as an input)</span></div>`:''}
+  <b>Used by methods</b><div class="mapcell">${(f.usedIn||[]).map(m=>'<code>'+esc(m)+'()</code>').join(' ')||'—'}</div></div>
+  <h3>Requests sent from this form (${reqs.length})</h3>${reqs.length?`<table><thead><tr><th></th><th>Backend endpoint</th><th>Tables</th><th>Service call</th><th>Sent from</th></tr></thead><tbody>${reqs.map(({ix,via})=>{const r=FE.requests[ix];return `<tr><td>${vb(r.verb)}</td><td style="min-width:240px">${r.endpointKey?epref(r.endpointKey):'<span class="miss">no backend route</span>'}</td><td class="mapcell">${r.tables.map(gref).join(', ')}</td><td>${qref(ix)}</td><td class="mapcell" style="min-width:200px"><code style="overflow-wrap:anywhere">${esc(via)}()</code></td></tr>`;}).join('')}</tbody></table>`:'<p class="note">No API calls found in methods that use this form.</p>'}
+  <h3>Fields (${fl.length})</h3><div style="overflow:auto"><table class="tree"><thead><tr><th>Field</th><th>Label / input</th><th>Default</th><th>Validators</th><th>GrowHub column</th><th>Access source</th></tr></thead><tbody>${fl.map(x=>`<tr><td><span class="hist">${esc(x.path.join('.'))}${x.path.length?'.':''}</span><b>${esc(x.name)}</b>${x.disabled?' <span class="badge">disabled</span>':''}</td><td>${esc(x.label||'')}<div class="hist">${esc(x.input||'')}</div></td><td><code>${esc(x.default||'')}</code></td><td class="mapcell">${(x.validators||[]).map(v=>'<code>'+esc(v.replace('Validators.',''))+'</code>').join(' ')}</td><td>${(x.gh||[]).map(g=>gref(g.table)+'.<b>'+esc(g.column)+'</b>').join('<br>')||'<span class="hist">—</span>'}${x.gh&&x.gh.length&&x.ghHow!=='form group'?'<div class="sug">via '+esc(x.ghHow)+'</div>':''}</td><td>${(x.gh||[]).map(g=>ghMapCell(g.table,g.column)).join('')}</td></tr>`).join('')}</tbody></table></div>`;
+  bindLinks(M);
+}
+function renderReqHome(M){
+  const by={};FE.requests.forEach((r,ix)=>(by[r.service]=by[r.service]||[]).push(ix));
+  const um=FE.requests.filter(r=>!r.endpoint).length;
+  M.innerHTML=`<h2>GrowHub requests</h2>${stampLine(FE.stamp)}<p class="note">Every HTTP call in the Angular services, with the URL rebuilt from template strings, string concatenation, local variables, class fields and URL helper methods. Each is paired with the backend route Express would match.</p>
+  <div class="kpis"><div class="kpi"><b>${FE.requests.length}</b><span>requests in ${Object.keys(by).length} services</span></div><div class="kpi"><b>${FE.requests.length-um}</b><span>paired with a backend endpoint</span></div><div class="kpi"><b style="color:var(--bad)">${um}</b><span>no backend route</span></div><div class="kpi"><b>${FE.requests.filter(r=>!r.callers.length).length}</b><span>never called by a component</span></div></div>
+  ${Object.entries(by).sort().map(([svc,ixs])=>`<h3>${esc(svc)}</h3><table><tbody>${ixs.map(ix=>{const r=FE.requests[ix];return `<tr><td style="width:60px">${vb(r.verb)}</td><td><a class="lnk" data-go="Q:${ix}">${esc(r.method)}</a></td><td><code>${esc(r.url)}</code></td><td>${r.endpointKey?'→ '+epref(r.endpointKey):'<span class="miss">no backend route</span>'}</td><td class="hist">${r.callers.length?r.callers.length+' caller'+(r.callers.length>1?'s':''):'unused'}</td></tr>`;}).join('')}</tbody></table>`).join('')}`;
+  bindLinks(M);
+}
+function epCard(e){const h=e.handler;
+  return `<div class="meta"><b>Handler</b><div><code>${esc(h.function||'?')}</code>${h.baseCrud?' <span class="badge">base CRUD for '+esc(h.entity)+'</span>':''}<div class="where">${esc(h.file||'')}:${h.line||''}</div></div>
+  <b>Route</b><div class="where">${esc(e.router)}</div>
+  ${e.middleware&&e.middleware.length?`<b>Middleware</b><div><code>${e.middleware.map(esc).join(', ')}</code></div>`:''}
+  <b>Role checks</b><div>${(h.auth||[]).map(a=>'<code>'+esc(a)+'</code>').join(' ')||'<span class="miss">none in the handler</span>'}${h.roleLetters&&h.roleLetters.length?' <span class="hist">roles: '+h.roleLetters.map(esc).join(', ')+'</span>':''}</div>
+  <b>Reads</b><div class="mapcell">${['params','query','body'].map(k=>(h[k]||[]).length?'<b>'+k+'</b> '+(h[k]||[]).map(x=>'<code>'+esc(x)+'</code>').join(' '):'').filter(Boolean).join('<br>')||'<span class="hist">nothing explicit (may pass req.body through whole)</span>'}</div>
+  <b>Tables</b><div>${(h.tables||[]).map(gref).join(', ')||'—'}${h.tablesFrom?' <span class="hist">(from the controller\'s entity)</span>':''}</div>
+  ${h.statuses&&h.statuses.length?`<b>Status codes</b><div>${h.statuses.map(esc).join(', ')}</div>`:''}</div>`;}
+function renderReq(M,ix){
+  const r=FE.requests[ix];if(!r){M.innerHTML='?';return;}
+  const e=r.endpointKey!=null?BE.endpoints[EPIX[r.endpointKey]]:null;
+  const comps=[...new Set(r.callers.map(c=>c.split('.')[0]))];
+  M.innerHTML=`<div class="hist">GrowHub frontend › Requests</div><h2>${vb(r.verb)} <code style="font-size:16px">${esc(r.url)}</code></h2>
+  <div class="meta"><b>Service method</b><div><code>${esc(r.service)}.${esc(r.method)}(${esc(r.params||'')})</code><div class="where">${esc(r.file)}:${r.line||''}</div></div>
+  ${r.bodyArg?`<b>Body</b><div><code>${esc(r.bodyArg)}</code></div>`:''}${r.responseType?`<b>Response type</b><div><code>${esc(r.responseType)}</code></div>`:''}
+  <b>Called from</b><div class="mapcell">${r.callers.map(c=>'<code>'+esc(c)+'()</code>').join(' ')||'<span class="miss">no component calls this</span>'}</div>
+  <b>Screens</b><div>${[...new Set(comps.flatMap(c=>compScreens[c]||[]))].map(sref).join(', ')||'—'}</div></div>
+  <h3>Backend endpoint</h3>${e?`<p>${vb(e.verb)} <a class="lnk" data-go="E:${EPIX[r.endpointKey]}">${esc(e.path)}</a></p>`+epCard(e):'<p class="miss">No backend route matches this URL. The route is gone, or the URL is built at runtime in a way the scraper can\'t follow.</p>'}`;
+  bindLinks(M);
+}
+function renderEpHome(M){
+  const groups={};BE.endpoints.forEach((e,ix)=>(groups[e.group]=groups[e.group]||[]).push(ix));
+  const unused=BE.endpoints.filter(e=>!(reqByEp[epKey(e)]||[]).length).length;
+  M.innerHTML=`<h2>GrowHub API endpoints</h2>${stampLine(BE.stamp)}<p class="note">Every route under <code>/api</code>, built from <code>router/index.router.ts</code> and the nested routers. Each is traced to its controller handler: the auth checks it makes, the request fields it reads explicitly, and the tables it touches (from the entities named in the handler). Express matches paths case-insensitively and in registration order. A route that no frontend request pairs with may be used by scripts, reports or other clients. In <code>app.ts</code> the whole <code>/api</code> router sits behind <code>passport.authenticate("jwt")</code> when auth is enabled, so the role checks listed here are on top of that login check.</p>
+  <div class="kpis"><div class="kpi"><b>${BE.endpoints.length}</b><span>endpoints</span></div><div class="kpi"><b>${BE.endpoints.length-unused}</b><span>called by the frontend</span></div><div class="kpi"><b>${unused}</b><span>no frontend request</span></div><div class="kpi"><b>${BE.endpoints.filter(e=>!(e.handler.auth||[]).length).length}</b><span>no role check in the handler</span></div></div>
+  ${Object.entries(groups).sort((a,b)=>b[1].length-a[1].length).map(([g,ixs])=>`<h3>/api/${esc(g)} (${ixs.length})</h3><div style="overflow:auto"><table><tbody>${ixs.map(ix=>{const e=BE.endpoints[ix],n=(reqByEp[epKey(e)]||[]).length;return `<tr><td style="width:60px">${vb(e.verb)}</td><td style="min-width:260px"><a class="lnk" data-go="E:${ix}">${esc(e.path.replace(/^\/api/,''))}</a></td><td style="white-space:nowrap"><code>${esc(e.handler.function||'')}</code></td><td class="mapcell">${(e.handler.tables||[]).slice(0,4).map(gref).join(', ')}${(e.handler.tables||[]).length>4?' …':''}</td><td class="hist" style="white-space:nowrap">${n?n+' request'+(n>1?'s':''):'<span class="badge">not called by the frontend</span>'}${(e.handler.auth||[]).length?'':' <span class="badge warn">no auth check</span>'}</td></tr>`;}).join('')}</tbody></table></div>`).join('')}`;
+  bindLinks(M);
+}
+function renderEp(M,ix){
+  const e=BE.endpoints[ix];if(!e){M.innerHTML='?';return;}
+  const rs=reqByEp[epKey(e)]||[];
+  M.innerHTML=`<div class="hist">GrowHub backend › Endpoints</div><h2>${vb(e.verb)} <code style="font-size:16px">${esc(e.path)}</code></h2>`+epCard(e)+
+  `<h3>Frontend requests (${rs.length})</h3>${rs.length?`<table><tbody>${rs.map(qx=>{const r=FE.requests[qx];return `<tr><td>${qref(qx)}</td><td><code>${esc(r.url)}</code></td><td class="mapcell">${[...new Set(r.callers.map(c=>c.split('.')[0]).flatMap(c=>compScreens[c]||[]))].map(sref).join(', ')}</td></tr>`;}).join('')}</tbody></table>`:'<p class="note">No frontend request pairs with this route.</p>'}`;
+  bindLinks(M);
+}
+
+function renderMigs(M,f){
+  const ms=G.migrations;let h=`<h2>Migrations</h2><p class="note">${ms.length} TypeORM migrations in <code>src/database/migration</code>, newest first. The dates come from the filename timestamps. Pick one to see every table and column it touched.</p>`;
+  if(f){const m=ms.find(x=>x.file===f);if(m){
+    const byT={};m.changes.forEach(c=>(byT[c.table]=byT[c.table]||[]).push(c));
+    h=`<h2>${esc(m.name)}</h2><div style="color:var(--muted)">${m.date} · <code>${esc(m.file)}</code> · ${m.statements} SQL statements in up()</div>`+
+      Object.entries(byT).map(([tn,cs])=>`<h3>${gref(tn)}</h3><table><tbody>${cs.map(c=>`<tr><td style="width:150px">${esc(c.action)}</td><td>${c.column?'<b>'+esc(c.column)+'</b>':''}</td><td><code>${esc(c.detail||'')}</code></td></tr>`).join('')}</tbody></table>`).join('')+
+      (m.changes.length?'':'<p class="note">No schema statements recognized. It may only change enums or data.</p>')+`<p style="margin-top:18px"><a class="lnk" data-go="M:">← all migrations</a></p>`;}}
+  else h+=ms.slice().reverse().map(m=>`<div class="mig"><div class="mt"><span class="md">${m.date}</span><a class="lnk" data-go="M:${esc(m.file)}">${esc(m.name)}</a></div><div class="hist">${m.tables.map(gref).join(', ')}</div></div>`).join('');
+  M.innerHTML=h;bindLinks(M);
+  M.querySelectorAll('[data-go="M:"]').forEach(a=>a.onclick=()=>{sel=null;renderList();renderMain();});
+}
+let gview=null;
+function renderGERD(M){
+  M.innerHTML=`<h2>GrowHub ERD</h2><p class="note">Uses the table positions from your pgAdmin diagram. Drag to pan, scroll to zoom, hover a table to highlight its links, click to open it.</p>
+  <p><label><input type="checkbox" id="gaudit"> show audit links (metadata* → user)</label> &nbsp; <label><input type="checkbox" id="gmeta"> show audit columns</label> &nbsp; <label><input type="checkbox" id="gexact"> exact pgAdmin positions</label> &nbsp; <input id="gfind" placeholder="find table…" style="padding:4px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)"> <button class="toggle" id="gfit">fit</button></p><div id="gerd"></div>`;
+  const draw=()=>drawGERD(document.getElementById('gaudit').checked,document.getElementById('gmeta').checked,document.getElementById('gexact').checked);
+  ['gaudit','gmeta','gexact'].forEach(i=>document.getElementById(i).onchange=()=>{gview=null;draw();});
+  document.getElementById('gfit').onclick=()=>{gview=null;draw();};
+  document.getElementById('gfind').oninput=e=>{const q=e.target.value.toLowerCase();const hit=Object.keys(GT).find(n=>q&&n.includes(q));if(hit){const b=boxes[hit];gview={s:1,x:-(b.x-60),y:-(b.y-60)};draw();focusT(hit);}};
+  draw();
+}
+let boxes={};
+function focusT(n){const svg=document.querySelector('#gerd svg');if(!svg)return;svg.querySelectorAll('.tb').forEach(g=>g.classList.toggle('dim',!!n&&g.dataset.t!==n&&!g.dataset.nb.split(',').includes(n)));svg.querySelectorAll('path.l').forEach(p=>{const on=n&&(p.dataset.a===n||p.dataset.b===n);p.classList.toggle('hl',!!on);p.classList.toggle('dim',!!n&&!on);});}
+function drawGERD(showAudit,showMeta,exact){
+  const W=200,HH=24,RH=15;boxes={};
+  const names=Object.keys(GT).filter(n=>!['migrations','typeorm_metadata'].includes(n));
+  const xs=names.map(n=>GT[n].x),ys=names.map(n=>GT[n].y);const minx=Math.min(...xs),miny=Math.min(...ys);
+  const nb={};names.forEach(n=>nb[n]=new Set());
+  for(const n of names){const g=GT[n];const cols=g.columns.filter(c=>showMeta||!isMeta(c.name));boxes[n]={x:(g.x-minx),y:(g.y-miny),cols,h:HH+cols.length*RH+6};}
+  for(const n of names)boxes[n].x*=1.15; // our boxes are a bit wider than pgAdmin's
+  if(!exact){ // keep pgAdmin's arrangement, close the empty vertical gaps between bands of tables
+    const byY=names.slice().sort((a,b)=>boxes[a].y-boxes[b].y);const bands=[];let bottom=-1e9;
+    for(const n of byY){if(boxes[n].y>bottom+60)bands.push([]);bands[bands.length-1].push(n);bottom=Math.max(bottom,boxes[n].y+boxes[n].h);}
+    let y=0;for(const b of bands){const top=Math.min(...b.map(n=>boxes[n].y));let bb=0;for(const n of b){boxes[n].y=boxes[n].y-top+y;bb=Math.max(bb,boxes[n].y+boxes[n].h);}y=bb+70;}
+  }
+  let links='';
+  for(const n of names){const g=GT[n];for(const f of g.fks){const audit=isMeta(f.column);if(audit&&!showAudit)continue;const a=boxes[n],b=boxes[f.refTable];if(!b)continue;
+    nb[n].add(f.refTable);nb[f.refTable].add(n);
+    const ai=Math.max(0,a.cols.findIndex(c=>c.name===f.column)),bi=Math.max(0,b.cols.findIndex(c=>c.name===f.refColumn));
+    const ay=a.y+HH+ai*RH+RH/2+3,by=b.y+HH+bi*RH+RH/2+3;
+    let ax,bx,dir;if(a.x+W<b.x){ax=a.x+W;bx=b.x;dir=1}else if(b.x+W<a.x){ax=a.x;bx=b.x+W;dir=-1}else{ax=a.x+W;bx=b.x+W;dir=0}
+    const mx=dir===0?Math.max(ax,bx)+30:(ax+bx)/2;
+    links+=`<path class="l${audit?' audit':''}" data-a="${esc(n)}" data-b="${esc(f.refTable)}" d="M${ax},${ay} C${mx},${ay} ${mx},${by} ${bx},${by}"><title>${esc(n+'.'+f.column+' → '+f.refTable+'.'+f.refColumn)}</title></path>`;}}
+  let tbs='';
+  for(const n of names){const b=boxes[n],g=GT[n];const fkc=new Set(g.fks.map(f=>f.column));
+    tbs+=`<g class="tb" data-t="${esc(n)}" data-nb="${esc([...nb[n]].join(','))}" transform="translate(${b.x},${b.y})"><rect class="box" width="${W}" height="${b.h}" rx="4"/><rect class="hd" width="${W}" height="${HH}" rx="4"/><text class="h" x="8" y="16">${esc(n)}${g.entity?'':' ⚠'}</text>`+
+      b.cols.map((c,i)=>`<text x="8" y="${HH+i*RH+13}">${g.pk.includes(c.name)?'🔑':fkc.has(c.name)?'↗':'  '} ${esc(c.name.length>20?c.name.slice(0,19)+'…':c.name)}</text><text class="t" x="${W-6}" y="${HH+i*RH+13}" text-anchor="end">${esc(shortT(c.type))}</text>`).join('')+`</g>`;}
+  const maxx=Math.max(...names.map(n=>boxes[n].x+W))+80,maxy=Math.max(...names.map(n=>boxes[n].y+boxes[n].h))+80;
+  const el=document.getElementById('gerd');const vw=el.clientWidth,vh=el.clientHeight;
+  if(!gview){const s=Math.min(vw/maxx,vh/maxy);gview={s,x:0,y:0};}
+  el.innerHTML=`<svg><g id="gv" transform="translate(${gview.x*gview.s},${gview.y*gview.s}) scale(${gview.s})">${links}${tbs}</g></svg>`;
+  const gv=el.querySelector('#gv');const apply=()=>gv.setAttribute('transform',`translate(${gview.x*gview.s},${gview.y*gview.s}) scale(${gview.s})`);
+  let drag=null,moved=false;
+  el.onmousedown=e=>{drag={x:e.clientX,y:e.clientY,ox:gview.x,oy:gview.y};moved=false;el.style.cursor='grabbing';};
+  window.onmousemove=e=>{if(!drag)return;const dx=(e.clientX-drag.x)/gview.s,dy=(e.clientY-drag.y)/gview.s;if(Math.abs(dx)+Math.abs(dy)>3)moved=true;gview.x=drag.ox+dx;gview.y=drag.oy+dy;apply();};
+  window.onmouseup=()=>{drag=null;el.style.cursor='';};
+  el.onwheel=e=>{e.preventDefault();const r=el.getBoundingClientRect();const px=(e.clientX-r.left)/gview.s-gview.x,py=(e.clientY-r.top)/gview.s-gview.y;const ns=Math.min(3,Math.max(0.08,gview.s*(e.deltaY<0?1.15:1/1.15)));gview.x=(e.clientX-r.left)/ns-px;gview.y=(e.clientY-r.top)/ns-py;gview.s=ns;apply();};
+  el.querySelectorAll('.tb').forEach(g=>{g.onmouseenter=()=>focusT(g.dataset.t);g.onmouseleave=()=>focusT(null);g.onclick=()=>{if(!moved)go('G:'+g.dataset.t);};});
+}
+function shortT(t){return t.replace('character varying','varchar').replace('timestamp without time zone','timestamp').replace('timestamp with time zone','timestamptz').replace(/^\w+_enum(\[\])?$/,'enum$1').replace(/^numeric\((\d+),(\d+)\)$/,'num($1,$2)');}
+
+const lgref=(t,c)=>T[t]?`<a class="lnk" data-go="T:${esc(t)}">${esc(t)}</a>.${esc(c)}`:`${esc(t)}.${esc(c)}`;
+function ghCell(r){
+  if(!r.field)return '<span class="hist">—</span>';
+  if(r.gh)return `${gref(r.gh.table)}.<b>${esc(r.gh.column)}</b>${r.gh.jsonKey?' → <code>'+esc(r.gh.jsonKey)+'</code>':''}${r.gh.how!=='exact'&&r.gh.column!==r.field?'<div class="sug">sheet says <code>'+esc(r.field)+'</code></div>':''}${r.gh.table!==r.table?'<div class="sug">on '+esc(r.gh.table)+', not '+esc(r.table)+'</div>':''}`;
+  return `<span class="miss">⚠ <code>${esc(r.field)}</code> not in ${esc(r.table||'?')}</span>${r.suggest.length?'<div class="sug">did you mean '+r.suggest.map(s=>gref(s.table)+'.'+esc(s.column)).join(', ')+'?</div>':''}`;
+}
+function accCell(r){
+  if(!r.accessTables&&!r.accessField)return '<span class="hist">no Access source</span>';
+  const res=(r.legacy||[]).map(l=>lgref(l.table,l.column)+(l.via?' <span class="sug">('+esc(l.via)+')</span>':'')).join(', ');
+  return `<div><code>${esc(r.accessTables)}</code>${r.accessField?' · <code>'+esc(r.accessField)+'</code>':''}</div>${res?'<div class="sug">→ '+res+'</div>':(r.accessField?'<div class="sug">column not seen in the frontend or XML exports</div>':'')}`;
+}
+function enumCell(r){
+  if(r.enumRef){const e=MP.enums.find(x=>x.id===r.enumRef);if(e)return `<details><summary>${esc(e.access)} → ${esc(e.growhub||'?')} (${e.values.length})</summary><table>${e.values.map(v=>`<tr><td><code>${esc(v.access)}</code></td><td>${esc(v.growhub)}</td></tr>`).join('')}</table></details>`;}
+  if(r.enumMapping)return `<span class="mapcell">${esc(r.enumMapping)}</span>`;
+  return r.enum?'<span class="hist">enum, mapping not filled in</span>':'';
+}
+function mapRow(r,showSec){
+  return `<tr class="${r.flagged?'flag':''}">${showSec?`<td>${esc(r.sheet)} › <a class="lnk" data-go="S:${esc(r.sheet+'|'+r.section)}">${esc(r.section)}</a></td>`:''}<td>${ghCell(r)}</td><td>${accCell(r)}</td><td>${stChip(r.approved)}<div style="margin-top:3px">${stChip(r.validated,'validated')}</div><div style="margin-top:3px">${stChip(r.final,'final')}</div></td><td>${enumCell(r)}</td><td class="mapcell">${esc(r.notes)}${r.link?' <a class="lnk" href="'+esc(r.link)+'" target="_blank" rel="noopener">issue ↗</a>':''}${r.flagged?'<div class="miss">highlighted in sheet</div>':''}</td></tr>`;
+}
+const MHEAD=s=>`<thead><tr>${s?'<th>Section</th>':''}<th>GrowHub field</th><th>Access source</th><th>Status</th><th>Enum mapping</th><th>Notes</th></tr></thead>`;
+function bar(rows){const n=rows.length||1,c=k=>rows.filter(r=>r.approved.state===k).length;return `<div class="bar" title="${c('yes')} approved · ${c('maybe')+c('other')} maybe · ${c('no')} no · ${c('blank')} not reviewed">${['yes','maybe','other','no'].map(k=>`<span class="${k}" style="width:${c(k)/n*100}%"></span>`).join('')}</div>`;}
+function renderMapDash(M){
+  const R=MROWS,cnt=f=>R.filter(f).length;
+  const missing=R.filter(r=>r.field&&r.table&&!r.gh),noSrc=R.filter(r=>r.field&&!r.accessTables&&!r.accessField),flagged=R.filter(r=>r.flagged||['maybe','other','no'].includes(r.approved.state));
+  let h=`<h2>Access → GrowHub mapping</h2><p class="note">Read from <code>${esc(MP.source)}</code> (saved ${esc(MP.modified)}). The spreadsheet stays the source of truth: edit it, then rerun <code>tools/mapping.py</code> and <code>tools/make_explorer.py</code>. Each row is checked against the real GrowHub schema and against the Access columns seen in the frontend and the four nurseries' XML exports.</p>
+  <div class="kpis"><div class="kpi"><b>${R.length}</b><span>mapped fields</span></div><div class="kpi"><b>${cnt(r=>r.approved.state==='yes')}</b><span>approved for migration work</span></div><div class="kpi"><b>${cnt(r=>r.validated.state==='yes')}</b><span>validated</span></div><div class="kpi"><b>${cnt(r=>r.final.state==='yes')}</b><span>final approval</span></div><div class="kpi"><b style="color:var(--bad)">${missing.length}</b><span>fields not in GrowHub schema</span></div></div>
+  <h3>Progress by section</h3><table><thead><tr><th>Section</th><th>GrowHub table</th><th>Fields</th><th style="width:40%">Approval</th><th>Not in schema</th><th>No Access source</th></tr></thead><tbody>`+
+  MP.domains.flatMap(d=>d.sections.map(s=>{const rs=s.rows.map(r=>({...r,sheet:d.sheet}));return `<tr><td><a class="lnk" data-go="S:${esc(d.sheet+'|'+s.name)}">${esc(d.sheet)} › ${esc(s.name)}</a></td><td>${s.table?gref(s.table):'?'}</td><td>${rs.length}</td><td>${bar(rs)}</td><td>${rs.filter(r=>r.field&&r.table&&!r.gh).length||''}</td><td>${rs.filter(r=>r.field&&!r.accessTables&&!r.accessField).length||''}</td></tr>`;})).join('')+`</tbody></table>
+  <p class="note">The workbook doesn't name a GrowHub table for each section, so I matched them by section name (for example Ship Ticket → <code>source_shipment</code>, Planning → <code>order_cycle_planning</code>). Tell me if any are wrong.</p>
+  <h3>GrowHub fields that don't exist in the schema (${missing.length})</h3><p class="note">The sheet names a field the target table doesn't have. Usually it was renamed or moved in a later migration (the pack/storage summary restructure, ship ticket → <code>source_shipment</code>).</p><div style="overflow:auto"><table>${MHEAD(1)}<tbody>${missing.map(r=>mapRow(r,1)).join('')}</tbody></table></div>
+  <h3>Flagged, maybe or not approved (${flagged.length})</h3><div style="overflow:auto"><table>${MHEAD(1)}<tbody>${flagged.map(r=>mapRow(r,1)).join('')}</tbody></table></div>
+  <h3>GrowHub columns with no row in the sheet</h3><p class="note">Columns on the mapped tables that no row covers. IDs, audit columns and the legacy columns are left out.</p><table><thead><tr><th>Table</th><th>Mapped</th><th>Not covered</th></tr></thead><tbody>${Object.entries(MP.coverage).map(([tb,c])=>`<tr><td>${gref(tb)}</td><td>${c.mapped.length}</td><td class="mapcell">${c.unmapped.map(x=>(c.unmappedFks.includes(x)?'↗':'')+esc(x)).join(', ')||'—'}</td></tr>`).join('')}</tbody></table>`;
+  const cov=allCoverage().filter(x=>isReach(x.i)).sort((a,b)=>b.mapped-a.mapped).slice(0,40);
+  h+=`<h3>Legacy screens by mapping coverage</h3><p class="note">For each legacy form reachable from the menus, how many of its bound fields trace to a mapped Access column. Only fields Access binds directly are counted, so calculated controls aren't included.</p><table><thead><tr><th>Form</th><th>Caption</th><th>Bound fields</th><th>Mapped</th><th>Approved</th><th style="width:22%">Coverage</th><th>Main GrowHub screen</th></tr></thead><tbody>${cov.map(x=>{const sc=screensFor(x.rows);return `<tr><td>${ref('Form:'+x.i.name)}</td><td>${esc(x.i.caption||'')}</td><td>${x.bound}</td><td>${x.mapped}</td><td>${x.approved}</td><td><div class="bar"><span class="yes" style="width:${x.approved/x.bound*100}%"></span><span class="maybe" style="width:${(x.mapped-x.approved)/x.bound*100}%"></span></div></td><td>${sc.length?sref(sc[0][0])+' <span class="hist">'+sc[0][1]+' fields</span>':'<span class="hist">—</span>'}</td></tr>`;}).join('')}</tbody></table>`;
+  M.innerHTML=h;bindLinks(M);
+}
+let mapFilter='all';
+function renderMapSection(M,key){
+  const [sheet,secn]=key.split('|');const d=MP.domains.find(x=>x.sheet===sheet);const s=d&&d.sections.find(x=>x.name===secn);if(!s){M.innerHTML='?';return;}
+  const rows=s.rows.map(r=>({...r,sheet}));
+  const F={all:r=>1,yes:r=>r.approved.state==='yes',open:r=>r.approved.state!=='yes',schema:r=>r.field&&r.table&&!r.gh,nosrc:r=>r.field&&!r.accessTables&&!r.accessField};
+  const shown=rows.filter(F[mapFilter]);
+  const cov=s.table&&MP.coverage[s.table];
+  let h=`<h2>${esc(sheet)} › ${esc(s.name)}</h2><div style="color:var(--muted)">→ ${s.table?gref(s.table):'no table matched'} · ${rows.length} fields</div><div style="margin:10px 0;max-width:520px">${bar(rows)}</div>
+  <div class="filters">${[['all','All'],['yes','Approved'],['open','Not yet approved'],['schema','Not in schema'],['nosrc','No Access source']].map(([k,l])=>`<button class="toggle${mapFilter===k?' on':''}" data-f="${k}">${l} (${rows.filter(F[k]).length})</button>`).join('')}</div>
+  <div style="overflow:auto"><table>${MHEAD(0)}<tbody>${shown.map(r=>mapRow(r,0)).join('')}</tbody></table></div>`;
+  if(cov&&cov.unmapped.length)h+=`<h3>Columns on ${esc(s.table)} with no row in the sheet</h3><div class="chips">${cov.unmapped.map(c=>'<span>'+esc(c)+'</span>').join('')}</div>`;
+  M.innerHTML=h;bindLinks(M);M.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{mapFilter=b.dataset.f;renderMapSection(M,key);});
+}
+let refNur='all',refOnly=false;
+function renderRef(M,k){
+  let h='';const tbl=(head,rows)=>`<div style="overflow:auto"><table><thead><tr>${head.map(x=>'<th>'+x+'</th>').join('')}</tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
+  const nurPick=(list)=>{const ns=[...new Set(list.map(x=>x.nursery))].filter(Boolean).sort();return `<div class="filters">${['all',...ns].map(n=>`<button class="toggle${refNur===n?' on':''}" data-n="${esc(n)}">${n==='all'?'All nurseries':esc(n)}</button>`).join('')}<label style="margin-left:10px"><input type="checkbox" id="refonly"${refOnly?' checked':''}> only rows without a GrowHub mapping</label></div>`;};
+  if(k==='R:enums'){h=`<h2>Enum value mappings</h2><p class="note">From the <code>SourceENUM</code> sheet. Rows in the field mapping link straight to these.</p>`+MP.enums.map(e=>`<h3>${esc(e.access)} → ${esc(e.growhub||'?')}</h3>`+tbl(['Access value','GrowHub value'],e.values.map(v=>`<tr><td><code>${esc(v.access)}</code></td><td>${v.growhub?esc(v.growhub):'<span class="miss">—</span>'}</td></tr>`))).join('');}
+  if(k==='R:acc'){const all=MP.activityCodes.access;const rs=all.filter(a=>(refNur==='all'||a.nursery===refNur)&&(!refOnly||!(a.ghCode||a.ghParent)));const m=all.filter(a=>a.ghCode||a.ghParent).length;
+    h=`<h2>Activity codes (Access)</h2><p class="note">${all.length} nursery activity codes. ${m} have a GrowHub parent or code (${Math.round(m/all.length*100)}%).</p>`+nurPick(all)+tbl(['Nursery','Code','Name','Parent','Balance','Module','GrowHub parent','GrowHub code','Note'],rs.map(a=>`<tr><td>${esc(a.nursery)}</td><td><code>${esc(a.code)}</code></td><td>${esc(a.name)}</td><td>${esc(a.parentCode)}</td><td>${esc(a.balance)}</td><td>${esc(a.module)}</td><td>${a.ghParent?esc(a.ghParent):'<span class="hist">—</span>'}</td><td>${esc(a.ghCode)}</td><td class="mapcell">${esc(a.note)}</td></tr>`));}
+  if(k==='R:ora'){const rs=MP.activityCodes.oracle.filter(a=>!refOnly||!a.ghParent);h=`<h2>Activity codes (Oracle → GrowHub)</h2><div class="filters"><label><input type="checkbox" id="refonly"${refOnly?' checked':''}> only rows without a GrowHub parent</label></div>`+tbl(['Code','Name','GrowHub parent','GrowHub code','Source/Seedling','Balance effect'],rs.map(a=>`<tr><td><code>${esc(a.code)}</code></td><td>${esc(a.name)}</td><td>${a.ghParent?esc(a.ghParent):'<span class="hist">—</span>'}</td><td>${esc(a.ghCode)}</td><td>${esc(a.kind)}</td><td>${esc(a.balance)}</td></tr>`));}
+  if(k==='R:units'){const U=MP.growUnits;const rs=U.units.filter(u=>(refNur==='all'||u.nursery===refNur)&&(!refOnly||!u.ghCode));
+    h=`<h2>Grow units</h2><p class="note">Access <code>NMIS_UNITS</code> per nursery, with the GrowHub code from the sheet's first migration attempt and SME approval. GrowHub table: ${gref('grow_unit')}.</p>`+nurPick(U.units)+tbl(['Nursery','Access code','Type','Description','Cells/cont.','GrowHub code','SME approval'],rs.map(u=>`<tr><td>${esc(u.nursery)}</td><td><code>${esc(u.code)}</code></td><td>${esc(u.type)}</td><td>${esc(u.description)}<div class="hist">${esc(u.cellDims)}</div></td><td>${esc(u.cellsPerContainer??'')}</td><td>${u.ghCode&&u.ghCode!=='#N/A'?'<code>'+esc(u.ghCode)+'</code>':'<span class="miss">'+esc(u.ghCode||'—')+'</span>'}</td><td>${stChip(u.approved)}</td></tr>`))+
+      `<h3>Target GrowHub grow-unit codes (${U.desired.length})</h3>`+tbl(['Current Access code(s)','GrowHub code','Description','Stock type','Cell dia × depth','Cells/cont.','W × L × H','Drill rows','Historical'],U.desired.map(u=>`<tr><td><code>${esc(u.current)}</code></td><td><code>${esc(u.desired)}</code></td><td>${esc(u.description)}</td><td>${esc(u.stockType)}</td><td>${esc(u.cellDiameter??'')} × ${esc(u.cellDepth??'')}</td><td>${esc(u.cellsPerContainer??'')}</td><td>${[u.width,u.length,u.height].map(x=>esc(x??'')).join(' × ')}</td><td>${esc(u.drillRows??'')}</td><td>${esc(u.historical)}</td></tr>`))+
+      `<h3>Species products with new or mismatched grow units (${U.mismatched.length})</h3>`+tbl(['Value','Nursery','First product CN'],U.mismatched.map(u=>`<tr><td><code>${esc(u.value)}</code></td><td>${esc(u.nursery)}</td><td><code>${esc(u.firstProduct)}</code></td></tr>`));}
+  if(k==='R:boxes'){const rs=MP.boxTypes.filter(b=>refNur==='all'||b.nursery===refNur);h=`<h2>Ship / storage box types</h2>`+nurPick(MP.boxTypes)+tbl(['Nursery','Code','Type','Multiplier','Description','Cells/cont.','Note'],rs.map(b=>`<tr><td>${esc(b.nursery)}</td><td><code>${esc(b.code)}</code></td><td>${esc(b.type)}</td><td>${esc(b.multiplier??'')}</td><td>${esc(b.description)}</td><td>${esc(b.cellsPerContainer??'')}</td><td class="mapcell">${esc(b.notes)}</td></tr>`));}
+  M.innerHTML=h;bindLinks(M);
+  M.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{refNur=b.dataset.n;renderRef(M,k);});
+  const ro=M.querySelector('#refonly');if(ro)ro.onchange=()=>{refOnly=ro.checked;renderRef(M,k);};
+}
+function formCoverage(i){let b=0,m=0;const hits=[],rows=[];for(const s of i.sections)for(const c of s.controls){const f=(c.ControlSource||'').replace(/^\[|\]$/g,'');if(!f||f.startsWith('='))continue;b++;
+  for(const tb of [...Object.keys(i.fieldLists||{}),...(i.tablesUsed||[])]){if((i.fieldLists[tb]||T[tb]?.columns||[]).includes(f)&&(lgIdx[tb]||{})[f]){m++;rows.push(...lgIdx[tb][f]);if(lgIdx[tb][f].some(r=>r.approved.state==='yes'))hits.push(f);break;}}}
+  return {bound:b,mapped:m,approved:hits.length,rows};}
+let _cov=null;const allCoverage=()=>_cov||(_cov=items.filter(i=>i.kind==='Form'&&!i.error).map(i=>({i,...formCoverage(i)})).filter(x=>x.mapped));
+function ghMapCell(table,col){const rs=(ghIdx[table]||{})[col];if(!rs)return '';return rs.map(r=>`<div class="mapcell" style="min-width:150px">${r.accessField?'<span title="'+esc(r.accessTables)+'">'+esc(r.accessField)+'</span>':'<span class="hist">no source</span>'} ${stChip(r.approved)} <a class="lnk" data-go="S:${esc(r.sheet+'|'+r.section)}" title="open in mapping">›</a></div>`).join('');}
+function lgMapCell(table,col){const rs=(lgIdx[table]||{})[col];if(!rs)return '';return rs.map(r=>{const sc=r.gh?[...((scrIdx[r.gh.table]||{})[r.gh.column]||[])]:[];return `<span class="mapcell">→ ${r.gh?gref(r.gh.table)+'.'+esc(r.gh.column):'<span class="miss">'+esc(r.field||'?')+'</span>'} ${stChip(r.approved)}${sc.length?' <span class="hist">on</span> '+sc.slice(0,2).map(sref).join(', '):r.gh?' <span class="hist">(not on a screen)</span>':''}</span>`;}).join(' ');}
+renderList();renderMain();
+</script></body></html>

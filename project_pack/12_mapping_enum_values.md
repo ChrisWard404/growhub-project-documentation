@@ -1,0 +1,272 @@
+# Access → GrowHub enum value mappings (SourceENUM sheet)
+
+
+
+## CATEGORY_CODE → category
+- `3` → Do not script for this.
+- `C` → Do not script for this.
+- `CCO` → Cooperator Seed (COOP)
+- `CO` → Cooperator Seed (COOP)
+- `COOP` → Cooperator Seed (COOP)
+- `COSM` → Cooperator Seed (COOP)
+- `EWCF` → Working Capital Fund (WCF)
+- `FOR2` → Non-Working Capital Fund (NWCF)
+- `FSP` → Non-Working Capital Fund (NWCF)
+- `GSP` → Non-Working Capital Fund (NWCF)
+- `KV` → Working Capital Fund (WCF)
+- `N` → Non-Working Capital Fund (Non-WCF)
+- `NFN3` → Non-Working Capital Fund (Non-WCF)
+- `NFVW` → Non-Working Capital Fund (Non-WCF)
+- `NS` → Non-Working Capital Fund (Non-WCF)
+- `NSP` → Non-Working Capital Fund (Non-WCF)
+- `NSPS` → Non-Working Capital Fund (Non-WCF)
+- `NWCF` → Non-Working Capital Fund (Non-WCF)
+- `S` → Working Capital Fund (WCF)
+- `SNWC` → Non-Working Capitol Fund (Non-WCF)
+- `SP` → Non-Working Capitol Fund (Non-WCF)
+- `Sp` → Non-Working Capitol Fund (Non-WCF)
+- `SWCF` → Working Capital Fund (WCF)
+- `TI3` → Non-WCF: Tree Improvement (TI)
+- `TI4` → Non-WCF: Tree Improvement (TI)
+- `UWCF` → Working Capital Fund (WCF)
+- `w` → Do not script for this.
+
+## COLLECT_METHOD → collectionMethod
+- `:0` → (blank)
+- `0` → (blank)
+- `0` → (blank)
+- `00:01:00` → (blank)
+- `1` → (blank)
+- `0` → (blank)
+- `1` → (blank)
+- `2` → (blank)
+- `10` → (blank)
+- `14` → (blank)
+- `20` → (blank)
+- `24` → (blank)
+- `26` → (blank)
+- `3` → (blank)
+- `4` → (blank)
+- `5` → (blank)
+- `50` → (blank)
+- `60` → (blank)
+- `72` → (blank)
+- `86` → (blank)
+- `93` → (blank)
+- `1` → (blank)
+- `1 0` → (blank)
+- `1 1` → (blank)
+- `1 2` → (blank)
+- `1 4` → (blank)
+- `1 6` → (blank)
+- `1 9` → (blank)
+- `01:00:00` → (blank)
+- `01:01:00` → (blank)
+- `01:02:00` → (blank)
+- `01:04:00` → (blank)
+- `01:05:00` → (blank)
+- `01:07:00` → (blank)
+- `01:08:00` → (blank)
+- `01:09:00` → (blank)
+- `10` → (blank)
+- `100` → 100
+- `101` → 100
+- `102` → 100
+- `103` → 100
+- `104` → 100
+- `105` → 100
+- `106` → 100
+- `107` → 100
+- `108` → 100
+- `11` → (blank)
+- `2025-01-01T00:00:00` → (blank)
+- `110` → 100
+- `111` → 100
+- `112` → 100
+- `114` → 100
+- `117` → 100
+- `12` → (blank)
+- `120` → 100
+- `125` → 100
+- `126` → 100
+- `130` → 100
+- `132` → 100
+- `136` → 100
+- `14` → (blank)
+- `146` → 100
+- `147` → 100
+- `148` → 100
+- `15` → (blank)
+- `151` → 100
+- `153` → 100
+- `156` → 100
+- `157` → 100
+- `16` → (blank)
+- `160` → 100
+- `161` → 100
+- `168` → 100
+- `169` → 100
+- `17` → (blank)
+- `171` → 100
+- `175` → 100
+- `182` → 100
+- `19` → (blank)
+- `192` → 100
+- `2` → (blank)
+- `2 0` → (blank)
+- `2 1` → (blank)
+- `2 2` → (blank)
+- `2.2` → (blank)
+- `02:00:00` → (blank)
+- `02:01:00` → (blank)
+- `02:02:00` → (blank)
+- `02:09:00` → (blank)
+- `2;1` → (blank)
+- `200` → 200
+- `201` → 200
+- `202` → 200
+- `203` → 200
+- `204` → 200
+- `21` → (blank)
+- `211` → 200
+- `220` → 200
+- `221` → 200
+- `227` → 200
+- `25` → (blank)
+- `26` → (blank)
+- `27` → (blank)
+- `291` → 200
+- `295` → 200
+- `3` → (blank)
+- `3 1` → (blank)
+- `3 4` → (blank)
+- `03:02:00` → (blank)
+- `03:03:00` → (blank)
+- `03:05:00` → (blank)
+- `30` → (blank)
+- `300` → 300
+- `302` → 300
+- `31` → (blank)
+- `331` → 300
+- `34` → (blank)
+- `35` → (blank)
+- `351` → 300
+- `38` → (blank)
+- `381` → 300
+- `39` → (blank)
+- `3B1` → (blank)
+- `3G1` → (blank)
+- `3G2` → (blank)
+- `3OO` → (blank)
+- `4` → (blank)
+- `4 1` → (blank)
+- `400` → 400
+- `401` → 400
+- `403` → 400
+- `407` → 400
+- `408` → 400
+- `449` → 400
+- `450` → 400
+- `46N` → (blank)
+- `491` → 400
+- `493` → 400
+- `497` → 400
+- `499` → 400
+- `5` → 500
+- `5 1` → (blank)
+- `5 2` → (blank)
+- `05:01:00` → (blank)
+- `50` → (blank)
+- `500` → 500
+- `501` → 500
+- `502` → 500
+- `503` → 500
+- `504` → 500
+- `505` → 500
+- `506` → 500
+- `507` → 500
+- `508` → 500
+- `509` → 500
+- `511` → 500
+- `512` → 500
+- `513` → 500
+- `516` → 500
+- `522` → 500
+- `525` → 500
+- `526` → 500
+- `530` → 500
+- `531` → 500
+- `536` → 500
+- `540` → 500
+- `546` → 500
+- `547` → 500
+- `551` → 500
+- `552` → 500
+- `553` → 500
+- `556` → 500
+- `56` → (blank)
+- `560` → 500
+- `568` → 500
+- `578` → 500
+- `591` → 500
+- `592` → 500
+- `593` → 500
+- `594` → 500
+- `595` → 500
+- `596` → 500
+- `597` → 500
+- `598` → 500
+- `6` → (blank)
+- `6 1` → (blank)
+- `06:06:00` → (blank)
+- `600` → 600
+- `631` → 600
+- `66` → (blank)
+- `7` → (blank)
+- `700` → 700
+- `702` → 700
+- `703` → 700
+- `8` → (blank)
+- `9` → (blank)
+- `09:01:00` → (blank)
+- `ABB` → (blank)
+- `BEA` → (blank)
+- `DAY` → (blank)
+- `DUT` → (blank)
+- `FA` → (blank)
+- `fel` → (blank)
+- `fhp` → (blank)
+- `G0` → (blank)
+- `GP` → (blank)
+- `han` → (blank)
+- `HAN` → (blank)
+- `NC` → (blank)
+- `S` → (blank)
+- `SIA` → (blank)
+- `SS` → (blank)
+- `U/N` → (blank)
+- `WOL` → (blank)
+
+## (unnamed) → Facts Code
+- `` → Natural Stand
+- `` → Designated Seed Collection Stand
+- `` → Seed Production Area
+- `` → Seed Orchards
+- `` → Selected Trees
+- `` → Selected Breeding
+- `` → Other
+- `` → Vegetative Material
+
+## SOURCE STORAGE → storage type
+- `FRZR` → Freezer
+- `FREEZER` → Freezer
+- `COOLER` → Cooler
+- `PRECOOLER` → Cooler
+
+## UOM → unit of measure
+- `AC` → count
+- `M` → count
+- `EA` → count
+- `G` → grams
+- `LB` → lbs
+- `BXLB` → Legacy UOM

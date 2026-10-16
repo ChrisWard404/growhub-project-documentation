@@ -1,0 +1,637 @@
+{
+ "domain": "Seedling planning",
+ "summary": "How much seed to pull and how much space (bed feet or containers) to plan for a seedling order. Legacy: the Calculations tab of the NMIS_AGREEMENT_LOTS form. GrowHub: the Planning step of /orders (OrderPlanningComponent).",
+ "legacyForm": "NMIS_AGREEMENT_LOTS",
+ "growhubScreen": "OrdersMainComponent",
+ "growhubFile": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts",
+ "inputs": [
+  {
+   "meaning": "Seedlings requested",
+   "legacy": "TOTAL_REQUEST (thousands)",
+   "growhub": "order_cycle_planning.adjustedQuantityRequested (seedlings)",
+   "note": "Legacy quantities are in thousands; GrowHub's are whole seedlings. The mapping sheet already says 'Value x1000'."
+  },
+  {
+   "meaning": "Seeds per pound",
+   "legacy": "GROSS_SOURCE_PER_UNIT",
+   "growhub": "order_cycle_planning.seedPerPound"
+  },
+  {
+   "meaning": "Germination %",
+   "legacy": "SOURCE_GERM_PCT",
+   "growhub": "order_cycle_planning.germPercent"
+  },
+  {
+   "meaning": "Purity %",
+   "legacy": "SOURCE_PURITY_PCT",
+   "growhub": "order_cycle_planning.purityPercent"
+  },
+  {
+   "meaning": "Harvest factors 1–3",
+   "legacy": "HARVEST_FACTOR_1..3 (+ operator HFn_Formula_OP)",
+   "growhub": "order_cycle_planning.factor1..3",
+   "note": "GrowHub has no operator."
+  },
+  {
+   "meaning": "Harvest factor 4",
+   "legacy": "HARVEST_FACTOR_4",
+   "growhub": null,
+   "note": "No GrowHub field."
+  },
+  {
+   "meaning": "Harvest ASF adjustment",
+   "legacy": "HARVEST_ASF_ADJUSTMENT",
+   "growhub": null,
+   "note": "No GrowHub field."
+  },
+  {
+   "meaning": "Container factors 1–3",
+   "legacy": "CONTAINER_FACTOR_1..3 (+ operator)",
+   "growhub": null,
+   "note": "No GrowHub field on planning."
+  },
+  {
+   "meaning": "Container ASF adjustment",
+   "legacy": "CONTAINER_ASF_ADJUSTMENT",
+   "growhub": "order_cycle_planning.containerSpecificationsNurseryfactors",
+   "note": "Per the mapping sheet; the GrowHub calculations don't read it."
+  },
+  {
+   "meaning": "Thinning probability %",
+   "legacy": "THINNING_PROBABILITY_PCT",
+   "growhub": "order_cycle_planning.thinningProbability"
+  },
+  {
+   "meaning": "Past inventory performance %",
+   "legacy": null,
+   "growhub": "order_cycle_planning.pastInventoryPerformance",
+   "note": "New in GrowHub."
+  },
+  {
+   "meaning": "Cells filled % / bareroot space",
+   "legacy": null,
+   "growhub": "order_cycle_planning.cellsFilled",
+   "note": "New in GrowHub."
+  },
+  {
+   "meaning": "Container / bareroot survival %",
+   "legacy": null,
+   "growhub": "order_cycle_planning.containerSurvival",
+   "note": "New in GrowHub."
+  },
+  {
+   "meaning": "Target density",
+   "legacy": "DESIRED_DENSITY",
+   "growhub": "order_cycle_planning.desiredDensity"
+  },
+  {
+   "meaning": "Cells per container",
+   "legacy": "NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER.CELLS_PER_CONTAINER",
+   "growhub": "grow_unit.cellsPerContainer"
+  },
+  {
+   "meaning": "Seeds per cell",
+   "legacy": "seed_per_cell_to_use (unbound, default 2)",
+   "growhub": "order_cycle_planning.seedPerCell"
+  },
+  {
+   "meaning": "Seed required (lb)",
+   "legacy": "SOURCE_REQUIRED",
+   "growhub": "order_cycle_planning.estimatedLbsOfSeed / adjustedCalculatedSeedQuantity"
+  },
+  {
+   "meaning": "Containers / bed feet",
+   "legacy": "EST_CONTAINERS_REQUIRED",
+   "growhub": "order_cycle_planning.adjustedCalculatedSpaceQuantity (+ containerSpecificationsNumberofcontainersneeded)"
+  }
+ ],
+ "rules": [
+  {
+   "id": "SP-01",
+   "title": "Pure live seed (viable seeds per pound)",
+   "verdict": "differs",
+   "severity": "high",
+   "legacy": {
+    "formula": "seeds/lb × germ% × purity%. If it comes out 0 (no test data), the Calculate button refuses to compute seed and says \"No test data entered to calculate source\".",
+    "refs": [
+     {
+      "control": "Pure_Live_Seed"
+     },
+     {
+      "vba": "Calculate_Click",
+      "from": "If Pure_Live_Seed > 0 Then",
+      "to": "(Forms!NMIS_AGREEMENT_LOTS!SOURCE_PURITY_PCT / 100))"
+     },
+     {
+      "vba": "Calculate_Click",
+      "from": "MsgBox \"No test data",
+      "to": "MsgBox \"No test data"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Same product, inlined in each calculation. But a germ% or purity% of 0 or blank is treated as 100%, so the calculation runs as if the seed were perfect.",
+    "refs": [
+     {
+      "fn": "calculateEstimatedSeed"
+     }
+    ]
+   },
+   "impact": "With no test data, GrowHub silently assumes 100% germination and purity. It then under-orders seed by whatever the real germ and purity would have been, where legacy would have stopped.",
+   "question": "Should GrowHub block or warn when germ or purity is missing, as legacy did?"
+  },
+  {
+   "id": "SP-02",
+   "title": "Harvest factor product (and the multiply/divide operator)",
+   "verdict": "differs",
+   "severity": "high",
+   "legacy": {
+    "formula": "HFn = factor when the factor code's operator is '*', otherwise 10000 / factor (the inverse). Product = HF1 × HF2 × HF3 × HF4 × Harvest ASF, each as a fraction of 100.",
+    "refs": [
+     {
+      "control": "HF1"
+     },
+     {
+      "control": "Harvest_Factor"
+     },
+     {
+      "vba": "Harvest_Factor_Tip_Click"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "factor1/100 × factor2/100 × factor3/100. There's no operator, no factor 4 and no Harvest ASF. A blank factor counts as 1.",
+    "refs": [
+     {
+      "fn": "calculateEstimatedSeed"
+     },
+     {
+      "fn": "getSeedFactorOptionSelection"
+     }
+    ]
+   },
+   "impact": "Any factor whose code uses the '/' operator moves the result the wrong way in GrowHub: 125 multiplies instead of dividing. The Access factor migration (admin/bin/access-migrations/species-product-factors-seed.ts) copies HARVEST_FACTOR_1–3 as-is and drops factor 4. In the four nurseries' NMIS_FACTORS exports, factor 4 is always 100, so dropping it from the defaults is harmless. On agreement lots it isn't: in the Oracle-era export (seed/NMIS_AGREEMENT_LOTS.json), 1,821 of 8,149 lots override factor 4, and 21 set a Harvest ASF.",
+   "evidence": "seed/access/*/NMIS_FACTORS.xml: HARVEST_FACTOR_4 = 100 in all 2,376 rows. seed/NMIS_AGREEMENT_LOTS.json: HARVEST_FACTOR_4 ≠ 100 on 1,821 lots.",
+   "question": "Which factor codes use the inverse operator (NMIS_FACTOR_CODES.FORMULA_INVERSE)? That table isn't in the frontend or the XML exports. Were those values converted before migration?"
+  },
+  {
+   "id": "SP-03",
+   "title": "Seed required (lb)",
+   "verdict": "differs",
+   "severity": "high",
+   "legacy": {
+    "formula": "(TOTAL_REQUEST × 1000) ÷ (pure live seed × harvest factor product × Harvest ASF), rounded to 3 decimals. The Calculate button leaves thinning probability out. A separate display field, Calc_Source, shows the figure with thinning included.",
+    "refs": [
+     {
+      "vba": "Calculate_Click",
+      "from": "If Pure_Live_Seed > 0 Then",
+      "to": "Source_Req = Round("
+     },
+     {
+      "control": "Calc_Source"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "seedlings ÷ (factor1 × factor2 × factor3 × thinning × past inventory performance × germ × purity × seeds/lb), rounded to 3 decimals, × 453.6 when the source lot is measured in grams.",
+    "refs": [
+     {
+      "fn": "calculateEstimatedSeed"
+     }
+    ]
+   },
+   "impact": "GrowHub always includes thinning and past performance in the seed figure. Legacy's saved SOURCE_REQUIRED excluded thinning. Even with the same inputs, GrowHub asks for more seed whenever thinning or past performance is below 100%.",
+   "question": "Should the saved seed quantity include thinning (like legacy's Calc_Source display) or not (like legacy's Calculate button)?"
+  },
+  {
+   "id": "SP-04",
+   "title": "Seed balance check when setting seed required",
+   "verdict": "differs",
+   "severity": "medium",
+   "legacy": {
+    "formula": "If seed required is more than the lot's balance: zero-balance lots show \"This is a Zero Balance Lot!\". Otherwise seed required is capped at the balance, with \"Insufficient Seed\". The same check runs whenever seed required is edited.",
+    "refs": [
+     {
+      "vba": "Calculate_Click",
+      "from": "If Source_Req <= ",
+      "to": "MsgBox \"Undetermined amount of source material.\""
+     },
+     {
+      "vba": "SOURCE_REQUIRED_AfterUpdate"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Two checks, neither on the planning step's figure. (1) The grow-request step sets an 'insufficient balance' flag when growRequest.estimatedLbsOfSeed is more than the lot balance (a warning, not a cap). (2) The production step's form validator rejects a withdrawal larger than the lot balance.",
+    "refs": [
+     {
+      "file": "frontend/src/app/routes/orders/order-grow-request/order-grow-request.component.ts",
+      "fn": "checkExistingBalance"
+     },
+     {
+      "file": "frontend/src/app/routes/orders/order-grow-request/order-grow-request.component.ts",
+      "fn": "confirmAvailableBalance"
+     },
+     {
+      "file": "frontend/src/app/routes/orders/orders-main/orders-main.component.ts",
+      "fn": "balanceValidation"
+     }
+    ]
+   },
+   "impact": "Legacy capped the planned seed at the balance as soon as it was calculated. GrowHub lets planning compute and save more seed than the lot holds, flags it on the grow request, and stops it at withdrawal.",
+   "question": "Is a warning at grow request plus a hard stop at withdrawal enough, or should planning cap or warn as legacy did?"
+  },
+  {
+   "id": "SP-05",
+   "title": "Which seed balance",
+   "verdict": "needs SME",
+   "severity": "medium",
+   "legacy": {
+    "formula": "Sum of activity units for the lot over activity codes whose balance effect isn't NOEFFECT, with grams converted to pounds (× 0.002204623). The planning form's version (Seed_Balance3) has no date filter. A sibling query (Seed_Balance2) only counts activities dated today or earlier.",
+    "refs": [
+     {
+      "query": "Seed_Balance_MT Query"
+     },
+     {
+      "query": "Seed_Balance3 Query"
+     },
+     {
+      "query": "Seed_Balance2 Query"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "source_lot.lotBalance, maintained by the server from lot transactions.",
+    "refs": []
+   },
+   "impact": "Future-dated activities count toward the legacy planning balance. The activity-code crosswalk (Reference data › Activity codes) decides which codes move the GrowHub balance, and only 33% of Access codes are mapped so far.",
+   "question": "Does GrowHub's lotBalance include future-dated activities?"
+  },
+  {
+   "id": "SP-06",
+   "title": "Which test results feed planning",
+   "verdict": "differs",
+   "severity": "medium",
+   "legacy": {
+    "formula": "\"Use Last Test Data\" copies germ%, purity%, seeds/lb and stratified from one record: the lot's most recent test (max TEST_DATE). All four values come from that one test. Two tests on the same date give duplicate rows.",
+    "refs": [
+     {
+      "vba": "Use_Last_Test_Data_Click"
+     },
+     {
+      "query": "NMIS_SOURCE_LastTestData_MT Query"
+     },
+     {
+      "query": "NMIS_SOURCE_LastTestDate Query"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Takes the most recent test of each type separately: germ from t2, purity from t4, seeds/lb from t7. Fills them in when the field is empty or the source lot changes.",
+    "refs": [
+     {
+      "fn": "convertTestsEnumValue"
+     },
+     {
+      "fn": "getSeedsPerPound"
+     }
+    ]
+   },
+   "impact": "In GrowHub, germ, purity and seeds/lb can come from different test dates. TZ germination tests (t3, which the Access test migration creates for TZ / TZ-P / T-P-C) are never used for germ. Also, getSeedsPerPound runs after the tests are sorted newest-first, so its loop keeps the oldest t7. That variable looks display-only, since the form field uses the newest t7, but it's worth checking.",
+   "question": "Should TZ (t3) results count as germination in planning?"
+  },
+  {
+   "id": "SP-07",
+   "title": "Choosing the default factors",
+   "verdict": "differs",
+   "severity": "medium",
+   "legacy": {
+    "formula": "Automatic. Takes the NMIS_FACTORS row for the species product where the client ID starts with LIKE_ASSOCIATE. Otherwise it takes a generic row (LIKE_ASSOCIATE blank) whose germ range covers the lot's germ%. Client rows sort first. The elevation range is selected but not used. \"Use Default Factors\" copies harvest factors 1–4, container factors 1–3 and desired density, and resets thinning and container probability to 100%.",
+    "refs": [
+     {
+      "form": "NMIS_FACTORS_FOR_AGREEMENT_LOTS subform"
+     },
+     {
+      "vba": "Use_Default_Factors_Click"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Manual. The planner picks from a dropdown of every seed factor for the species product, labelled with client, elevation and germ range. Choosing one copies factor1–3 only.",
+    "refs": [
+     {
+      "fn": "getSeedFactorOptionSelection"
+     },
+     {
+      "fn": "displaySeedFactors"
+     }
+    ]
+   },
+   "impact": "GrowHub doesn't pre-select the client- or germ-matched row, and choosing a factor doesn't set desired density or reset thinning.",
+   "question": "Keep factor selection manual, or pre-select using legacy's client-prefix / germ-range rule?"
+  },
+  {
+   "id": "SP-08",
+   "title": "Bareroot space (bed feet / seedbed containers)",
+   "verdict": "differs",
+   "severity": "high",
+   "legacy": {
+    "formula": "For seedbed (SB) stock: containers = (seed required × pure live seed) × container factor product ÷ (target density × cells per container) × container ASF. It starts from the seed actually being sown.",
+    "refs": [
+     {
+      "vba": "Calculate_Click",
+      "from": "If [Type_of_Container] = \"SB\" Then",
+      "to": "CONTAINER_ASF)"
+     },
+     {
+      "vba": "SOURCE_REQUIRED_Exit"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "round(((seedlings ÷ (factor1 × factor2 × factor3 × past performance)) × bareroot space) ÷ (target density × cells per container × survival)). It starts from the request and uses harvest factors, not container factors.",
+    "refs": [
+     {
+      "fn": "calculateEstimatedSpace"
+     }
+    ]
+   },
+   "impact": "Different starting point (request vs seed sown) and different factors. Legacy recalculated space from the seed actually sown whenever seed required was edited. GrowHub's space doesn't move when the planner adjusts seed.",
+   "question": "Should bareroot space follow the seed being sown (legacy) or the seedlings requested (GrowHub)?"
+  },
+  {
+   "id": "SP-09",
+   "title": "Container count (container stock)",
+   "verdict": "differs",
+   "severity": "medium",
+   "legacy": {
+    "formula": "Calculate button: (gross seedlings × 1000) ÷ (target density × cells per container) × container factor product + 0.35. Gross seedlings = TOTAL_REQUEST ÷ (harvest factors × Harvest ASF).",
+    "refs": [
+     {
+      "vba": "Calculate_Click",
+      "from": "Else 'For Containers",
+      "to": "+ 0.35"
+     },
+     {
+      "control": "Calculated_Gross"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "round(((seedlings ÷ (factor1 × factor2 × factor3 × past performance)) × cells filled) ÷ (target density × cells per container × survival) + 0.35).",
+    "refs": [
+     {
+      "fn": "calculateCTREstimatedSpace"
+     }
+    ]
+   },
+   "impact": "The +0.35 rounding nudge carried over. Container factors and container ASF were replaced by cells-filled and survival percentages. The container factors are overridden on about 2,700 lots in the Oracle-era export, so migrated lots won't reproduce legacy container counts."
+  },
+  {
+   "id": "SP-10",
+   "title": "Legacy uses three different container formulas",
+   "verdict": "legacy bug",
+   "severity": "high",
+   "legacy": {
+    "formula": "The same EST_CONTAINERS_REQUIRED is recalculated by different handlers with different formulas:\n• Calculate button: × container factor, + 0.35, no container ASF\n• leaving Container ASF or Container Factor 1–3: × container factor × container ASF, no + 0.35\n• leaving Desired Density: × container ASF + 0.35, no container factor\nSo the stored value depends on which field the user left last.",
+    "refs": [
+     {
+      "vba": "Calculate_Click",
+      "from": "Else 'For Containers",
+      "to": "+ 0.35"
+     },
+     {
+      "vba": "CONTAINER_ASF_ADJUSTMENT_Exit",
+      "from": "If [Type_of_Container]",
+      "to": "End If"
+     },
+     {
+      "vba": "Desired_Density_Exit",
+      "from": "Else 'For Containers",
+      "to": "+ 0.35"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "One formula (SP-09).",
+    "refs": [
+     {
+      "fn": "calculateCTREstimatedSpace"
+     }
+    ]
+   },
+   "impact": "Migrated EST_CONTAINERS_REQUIRED values can't all be reproduced by one formula. Don't treat a mismatch on a migrated lot as a GrowHub bug before checking which legacy path produced it.",
+   "question": "Which legacy variant is the intended one?"
+  },
+  {
+   "id": "SP-11",
+   "title": "Seeds-per-cell (SPC) adjustment",
+   "verdict": "matches",
+   "severity": "low",
+   "legacy": {
+    "formula": "Seed for SPC = cells per container × seeds per cell × containers ÷ seeds/lb (gross seeds/lb, not pure live seed). Containers for SPC = seed required × seeds/lb ÷ (cells × seeds per cell). The \"Use\" buttons then back-solve a percentage into harvest factor 4 / container factor 3 or thinning / container probability so the main formulas reproduce the SPC figure.",
+    "refs": [
+     {
+      "control": "Source_Required_by_spc"
+     },
+     {
+      "control": "Containers_Required_by_spc"
+     },
+     {
+      "vba": "SPC_Use_Source_Click"
+     },
+     {
+      "vba": "SPC_Use_Containers_Click"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Same two formulas, shown as a separate \"Calc. (SPC)\" row. Nothing is back-solved into the factors.",
+    "refs": [
+     {
+      "fn": "calcSPCSeedQuantity"
+     },
+     {
+      "fn": "calcSPCContainerQuantity"
+     }
+    ]
+   },
+   "impact": "The formulas match. Legacy lots where planners clicked \"Use\" carry back-solved values in HARVEST_FACTOR_4 and CONTAINER_FACTOR_3, which explains the odd values in the export (CONTAINER_FACTOR_3 = 1, 2, 5 …). Those fields have no home in GrowHub."
+  },
+  {
+   "id": "SP-12",
+   "title": "Seedling yield (\"will grow\")",
+   "verdict": "differs",
+   "severity": "medium",
+   "legacy": {
+    "formula": "seed required × pure live seed × harvest factors × Harvest ASF (× thinning for container stock) ÷ 1000, rounded to 3 decimals. Bareroot leaves thinning out.",
+    "refs": [
+     {
+      "control": "Source_Will_Grow"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "seed × factor1 × factor2 × factor3 × germ × purity (× thinning for container stock) × past performance × seeds/lb, rounded. Bareroot leaves thinning out.",
+    "refs": [
+     {
+      "fn": "calculateSeedlingYield"
+     }
+    ]
+   },
+   "impact": "Same structure, including the bareroot/container thinning split. The differences are the ones in SP-02 (factor 4, ASF, operator), past performance being new, and units (legacy is in thousands)."
+  },
+  {
+   "id": "SP-13",
+   "title": "Shortage",
+   "verdict": "matches",
+   "severity": "low",
+   "legacy": {
+    "formula": "max(0, TOTAL_REQUEST − will grow), rounded to 3 decimals. Shows NA when there's no seed required.",
+    "refs": [
+     {
+      "control": "Shortage"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "round(seedlings − yield). Shown as 0 when under 1.",
+    "refs": [
+     {
+      "fn": "calculateShortage"
+     }
+    ]
+   },
+   "impact": "Equivalent apart from units."
+  },
+  {
+   "id": "SP-14",
+   "title": "Propagule (NSP) orders",
+   "verdict": "missing",
+   "severity": "medium",
+   "legacy": {
+    "formula": "For category NSP: containers = TOTAL_REQUEST × the user nursery's propagule bed-feet-per-acre default (Default4N). Seed isn't calculated.",
+    "refs": [
+     {
+      "vba": "Calculate_Click",
+      "from": "If CATEGORY_CODE = \"NSP\" Then",
+      "to": "MsgBox \"NMIS does not currently"
+     },
+     {
+      "control": "Propagule_BF_per_Acre"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "No propagule branch found in the planning calculations.",
+    "refs": []
+   },
+   "impact": "Propagule orders would fall through to the seed-based formulas.",
+   "question": "Are propagule (native plant) orders in scope for GrowHub planning?"
+  },
+  {
+   "id": "SP-15",
+   "title": "Bareroot vs container branching",
+   "verdict": "needs SME",
+   "severity": "low",
+   "legacy": {
+    "formula": "Branches on the species product's begin container type: SB (seedbed) is bareroot. Containers_Will_Grow also treats SPB and TB as bareroot for B/N category lots.",
+    "refs": [
+     {
+      "control": "Type_of_Container"
+     },
+     {
+      "control": "Containers_Will_Grow"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Branches on the grow cycle's stock type (isBareroot).",
+    "refs": []
+   },
+   "impact": "Probably equivalent, but SPB / TB container types are worth checking against grow_unit.stockType."
+  },
+  {
+   "id": "SP-16",
+   "title": "Legacy bugs not to carry over",
+   "verdict": "legacy bug",
+   "severity": "low",
+   "legacy": {
+    "formula": "• Source_Required_by_spc_DblClick sets SOURCE_REQUIRED = Source_Req on a zero-balance lot, but Source_Req is never set in that procedure. With no Option Explicit, the field gets blanked.\n• Calculate_Click only sets pure live seed when test data exists, so for seedbed stock with no test data the container estimate is computed with PLS = 0.\n• Calculate_Click assigns Source_Req2 but declares Source_Reg2 (typo). It works only because Option Explicit is off.",
+    "refs": [
+     {
+      "vba": "Source_Required_by_spc_DblClick",
+      "from": "If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance",
+      "to": "Source_Req"
+     },
+     {
+      "vba": "Calculate_Click",
+      "from": "Dim Source_Reg2",
+      "to": "Dim Source_Reg2"
+     },
+     {
+      "vba": "Calculate_Click",
+      "from": "Source_Req2 = Forms",
+      "to": "Source_Req2 = Forms"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "Not applicable.",
+    "refs": []
+   },
+   "impact": "Migrated lots touched by these paths may have blank seed required or zero container estimates."
+  },
+  {
+   "id": "SP-17",
+   "title": "Rounding and unit constants",
+   "verdict": "differs",
+   "severity": "low",
+   "legacy": {
+    "formula": "Pounds from grams × 0.002204623 (and 453.59 g/lb in the balance query). Results rounded at the end.",
+    "refs": [
+     {
+      "query": "Seed_Balance Query"
+     }
+    ]
+   },
+   "growhub": {
+    "formula": "× 453.6 for grams. The container adjustment factor is rounded to 3 decimals before it's used, which drifts slightly when several factors are multiplied.",
+    "refs": [
+     {
+      "fn": "calculateEstimatedSeed"
+     },
+     {
+      "fn": "calculateCTREstimatedSpace"
+     }
+    ]
+   },
+   "impact": "Small differences (under 0.1%) in parallel-run comparisons."
+  },
+  {
+   "id": "SP-18",
+   "title": "Seed-to-seed and later grow cycles",
+   "verdict": "GrowHub only",
+   "severity": "info",
+   "legacy": {
+    "formula": "No equivalent on this form. Multi-cycle stock was planned as separate agreement lots.",
+    "refs": []
+   },
+   "growhub": {
+    "formula": "Seed-to-seed pounds = bed feet × density ÷ (seeds/lb × purity × fill × germ). Later cycles: space = seedlings ÷ (cells filled × cells per container), or ÷ (bareroot space × density).",
+    "refs": [
+     {
+      "fn": "calculateSeedToSeedPoundsNeeded"
+     },
+     {
+      "fn": "calculateAdditionalContainer"
+     },
+     {
+      "fn": "calculateAdditionalBRSpace"
+     }
+    ]
+   },
+   "impact": "New behaviour. Nothing in legacy to compare it with."
+  }
+ ]
+}

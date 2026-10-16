@@ -1,0 +1,1208 @@
+nursery,code,name,parentCode,balance,module,kind,ghParent,ghCode,note
+JHSN,2BGBX,2 Bags In A Box,SPCSVC,ADJUST,PROC,,,,Placing 500 trees per bag/two bags per box
+LPN,2BGBX,2 Bags/Box,SPCSVC,NOEFFECT,PROC,,,,Placing 500 trees per bag/two bags per box
+PN,2BGBX,2 Bags/Box,SPCSVC,NOEFFECT,PROC,,,,Placing 500 trees per bag/two bags per box
+TN,2BGBX,2 Bags/Box,SPCSVC,NOEFFECT,PROC,,,,Placing 500 trees per bag/two bags per box
+JHSN,2ndSrt,2nd Sort,SPCSVC,NOEFFECT,PROC,,,,Second Sort of a Multiple sort
+LPN,2NDSRT,SECOND SORT OF A DOUBLE SORT,SPCSVC,NOEFFECT,SPCSVC,,,,SECOND SORT OF A DOUBLE SORT
+PN,2NDSRT,SECOND SORT OF A DOUBLE SORT,SPCSVC,NOEFFECT,SPCSVC,,,,SECOND SORT OF A DOUBLE SORT
+TN,2NDSRT,SECOND SORT OF A DOUBLE SORT,SPCSVC,NOEFFECT,SPCSVC,,,,SECOND SORT OF A DOUBLE SORT
+JHSN,ACQBT,Seed Acquired by Trade,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed is acquired by trading excess seed on an equal dollar value with other Government agencies (activity code 263 is used to remove the excess seed)
+LPN,ACQBT,Seed Acquired by Trade,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed is acquired by trading excess seed on an equal dollar value with other Government agencies (activity code 263 is used to remove the excess seed)
+PN,ACQBT,Seed Acquired by Trade,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed is acquired by trading excess seed on an equal dollar value with other Government agencies (activity code 263 is used to remove the excess seed)
+TN,ACQBT,Seed Acquired by Trade,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed is acquired by trading excess seed on an equal dollar value with other Government agencies (activity code 263 is used to remove the excess seed)
+LPN,ADCO,Admin Determined Carry-Over,PROC,REMOVE,PROC,,,,Administrative determined to carry over an agreement lot to the next season/year. subtracts from original agreement lot
+PN,ADCO,Admin Determined Carry-Over,PROC,REMOVE,PROC,,,,Administrative determined to carry over an agreement lot to the next season/year. subtracts from original agreement lot
+TN,ADCO,Admin Determined Carry-Over,PROC,REMOVE,PROC,,,,Administrative determined to carry over an agreement lot to the next season/year. subtracts from original agreement lot
+JHSN,ADDCMB,Seed Additions/Combinations,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Additions Through Combinations - This is seed that is added to an existing lot or combined with other lots to form a new lot or just create a new lot. (Seed is removed from existing lots using activity code 259)
+LPN,ADDCMB,Seed Additions/Combinations,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Additions Through Combinations - This is seed that is added to an existing lot or combined with other lots to form a new lot or just create a new lot. (Seed is removed from existing lots using activity code 259)
+PN,ADDCMB,Seed Additions/Combinations,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Additions Through Combinations - This is seed that is added to an existing lot or combined with other lots to form a new lot or just create a new lot. (Seed is removed from existing lots using activity code 259)
+TN,ADDCMB,Seed Additions/Combinations,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Additions Through Combinations - This is seed that is added to an existing lot or combined with other lots to form a new lot or just create a new lot. (Seed is removed from existing lots using activity code 259)
+JHSN,ADDNON,Non-WCF Seed Additions,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Seed additions to a non-WCF inventory (i.e. seed stored for other agencies or other cooperators)
+LPN,ADDNON,Non-WCF Seed Additions,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Seed additions to a non-WCF inventory (i.e. seed stored for other agencies or other cooperators)
+PN,ADDNON,Non-WCF Seed Additions,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Seed additions to a non-WCF inventory (i.e. seed stored for other agencies or other cooperators)
+TN,ADDNON,Non-WCF Seed Additions,SDTRAN,ADD,SOURCE,,Source Adjustments,Lot Adjustment,Seed additions to a non-WCF inventory (i.e. seed stored for other agencies or other cooperators)
+JHSN,ALTINV,Alternate Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for seedling lot at alternative specifications
+LPN,ALTINV,Alternate Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for seedling lot at alternative specifications
+PN,ALTINV,Alternate Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for seedling lot at alternative specifications
+TN,ALTINV,Alternate Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for seedling lot at alternative specifications
+JHSN,AMEND,Soil Amendments,LM,NOEFFECT,ACTIVITIES,,,,The broad term for soil additives that will greatly affect the chemical and/or physical properties of the soil for a long period of time (1.5 to 10 years)
+LPN,AMEND,Soil Amendments,LM,NOEFFECT,ACTIVITIES,,,,The broad term for soil additives that will greatly affect the chemical and/or physical properties of the soil for a long period of time (1.5 to 10 years)
+PN,AMEND,Soil Amendments,LM,NOEFFECT,ACTIVITIES,,,,The broad term for soil additives that will greatly affect the chemical and/or physical properties of the soil for a long period of time (1.5 to 10 years)
+TN,AMEND,Soil Amendments,LM,NOEFFECT,ACTIVITIES,,,,The broad term for soil additives that will greatly affect the chemical and/or physical properties of the soil for a long period of time (1.5 to 10 years)
+TN,ASPIR,Aspirator Tester,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of separating light from heavy material using air flow.
+JHSN,BAG,Bag,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag
+LPN,BAG,Bag,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag
+PN,BAG,Bag,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag
+TN,BAG,Bag,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag
+JHSN,BAG24,"Bag(s) 24""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BAG30,"Bag(s) 30""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BAG40,"Bag(s) 40""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BAG72,"Bag(s) 40""X72""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BBX24,"Bag(s) in Box(s) 24""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BBX30,"Bag(s) in Box(s) 30""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BBX40,"Bag(s) in Box(s) 40""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BEDFRM,Bed Form,LM,NOEFFECT,ACTIVITIES,,,,Shaping beds for growing seedlings
+LPN,BEDFRM,Bed Form,LM,NOEFFECT,ACTIVITIES,,,,Shaping beds for growing seedlings
+PN,BEDFRM,Bed Form,LM,NOEFFECT,ACTIVITIES,,,,Shaping beds for growing seedlings
+TN,BEDFRM,Bed Form,LM,NOEFFECT,ACTIVITIES,,,,Shaping beds for growing seedlings
+JHSN,BEDINV,Seedling Bed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for a seedling bed
+LPN,BEDINV,Seedling Bed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for a seedling bed
+PN,BEDINV,Seedling Bed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for a seedling bed
+TN,BEDINV,Seedling Bed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Inventory for a seedling bed
+JHSN,BFSCHG,Bed Foot Surcharge,SPCSVC,NOEFFECT,PROC,,,,Bed Foot Charge to Client
+JHSN,BGBX,Bag In A Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Box
+LPN,BGBX,Bag in a Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Box
+PN,BGBX,Bag in a Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Box
+TN,BGBX,Bag in a Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Box
+JHSN,BGUBX,Bag In A Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Used Box
+LPN,BGUBX,Bag in a Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Used Box
+PN,BGUBX,Bag in a Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Used Box
+TN,BGUBX,Bag in a Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Bag in Used Box
+JHSN,BIO,Biological Control,CT,NOEFFECT,ACTIVITIES,,,,The use of living organisms to control or kill pests
+LPN,BIO,Biological Control,CT,NOEFFECT,ACTIVITIES,,,,The use of living organisms to control or kill pests
+PN,BIO,Biological Control,CT,NOEFFECT,ACTIVITIES,,,,The use of living organisms to control or kill pests
+TN,BIO,Biological Control,CT,NOEFFECT,ACTIVITIES,,,,The use of living organisms to control or kill pests
+JHSN,BND100,Bundle @100,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @>100/bundle
+LPN,BND100,Bundle @100,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @>100/bundle
+PN,BND100,Bundle @100,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @>100/bundle
+TN,BND100,Bundle @100,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @>100/bundle
+LPN,BNDL,Bundling,PROC,NOEFFECT,ORDERS,,,,"Tying groups of a counted number of seedlings into bundles within a bag, box or bale of seedlings"
+PN,BNDL,Bundling,PROC,NOEFFECT,ORDERS,,,,"Tying groups of a counted number of seedlings into bundles within a bag, box or bale of seedlings"
+TN,BNDL,Bundling,PROC,NOEFFECT,ORDERS,,,,"Tying groups of a counted number of seedlings into bundles within a bag, box or bale of seedlings"
+JHSN,BNDL10,Bundle @10,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @10 seedlings per bundle
+LPN,BNDL10,Bundle @10,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @10 seedlings per bundle
+PN,BNDL10,Bundle @10,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @10 seedlings per bundle
+TN,BNDL10,Bundle @10,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @10 seedlings per bundle
+JHSN,BNDL20,Bundle @20,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @20 or fewer/bundle
+LPN,BNDL20,Bundle @20,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @20 or fewer/bundle
+PN,BNDL20,Bundle @20,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @20 or fewer/bundle
+TN,BNDL20,Bundle @20,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @20 or fewer/bundle
+JHSN,BNDL25,Bundle @25,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle
+LPN,BNDL25,Bundle @25,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle
+PN,BNDL25,Bundle @25,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle
+TN,BNDL25,Bundle @25,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle
+JHSN,BNDL50,Bundle @50,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle
+LPN,BNDL50,Bundle @50,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle
+PN,BNDL50,Bundle @50,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle
+TN,BNDL50,Bundle @50,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle
+JHSN,BNDNO,No Bundling,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings
+LPN,BNDNO,No Bundling,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings
+PN,BNDNO,No Bundling,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings
+TN,BNDNO,No Bundling,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings
+JHSN,BOIL,Boiling Cones For Flairing,CONE,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,BOIL,Boiling Cones For Flairing,CONE,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,BOIL,Boiling Cones For Flairing,CONE,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,BOIL,Boiling Cones For Flairing,CONE,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,BOX,Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Box
+LPN,BOX,Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Box
+PN,BOX,Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Box
+TN,BOX,Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Box
+JHSN,BOX24,"Box(s) 24""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BOX30,"Box(s) 30""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BOX40,"Box(s) 40""",SPCSVC,NOEFFECT,PROC,,,,
+JHSN,BOXU,Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Used Box
+LPN,BOXU,Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Used Box
+PN,BOXU,Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Used Box
+TN,BOXU,Used Box,SPCSVC,NOEFFECT,PROC,,,,Pack seedlings in Used Box
+TN,BP5SC,Five Screen Cleaner,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,BRDCST,Broadcast Sow,SDTRAN,REMOVE,SOURCE,,,,Broadcast sowing within the nursery (i.e. bed house)
+LPN,BRDCST,Broadcast Sow,SDTRAN,REMOVE,SOURCE,,,,Broadcast sowing within the nursery (i.e. bed house)
+PN,BRDCST,Broadcast Sow,SDTRAN,REMOVE,SOURCE,,,,Broadcast sowing within the nursery (i.e. bed house)
+TN,BRDCST,Broadcast Sow,SDTRAN,REMOVE,SOURCE,,,,Broadcast sowing within the nursery (i.e. bed house)
+JHSN,BRFS,Bareroot Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall bareroot sowing within the nursery
+LPN,BRFS,Bareroot Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall bareroot sowing within the nursery
+PN,BRFS,Bareroot Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall bareroot sowing within the nursery
+TN,BRFS,Bareroot Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall bareroot sowing within the nursery
+JHSN,BRMS,Bareroot Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer Bareroot sowing within the nursery
+LPN,BRMS,Bareroot Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer bareroot sowing within the nursery
+PN,BRMS,Bareroot Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer bareroot sowing within the nursery
+TN,BRMS,Bareroot Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer bareroot sowing within the nursery
+JHSN,BRSS,Bareroot Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring bareroot sowing within the nursery
+LPN,BRSS,Bareroot Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring bareroot sowing within the nursery
+PN,BRSS,Bareroot Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring bareroot sowing within the nursery
+TN,BRSS,Bareroot Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring bareroot sowing within the nursery
+TN,BRSU,Bareroot Sow (Summer),SDTRAN,REMOVE,SOURCE,,,,Summer bareroot sowing within the nursery
+JHSN,BRUSH,Brush Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,BRUSH,Brush Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,BRUSH,Brush Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,BRUSH,Brush Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,BSY248,Contractor Sowing,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed sold to private contractor for sowing.
+JHSN,BULK,Bed Run,SPCSVC,NOEFFECT,ORDERS,,,,Seedlings packed in shed
+LPN,BULK,Bed Run,SPCSVC,NOEFFECT,ORDERS,,,,Seedlings packed in shed
+PN,BULK,Bed Run,SPCSVC,NOEFFECT,ORDERS,,,,Seedlings packed in shed
+TN,BULK,Bed Run,SPCSVC,NOEFFECT,ORDERS,,,,Seedlings packed in shed
+JHSN,CC,Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,A crop grown to improve the makeup of the soil
+LPN,CC,Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,A crop grown to improve the makeup of the soil
+PN,CC,Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,A crop grown to improve the makeup of the soil
+TN,CC,Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,A crop grown to improve the makeup of the soil
+JHSN,CCFERT,Fertilize Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CCFERT,Fertilize Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+PN,CCFERT,Fertilize Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+TN,CCFERT,Fertilize Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,CCHARV,Harvest Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CCHARV,Harvest Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+PN,CCHARV,Harvest Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+TN,CCHARV,Harvest Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,CCINC,Incorporate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CCINC,Incorporate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+PN,CCINC,Incorporate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+TN,CCINC,Incorporate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,CCIRR,Irrigate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CCIRR,Irrigate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+PN,CCIRR,Irrigate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+TN,CCIRR,Irrigate Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,CCMOW,Mow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CCMOW,Mow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+PN,CCMOW,Mow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+TN,CCMOW,Mow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,CCSOW,Sow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CCSOW,Sow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+PN,CCSOW,Sow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+TN,CCSOW,Sow Cover Crop,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,CDCO,Client Determine Carry-Over,PROC,REMOVE,PROC,,,,Client determined to carry over an agreement lot to the next season/year. subtracts from original agreement lot
+PN,CDCO,Client Determine Carry-Over,PROC,REMOVE,PROC,,,,Client determined to carry over an agreement lot to the next season/year. subtracts from original agreement lot
+TN,CDCO,Client Determine Carry-Over,PROC,REMOVE,PROC,,,,Client determined to carry over an agreement lot to the next season/year. subtracts from original agreement lot
+JHSN,CDEST,Cooler Destroy,SHIP,REMOVE,SHIP,,,,"Surplus seedling destruction -cooler location, after packing"
+JHSN,DELIVR,Deliver Seedlings,SHIP,REMOVE,SHIP,,,,Seedlings delivered by the nursery
+JHSN,PICKUP,Pick Up Seedlings,SHIP,REMOVE,SHIP,,,,Seedlings picked up at the nursery (FOB Nursery)
+JHSN,PLDCSR,Plants Declared Surplus,SHIP,REMOVE,PROC,,,,Seedlings declared to be surplus
+JHSN,CHEM,Chemical Control,CT,NOEFFECT,ACTIVITIES,,,,"Chemical applications to seedlings to aid in the reduction of pests such as insects, fungi and weeds"
+LPN,CHEM,Chemical Control,CT,NOEFFECT,ACTIVITIES,,,,"Chemical applications to seedlings to aid in the reduction of pests such as insects, fungi and weeds"
+PN,CHEM,Chemical Control,CT,NOEFFECT,ACTIVITIES,,,,"Chemical applications to seedlings to aid in the reduction of pests such as insects, fungi and weeds"
+TN,CHEM,Chemical Control,CT,NOEFFECT,ACTIVITIES,,,,"Chemical applications to seedlings to aid in the reduction of pests such as insects, fungi and weeds"
+JHSN,CKIN,Count and ck bags and tags,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+LPN,CKIN,Count and ck bags and tags,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+PN,CKIN,Count and ck bags and tags,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+TN,CKIN,Count and ck bags and tags,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+JHSN,CLEAN,Seed Cleaning,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,"The process of separating immature and insect-damaged seed from full, mature seed"
+LPN,CLEAN,Seed Cleaning,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,"The process of separating immature and insect-damaged seed from full, mature seed"
+PN,CLEAN,Seed Cleaning,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,"The process of separating immature and insect-damaged seed from full, mature seed"
+TN,CLEAN,Seed Cleaning,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,"The process of separating immature and insect-damaged seed from full, mature seed"
+JHSN,CLIPER,Clipper used to dewing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,CLIPER,Clipper used to dewing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,CLIPER,Clipper used to dewing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,CLIPER,Clipper used to dewing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,CLNHAN,Clean Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,CLNHAN,Clean Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,CLNHAN,Clean Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,CLNHAN,Clean Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,CNDEST,Container Destroy,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse seedling destruction
+LPN,CNDEST,Container Destroy,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse seedling destruction
+PN,CNDEST,Container Destroy,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse seedling destruction
+TN,CNDEST,Container Destroy,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse seedling destruction
+JHSN,CNDRY,Cone Drying,CONE,NOEFFECT,SOURCE,,Source Processing,Source Drying,The drying of cones so that they open to release the seeds
+LPN,CNDRY,Cone Drying,CONE,NOEFFECT,SOURCE,,Source Processing,Source Drying,The drying of cones so that they open to release the seeds
+PN,CNDRY,Cone Drying,CONE,NOEFFECT,SOURCE,,Source Processing,Source Drying,The drying of cones so that they open to release the seeds
+TN,CNDRY,Cone Drying,CONE,NOEFFECT,SOURCE,,Source Processing,Source Drying,The drying of cones so that they open to release the seeds
+JHSN,CNEVAL,Cone Evaluation,CONE,NOEFFECT,SOURCE,,Source Processing,Cone Evaluation,The inspection of cones to check their desirability
+LPN,CNEVAL,Cone Evaluation,CONE,NOEFFECT,SOURCE,,Source Processing,Cone Evaluation,The inspection of cones to check their desirability
+PN,CNEVAL,Cone Evaluation,CONE,NOEFFECT,SOURCE,,Source Processing,Cone Evaluation,The inspection of cones to check their desirability
+TN,CNEVAL,Cone Evaluation,CONE,NOEFFECT,SOURCE,,Source Processing,Cone Evaluation,The inspection of cones to check their desirability
+JHSN,CNRECV,Cone Receiving,CONE,NOEFFECT,SOURCE,,Source Receiving,Cones,Cones received by a nursery
+LPN,CNRECV,Cone Receiving,CONE,NOEFFECT,SOURCE,,Source Receiving,Cones,Cones received by a nursery
+PN,CNRECV,Cone Receiving,CONE,NOEFFECT,SOURCE,,Source Receiving,Cones,Cones received by a nursery
+TN,CNRECV,Cone Receiving,CONE,NOEFFECT,SOURCE,,Source Receiving,Cones,Cones received by a nursery
+JHSN,CNSOAK,Cone - Water Soak,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The soaking of cones in water (i.e. serotinous cones)
+LPN,CNSOAK,Cone - Water Soak,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The soaking of cones in water (i.e. serotinous cones)
+PN,CNSOAK,Cone - Water Soak,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The soaking of cones in water (i.e. serotinous cones)
+TN,CNSOAK,Cone - Water Soak,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The soaking of cones in water (i.e. serotinous cones)
+JHSN,CNSTOR,Cone Storage,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,Cones stored before processing
+LPN,CNSTOR,Cone Storage,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,Cones stored before processing
+PN,CNSTOR,Cone Storage,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,Cones stored before processing
+TN,CNSTOR,Cone Storage,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,Cones stored before processing
+JHSN,CNTRAY,Cones on Tray for flairing bin,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+LPN,CNTRAY,Cones on Tray for flairing bin,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+PN,CNTRAY,Cones on Tray for flairing bin,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+TN,CNTRAY,Cones on Tray for flairing bin,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+TN,CNTRLP,Controlled Pollination,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client ???? MAY NEED NEW ENUM,Pollen removed for the purpose of cross pollination
+LPN,COADM,Admin Carry-Over,PROC,ADD,PROC,,,,Agreement Lot carried over to the next season/year based on administrative decision. Establishes new agreement lot
+PN,COADM,Admin Carry-Over,PROC,ADD,PROC,,,,Agreement Lot carried over to the next season/year based on administrative decision. Establishes new agreement lot
+TN,COADM,Admin Carry-Over,PROC,ADD,PROC,,,,Agreement Lot carried over to the next season/year based on administrative decision. Establishes new agreement lot
+LPN,COCLI,Client Carry-Over,PROC,ADD,PROC,,,,Agreement Lot carried over to the next season/year based on client decision. Establishes new agreement lot
+PN,COCLI,Client Carry-Over,PROC,ADD,PROC,,,,Agreement Lot carried over to the next season/year based on client decision. Establishes new agreement lot
+TN,COCLI,Client Carry-Over,PROC,ADD,PROC,,,,Agreement Lot carried over to the next season/year based on client decision. Establishes new agreement lot
+JHSN,CONE,Cone Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+LPN,CONE,Cone Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+PN,CONE,Cone Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+TN,CONE,Cone Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,
+JHSN,CONFS,Container Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall container sowing within the nursery
+LPN,CONFS,Container Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall container sowing within the nursery
+PN,CONFS,Container Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall container sowing within the nursery
+TN,CONFS,Container Sow (Fall),SDTRAN,REMOVE,#NAME?,,,,Fall container sowing within the nursery
+JHSN,CONMS,Container Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer container sowing within the nursery
+LPN,CONMS,Container Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer container sowing within the nursery
+PN,CONMS,Container Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer container sowing within the nursery
+TN,CONMS,Container Sow (suMmer),SDTRAN,REMOVE,#NAME?,,,,Summer container sowing within the nursery
+JHSN,CONSS,Container Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring container sowing within the nursery
+LPN,CONSS,Container Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring container sowing within the nursery
+PN,CONSS,Container Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring container sowing within the nursery
+TN,CONSS,Container Sow (Spring),SDTRAN,REMOVE,#NAME?,,,,Spring container sowing within the nursery
+JHSN,COSH,Cone/Seed Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The broad term for seed and cone activities up to the point of sowing or shipping the seed
+LPN,COSH,Cone/Seed Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The broad term for seed and cone activities up to the point of sowing or shipping the seed
+PN,COSH,Cone/Seed Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The broad term for seed and cone activities up to the point of sowing or shipping the seed
+TN,COSH,Cone/Seed Handling,CONE,NOEFFECT,SOURCE,,Source Processing,Other Special Serices,The broad term for seed and cone activities up to the point of sowing or shipping the seed
+JHSN,CPOP,Pop containers for Processing,ORDER,NOEFFECT,PROC,,,,Popping container stock for processing
+JHSN,CPROC,Container Processing,ORDER,NOEFFECT,PROC,,,,Processing for container stock - may or may not need packing
+LPN,CPROC,Container Processing,ORDER,NOEFFECT,PROC,,,,Order for container stock - may or may not need packing
+PN,CPROC,Container Processing,ORDER,NOEFFECT,PROC,,,,Order for container stock - may or may not need packing
+TN,CPROC,Container Processing,ORDER,NOEFFECT,PROC,,,,Order for container stock - may or may not need packing
+JHSN,CRGRD,Contract Grade,ORDER,NOEFFECT,PROC,,,,
+LPN,CRGRD,Contract Grade,ORDER,NOEFFECT,PROC,,,,
+PN,CRGRD,Contract Grade,ORDER,NOEFFECT,PROC,,,,
+TN,CRGRD,Contract Grade,ORDER,NOEFFECT,PROC,,,,
+JHSN,CRHLF,Contract Handlift,LIFT,NOEFFECT,PROC,,,,
+LPN,CRHLF,Contract Handlift,LIFT,NOEFFECT,PROC,,,,
+PN,CRHLF,Contract Handlift,LIFT,NOEFFECT,PROC,,,,
+TN,CRHLF,Contract Handlift,LIFT,NOEFFECT,PROC,,,,
+JHSN,CRHVP,Harvest/Pack Contract,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+LPN,CRHVP,Harvest/Pack Contract,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+PN,CRHVP,Harvest/Pack Contract,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+TN,CRHVP,Harvest/Pack Contract,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+JHSN,CRMLF,Contract Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+LPN,CRMLF,Contract Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+PN,CRMLF,Contract Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+TN,CRMLF,Contract Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+TN,CSTBLN,Custom Blend,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,"After removal from seed bank, blending multiple source for special project prior to shipment"
+JHSN,CSTORE,BgBx NO FREEZE,SPCSVC,NOEFFECT,PROC,,,,Storage above freezing
+JHSN,CT,Cultural Treatments,CT,NOEFFECT,ACTIVITIES,,,,Treatments to seedlings in nursery seedbeds which effect their development
+LPN,CT,Cultural Treatments,CT,NOEFFECT,ACTIVITIES,,,,Treatments to seedlings in nursery seedbeds which effect their development
+PN,CT,Cultural Treatments,CT,NOEFFECT,ACTIVITIES,,,,Treatments to seedlings in nursery seedbeds which effect their development
+TN,CT,Cultural Treatments,CT,NOEFFECT,ACTIVITIES,,,,Treatments to seedlings in nursery seedbeds which effect their development
+LPN,CTHAND,Container Hand Sow,CT,ADD,ACTIVITIES,,,,Container sowing by hand
+PN,CTHAND,Container Hand Sow,CT,ADD,ACTIVITIES,,,,Container sowing by hand
+TN,CTHAND,Container Hand Sow,CT,ADD,ACTIVITIES,,,,Container sowing by hand
+LPN,CTMECH,Container Mech Sow,CT,ADD,ACTIVITIES,,,,Container sowing by machine
+PN,CTMECH,Container Mech Sow,CT,ADD,ACTIVITIES,,,,Container sowing by machine
+TN,CTMECH,Container Mech Sow,CT,ADD,ACTIVITIES,,,,Container sowing by machine
+TN,CTRCVD,Cuttings Received,SDEXTR,NOEFFECT,SOURCE,,Source Receiving,Raw Materials,Cuttings received to produce rooted cuttings
+JHSN,CTSTRK,Cuttings Striking,CT,NOEFFECT,#NAME?,,,,Planting unrooted cutting or root cutting.
+LPN,CTSTRK,Struck Cuttings,CT,ADD,ACTIVITIES,,,,
+PN,CTSTRK,Struck Cuttings,CT,ADD,ACTIVITIES,,,,
+TN,CTSTRK,Struck Cuttings,CT,NOEFFECT,ACTIVITIES,,,,
+JHSN,DBLSR2,Double Sort Chg to Client,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded twice charged to client
+TN,DBLSR2,Double Sort Chg to Client,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded twice charged to client
+JHSN,DBLSRT,Double Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded twice
+LPN,DBLSRT,Double Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded twice
+PN,DBLSRT,Double Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded twice
+TN,DBLSRT,Double Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded twice
+JHSN,PLDCXS,Plants Declared Excess,SHIP,REMOVE,PROC,,,,Seedlings declared to be excess
+JHSN,REPACK,Repack for Ship/Reprocess,SHIP,ADJUST,PROC,,,,Used for removal for Reprocessing or Splitting for shipping when not all contents of a container is to be shipped.
+JHSN,RTN4TP,Returned for Transplant,SHIP,ADD,PROC,,,,Seedlings packed and shipped for outplant to client and returned for transplanting
+JHSN,SHIP,Shipping Seedlings,SHIP,REMOVE,SHIP,,,,Seedlings shipped to associate by third party
+JHSN,DESUNC,Destroy Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,MISSING CORRECT ENUM TYPE,"Destroy seed which has been determined to be bad prior to cleaning process being completed (i.e. empty, bug-filled). Initial weight not determined."
+LPN,DESUNC,Destroy Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,MISSING CORRECT ENUM TYPE,"Destroy seed which has been determined to be bad prior to cleaning process being completed (i.e. empty, bug-filled). Initial weight not determined."
+PN,DESUNC,Destroy Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,MISSING CORRECT ENUM TYPE,"Destroy seed which has been determined to be bad prior to cleaning process being completed (i.e. empty, bug-filled). Initial weight not determined."
+TN,DESUNC,Destroy Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,MISSING CORRECT ENUM TYPE,"Destroy seed which has been determined to be bad prior to cleaning process being completed (i.e. empty, bug-filled). Initial weight not determined."
+JHSN,DEWCEM,Dewing using Cement Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,DEWCEM,Dewing using Cement Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,DEWCEM,Dewing using Cement Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,DEWCEM,Dewing using Cement Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,DEWHAN,Dewing Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,DEWHAN,Dewing Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,DEWHAN,Dewing Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,DEWHAN,Dewing Seed by Hand,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,DEWING,Seed Dewinging,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,DEWING,Seed Dewinging,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,DEWING,Seed Dewinging,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,DEWING,Seed Dewinging,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,DEWMIS,Dewing using Missoula gadget,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,DEWMIS,Dewing using Missoula gadget,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,DEWMIS,Dewing using Missoula gadget,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,DEWMIS,Dewing using Missoula gadget,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,DEWMOR,Dewing using Mortar Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,DEWMOR,Dewing using Mortar Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,DEWMOR,Dewing using Mortar Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,DEWMOR,Dewing using Mortar Mixer,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,DIRECT,Direct Seeding,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client,Seed sold to Forest to be sown on wild lands
+LPN,DIRECT,Direct Seeding,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client,Seed sold to Forest to be sown on wild lands
+PN,DIRECT,Direct Seeding,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client,Seed sold to Forest to be sown on wild lands
+TN,DIRECT,Direct Seeding,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client,Seed sold to Forest to be sown on wild lands
+JHSN,DISK,Disking,LM,NOEFFECT,ACTIVITIES,,,,Disking a field
+LPN,DISK,Disking,LM,NOEFFECT,ACTIVITIES,,,,Disking a field
+PN,DISK,Disking,LM,NOEFFECT,ACTIVITIES,,,,Disking a field
+TN,DISK,Disking,LM,NOEFFECT,ACTIVITIES,,,,Disking a field
+TN,DONANP,Donate Seed (NonProfit),SDTRAN,REMOVE,SOURCE,,Source Shipping,Donations,NonWCF - Donate to a non-profit/research organization
+JHSN,DONAOT,Donate Seed (Other),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Any non-tree improvement seed given to the WCF seed bank
+LPN,DONAOT,Donate Seed (Other),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Any non-tree improvement seed given to the WCF seed bank
+PN,DONAOT,Donate Seed (Other),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Any non-tree improvement seed given to the WCF seed bank
+TN,DONAOT,Donate Seed (Other),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Any non-tree improvement seed given to the WCF seed bank
+JHSN,DONATI,Donate Seed (TI-Tree Improve),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Donated to Nursery from Tree Improvement - Tree improvement seed given to the WCF seed bank
+LPN,DONATI,Donate Seed (TI-Tree Improve),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Donated to Nursery from Tree Improvement - Tree improvement seed given tot he WCF seed bank
+PN,DONATI,Donate Seed (TI-Tree Improve),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Donated to Nursery from Tree Improvement - Tree improvement seed given tot he WCF seed bank
+TN,DONATI,Donate Seed (TI-Tree Improve),SDTRAN,ADD,SOURCE,,Source Receiving,Donated Source,Donated to Nursery from Tree Improvement - Tree improvement seed given tot he WCF seed bank
+JHSN,DPOSIT,Deposit for Production Request,REQ,NOEFFECT,REQ,,Source Receiving,Donated Source,Deposit for plants to be grown.
+JHSN,DRYSD,Seed drying,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Drying,The process of drying seed to reduce moisture content
+LPN,DRYSD,Seed drying,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Drying,The process of drying seed to reduce moisture content
+PN,DRYSD,Seed drying,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Drying,The process of drying seed to reduce moisture content
+TN,DRYSD,Seed drying,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Drying,The process of drying seed to reduce moisture content
+JHSN,DSTROY,Destroy,ORDER,NOEFFECT,PROC,,,,Client requests seedlings be destroyed
+LPN,DSTROY,Destroy,ORDER,NOEFFECT,PROC,,,,Client requests seedlings be destroyed
+PN,DSTROY,Destroy,ORDER,NOEFFECT,PROC,,,,Client requests seedlings be destroyed
+TN,DSTROY,Destroy,ORDER,NOEFFECT,PROC,,,,Client requests seedlings be destroyed
+JHSN,DYBVIG,Dybvig Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Equipment used to macerate fleshy fruit
+LPN,DYBVIG,Dybvig Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Equipment used to macerate fleshy fruit
+PN,DYBVIG,Dybvig Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Equipment used to macerate fleshy fruit
+TN,DYBVIG,Dybvig Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Equipment used to macerate fleshy fruit
+JHSN,ECIRR,Irrigation for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,ECIRR,Irrigation for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+PN,ECIRR,Irrigation for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+TN,ECIRR,Irrigation for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,ECMLCH,Mulch for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,ECMLCH,Mulch for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+PN,ECMLCH,Mulch for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+TN,ECMLCH,Mulch for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,ECWWM,Waterway Maintenance,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,ECWWM,Waterway Maintenance,LM,NOEFFECT,ACTIVITIES,,,,
+PN,ECWWM,Waterway Maintenance,LM,NOEFFECT,ACTIVITIES,,,,
+TN,ECWWM,Waterway Maintenance,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,EROCTL,Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,Procedures to prevent undesirable soil movements
+LPN,EROCTL,Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,Procedures to prevent undesirable soil movements
+PN,EROCTL,Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,Procedures to prevent undesirable soil movements
+TN,EROCTL,Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,Procedures to prevent undesirable soil movements
+TN,EVLDOC,Evaluating Protocols,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Evaluating Protocols,Evaluating/Processing protocols for source material and/or documenting chosen protocol for the nursery
+JHSN,EXTR,Extraction,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse processing for shipment
+LPN,EXTR,Extraction,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse processing for shipment
+PN,EXTR,Extraction,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse processing for shipment
+TN,EXTR,Extraction,LIFT,REMOVE,PROC,,,,Greenhouse/Shadehouse processing for shipment
+JHSN,FAGRD,Force Account Grade,ORDER,NOEFFECT,PROC,,,,
+LPN,FAGRD,Force Account Grade,ORDER,NOEFFECT,PROC,,,,
+PN,FAGRD,Force Account Grade,ORDER,NOEFFECT,PROC,,,,
+TN,FAGRD,Force Account Grade,ORDER,NOEFFECT,PROC,,,,
+JHSN,FAHLF,Force Account Handlift,LIFT,NOEFFECT,PROC,,,,
+LPN,FAHLF,Force Account Handlift,LIFT,NOEFFECT,PROC,,,,
+PN,FAHLF,Force Account Handlift,LIFT,NOEFFECT,PROC,,,,
+TN,FAHLF,Force Account Handlift,LIFT,NOEFFECT,PROC,,,,
+JHSN,FAHVP,Harvest/Pack Force Acct,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+LPN,FAHVP,Seed Harvest/Pack Force Acct,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+PN,FAHVP,Harvest/Pack Force Acct,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+TN,FAHVP,Seed Harvest/Pack Force Acct,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack
+JHSN,FAHVPL,Harvest/Pack Force Acct Lg Lot,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack Large Lot
+JHSN,FAHVPS,Harvest/Pack Force Acct Sm Lot,ORDER,NOEFFECT,PROC,,,,Native Propagule Harvest and Pack Small Lot
+TN,FAMHG,Force Acct Mech Harvest Grass,PROC,NOEFFECT,PROC,,,,Force Account harvest of native grass seed increasing plots.
+JHSN,FAMLF,Force Acct Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+LPN,FAMLF,Force Acct Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+PN,FAMLF,Force Acct Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+TN,FAMLF,Force Acct Mechanical Lift,LIFT,NOEFFECT,PROC,,,,
+TN,FAMRG,Force Acct Mech Remove Grass,PROC,REMOVE,PROC,,,,Force Account removal of native grass seed plots
+JHSN,FDEST,Field Destroy,LIFT,REMOVE,PROC,,,,Surplus seedling destruction - field location
+LPN,FDEST,Field Destroy,LIFT,REMOVE,PROC,,,,Surplus seedling destruction - field location
+PN,FDEST,Field Destroy,LIFT,REMOVE,PROC,,,,Surplus seedling destruction - field location
+TN,FDEST,Field Destroy,LIFT,REMOVE,PROC,,,,Surplus seedling destruction - field location
+JHSN,FDPROC,Food Processor (Berries),SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,FDPROC,Food Processor (Berries),SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,FDPROC,Food Processor (Berries),SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,FDPROC,Food Processor (Berries),SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,FERTIR,Fertilizer Penetration Irrigat,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to enhance penetration of fertilizer
+LPN,FERTIR,Fertilizer Penetration Irrigat,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to enhance penetration of fertilizer
+PN,FERTIR,Fertilizer Penetration Irrigat,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to enhance penetration of fertilizer
+TN,FERTIR,Fertilizer Penetration Irrigat,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to enhance penetration of fertilizer
+JHSN,FINBED,Final Seedbed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling bed
+LPN,FINBED,Final Seedbed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling bed
+PN,FINBED,Final Seedbed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling bed
+TN,FINBED,Final Seedbed Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling bed
+JHSN,FININV,Final Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory prior to lifting
+LPN,FININV,Final Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory prior to lifting
+PN,FININV,Final Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory prior to lifting
+TN,FININV,Final Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory prior to lifting
+JHSN,FINLOT,Final Seedlot Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling lot
+LPN,FINLOT,Final Seedlot Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling lot
+PN,FINLOT,Final Seedlot Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling lot
+TN,FINLOT,Final Seedlot Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Final inventory for entire seedling lot
+JHSN,FINRVS,Final Revised Inventory,PLNINV,ADJUST,ACTIVITIES,,,,
+LPN,FINRVS,Final Revised Inventory,PLNINV,ADJUST,ACTIVITIES,,,,
+PN,FINRVS,Final Revised Inventory,PLNINV,ADJUST,ACTIVITIES,,,,
+TN,FINRVS,Final Revised Inventory,PLNINV,ADJUST,ACTIVITIES,,,,
+JHSN,FIR,True Fir Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,FIR,True Fir Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,FIR,True Fir Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,FIR,True Fir Machine,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,FLDROP,Field Drop Seeder,CT,ADD,ACTIVITIES,,,,Field sowing with mechanical drop seeder
+PN,FLDROP,Field Drop Seeder,CT,ADD,ACTIVITIES,,,,Field sowing with mechanical drop seeder
+TN,FLDROP,Field Drop Seeder,CT,ADD,ACTIVITIES,,,,Field sowing with mechanical drop seeder
+LPN,FLGRAS,Field Grass Seeder,CT,ADD,ACTIVITIES,,,,Field sowing with mechanical grass seeder
+PN,FLGRAS,Field Grass Seeder,CT,ADD,ACTIVITIES,,,,Field sowing with mechanical grass seeder
+TN,FLGRAS,Field Grass Seeder,CT,ADD,ACTIVITIES,,,,Field sowing with mechanical grass seeder
+TN,FLOAT,Floating berries/flesh/seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of separating seeds from flesh with water.
+JHSN,FOLIAR,Foliar Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,Application of Foliar fertilizer (one that is absorbed through plant foliage)
+LPN,FOLIAR,Foliar Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,Application of Foliar fertilizer (one that is absorbed through plant foliage)
+PN,FOLIAR,Foliar Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,Application of Foliar fertilizer (one that is absorbed through plant foliage)
+TN,FOLIAR,Foliar Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,Application of Foliar fertilizer (one that is absorbed through plant foliage)
+JHSN,FPACK,Field Pack,ORDER,NOEFFECT,PROC,,,,Seedlings packed in field
+LPN,FPACK,Field Pack,ORDER,NOEFFECT,ORDERS,,,,Seedlings packed in field
+PN,FPACK,Field Pack,ORDER,NOEFFECT,ORDERS,,,,Seedlings packed in field
+TN,FPACK,Field Pack,ORDER,NOEFFECT,ORDERS,,,,Seedlings packed in field
+JHSN,FRSTCT,Frost Heaving ???,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to prevent frost heaving
+LPN,FRSTCT,Frost Heaving ???,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to prevent frost heaving
+PN,FRSTCT,Frost Heaving ???,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to prevent frost heaving
+TN,FRSTCT,Frost Heaving ???,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to prevent frost heaving
+JHSN,FRSTIR,Frost Protection Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to prevent frost damage to seedlings
+LPN,FRSTIR,Frost Protection Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to prevent frost damage to seedlings
+PN,FRSTIR,Frost Protection Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to prevent frost damage to seedlings
+TN,FRSTIR,Frost Protection Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to prevent frost damage to seedlings
+JHSN,FRZR,Freezer Store,SPCSVC,NOEFFECT,PROC,,,,Storage below freezing
+LPN,FRZR,Freezer Store,SPCSVC,NOEFFECT,PROC,,,,Storage below freezing
+PN,FRZR,Freezer Store,SPCSVC,NOEFFECT,PROC,,,,Storage below freezing
+TN,FRZR,Freezer Store,SPCSVC,NOEFFECT,PROC,,,,Storage below freezing
+JHSN,FUMIG,Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+LPN,FUMIG,Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+PN,FUMIG,Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+TN,FUMIG,Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+TN,GLFAIL,Grow Lot Failure,CT,REMOVE,ACTIVITIES,,,,"Agreement lot failed to produce a product. Failure causes include, but not limited to, poor germination of seed source, or cuttings not producing viable roots."
+JHSN,GP,Ground Prep,LM,NOEFFECT,ACTIVITIES,,,,The general term for using mechanical implements to till the soil
+LPN,GP,Ground Prep,LM,NOEFFECT,ACTIVITIES,,,,The general term for using mechanical implements to till the soil
+PN,GP,Ground Prep,LM,NOEFFECT,ACTIVITIES,,,,The general term for using mechanical implements to till the soil
+TN,GP,Ground Prep,LM,NOEFFECT,ACTIVITIES,,,,The general term for using mechanical implements to till the soil
+JHSN,GRAVIT,Gravity table,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,GRAVIT,Gravity table,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,GRAVIT,Gravity table,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,GRAVIT,Gravity table,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,GRP100,Group 100-No Banding,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 100
+LPN,GRP100,Group 100,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 100
+PN,GRP100,Group 100,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 100
+TN,GRP100,Group 100,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 100
+JHSN,GRP25,Group 25-No Banding,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 25
+LPN,GRP25,Group 25,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 25
+PN,GRP25,Group 25,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 25
+TN,GRP25,Group 25,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 25
+JHSN,GRP50,Group 50-No Banding,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 50
+LPN,GRP50,Group 50,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 50
+PN,GRP50,Group 50,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 50
+TN,GRP50,Group 50,SPCSVC,NOEFFECT,PROC,,,,No bundlling/group seedlings in groups of 50
+TN,GRYS,Bareroot Sow for Yield,SDTRAN,REMOVE,SOURCE,,,,"Sow seed for yield in bareroot beds. Included for grass, forb, etc."
+JHSN,HARROW,Harrowing,LM,NOEFFECT,ACTIVITIES,,,,Harrowing a field
+LPN,HARROW,Harrowing,LM,NOEFFECT,ACTIVITIES,,,,Harrowing a field
+PN,HARROW,Harrowing,LM,NOEFFECT,ACTIVITIES,,,,Harrowing a field
+TN,HARROW,Harrowing,LM,NOEFFECT,ACTIVITIES,,,,Harrowing a field
+JHSN,HEATIR,Heat Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to keep seedlings from getting too hot
+LPN,HEATIR,Heat Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to keep seedlings from getting too hot
+PN,HEATIR,Heat Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to keep seedlings from getting too hot
+TN,HEATIR,Heat Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to keep seedlings from getting too hot
+JHSN,HEEL,Heel-in,ORDER,NOEFFECT,PROC,,,,Field storage in trenches
+LPN,HEEL,Heel-in,ORDER,NOEFFECT,ORDERS,,,,Field storage in trenches
+PN,HEEL,Heel-in,ORDER,NOEFFECT,ORDERS,,,,Field storage in trenches
+TN,HEEL,Heel-in,ORDER,NOEFFECT,ORDERS,,,,Field storage in trenches
+JHSN,HNDTHN,Hand Thin,CT,NOEFFECT,ACTIVITIES,,,,Thinning done with a large pair of scissors or carpet knife
+LPN,HNDTHN,Hand Thin,CT,NOEFFECT,ACTIVITIES,,,,Thinning done with a large pair of scissors or carpet knife
+PN,HNDTHN,Hand Thin,CT,NOEFFECT,ACTIVITIES,,,,Thinning done with a large pair of scissors or carpet knife
+TN,HNDTHN,Hand Thin,CT,NOEFFECT,ACTIVITIES,,,,Thinning done with a large pair of scissors or carpet knife
+JHSN,HNDWD,Hand Weed,CT,NOEFFECT,ACTIVITIES,,,,
+LPN,HNDWD,Hand Weed,CT,NOEFFECT,ACTIVITIES,,,,
+PN,HNDWD,Hand Weed,CT,NOEFFECT,ACTIVITIES,,,,
+TN,HNDWD,Hand Weed,CT,NOEFFECT,ACTIVITIES,,,,
+LPN,HNDXPL,Hand Transplant,CT,ADD,ACTIVITIES,,,,Transplanting done by hand
+PN,HNDXPL,Hand Transplant,CT,ADD,ACTIVITIES,,,,Transplanting done by hand
+TN,HNDXPL,Hand Transplant,CT,ADD,ACTIVITIES,,,,Transplanting done by hand
+JHSN,HNTMBL,Hand Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,HNTMBL,Hand Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,HNTMBL,Hand Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,HNTMBL,Hand Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,HOFMAN,Hoffman Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,HOFMAN,Hoffman Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,HOFMAN,Hoffman Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,HOFMAN,Hoffman Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,HOLD,Holdover,ORDER,NOEFFECT,PROC,,,,Holdover stock for an additional year in same growing container and location
+LPN,HOLD,Holdover,ORDER,NOEFFECT,PROC,,,,Holdover stock for an additional year in same growing container.
+PN,HOLD,Holdover,ORDER,NOEFFECT,PROC,,,,Holdover stock for an additional year in same growing container.
+TN,HOLD,Holdover,ORDER,NOEFFECT,PROC,,,,Holdover stock for an additional year in same growing container.
+JHSN,HROOT,Horizontal Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning the blade horizontal to ground surface
+LPN,HROOT,Horizontal Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning the blade horizontal to ground surface
+PN,HROOT,Horizontal Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning the blade horizontal to ground surface
+TN,HROOT,Horizontal Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning the blade horizontal to ground surface
+JHSN,HRSCHF,Hourly Surcharge Fall L&P,SPCSVC,NOEFFECT,PROC,,,,Hourly to be charged back to Client for Fall Lift and Pack
+JHSN,HRSCHG,Hourly Surcharge,SPCSVC,NOEFFECT,PROC,,,,Hourly to be charged back to Client
+LPN,HRSCHG,Hourly Surcharge,SPCSVC,NOEFFECT,PROC,,,,Hourly to be charged back to client.
+PN,HRSCHG,Hourly Surcharge,SPCSVC,NOEFFECT,PROC,,,,Hourly to be charged back to client.
+TN,HRSCHG,Hourly Surcharge,SPCSVC,NOEFFECT,PROC,,,,Hourly to be charged back to client.
+JHSN,HYDRO,hydro mulch,CT,NOEFFECT,ACTIVITIES,,,,Use of hydrolyzed fibers
+LPN,HYDRO,hydro mulch,CT,NOEFFECT,ACTIVITIES,,,,Use of hydrolyzed fibers
+PN,HYDRO,hydro mulch,CT,NOEFFECT,ACTIVITIES,,,,Use of hydrolyzed fibers
+TN,HYDRO,hydro mulch,CT,NOEFFECT,ACTIVITIES,,,,Use of hydrolyzed fibers
+JHSN,INORG,Inorganic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"A soil additive which is inorganic (i.e. sand, sulphur, lime, etc.)"
+LPN,INORG,Inorganic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"A soil additive which is inorganic (i.e. sand, sulphur, lime, etc.)"
+PN,INORG,Inorganic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"A soil additive which is inorganic (i.e. sand, sulphur, lime, etc.)"
+TN,INORG,Inorganic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"A soil additive which is inorganic (i.e. sand, sulphur, lime, etc.)"
+JHSN,INTINV,Interim Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Intermediate or supplementary inventory
+LPN,INTINV,Interim Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Intermediate or supplementary inventory
+PN,INTINV,Interim Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Intermediate or supplementary inventory
+TN,INTINV,Interim Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,Intermediate or supplementary inventory
+JHSN,LGTMBL,Large lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,LGTMBL,Large lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,LGTMBL,Large lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,LGTMBL,Large lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,LIFT,Lifting,LIFT,REMOVE,PROC,,,,Lifting seedlings from nursery beds
+LPN,LIFT,Lifting,LIFT,REMOVE,PROC,,,,Lifting seedlings from nursery beds
+PN,LIFT,Lifting,LIFT,REMOVE,PROC,,,,Lifting seedlings from nursery beds
+TN,LIFT,Lifting,LIFT,REMOVE,PROC,,,,Lifting seedlings from nursery beds
+JHSN,LM,Land Management,LM,NOEFFECT,ACTIVITIES,,,,A broad designation for nursery soil management
+LPN,LM,Land Management,LM,NOEFFECT,ACTIVITIES,,,,A broad designation for nursery soil management
+PN,LM,Land Management,LM,NOEFFECT,ACTIVITIES,,,,A broad designation for nursery soil management
+TN,LM,Land Management,LM,NOEFFECT,ACTIVITIES,,,,A broad designation for nursery soil management
+JHSN,LOCCHG,Location Changes,PLNINV,NOEFFECT,ACTIVITIES,,,,Changes to Locations which may or may not change inventory
+LPN,LOCCHG,Location Changes,PLNINV,NOEFFECT,ACTIVITIES,,,,Changes to Locations which may or may not change inventory
+PN,LOCCHG,Location Changes,PLNINV,NOEFFECT,ACTIVITIES,,,,Changes to Locations which may or may not change inventory
+TN,LOCCHG,Location Changes,PLNINV,NOEFFECT,ACTIVITIES,,,,Changes to Locations which may or may not change inventory
+JHSN,LOTINV,Seedling Lot Inventory,PLNINV,NOEFFECT,#NAME?,,,,Inventory for an entire seedling lot
+LPN,LOTINV,Seedling Lot Inventory,PLNINV,NOEFFECT,#NAME?,,,,Inventory for an entire seedling lot
+PN,LOTINV,Seedling Lot Inventory,PLNINV,NOEFFECT,#NAME?,,,,Inventory for an entire seedling lot
+TN,LOTINV,Seedling Lot Inventory,PLNINV,NOEFFECT,#NAME?,,,,Inventory for an entire seedling lot
+TN,LP998,Miscellaneous/Remarks,,NOEFFECT,,,Source Processing,Other Special Services,Lucky Peak Code was 998
+JHSN,M2B,Air/screen Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,M2B,Air/screen Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,M2B,Air/screen Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,M2B,Air/screen Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,MCHCLT,Mechanical Cultivation,CT,NOEFFECT,ACTIVITIES,,,,Weeding done by machine
+LPN,MCHCLT,Mechanical Cultivation,CT,NOEFFECT,ACTIVITIES,,,,Weeding done by machine
+PN,MCHCLT,Mechanical Cultivation,CT,NOEFFECT,ACTIVITIES,,,,Weeding done by machine
+TN,MCHCLT,Mechanical Cultivation,CT,NOEFFECT,ACTIVITIES,,,,Weeding done by machine
+JHSN,MCHTHN,Mechanical Thin,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+LPN,MCHTHN,Mechanical Thin,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+PN,MCHTHN,Mechanical Thin,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+TN,MCHTHN,Mechanical Thin,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+LPN,MCHXPL,Mechanical Transplant,CT,ADD,ACTIVITIES,,,,Transplanting done by machine
+PN,MCHXPL,Mechanical Transplant,CT,ADD,ACTIVITIES,,,,Transplanting done by machine
+TN,MCHXPL,Mechanical Transplant,CT,ADD,ACTIVITIES,,,,Transplanting done by machine
+JHSN,MINCHG,Minimum Charge,SPCSVC,NOEFFECT,SPCSVC,,,,Minimum Charge for billing.
+JHSN,MLCHCT,Mulch,CT,NOEFFECT,ACTIVITIES,,,,Covering the seed/seedlings with organic or inorganic matter
+LPN,MLCHCT,Mulch,CT,NOEFFECT,ACTIVITIES,,,,Covering the seed/seedlings with organic or inorganic matter
+PN,MLCHCT,Mulch,CT,NOEFFECT,ACTIVITIES,,,,Covering the seed/seedlings with organic or inorganic matter
+TN,MLCHCT,Mulch,CT,NOEFFECT,ACTIVITIES,,,,Covering the seed/seedlings with organic or inorganic matter
+JHSN,MONCCO,Observations - Container Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Container Crops
+LPN,MONCCO,Observations - Container Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Contanier Crops
+PN,MONCCO,Observations - Container Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Container Crops
+TN,MONCCO,Observations - Container Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Container Crops
+JHSN,MONFCO,Observations Field Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Field (Bareroot) Crops
+LPN,MONFCO,Observations - Field Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Field Crops
+PN,MONFCO,Observations Field Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Field (Bareroot) Crops
+TN,MONFCO,Observations Field Crops,MONIT,NOEFFECT,MONIT,,,,Observations of Field (Bareroot) Crops
+JHSN,MONIT,Product Monitoring Activities,MONIT,NOEFFECT,MONIT,,,,"Activities associated with monitoring field or container crops, product in storage or shipping etc."
+LPN,MONIT,Product Monitoring Activities,MONIT,NOEFFECT,MONIT,,,,"Activities associated with monitoring field or container crops, product in storage or shipping etc."
+PN,MONIT,Product Monitoring Activities,MONIT,NOEFFECT,MONIT,,,,"Activities associated with monitoring field or container crops, product in storage or shipping etc."
+TN,MONIT,Product Monitoring Activities,MONIT,NOEFFECT,MONIT,,,,"Activities associated with monitoring field or container crops, product in storage or shipping etc."
+JHSN,MSTCSV,Moisture Conservation,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch primarily to hold soil moisture
+LPN,MSTCSV,Moisture Conservation,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch primarily to hold soil moisture
+PN,MSTCSV,Moisture Conservation,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch primarily to hold soil moisture
+TN,MSTCSV,Moisture Conservation,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch primarily to hold soil moisture
+JHSN,MSTRIR,Moisture Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to relieve moisture stress on seedlings
+LPN,MSTRIR,Moisture Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to relieve moisture stress on seedlings
+PN,MSTRIR,Moisture Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to relieve moisture stress on seedlings
+TN,MSTRIR,Moisture Stress Irrigation,CT,NOEFFECT,ACTIVITIES,,,,Irrigation to relieve moisture stress on seedlings
+JHSN,MYCOR,Mycorrizae Treatment,CT,NOEFFECT,ACTIVITIES,,,,Innoculation with Mycorrhizae
+LPN,MYCOR,Mycorrizae Treatment,CT,NOEFFECT,ACTIVITIES,,,,Innoculation with Mycorrhizae
+PN,MYCOR,Mycorrizae Treatment,CT,NOEFFECT,ACTIVITIES,,,,Innoculation with Mycorrhizae
+TN,MYCOR,Mycorrizae Treatment,CT,NOEFFECT,ACTIVITIES,,,,Innoculation with Mycorrhizae
+JHSN,NOSVC,No Special Services,SPCSVC,NOEFFECT,PROC,,,,No special services required - surplus lot
+LPN,NOSVC,No Special Services,SPCSVC,NOEFFECT,PROC,,,,No special services required - surplus lot
+PN,NOSVC,No Special Services,SPCSVC,NOEFFECT,PROC,,,,No special services required - surplus lot
+TN,NOSVC,No Special Services,SPCSVC,NOEFFECT,PROC,,,,No special services required - surplus lot
+JHSN,ORDER,Plants Ordered,PROC,NOEFFECT,ORDERS,,,,Final lift and pack document for stock with size specifications received from Requisition Unit. (to be used in seedling specification subset)
+LPN,ORDER,Plants Ordered,PROC,NOEFFECT,ORDERS,,,,Final lift and pack document for stock with size specifications received from Requisition Unit. (to be used in seedling specification subset)
+PN,ORDER,Plants Ordered,PROC,NOEFFECT,ORDERS,,,,Final lift and pack document for stock with size specifications received from Requisition Unit. (to be used in seedling specification subset)
+TN,ORDER,Plants Ordered,PROC,NOEFFECT,ORDERS,,,,Final lift and pack document for stock with size specifications received from Requisition Unit. (to be used in seedling specification subset)
+JHSN,ORG,Organic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"Any soil additive that is high in organic matter. (i.e. sawdust, compost, tree leaves, animal manure)"
+LPN,ORG,Organic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"Any soil additive that is high in organic matter. (i.e. sawdust, compost, tree leaves, animal manure)"
+PN,ORG,Organic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"Any soil additive that is high in organic matter. (i.e. sawdust, compost, tree leaves, animal manure)"
+TN,ORG,Organic Amendments,LM,NOEFFECT,ACTIVITIES,,,,"Any soil additive that is high in organic matter. (i.e. sawdust, compost, tree leaves, animal manure)"
+JHSN,OTHFDS,Other Federal Sowing,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed sold to other Forest Service nurseries for sowing at their nursery
+LPN,OTHFDS,Other Federal Sowing,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed sold to other Forest Service nurseries for sowing at their nursery
+PN,OTHFDS,Other Federal Sowing,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed sold to other Forest Service nurseries for sowing at their nursery
+TN,OTHFDS,Other Federal Sowing,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed sold to other Forest Service nurseries for sowing at their nursery
+JHSN,OTHSRV,Other Special Services,SPCSVC,NOEFFECT,PROC,,,,
+LPN,OTHSRV,Other Special Services,SPCSVC,NOEFFECT,PROC,,,,
+PN,OTHSRV,Other Special Services,SPCSVC,NOEFFECT,PROC,,,,
+TN,OTHSRV,Other Special Services,SPCSVC,NOEFFECT,PROC,,,,
+JHSN,OTHWD,Weed Control,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+LPN,OTHWD,Weed Control,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+PN,OTHWD,Weed Control,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+TN,OTHWD,Weed Control,CT,NOEFFECT,ACTIVITIES,,,,Use of mulch to control non-crop vegetation
+TN,OVRHD,Other Special Services,SDPROC,NOEFFECT,SOURCE,,Source Processing,Other Special Services,temporary activity code to handle service charges for source activities
+JHSN,PACK,Grade and Pack,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings in preparation for shipment
+LPN,PACK,Grade and Pack,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings in preparation for shipment
+PN,PACK,Grade and Pack,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings in preparation for shipment
+TN,PACK,Grade and Pack,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings in preparation for shipment
+JHSN,PASTEU,Soil Pasteurization,LM,NOEFFECT,ACTIVITIES,,,,Sterilization of soil without fumigation
+LPN,PASTEU,Soil Pasteurization,LM,NOEFFECT,ACTIVITIES,,,,Sterilization of soil without fumigation
+PN,PASTEU,Soil Pasteurization,LM,NOEFFECT,ACTIVITIES,,,,Sterilization of soil without fumigation
+TN,PASTEU,Soil Pasteurization,LM,NOEFFECT,ACTIVITIES,,,,Sterilization of soil without fumigation
+JHSN,PDEST,Precooler Destroy,PROC,REMOVE,PROC,,,,"Surplus seedling destruction -precooler location, prior to packing"
+LPN,PDEST,Precooler Destroy,PROC,REMOVE,PROC,,,,"Surplus seedling destruction -precooler location, prior to packing"
+PN,PDEST,Precooler Destroy,PROC,REMOVE,PROC,,,,"Surplus seedling destruction -precooler location, prior to packing"
+TN,PDEST,Precooler Destroy,PROC,REMOVE,PROC,,,,"Surplus seedling destruction -precooler location, prior to packing"
+JHSN,PESTSD,Pesticide Treatment of Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed with pesticide before sowing
+LPN,PESTSD,Pesticide Treatment of Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed with pesticide before sowing
+PN,PESTSD,Pesticide Treatment of Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed with pesticide before sowing
+TN,PESTSD,Pesticide Treatment of Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed with pesticide before sowing
+JHSN,SHIPTP,Ship for nursery transplanting,SHIP,REMOVE,PROC,,,,Seedlings removed from storage for nursery transplanting
+JHSN,SRFDS,Surplus Plants Field Destroyed,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+JHSN,XFERFM,Transfer/Hold from Prev Agrmt,SHIP,ADD,#NAME?,,,,"Product, being held-over under new agreement, from previous agreement"
+JHSN,XFERTO,Transfer Product To New AgrLot,SHIP,REMOVE,PROC,,,,"Product, grown under previous agreement, being held-over under new agreement"
+JHSN,PKMTL,Packing Material,SPCSVC,NOEFFECT,PROC,,,,Materials used to keep roots moist.
+LPN,PKMTL,Packing Material,SPCSVC,NOEFFECT,PROC,,,,Materials used to keep roots moist.
+PN,PKMTL,Packing Material,SPCSVC,NOEFFECT,PROC,,,,Materials used to keep roots moist.
+TN,PKMTL,Packing Material,SPCSVC,NOEFFECT,PROC,,,,Materials used to keep roots moist.
+JHSN,PLANE,Planing,LM,NOEFFECT,ACTIVITIES,,,,Shaping the field with a land plane
+LPN,PLANE,Planing,LM,NOEFFECT,ACTIVITIES,,,,Shaping the field with a land plane
+PN,PLANE,Planing,LM,NOEFFECT,ACTIVITIES,,,,Shaping the field with a land plane
+TN,PLANE,Planing,LM,NOEFFECT,ACTIVITIES,,,,Shaping the field with a land plane
+JHSN,PLASTI,Plastic Seal Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using tarps, to hold the fumigant in the soil"
+LPN,PLASTI,Plastic Seal Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using tarps, to hold the fumigant in the soil"
+PN,PLASTI,Plastic Seal Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using tarps, to hold the fumigant in the soil"
+TN,PLASTI,Plastic Seal Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using tarps, to hold the fumigant in the soil"
+JHSN,XPLT,Transplant to Transplant Bed,SHIP,REMOVE,#NAME?,,,,Transplant bareroot or container seedlings for additional growing in transplant beds.
+JHSN,XPLTC,Transplant Client-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant client-owned bareroot or container seedlings for additional growing in transplant beds.
+JHSN,XPLTH,Transplant to Bed by Hand,SHIP,REMOVE,#NAME?,,,,Transplant bareroot seedlings for additional growing in containers by hand
+JHSN,XPLTN,Transplant Nursery-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant nursery-owned bareroot or container seedlings for additional growing in transplant beds.
+JHSN,XPLTP,Transplant to Container,SHIP,REMOVE,#NAME?,,,,Transplant client-owned bareroot or container seedlings for additional growing in containers.
+JHSN,XSPLDN,Excess Plants Donated,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, donated"
+JHSN,XSPLSL,Excess Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold to other Government agencies or States"
+JHSN,XSPLXN,Excess Plants Exchanged,SHIP,ADJUST,PROC,,,,"Seedings, previously declared excess, traded on an equal dollar basis with other Government agencies or States"
+JHSN,PLNINV,Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,A quantity and/or quality inventory of nursery seedlings
+LPN,PLNINV,Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,A quantity and/or quality inventory of nursery seedlings
+PN,PLNINV,Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,A quantity and/or quality inventory of nursery seedlings
+TN,PLNINV,Seedling Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,A quantity and/or quality inventory of nursery seedlings
+JHSN,PLNTFZ,Fertilizing,CT,NOEFFECT,ACTIVITIES,,,,Application of fertilizer to nursery seed beds after sowing (Use of activity code 130 for fertilization prior to sowing
+LPN,PLNTFZ,Fertilizing,CT,NOEFFECT,ACTIVITIES,,,,Application of fertilizer to nursery seed beds after sowing (Use of activity code 130 for fertilization prior to sowing
+PN,PLNTFZ,Fertilizing,CT,NOEFFECT,ACTIVITIES,,,,Application of fertilizer to nursery seed beds after sowing (Use of activity code 130 for fertilization prior to sowing
+TN,PLNTFZ,Fertilizing,CT,NOEFFECT,ACTIVITIES,,,,Application of fertilizer to nursery seed beds after sowing (Use of activity code 130 for fertilization prior to sowing
+JHSN,PLNTIR,Irrigation of Plants,CT,NOEFFECT,ACTIVITIES,,,,The irrigation of nursery beds
+LPN,PLNTIR,Irrigation of Plants,CT,NOEFFECT,ACTIVITIES,,,,The irrigation of nursery beds
+PN,PLNTIR,Irrigation of Plants,CT,NOEFFECT,ACTIVITIES,,,,The irrigation of nursery beds
+TN,PLNTIR,Irrigation of Plants,CT,NOEFFECT,ACTIVITIES,,,,The irrigation of nursery beds
+JHSN,PLNTPR,Plant Protection,CT,NOEFFECT,ACTIVITIES,,,,A broad term for activities performed to protect seedlings from undesirable elements of the environment (see also 330 series: Mulches)
+LPN,PLNTPR,Plant Protection,CT,NOEFFECT,ACTIVITIES,,,,A broad term for activities performed to protect seedlings from undesirable elements of the environment (see also 330 series: Mulches)
+PN,PLNTPR,Plant Protection,CT,NOEFFECT,ACTIVITIES,,,,A broad term for activities performed to protect seedlings from undesirable elements of the environment (see also 330 series: Mulches)
+TN,PLNTPR,Plant Protection,CT,NOEFFECT,ACTIVITIES,,,,A broad term for activities performed to protect seedlings from undesirable elements of the environment (see also 330 series: Mulches)
+JHSN,PLOW,Plowing,LM,NOEFFECT,ACTIVITIES,,,,Plowing a field
+LPN,PLOW,Plowing,LM,NOEFFECT,ACTIVITIES,,,,Plowing a field
+PN,PLOW,Plowing,LM,NOEFFECT,ACTIVITIES,,,,Plowing a field
+TN,PLOW,Plowing,LM,NOEFFECT,ACTIVITIES,,,,Plowing a field
+JHSN,PLSTOR,Storage of Processed Plants,PROC,NOEFFECT,ORDERS,,,,Storage of seedlings before shipment (cooling)
+LPN,PLSTOR,Storage of Processed Plants,PROC,NOEFFECT,ORDERS,,,,Storage of seedlings before shipment (cooling)
+PN,PLSTOR,Storage of Processed Plants,PROC,NOEFFECT,ORDERS,,,,Storage of seedlings before shipment (cooling)
+TN,PLSTOR,Storage of Processed Plants,PROC,NOEFFECT,ORDERS,,,,Storage of seedlings before shipment (cooling)
+JHSN,PNEUMA,Pneumatic Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,PNEUMA,Pneumatic Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,PNEUMA,Pneumatic Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,PNEUMA,Pneumatic Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,POSTPK,Post-Pack,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings after packing"
+LPN,POSTPK,Post-Pack,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings after packing"
+PN,POSTPK,Post-Pack,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings after packing"
+TN,POSTPK,Post-Pack,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings after packing"
+TN,PRAGR,Pre-Agreement Lift,PROC,REMOVE,PROC,,,,Portion of an agreement lot to be taken prior to agreement/request being fulfilled.
+TN,PRAGRN,Pre-Agreement New Lot,PROC,NOEFFECT,PROC,,,,Establishes a new agreement lot. Portion of an agreement lot to be taken prior to agreement/request being fulfilled.
+JHSN,PRECHL,Pre-Chill,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings before they are graded and packed"
+LPN,PRECHL,Pre-Chill,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings before they are graded and packed"
+PN,PRECHL,Pre-Chill,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings before they are graded and packed"
+TN,PRECHL,Pre-Chill,PROC,NOEFFECT,ORDERS,,,,"Cold storage, above freezing, of seedlings before they are graded and packed"
+JHSN,PROC,Stock Processing,PROC,NOEFFECT,PROC,,,,"Activities that are part of lifting, packing, and/or shipping"
+LPN,PROC,Stock Processing,PROC,NOEFFECT,PROC,,,,"Activities that are part of lifting, packing, and/or shipping"
+PN,PROC,Stock Processing,PROC,NOEFFECT,PROC,,,,"Activities that are part of lifting, packing, and/or shipping"
+TN,PROC,Stock Processing,PROC,NOEFFECT,PROC,,,,"Activities that are part of lifting, packing, and/or shipping"
+JHSN,PRUNE,Pruning,CT,NOEFFECT,ACTIVITIES,,,,Cutting roots or tops to regulate growth
+LPN,PRUNE,Pruning,CT,NOEFFECT,ACTIVITIES,,,,Cutting roots or tops to regulate growth
+PN,PRUNE,Pruning,CT,NOEFFECT,ACTIVITIES,,,,Cutting roots or tops to regulate growth
+TN,PRUNE,Pruning,CT,NOEFFECT,ACTIVITIES,,,,Cutting roots or tops to regulate growth
+JHSN,PSFERT,Fertilization (Pre-Sow),LM,NOEFFECT,ACTIVITIES,,,,(Pre-sowing) - The application of fertilizer to a field just prior to sowing
+LPN,PSFERT,Fertilization (Pre-Sow),LM,NOEFFECT,ACTIVITIES,,,,(Pre-sowing) - The application of fertilizer to a field just prior to sowing
+PN,PSFERT,Fertilization (Pre-Sow),LM,NOEFFECT,ACTIVITIES,,,,(Pre-sowing) - The application of fertilizer to a field just prior to sowing
+TN,PSFERT,Fertilization (Pre-Sow),LM,NOEFFECT,ACTIVITIES,,,,(Pre-sowing) - The application of fertilizer to a field just prior to sowing
+JHSN,PURCH,Purchase Seed,SDTRAN,ADD,SOURCE,,Source Receiving,Purchased Source,The purchase from commercial sources using WCF Funds (i.e. clean seed purchase using WCF Funds)
+LPN,PURCH,Purchase Seed,SDTRAN,ADD,SOURCE,,Source Receiving,Purchased Source,The purchase from commercial sources using WCF Funds (i.e. clean seed purchase using WCF Funds)
+PN,PURCH,Purchase Seed,SDTRAN,ADD,SOURCE,,Source Receiving,Purchased Source,The purchase from commercial sources using WCF Funds (i.e. clean seed purchase using WCF Funds)
+TN,PURCH,Purchase Seed,SDTRAN,ADD,SOURCE,,Source Receiving,Purchased Source,The purchase from commercial sources using WCF Funds (i.e. clean seed purchase using WCF Funds)
+JHSN,PXPLT,Proc for Transplant in Seedbed,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at this nursery
+LPN,PXPLT,Proc for Transplant in Seedbed,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at this nursery
+PN,PXPLT,Proc for Transplant in Seedbed,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at this nursery
+TN,PXPLT,Proc for Transplant in Seedbed,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at this nursery
+JHSN,PXPLTO,Proc for Transplant Other Nur,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at other nursery associate
+LPN,PXPLTO,Proc for Transplant Other Nur,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at other nursery associate
+PN,PXPLTO,Proc for Transplant Other Nur,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at other nursery associate
+TN,PXPLTO,Proc for Transplant Other Nur,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for transplant at other nursery associate
+JHSN,PXPLTP,Proc for Transplant in Pots,ORDER,NOEFFECT,PROC,,,,Collect seedlings to be transplanted in large pots at this nursery
+LPN,PXPLTP,Proc for Transplant in Pots,ORDER,NOEFFECT,PROC,,,,Collect seedlings to be transplanted in large pots at this nursery
+PN,PXPLTP,Proc for Transplant in Pots,ORDER,NOEFFECT,PROC,,,,Collect seedlings to be transplanted in large pots at this nursery
+TN,PXPLTP,Proc for Transplant in Pots,ORDER,NOEFFECT,PROC,,,,Collect seedlings to be transplanted in large pots at this nursery
+JHSN,PXSSP,Grade and Pack/Surplus Sale,ORDER,NOEFFECT,PROC,,,,Grade and Pack for Surplus Sales
+LPN,PXSSP,Grade and Pack/Surplus Sales,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for Surplus Sales
+PN,PXSSP,Grade and Pack/Surplus Sales,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for Surplus Sales
+TN,PXSSP,Grade and Pack/Surplus Sales,ORDER,NOEFFECT,PROC,,,,Grading and packing seedlings for Surplus Sales
+JHSN,QPTP1C,Qplug Transplant 1st Cycle,REQ,NOEFFECT,REQ,,,,Billing Qplug Transplant First Cycle
+JHSN,RACK,Shipping Rack,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery"
+LPN,rack,Shipping Rack,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery."
+PN,rack,Shipping Rack,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery."
+TN,rack,Shipping Rack,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery."
+JHSN,RECLN,Reclean Seed,SDTRAN,REMOVE,SOURCE,,Source,????,"Processing to improve seed germination, purity, etc."
+LPN,RECLN,Reclean Seed,SDTRAN,REMOVE,SOURCE,,Source,????,"Processing to improve seed germination, purity, etc."
+PN,RECLN,Reclean Seed,SDTRAN,REMOVE,SOURCE,,Source,????,"Processing to improve seed germination, purity, etc."
+TN,RECLN,Reclean Seed,SDTRAN,REMOVE,SOURCE,,Source,????,"Processing to improve seed germination, purity, etc."
+JHSN,REDRY,Redry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,Drying seed to moisture content suitable for storage
+LPN,REDRY,Redry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,Drying seed to moisture content suitable for storage
+PN,REDRY,Redry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,Drying seed to moisture content suitable for storage
+TN,REDRY,Redry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,Drying seed to moisture content suitable for storage
+JHSN,REMDEB,Remove Debris,LM,NOEFFECT,ACTIVITIES,,,,"Removing rocks, stumps or other debris"
+LPN,REMDEB,Remove Debris,LM,NOEFFECT,ACTIVITIES,,,,"Removing rocks, stumps or other debris"
+PN,REMDEB,Remove Debris,LM,NOEFFECT,ACTIVITIES,,,,"Removing rocks, stumps or other debris"
+TN,REMDEB,Remove Debris,LM,NOEFFECT,ACTIVITIES,,,,"Removing rocks, stumps or other debris"
+LPN,CDEST,Cooler Destroy,SHIP,REMOVE,SHIP,,,,"Surplus seedling destruction -cooler location, after packing"
+LPN,DELIVR,Deliver Seedlings,SHIP,REMOVE,ship,,,,Seedlings delivered by the nursery
+LPN,PICKUP,Pick Up Seedlings,SHIP,REMOVE,ship,,,,Seedlings picked up at the nursery (FOB Nursery)
+LPN,PLDCSR,Plants Declared Surplus,SHIP,REMOVE,PROC,,,,Seedlings declared to be surplus
+JHSN,REQ,Production Requested,REQ,NOEFFECT,REQ,,,,Initial Request for stock production with size specification received from Requesting Unit (To be used in seedling specification subset)
+LPN,REQ,Trees Requested,REQ,NOEFFECT,REQ,,,,Initial order for stock with size specification received from Requesting Unit (To be used in seedling specification subset)
+PN,REQ,Trees Requested,REQ,NOEFFECT,REQ,,,,Initial order for stock with size specification received from Requesting Unit (To be used in seedling specification subset)
+TN,REQ,Trees Requested,REQ,NOEFFECT,REQ,,,,Initial order for stock with size specification received from Requesting Unit (To be used in seedling specification subset)
+JHSN,RETEST,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting
+LPN,RETEST,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting
+PN,RETEST,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting
+TN,RETEST,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting
+JHSN,RETOWN,Seed Returned to Owner,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Return to owner of Non-WCF Seed
+LPN,RETOWN,Seed Returned to Owner,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Return to owner of Non-WCF Seed
+PN,RETOWN,Seed Returned to Owner,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Return to owner of Non-WCF Seed
+TN,RETOWN,Seed Returned to Owner,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Return to owner of Non-WCF Seed
+JHSN,RETST2,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting. Same as RETEST but allows for a different activity charge.
+TN,RETST2,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting. Same as RETEST but allows for a different activity charge.
+JHSN,RETST3,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting. Same as RETEST but allows for a different activity charge.
+TN,RETST3,Seed Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,A measurable weight loss due to retesting. Same as RETEST but allows for a different activity charge.
+JHSN,RIP,Ripping,LM,NOEFFECT,ACTIVITIES,,,,"Subsoil ripping (chiseling, depth)"
+LPN,RIP,Ripping,LM,NOEFFECT,ACTIVITIES,,,,"Subsoil ripping (chiseling, depth)"
+PN,RIP,Ripping,LM,NOEFFECT,ACTIVITIES,,,,"Subsoil ripping (chiseling, depth)"
+TN,RIP,Ripping,LM,NOEFFECT,ACTIVITIES,,,,"Subsoil ripping (chiseling, depth)"
+JHSN,RMVCMB,Seed Removal for Combination,SDTRAN,REMOVE,SOURCE,,Source Adjustments,Lot Adjustment,Seed removed from a lot for combination with one or more lots or to create a new lot. (Activity code 236 is used to add this seed back in the inventory)
+LPN,RMVCMB,Seed Removal for Combination,SDTRAN,REMOVE,SOURCE,,Source Adjustments,Lot Adjustment,Seed removed from a lot for combination with one or more lots or to create a new lot. (Activity code 236 is used to add this seed back in the inventory)
+PN,RMVCMB,Seed Removal for Combination,SDTRAN,REMOVE,SOURCE,,Source Adjustments,Lot Adjustment,Seed removed from a lot for combination with one or more lots or to create a new lot. (Activity code 236 is used to add this seed back in the inventory)
+TN,RMVCMB,Seed Removal for Combination,SDTRAN,REMOVE,SOURCE,,Source Adjustments,Lot Adjustment,Seed removed from a lot for combination with one or more lots or to create a new lot. (Activity code 236 is used to add this seed back in the inventory)
+JHSN,ROTERA,Roterra,LM,NOEFFECT,ACTIVITIES,,,,Use of a roterra on a field
+LPN,ROTERA,Roterra,LM,NOEFFECT,ACTIVITIES,,,,Use of a roterra on a field
+PN,ROTERA,Roterra,LM,NOEFFECT,ACTIVITIES,,,,Use of a roterra on a field
+TN,ROTERA,Roterra,LM,NOEFFECT,ACTIVITIES,,,,Use of a roterra on a field
+JHSN,ROTOTL,Rototilling,LM,NOEFFECT,ACTIVITIES,,,,Use of a rototiller on a field
+LPN,ROTOTL,Rototilling,LM,NOEFFECT,ACTIVITIES,,,,Use of a rototiller on a field
+PN,ROTOTL,Rototilling,LM,NOEFFECT,ACTIVITIES,,,,Use of a rototiller on a field
+TN,ROTOTL,Rototilling,LM,NOEFFECT,ACTIVITIES,,,,Use of a rototiller on a field
+LPN,PLDCXS,Plants Declared Excess,SHIP,REMOVE,PROC,,,,Seedlings declared to be excess
+LPN,REPACK,Repack for Ship/Reprocess,SHIP,ADJUST,PROC,,,,Used for removal for Reprocessing or Splitting for shipping when not all contents of a container is to be shipped.
+LPN,RTN4TP,Returned for Transplant,SHIP,ADD,PROC,,,,Seedlings packed and shipped for outplant to client and returned for transplanting.
+LPN,SHIP,Ship Seedlings,SHIP,REMOVE,SHIP,,,,Seedlings shipped to associate by third party
+LPN,RTSCNT,Seed Count Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The seeds per pound retest after storage
+PN,RTSCNT,Seed Count Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The seeds per pound retest after storage
+TN,RTSCNT,Seed Count Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The seeds per pound retest after storage
+LPN,RTSGER,Germination Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The germination retest after storage
+PN,RTSGER,Germination Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The germination retest after storage
+TN,RTSGER,Germination Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The germination retest after storage
+LPN,RTSMST,Moisture Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The moisture retest after storage
+PN,RTSMST,Moisture Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The moisture retest after storage
+TN,RTSMST,Moisture Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The moisture retest after storage
+LPN,RTSNXS,Noxious Weed Only Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The noxious weed retest after storage
+PN,RTSNXS,Noxious Weed Only Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The noxious weed retest after storage
+TN,RTSNXS,Noxious Weed Only Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The noxious weed retest after storage
+LPN,RTSPUR,Purity Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The purity retest after storage
+PN,RTSPUR,Purity Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The purity retest after storage
+TN,RTSPUR,Purity Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The purity retest after storage
+LPN,RTSTZ,Tz Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The Tz retest after storage
+PN,RTSTZ,Tz Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The Tz retest after storage
+TN,RTSTZ,Tz Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The Tz retest after storage
+TN,RTXRAY,X-Ray Retest,SDTRAN,REMOVE,SOURCE,,Source Shipping,Re-Test AKA balance effect,The x-ray retest after storage
+JHSN,RVSINV,Intermediate revised Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,
+LPN,RVSINV,Intermediate revised Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,
+PN,RVSINV,Intermediate revised Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,
+TN,RVSINV,Intermediate revised Inventory,PLNINV,NOEFFECT,ACTIVITIES,,,,
+LPN,SA3PTY,Third-Party Analysis,LM,NOEFFECT,ACTIVITIES,,,,Third-party soil analysis
+PN,SA3PTY,Third-Party Analysis,LM,NOEFFECT,ACTIVITIES,,,,Third-party soil analysis
+TN,SA3PTY,Third-Party Analysis,LM,NOEFFECT,ACTIVITIES,,,,Third-party soil analysis
+LPN,SABLK,Bulk Density,LM,NOEFFECT,ACTIVITIES,,,,In-House Soil Bulk Density
+PN,SABLK,Bulk Density,LM,NOEFFECT,ACTIVITIES,,,,In-House Soil Bulk Density
+TN,SABLK,Bulk Density,LM,NOEFFECT,ACTIVITIES,,,,In-House Soil Bulk Density
+LPN,SAMST,Moisture Content,LM,NOEFFECT,ACTIVITIES,,,,In-House Soil Moisture Content
+PN,SAMST,Moisture Content,LM,NOEFFECT,ACTIVITIES,,,,In-House Soil Moisture Content
+TN,SAMST,Moisture Content,LM,NOEFFECT,ACTIVITIES,,,,In-House Soil Moisture Content
+JHSN,SCALP,Seed Scalping,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of separating trash and debris from the seed
+LPN,SCALP,Seed Scalping,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of separating trash and debris from the seed
+PN,SCALP,Seed Scalping,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of separating trash and debris from the seed
+TN,SCALP,Seed Scalping,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of separating trash and debris from the seed
+JHSN,SCCTR,Surcharge - Container Contract,REQ,NOEFFECT,REQ,,,,Surcharge for Container Contract Growing
+PN,SCCTR,Surcharge-Container Contract,SPCSVC,NOEFFECT,PROC,,,,Surcharge for Container Contract Growing
+PN,SCCTR2,Surcharge2-Container Contract,SPCSVC,NOEFFECT,PROC,,,,Surcharge2 for Container Contract Growing
+JHSN,SCLG1,Surcharge Germ <70%>=50%,REQ,NOEFFECT,REQ,,,,Low Germ Surcharge with Germ less than 70% and Greater than 50%. Use with SCLG2. Set SCLG3 to zero when using.
+JHSN,SCLG2,Surcharge Germ <50%,REQ,NOEFFECT,REQ,,,,Low Germ Surcharge with Germ less than 50%. Use with SCLG1. Set SCLG3 to zero when using.
+JHSN,SCLG3,Surcharge Germ <60%,REQ,NOEFFECT,REQ,,,,Low Germ Surcharge with Germ less than 60%. Set SCLG1 and SCLG2 to zero when using.
+JHSN,SCND,Surcharge New or Difficult,REQ,NOEFFECT,REQ,,,,Surcharge for New or Difficult Species
+JHSN,SCRIFY,Scarify Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed to alter
+LPN,SCRIFY,Scarify Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed to alter
+PN,SCRIFY,Scarify Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed to alter
+TN,SCRIFY,Scarify Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Treatment of seed to alter
+JHSN,SCSL,Surcharge Small Lot,REQ,NOEFFECT,REQ,,,,Surcharge for Small Lots
+JHSN,SCSLQ,Surcharge Small Lots - QP1C,REQ,NOEFFECT,REQ,,,,
+JHSN,SCSUP,Startup Charge for Lots,REQ,NOEFFECT,REQ,,,,Startup Charge for production lots.
+LPN,SCSUP,Startup Charge for Lots,REQ,NOEFFECT,REQ,,,,Startup Charge for production lots.
+TN,SCSUP,Startup Charge for Lots,REQ,NOEFFECT,REQ,,,,Startup Charge for production lots.
+JHSN,SDACPT,Seed Accepted by Bank,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed received by one Forest from another Forest within the Region. No change in WCF balances.
+LPN,SDACPT,Seed Accepted by Bank,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed received by one Forest from another Forest within the Region. No change in WCF balances.
+PN,SDACPT,Seed Accepted by Bank,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed received by one Forest from another Forest within the Region. No change in WCF balances.
+TN,SDACPT,Seed Accepted by Bank,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed received by one Forest from another Forest within the Region. No change in WCF balances.
+JHSN,SDADJ,Seed Inventory Adjustment,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,Miscellaneous activities which could result in a net gain or loss to the existing inventory. Will Not Change Balance.
+LPN,SDADJ,Seed Inventory Adjustment,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,Miscellaneous activities which could result in a net gain or loss to the existing inventory
+PN,SDADJ,Seed Inventory Adjustment,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,Miscellaneous activities which could result in a net gain or loss to the existing inventory
+TN,SDADJ,Seed Inventory Adjustment,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,Miscellaneous activities which could result in a net gain or loss to the existing inventory
+TN,SDCOAT,Seed Coating,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Coating seed with special polymer/fertilizer material to facilitate easier sowing capabilities
+JHSN,SDDCSR,Seed Declared Surplus,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be surplus and is available for disposal via Federal property disposal regulations
+LPN,SDDCSR,Seed Declared Surplus,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be surplus and is available for disposal via Federal property disposal regulations
+PN,SDDCSR,Seed Declared Surplus,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be surplus and is available for disposal via Federal property disposal regulations
+TN,SDDCSR,Seed Declared Surplus,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be surplus and is available for disposal via Federal property disposal regulations
+JHSN,SDDCXS,Seed Declared Excess,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be excess to Forest needs that is available for use by other Forests or government agencies
+LPN,SDDCXS,Seed Declared Excess,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be excess to Forest needs that is available for use by other Forests or government agencies
+PN,SDDCXS,Seed Declared Excess,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be excess to Forest needs that is available for use by other Forests or government agencies
+TN,SDDCXS,Seed Declared Excess,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Seed declared to be excess to Forest needs that is available for use by other Forests or government agencies
+JHSN,SDDEST,Seed Destruction,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (Destroy),"Destruction of seed due to low germination, unknown source, etc."
+LPN,SDDEST,Seed Destruction,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (Destroy),"Destruction of seed due to low germination, unknown source, etc."
+PN,SDDEST,Seed Destruction,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (Destroy),"Destruction of seed due to low germination, unknown source, etc."
+TN,SDDEST,Seed Destruction,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (Destroy),"Destruction of seed due to low germination, unknown source, etc."
+JHSN,SDEST,Shed Destroy during Hi-Grade,ORDER,REMOVE,ORDER,,,,Shippable plants destroyed during a Hi-Grade. Net Inv - Packed @ Hi-Grade
+LPN,SDEST,Shed Destroy,PROC,REMOVE,PROC,,,,
+PN,SDEST,Shed Destroy,PROC,REMOVE,PROC,,,,
+TN,SDEST,Shed Destroy,PROC,REMOVE,PROC,,,,
+JHSN,SDEXTR,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+LPN,SDEXTR,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+PN,SDEXTR,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+TN,SDEXTR,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+JHSN,SDFURN,Seed Furnished from Bank,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client ???? MISSING ENUM,Seed sent from one Forest to another within the Region. No change in WCF balances.
+LPN,SDFURN,Seed Furnished from Bank,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client ???? MISSING ENUM,Seed sent from one Forest to another within the Region. No change in WCF balances.
+PN,SDFURN,Seed Furnished from Bank,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client ???? MISSING ENUM,Seed sent from one Forest to another within the Region. No change in WCF balances.
+TN,SDFURN,Seed Furnished from Bank,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client ???? MISSING ENUM,Seed sent from one Forest to another within the Region. No change in WCF balances.
+JHSN,SDINV,Seed Inventory,SDTRAN,ADJUST,SOURCE,,Source Adjustments,Lot Adjustment,"The periodic weighing of seed to determine a net gain or loss (i.e. A gain or loss through I and E programming, change in moisture content, or weighing errors)."
+LPN,SDINV,Seed Inventory,SDTRAN,ADJUST,SOURCE,,Source Adjustments,Lot Adjustment,"The periodic weighing of seed to determine a net gain or loss (i.e. A gain or loss through I and E programming, change in moisture content, or weighing errors)."
+PN,SDINV,Seed Inventory,SDTRAN,ADJUST,SOURCE,,Source Adjustments,Lot Adjustment,"The periodic weighing of seed to determine a net gain or loss (i.e. A gain or loss through I and E programming, change in moisture content, or weighing errors)."
+TN,SDINV,Seed Inventory,SDTRAN,ADJUST,SOURCE,,Source Adjustments,Lot Adjustment,"The periodic weighing of seed to determine a net gain or loss (i.e. A gain or loss through I and E programming, change in moisture content, or weighing errors)."
+JHSN,SDLTST,Seedling Test,SPCSVC,NOEFFECT,PROC,,,,Seedling Testing
+LPN,SDLTST,Seedling Test,SPCSVC,NOEFFECT,PROC,,,,Seedling Testing
+PN,SDLTST,Seedling Test,SPCSVC,NOEFFECT,PROC,,,,Seedling Testing
+TN,SDLTST,Seedling Test,SPCSVC,NOEFFECT,PROC,,,,Seedling Testing
+JHSN,SDPACK,Packaging Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Other Special Services,
+LPN,SDPACK,Packaging Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Other Special Services,
+PN,SDPACK,Packaging Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Other Special Services,
+TN,SDPACK,Packaging Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Other Special Services,
+JHSN,SDPROC,Seed Processing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The action concerning the separation of debris from seed
+LPN,SDPROC,Seed Processing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The action concerning the separation of debris from seed
+PN,SDPROC,Seed Processing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The action concerning the separation of debris from seed
+TN,SDPROC,Seed Processing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The action concerning the separation of debris from seed
+JHSN,SDSOW,Seed Transactions for Sowing,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services,(Depletions/Losses) - Activities resulting in a reduction in the seed bank balance
+LPN,SDSOW,Seed Transactions for Sowing,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services,(Depletions/Losses) - Activities resulting in a reduction in the seed bank balance
+PN,SDSOW,Seed Transactions for Sowing,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services,(Depletions/Losses) - Activities resulting in a reduction in the seed bank balance
+TN,SDSOW,Seed Transactions for Sowing,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services,(Depletions/Losses) - Activities resulting in a reduction in the seed bank balance
+JHSN,SDTRAN,Seed Transactions,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,(Gains) - Activities resulting in an addition or not net change to the seed bank
+LPN,SDTRAN,Seed Transactions,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,(Gains) - Activities resulting in an addition or not net change to the seed bank
+PN,SDTRAN,Seed Transactions,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,(Gains) - Activities resulting in an addition or not net change to the seed bank
+TN,SDTRAN,Seed Transactions,SDTRAN,NOEFFECT,SOURCE,,Source Processing,?,(Gains) - Activities resulting in an addition or not net change to the seed bank
+JHSN,SDTRMT,Seed Treatment,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Special treatments done to the seed before sowing
+LPN,SDTRMT,Seed Treatment,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Special treatments done to the seed before sowing
+PN,SDTRMT,Seed Treatment,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Special treatments done to the seed before sowing
+TN,SDTRMT,Seed Treatment,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,Special treatments done to the seed before sowing
+LPN,SDXTRC,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+PN,SDXTRC,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+TN,SDXTRC,Seed Extraction,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,Action concerning the manipulation of cones to release seed
+JHSN,SEEDPR,Seed Protection,CT,NOEFFECT,ACTIVITIES,,,,Use of mulching on a seedbed immediately after sowing
+LPN,SEEDPR,Seed Protection,CT,NOEFFECT,ACTIVITIES,,,,Use of mulching on a seedbed immediately after sowing
+PN,SEEDPR,Seed Protection,CT,NOEFFECT,ACTIVITIES,,,,Use of mulching on a seedbed immediately after sowing
+TN,SEEDPR,Seed Protection,CT,NOEFFECT,ACTIVITIES,,,,Use of mulching on a seedbed immediately after sowing
+JHSN,SELINE,Air Column Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,SELINE,Air Column Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,SELINE,Air Column Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,SELINE,Air Column Separator,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,SELL,Sell Seed for Sowing,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Seed sold to the Forest for activities other than direct seeding (i.e. contract growing)
+LPN,SELL,Sell Seed for Sowing,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Seed sold to the Forest for activities other than direct seeding (i.e. contract growing)
+PN,SELL,Sell Seed for Sowing,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Seed sold to the Forest for activities other than direct seeding (i.e. contract growing)
+TN,SELL,Sell Seed for Sowing,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,Seed sold to the Forest for activities other than direct seeding (i.e. contract growing)
+JHSN,SFCDRY,Surface Dry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,"Surface drying of seed that has been stratified, to facilitate sowing"
+LPN,SFCDRY,Surface Dry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,"Surface drying of seed that has been stratified, to facilitate sowing"
+PN,SFCDRY,Surface Dry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,"Surface drying of seed that has been stratified, to facilitate sowing"
+TN,SFCDRY,Surface Dry Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Source Drying,"Surface drying of seed that has been stratified, to facilitate sowing"
+JHSN,SHADE,Shade Screening,CT,NOEFFECT,ACTIVITIES,,,,The use of lathe or screen to protect seeds or seedlings
+LPN,SHADE,Shade Screening,CT,NOEFFECT,ACTIVITIES,,,,The use of lathe or screen to protect seeds or seedlings
+PN,SHADE,Shade Screening,CT,NOEFFECT,ACTIVITIES,,,,The use of lathe or screen to protect seeds or seedlings
+TN,SHADE,Shade Screening,CT,NOEFFECT,ACTIVITIES,,,,The use of lathe or screen to protect seeds or seedlings
+LPN,SHIPTP,Ship for nursery transplanting,SHIP,REMOVE,PROC,,,,Seedlings removed from storage for nursery transplanting.
+LPN,SRFDS,Surplus Plants Field Destroyed,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+LPN,SRPKDS,Surplus Packed Plants Destroye,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed after processing"
+LPN,SRPLSL,Surplus Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold via Federal Property Disposal Regulations"
+LPN,XFERFM,Transfer Product Fm Old AgrLot,SHIP,ADD,#NAME?,,,,"Product, being held-over under new agreement, from previous agreement"
+LPN,XFERTO,Transfer Product To New AgrLot,SHIP,REMOVE,PROC,,,,"Product, grown under previous agreement, being held-over under new agreement"
+LPN,XPLT,Transplant to Transplant Bed,SHIP,REMOVE,#NAME?,,,,Transplant bareroot or container seedlings for additional growing in transplant beds.
+LPN,XPLTC,Transplant Client-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant client-owned bareroot or container seedlings for additional growing in transplant beds.
+JHSN,SHUNEX,Ship Unprocessed Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,?,Ship/return seed which hasn't been processed back to the owner or location of owner's choosing
+LPN,SHUNEX,Ship Unprocessed Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,?,Ship/return seed which hasn't been processed back to the owner or location of owner's choosing
+PN,SHUNEX,Ship Unprocessed Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,?,Ship/return seed which hasn't been processed back to the owner or location of owner's choosing
+TN,SHUNEX,Ship Unprocessed Seed,SDEXTR,NOEFFECT,SOURCE,,Source Processing,?,Ship/return seed which hasn't been processed back to the owner or location of owner's choosing
+JHSN,SIDEFZ,Side Dressed Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+LPN,SIDEFZ,Side Dressed Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+PN,SIDEFZ,Side Dressed Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+TN,SIDEFZ,Side Dressed Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+JHSN,SIEVE,Sieves/screens,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,SIEVE,Sieves/screens,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,SIEVE,Sieves/screens,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,SIEVE,Sieves/screens,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,SIGC,Ship In Grow Container,SPCSVC,NOEFFECT,PROC,,,,Plants shipped or picked up in their grow container.
+JHSN,SIZE,Seed Sizing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of sorting seed
+LPN,SIZE,Seed Sizing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of sorting seed
+PN,SIZE,Seed Sizing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of sorting seed
+TN,SIZE,Seed Sizing,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,The process of sorting seed
+TN,SMP,Supplemental Pollination,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship to Client ???? MAY NEED NEW ENUM,Pollen removed for supplemental pollination (large scale)
+JHSN,SMTMBL,Small Lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+LPN,SMTMBL,Small Lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+PN,SMTMBL,Small Lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+TN,SMTMBL,Small Lot Tumbler,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Source Cleaning,
+JHSN,SOAKSD,Soak Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,water treatment without stratification
+LPN,SOAKSD,Soak Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,water treatment without stratification
+PN,SOAKSD,Soak Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,water treatment without stratification
+TN,SOAKSD,Soak Seed,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,water treatment without stratification
+JHSN,SOILAN,Soil Analysis,LM,NOEFFECT,ACTIVITIES,,,,An analysis of chemical and/or physical properties of nursery soils
+LPN,SOILAN,Soil Analysis,LM,NOEFFECT,ACTIVITIES,,,,An analysis of chemical and/or physical properties of nursery soils
+PN,SOILAN,Soil Analysis,LM,NOEFFECT,ACTIVITIES,,,,An analysis of chemical and/or physical properties of nursery soils
+TN,SOILAN,Soil Analysis,LM,NOEFFECT,ACTIVITIES,,,,An analysis of chemical and/or physical properties of nursery soils
+JHSN,SOILFZ,Soil Incorporated Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+LPN,SOILFZ,Soil Incorporated Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+PN,SOILFZ,Soil Incorporated Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+TN,SOILFZ,Soil Incorporated Fertilizer,CT,NOEFFECT,ACTIVITIES,,,,
+JHSN,SOILMO,Soil Modification,LM,NOEFFECT,ACTIVITIES,,,,Additions or removal of soil
+LPN,SOILMO,Soil Modification,LM,NOEFFECT,ACTIVITIES,,,,Additions or removal of soil
+PN,SOILMO,Soil Modification,LM,NOEFFECT,ACTIVITIES,,,,Additions or removal of soil
+TN,SOILMO,Soil Modification,LM,NOEFFECT,ACTIVITIES,,,,Additions or removal of soil
+JHSN,SOW,Sow Seed,SDTRAN,NOEFFECT,#NAME?,,Source Processing,?,"Date seed is planted, (enter under cultural treatment)"
+LPN,SOW,Sow Seed,SDTRAN,NOEFFECT,#NAME?,,Source Processing,?,"Date seed is planted, (enter under cultural treatment)"
+PN,SOW,Sow Seed,SDTRAN,NOEFFECT,#NAME?,,Source Processing,?,"Date seed is planted, (enter under cultural treatment)"
+TN,SOW,Sow Seed,SDTRAN,NOEFFECT,#NAME?,,Source Processing,?,"Date seed is planted, (enter under cultural treatment)"
+LPN,SPCSRV,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+PN,SPCSRV,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+TN,SPCSRV,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+JHSN,SPCSVC,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+LPN,SPCSVC,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+PN,SPCSVC,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+TN,SPCSVC,Special Services,PROC,NOEFFECT,ORDERS,,,,Seedlings are handled in a special process or with special materials
+LPN,XPLTH,Transplant to Bed by Hand,SHIP,REMOVE,#NAME?,,,,Transplant bareroot seedlings for additional growing in containers by hand
+LPN,XPLTN,Transplant Nursery-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant nursery-owned bareroot or container seedlings for additional growing in transplant beds.
+LPN,XPLTP,Transplant to Container,SHIP,REMOVE,#NAME?,,,,Transplant client-owned bareroot or container seedlings for additional growing in containers.
+LPN,XSPLDN,Excess Plants Donated,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, donated"
+JHSN,SRPCDS,Surplus Plants-Precooler Destr,PROC,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+LPN,SRPCDS,Surplus Plants-Precooler Destr,PROC,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+PN,SRPCDS,Surplus Plants-Precooler Destr,PROC,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+TN,SRPCDS,Surplus Plants-Precooler Destr,PROC,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+LPN,XSPLSL,Excess Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold to other Government agencies or States"
+LPN,XSPLXN,Excess Plants Exchanged,SHIP,ADJUST,PROC,,,,"Seedings, previously declared excess, traded on an equal dollar basis with other Government agencies or States"
+PN,CDEST,Cooler Destroy,SHIP,REMOVE,SHIP,,,,"Surplus seedling destruction -cooler location, after packing"
+PN,DELIVR,Deliver Seedlings,SHIP,REMOVE,ship,,,,Seedlings delivered by the nursery
+PN,PICKUP,Pick Up Seedlings,SHIP,REMOVE,ship,,,,Seedlings picked up at the nursery (FOB Nursery)
+PN,PLDCSR,Plants Declared Surplus,SHIP,REMOVE,PROC,,,,Seedlings declared to be surplus
+JHSN,SRSDCT,Surplus Seed Contributed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Donations,"Seed, previously declared surplus, which is purchased by the Forest for donation (i.e. Boy Scouts)"
+LPN,SRSDCT,Surplus Seed Contributed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Donations,"Seed, previously declared surplus, which is purchased by the Forest for donation (i.e. Boy Scouts)"
+PN,SRSDCT,Surplus Seed Contributed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Donations,"Seed, previously declared surplus, which is purchased by the Forest for donation (i.e. Boy Scouts)"
+TN,SRSDCT,Surplus Seed Contributed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Donations,"Seed, previously declared surplus, which is purchased by the Forest for donation (i.e. Boy Scouts)"
+JHSN,SRSDDS,Surplus Seed Destroyed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (destroy),"Seed, previously declared surplus, which was destroyed"
+LPN,SRSDDS,Surplus Seed Destroyed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (destroy),"Seed, previously declared surplus, which was destroyed"
+PN,SRSDDS,Surplus Seed Destroyed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (destroy),"Seed, previously declared surplus, which was destroyed"
+TN,SRSDDS,Surplus Seed Destroyed,SDTRAN,REMOVE,SOURCE,,Source Shipping,Non-viable (destroy),"Seed, previously declared surplus, which was destroyed"
+JHSN,SRSDSL,Surplus Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,"Seed, previously declared surplus, sold via Federal Property Disposal Regulations"
+LPN,SRSDSL,Surplus Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,"Seed, previously declared surplus, sold via Federal Property Disposal Regulations"
+PN,SRSDSL,Surplus Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,"Seed, previously declared surplus, sold via Federal Property Disposal Regulations"
+TN,SRSDSL,Surplus Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship to Client,"Seed, previously declared surplus, sold via Federal Property Disposal Regulations"
+JHSN,SRSRTI,Surplus Seed Returned To Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared Surplus, Removed from Surplus/Returned to Inventory"
+LPN,SRSRTI,Surplus Seed Returned to Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared surplus, returned to inventory"
+PN,SRSRTI,Surplus Seed Returned to Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared surplus, returned to inventory"
+TN,SRSRTI,Surplus Seed Returned to Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared surplus, returned to inventory"
+JHSN,STDSVC,BgBx Freeze,SPCSVC,NOEFFECT,PROC,,,,"Standard services for packing. Poly Bag in Cardboard Box, Freezer Storage"
+LPN,STDSVC,Standard Services,SPCSVC,NOEFFECT,PROC,,,,Standard Processing Services Only
+PN,STDSVC,Standard Services,SPCSVC,NOEFFECT,PROC,,,,Standard Processing Services Only
+TN,STDSVC,Standard Services,SPCSVC,NOEFFECT,PROC,,,,Standard Processing Services Only
+JHSN,STONON,Non-WCF Storage,SDTRAN,ADD,SOURCE,,Source Receiving,Return For Storage,Seed for non-WCF storage returned from owner to the nursery
+LPN,STONON,Non-WCF Storage,SDTRAN,ADD,SOURCE,,Source Receiving,Return For Storage,Seed for non-WCF storage returned from owner to the nursery
+PN,STONON,Non-WCF Storage,SDTRAN,ADD,SOURCE,,Source Receiving,Return For Storage,Seed for non-WCF storage returned from owner to the nursery
+TN,STONON,Non-WCF Storage,SDTRAN,ADD,SOURCE,,Source Receiving,Return For Storage,Seed for non-WCF storage returned from owner to the nursery
+JHSN,STRAP,Strapping,SPCSVC,NOEFFECT,PROC,,,,Strap bag in leiu of sewing
+LPN,STRAP,Strapping,SPCSVC,NOEFFECT,PROC,,,,Strap bag in leiu of sewing
+PN,STRAP,Strapping,SPCSVC,NOEFFECT,PROC,,,,Strap bag in leiu of sewing
+TN,STRAP,Strapping,SPCSVC,NOEFFECT,PROC,,,,Strap bag in leiu of sewing
+JHSN,STRAT,Stratification,SDTRMT,NOEFFECT,#NAME?,,Source Processing,Seed Treatment,"Placing the seed in a wet environment to hasten their germination, usually in cold storage above 32 degrees Fahrenheit"
+LPN,STRAT,Stratification,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,"Placing the seed in a wet environment to hasten their germination, usually in cold storage above 32 degrees Fahrenheit"
+PN,STRAT,Stratification,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,"Placing the seed in a wet environment to hasten their germination, usually in cold storage above 32 degrees Fahrenheit"
+TN,STRAT,Stratification,SDTRMT,NOEFFECT,SOURCE,,Source Processing,Seed Treatment,"Placing the seed in a wet environment to hasten their germination, usually in cold storage above 32 degrees Fahrenheit"
+JHSN,SUCHG,Excess Seed Returned To Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,delete
+JHSN,TERACE,Terracing for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+LPN,TERACE,Terracing for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+PN,TERACE,Terracing for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+TN,TERACE,Terracing for Erosion Control,LM,NOEFFECT,ACTIVITIES,,,,
+JHSN,TEST,Seed Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial test prior to storage
+LPN,TEST,Seed Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial test prior to storage
+PN,TEST,Seed Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial test prior to storage
+TN,TEST,Seed Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial test prior to storage
+PN,PLDCXS,Plants Declared Excess,SHIP,REMOVE,PROC,,,,Seedlings declared to be excess
+JHSN,THIN,Thinning,CT,NOEFFECT,ACTIVITIES,,,,Reducing bed densities
+LPN,THIN,Thinning,CT,NOEFFECT,ACTIVITIES,,,,Reducing bed densities
+PN,THIN,Thinning,CT,NOEFFECT,ACTIVITIES,,,,Reducing bed densities
+TN,THIN,Thinning,CT,NOEFFECT,ACTIVITIES,,,,Reducing bed densities
+TN,TIDONA,Donate Seed -TreeImprov remove,SDTRAN,REMOVE,SOURCE,,Source Shipping,Donations,Removed seed from Tree Improvement Lot - seed donated to the Nursery WCF seed bank
+JHSN,TOP,Top Pruning,CT,NOEFFECT,ACTIVITIES,,,,Mowing the tops of seedlings to obtain a desired height
+LPN,TOP,Top Pruning,CT,NOEFFECT,ACTIVITIES,,,,Mowing the tops of seedlings to obtain a desired height
+PN,TOP,Top Pruning,CT,NOEFFECT,ACTIVITIES,,,,Mowing the tops of seedlings to obtain a desired height
+TN,TOP,Top Pruning,CT,NOEFFECT,ACTIVITIES,,,,Mowing the tops of seedlings to obtain a desired height
+JHSN,TOPDRS,Top Dressing,CT,NOEFFECT,ACTIVITIES,,,,
+LPN,TOPDRS,Top Dressing,CT,NOEFFECT,ACTIVITIES,,,,
+PN,TOPDRS,Top Dressing,CT,NOEFFECT,ACTIVITIES,,,,
+TN,TOPDRS,Top Dressing,CT,NOEFFECT,ACTIVITIES,,,,
+JHSN,TOTE,Shipping Container,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery"
+LPN,TOTE,Return Container - No Charge,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery"
+PN,TOTE,Return Container - No Charge,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery"
+TN,TOTE,Return Container - No Charge,SPCSVC,NOEFFECT,PROC,,,,"Container for transport of seedlings, to be returned to nursery"
+JHSN,TRPSRT,Triple Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded three times
+LPN,TRPSRT,Triple Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded three times
+PN,TRPSRT,Triple Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded three times
+TN,TRPSRT,Triple Sort,SPCSVC,NOEFFECT,PROC,,,,Sorted or graded three times
+LPN,TSTCNT,Seed Count Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial seeds per pound test prior to storage
+PN,TSTCNT,Seed Count Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial seeds per pound test prior to storage
+TN,TSTCNT,Seed Count Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial seeds per pound test prior to storage
+LPN,TSTGER,Germination Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial germination test prior to storage
+PN,TSTGER,Germination Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial germination test prior to storage
+TN,TSTGER,Germination Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial germination test prior to storage
+LPN,TSTMST,Moisture Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial moisture test prior to storage
+PN,TSTMST,Moisture Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial moisture test prior to storage
+TN,TSTMST,Moisture Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial moisture test prior to storage
+LPN,TSTNXS,Noxious Weed Only Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial noxious weed test prior to storage
+PN,TSTNXS,Noxious Weed Only Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial noxious weed test prior to storage
+TN,TSTNXS,Noxious Weed Only Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial noxious weed test prior to storage
+LPN,TSTPUR,Purity Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial purity test prior to storage
+PN,TSTPUR,Purity Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial purity test prior to storage
+TN,TSTPUR,Purity Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial purity test prior to storage
+LPN,TSTTZ,Tz Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial Tz test prior to storage
+PN,TSTTZ,Tz Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial Tz test prior to storage
+TN,TSTTZ,Tz Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial Tz test prior to storage
+TN,TXRAY,X-Ray Test,SDEXTR,NOEFFECT,SOURCE,,Source Shipping,Ship to Lab AKA No-balance effect,The initial x-ray test prior to storage
+TN,UNACMB,Unprocessed Source Add/Combd,SDEXTR,NOEFFECT,SOURCE,,Source Receiving,Raw Materials,Additions through combinations - This is unprocessed source that is added to an existing lot or combined with other lots to form a new lot. (activity code 2181 is used to record removal of excess unprocessed source)
+JHSN,UNCLSD,Receive Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Receiving,Raw Materials,Receive uncleaned seed with the specific understanding of the seed needing processed
+LPN,UNCLSD,Receive Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Receiving,Raw Materials,Receive uncleaned seed with the specific understanding of the seed needing processed
+PN,UNCLSD,Receive Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Receiving,Raw Materials,Receive uncleaned seed with the specific understanding of the seed needing processed
+TN,UNCLSD,Receive Uncleaned Seed,SDEXTR,NOEFFECT,SOURCE,,Source Receiving,Raw Materials,Receive uncleaned seed with the specific understanding of the seed needing processed
+TN,UNDCUT,Undercutter,CT,NOEFFECT,ACTIVITIES,,,,"Cuts tap roots using a thin, reciprocating blade"
+TN,UNRCMB,Unprocessed Source Remov/Combd,SDEXTR,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,Removal for Combinations - Unprocessed source removed from a lot for combination with one or more lots or to create a new lot. (activity code 2171 is used to add record addition of unprocessed source in new lot)
+JHSN,VROOT,Vertical Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning with blade perpendicular to ground surface
+LPN,VROOT,Vertical Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning with blade perpendicular to ground surface
+PN,VROOT,Vertical Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning with blade perpendicular to ground surface
+TN,VROOT,Vertical Root Pruning,CT,NOEFFECT,ACTIVITIES,,,,Pruning with blade perpendicular to ground surface
+JHSN,WATER,Water-in Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+LPN,WATER,Water-in Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+PN,WATER,Water-in Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+TN,WATER,Water-in Fumigation,LM,NOEFFECT,ACTIVITIES,,,,"The fumigation using water, to hold the fumigant in the soil"
+JHSN,WATRTM,Water Treat Amendments,LM,NOEFFECT,ACTIVITIES,,,,"The addition/removal from the soil by irrigation, of substances that affect soil structure and/or chemical properties"
+LPN,WATRTM,Water Treat Amendments,LM,NOEFFECT,ACTIVITIES,,,,"The addition/removal from the soil by irrigation, of substances that affect soil structure and/or chemical properties"
+PN,WATRTM,Water Treat Amendments,LM,NOEFFECT,ACTIVITIES,,,,"The addition/removal from the soil by irrigation, of substances that affect soil structure and/or chemical properties"
+TN,WATRTM,Water Treat Amendments,LM,NOEFFECT,ACTIVITIES,,,,"The addition/removal from the soil by irrigation, of substances that affect soil structure and/or chemical properties"
+JHSN,WEED,Weeding,CT,NOEFFECT,ACTIVITIES,,,,Removal of non-crop vegetation
+LPN,WEED,Weeding,CT,NOEFFECT,ACTIVITIES,,,,Removal of non-crop vegetation
+PN,WEED,Weeding,CT,NOEFFECT,ACTIVITIES,,,,Removal of non-crop vegetation
+TN,WEED,Weeding,CT,NOEFFECT,ACTIVITIES,,,,Removal of non-crop vegetation
+JHSN,WEIGH,Original Yield - weigh,SDTRAN,ADD,SOURCE,,Source Receiving,finalprocessedWeight,The initial weighing prior to storage (this is the current years yield extracted at the nursery)
+LPN,WEIGH,Original Yield - weigh,SDTRAN,ADD,SOURCE,,Source Receiving,finalprocessedWeight,The initial weighing prior to storage (this is the current years yield extracted at the nursery)
+PN,WEIGH,Original Yield - weigh,SDTRAN,ADD,SOURCE,,Source Receiving,finalprocessedWeight,The initial weighing prior to storage (this is the current years yield extracted at the nursery)
+TN,WEIGH,Original Yield - weigh,SDTRAN,ADD,SOURCE,,Source Receiving,finalprocessedWeight,The initial weighing prior to storage (this is the current years yield extracted at the nursery)
+JHSN,WETR,Wet Roots,SPCSVC,NOEFFECT,PROC,,,,Wetting seedling roots during grading
+LPN,WETR,Wet Roots,SPCSVC,NOEFFECT,PROC,,,,Wetting seedling roots during grading
+PN,WETR,Wet Roots,SPCSVC,NOEFFECT,PROC,,,,Wetting seedling roots during grading
+TN,WETR,Wet Roots,SPCSVC,NOEFFECT,PROC,,,,Wetting seedling roots during grading
+JHSN,WNDBRK,Windbreak,CT,NOEFFECT,ACTIVITIES,,,,Permanent or temporary wind barriers
+LPN,WNDBRK,Windbreak,CT,NOEFFECT,ACTIVITIES,,,,Permanent or temporary wind barriers
+PN,WNDBRK,Windbreak,CT,NOEFFECT,ACTIVITIES,,,,Permanent or temporary wind barriers
+TN,WNDBRK,Windbreak,CT,NOEFFECT,ACTIVITIES,,,,Permanent or temporary wind barriers
+JHSN,WRENCH,Wrenching,CT,NOEFFECT,ACTIVITIES,,,,The undercutting of seedlings with a root wrencher
+LPN,WRENCH,Wrenching,CT,NOEFFECT,ACTIVITIES,,,,The undercutting of seedlings with a root wrencher
+PN,WRENCH,Wrenching,CT,NOEFFECT,ACTIVITIES,,,,The undercutting of seedlings with a root wrencher
+TN,WRENCH,Wrenching,CT,NOEFFECT,ACTIVITIES,,,,The undercutting of seedlings with a root wrencher
+TN,WREUND,Wrench Undercut,CT,NOEFFECT,ACTIVITIES,,,,Wrenches and Undercuts at the same time
+TN,WRNCH,Wrenching,CT,NOEFFECT,ACTIVITIES,,,,The undercutting of seedlings with a root wrencher
+JHSN,XBN100,Bundle @100 for TP,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @100/bundle for transplanting
+LPN,XBN100,Bundle @100 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @100/bundle for transplanting
+PN,XBN100,Bundle @100 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @100/bundle for transplanting
+TN,XBN100,Bundle @100 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @100/bundle for transplanting
+JHSN,XBND25,Bundle @25 for TP,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle for transplanting
+LPN,XBND25,Bundle @25 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle for transplanting
+PN,XBND25,Bundle @25 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle for transplanting
+TN,XBND25,Bundle @25 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @25/bundle for transplanting
+JHSN,XBND50,Bundle @50 for TP,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle for transplanting
+LPN,XBND50,Bundle @50 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle for transplanting
+PN,XBND50,Bundle @50 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle for transplanting
+TN,XBND50,Bundle @50 for transplant,SPCSVC,NOEFFECT,PROC,,,,Special Service - Bundle @50/bundle for transplanting
+JHSN,XBNDNO,No Bundling for TP,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings for transplanting
+LPN,XBNDNO,No Bundling for transplant,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings for transplanting
+PN,XBNDNO,No Bundling for transplant,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings for transplanting
+TN,XBNDNO,No Bundling for transplant,SPCSVC,NOEFFECT,PROC,,,,No bundling of seedlings for transplanting
+TN,XCRHLF,Contract Handlift - Xplant,CT,REMOVE,ACTIVITIES,,,,Contract hand lift transplant remove for interim species product cycle.
+TN,XCRMLF,Contract Mechlift - Xplant,CT,REMOVE,ACTIVITIES,,,,Contract mechanical lift transplant remove for interim species product cycle.
+TN,XFAHLF,Force Account Handlift -Xplant,CT,REMOVE,ACTIVITIES,,,,Force account hand lift transplant remove for interim species product cycle.
+TN,XFAMLF,Force Account Mechlift -Xplant,CT,REMOVE,ACTIVITIES,,,,Force account mechanical lift transplant remove for interim species product cycle.
+PN,REPACK,Repack for Ship/Reprocess,SHIP,ADJUST,PROC,,,,Used for removal for Reprocessing or Splitting for shipping when not all contents of a container is to be shipped.
+PN,RTN4TP,Returned for Transplant,SHIP,ADD,PROC,,,,Seedlings packed and shipped for outplant to client and returned for transplanting.
+PN,SHIP,Ship Seedlings,SHIP,REMOVE,SHIP,,,,Seedlings shipped to associate by third party
+PN,SHIPTP,Ship for nursery transplanting,SHIP,REMOVE,PROC,,,,Seedlings removed from storage for nursery transplanting.
+PN,SRFDS,Surplus Plants Field Destroyed,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+PN,SRPKDS,Surplus Packed Plants Destroye,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed after processing"
+PN,SRPLSL,Surplus Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold via Federal Property Disposal Regulations"
+PN,XFERFM,Transfer Product Fm Old AgrLot,SHIP,ADD,#NAME?,,,,"Product, being held-over under new agreement, from previous agreement"
+JHSN,XFRIN1,Seed Transferred In-1,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from other Forest Service Regions for storage
+LPN,XFRIN1,Seed Transferred In-1,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from other Forest Service Regions for storage
+PN,XFRIN1,Seed Transferred In-1,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from other Forest Service Regions for storage
+TN,XFRIN1,Seed Transferred In-1,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from other Forest Service Regions for storage
+JHSN,XFRIN2,Seed Transferred In-2,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from with the Region for storage or seed returned from container
+LPN,XFRIN2,Seed Transferred In-2,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from with the Region for storage or seed returned from container
+PN,XFRIN2,Seed Transferred In-2,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from with the Region for storage or seed returned from container
+TN,XFRIN2,Seed Transferred In-2,SDTRAN,ADD,SOURCE,,Source Receiving,Transferred Source,Seed transferred to the nursery from with the Region for storage or seed returned from container
+TN,XFROTH,Seed Transferred Out Other,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,"Seed transferred out to federal facilities, other than Forest Service nurseries, for storage"
+JHSN,XFROUT,Seed Transferred Out,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed transferred out to other Forest Service nurseries for storage
+LPN,XFROUT,Seed Transferred Out,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed transferred out to other Forest Service nurseries for storage
+PN,XFROUT,Seed Transferred Out,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed transferred out to other Forest Service nurseries for storage
+TN,XFROUT,Seed Transferred Out,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,Seed transferred out to other Forest Service nurseries for storage
+PN,XFERTO,Transfer Product To New AgrLot,SHIP,REMOVE,PROC,,,,"Product, grown under previous agreement, being held-over under new agreement"
+PN,XPLT,Transplant to Transplant Bed,SHIP,REMOVE,#NAME?,,,,Transplant bareroot or container seedlings for additional growing in transplant beds.
+PN,XPLTC,Transplant Client-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant client-owned bareroot or container seedlings for additional growing in transplant beds.
+PN,XPLTH,Transplant to Bed by Hand,SHIP,REMOVE,#NAME?,,,,Transplant bareroot seedlings for additional growing in containers by hand
+PN,XPLTN,Transplant Nursery-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant nursery-owned bareroot or container seedlings for additional growing in transplant beds.
+PN,XPLTP,Transplant to Container,SHIP,REMOVE,#NAME?,,,,Transplant client-owned bareroot or container seedlings for additional growing in containers.
+PN,XSPLDN,Excess Plants Donated,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, donated"
+PN,XSPLSL,Excess Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold to other Government agencies or States"
+PN,XSPLXN,Excess Plants Exchanged,SHIP,ADJUST,PROC,,,,"Seedings, previously declared excess, traded on an equal dollar basis with other Government agencies or States"
+TN,CDEST,Cooler Destroy,SHIP,REMOVE,SHIP,,,,"Surplus seedling destruction -cooler location, after packing"
+TN,DELIVR,Deliver Seedlings,SHIP,REMOVE,ship,,,,Seedlings delivered by the nursery
+TN,PICKUP,Pick Up Seedlings,SHIP,REMOVE,ship,,,,Seedlings picked up at the nursery (FOB Nursery)
+TN,PLDCSR,Plants Declared Surplus,SHIP,REMOVE,PROC,,,,Seedlings declared to be surplus
+TN,PLDCXS,Plants Declared Excess,SHIP,REMOVE,PROC,,,,Seedlings declared to be excess
+TN,REPACK,Repack for Ship/Reprocess,SHIP,ADJUST,PROC,,,,Used for removal for Reprocessing or Splitting for shipping when not all contents of a container is to be shipped.
+TN,RTN4TP,Returned for Transplant,SHIP,ADD,PROC,,,,Seedlings packed and shipped for outplant to client and returned for transplanting.
+TN,SHIP,Ship Seedlings,SHIP,REMOVE,SHIP,,,,Seedlings shipped to associate by third party
+TN,SHIPTP,Ship for nursery transplanting,SHIP,REMOVE,PROC,,,,Seedlings removed from storage for nursery transplanting.
+TN,SRFDS,Surplus Plants Field Destroyed,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed prior to processing"
+TN,SRPKDS,Surplus Packed Plants Destroye,SHIP,REMOVE,PROC,,,,"Seedings, previously declared surplus, not sold which are destroyed after processing"
+TN,SRPLSL,Surplus Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold via Federal Property Disposal Regulations"
+TN,THAW,Thaw for Shipment,SHIP,NOEFFECT,PROC,,Source Processing,Other Special Services,Client requests thawing prior to seedlings being delivered/picked-up
+TN,XFERFM,Transfer Product Fm Old AgrLot,SHIP,ADD,#NAME?,,,,"Product, being held-over under new agreement, from previous agreement"
+TN,XFERTO,Transfer Product To New AgrLot,SHIP,REMOVE,PROC,,,,"Product, grown under previous agreement, being held-over under new agreement"
+TN,XPLT,Transplant to Transplant Bed,SHIP,REMOVE,#NAME?,,,,Transplant bareroot or container seedlings for additional growing in transplant beds.
+TN,XPLTC,Transplant Client-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant client-owned bareroot or container seedlings for additional growing in transplant beds.
+TN,XPLTH,Transplant to Bed by Hand,SHIP,REMOVE,#NAME?,,,,Transplant bareroot seedlings for additional growing in containers by hand
+TN,XPLTN,Transplant Nursery-Owned to TB,SHIP,REMOVE,#NAME?,,,,Mechanical Transplant nursery-owned bareroot or container seedlings for additional growing in transplant beds.
+TN,XPLTP,Transplant to Container,SHIP,REMOVE,#NAME?,,,,Transplant client-owned bareroot or container seedlings for additional growing in containers.
+TN,XSPLDN,Excess Plants Donated,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, donated"
+TN,XSPLSL,Excess Plants Sold,SHIP,REMOVE,PROC,,,,"Seedings, previously declared excess, sold to other Government agencies or States"
+TN,XSPLXN,Excess Plants Exchanged,SHIP,ADJUST,PROC,,,,"Seedings, previously declared excess, traded on an equal dollar basis with other Government agencies or States"
+JHSN,XSSDSL,Excess Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship To Client,"Seed, previously declared excess, sold to other Government agencies or states"
+LPN,XSSDSL,Excess Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship To Client,"Seed, previously declared excess, sold to other Government agencies or states"
+PN,XSSDSL,Excess Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship To Client,"Seed, previously declared excess, sold to other Government agencies or states"
+TN,XSSDSL,Excess Seed Sold,SDTRAN,REMOVE,#NAME?,,Source Shipping,Ship To Client,"Seed, previously declared excess, sold to other Government agencies or states"
+JHSN,XSSDXN,Excess Seed Exchanged,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,"Seed, previously declared excess, traded on an equal dollar value with other Government agencies or states (The seed received in trade is added to the inventory using activity code 237)"
+LPN,XSSDXN,Excess Seed Exchanged,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,"Seed, previously declared excess, traded on an equal dollar value with other Government agencies or states (The seed received in trade is added to the inventory using activity code 237)"
+PN,XSSDXN,Excess Seed Exchanged,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,"Seed, previously declared excess, traded on an equal dollar value with other Government agencies or states (The seed received in trade is added to the inventory using activity code 237)"
+TN,XSSDXN,Excess Seed Exchanged,SDTRAN,REMOVE,SOURCE,,Source Shipping,Ship To Client,"Seed, previously declared excess, traded on an equal dollar value with other Government agencies or states (The seed received in trade is added to the inventory using activity code 237)"
+JHSN,XSSRPL,Excess/Surplus,ORDER,NOEFFECT,PROC,,,,Seedlings that cannot be used by Nationl Forest or Cooperator users as growing stock
+LPN,XSSRPL,Excess/Surplus,ORDER,NOEFFECT,PROC,,,,Seedlings that cannot be used by Nationl Forest or Cooperator users as growing stock
+PN,XSSRPL,Excess/Surplus,ORDER,NOEFFECT,PROC,,,,Seedlings that cannot be used by Nationl Forest or Cooperator users as growing stock
+TN,XSSRPL,Excess/Surplus,ORDER,NOEFFECT,PROC,,,,Seedlings that cannot be used by Nationl Forest or Cooperator users as growing stock
+JHSN,XSSRSD,Excess/Surplus Seed,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,
+LPN,XSSRSD,Excess/Surplus Seed,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,
+PN,XSSRSD,Excess/Surplus Seed,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,
+TN,XSSRSD,Excess/Surplus Seed,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,
+JHSN,XSSRTI,Excess Seed Returned To Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared Excess, Removed from Excess/Returned to Inventory"
+LPN,XSSRTI,Excess Seed Returned to Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared excess, returned to inventory"
+PN,XSSRTI,Excess Seed Returned to Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared excess, returned to inventory"
+TN,XSSRTI,Excess Seed Returned to Inv,SDTRAN,NOEFFECT,SOURCE,,Source Processing,Other Special Services ?,"Seed, previously declared excess, returned to inventory"

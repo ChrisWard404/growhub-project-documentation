@@ -1,0 +1,825 @@
+[
+ {
+  "domain": "Seedling planning",
+  "summary": "How much seed to pull and how much space (bed feet or containers) to plan for a seedling order. Legacy: the Calculations tab of the NMIS_AGREEMENT_LOTS form. GrowHub: the Planning step of /orders (OrderPlanningComponent).",
+  "legacyForm": "NMIS_AGREEMENT_LOTS",
+  "growhubScreen": "OrdersMainComponent",
+  "growhubFile": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts",
+  "inputs": [
+   {
+    "meaning": "Seedlings requested",
+    "legacy": "TOTAL_REQUEST (thousands)",
+    "growhub": "order_cycle_planning.adjustedQuantityRequested (seedlings)",
+    "note": "Legacy quantities are in thousands; GrowHub's are whole seedlings. The mapping sheet already says 'Value x1000'."
+   },
+   {
+    "meaning": "Seeds per pound",
+    "legacy": "GROSS_SOURCE_PER_UNIT",
+    "growhub": "order_cycle_planning.seedPerPound"
+   },
+   {
+    "meaning": "Germination %",
+    "legacy": "SOURCE_GERM_PCT",
+    "growhub": "order_cycle_planning.germPercent"
+   },
+   {
+    "meaning": "Purity %",
+    "legacy": "SOURCE_PURITY_PCT",
+    "growhub": "order_cycle_planning.purityPercent"
+   },
+   {
+    "meaning": "Harvest factors 1–3",
+    "legacy": "HARVEST_FACTOR_1..3 (+ operator HFn_Formula_OP)",
+    "growhub": "order_cycle_planning.factor1..3",
+    "note": "GrowHub has no operator."
+   },
+   {
+    "meaning": "Harvest factor 4",
+    "legacy": "HARVEST_FACTOR_4",
+    "growhub": null,
+    "note": "No GrowHub field."
+   },
+   {
+    "meaning": "Harvest ASF adjustment",
+    "legacy": "HARVEST_ASF_ADJUSTMENT",
+    "growhub": null,
+    "note": "No GrowHub field."
+   },
+   {
+    "meaning": "Container factors 1–3",
+    "legacy": "CONTAINER_FACTOR_1..3 (+ operator)",
+    "growhub": null,
+    "note": "No GrowHub field on planning."
+   },
+   {
+    "meaning": "Container ASF adjustment",
+    "legacy": "CONTAINER_ASF_ADJUSTMENT",
+    "growhub": "order_cycle_planning.containerSpecificationsNurseryfactors",
+    "note": "Per the mapping sheet; the GrowHub calculations don't read it."
+   },
+   {
+    "meaning": "Thinning probability %",
+    "legacy": "THINNING_PROBABILITY_PCT",
+    "growhub": "order_cycle_planning.thinningProbability"
+   },
+   {
+    "meaning": "Past inventory performance %",
+    "legacy": null,
+    "growhub": "order_cycle_planning.pastInventoryPerformance",
+    "note": "New in GrowHub."
+   },
+   {
+    "meaning": "Cells filled % / bareroot space",
+    "legacy": null,
+    "growhub": "order_cycle_planning.cellsFilled",
+    "note": "New in GrowHub."
+   },
+   {
+    "meaning": "Container / bareroot survival %",
+    "legacy": null,
+    "growhub": "order_cycle_planning.containerSurvival",
+    "note": "New in GrowHub."
+   },
+   {
+    "meaning": "Target density",
+    "legacy": "DESIRED_DENSITY",
+    "growhub": "order_cycle_planning.desiredDensity"
+   },
+   {
+    "meaning": "Cells per container",
+    "legacy": "NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER.CELLS_PER_CONTAINER",
+    "growhub": "grow_unit.cellsPerContainer"
+   },
+   {
+    "meaning": "Seeds per cell",
+    "legacy": "seed_per_cell_to_use (unbound, default 2)",
+    "growhub": "order_cycle_planning.seedPerCell"
+   },
+   {
+    "meaning": "Seed required (lb)",
+    "legacy": "SOURCE_REQUIRED",
+    "growhub": "order_cycle_planning.estimatedLbsOfSeed / adjustedCalculatedSeedQuantity"
+   },
+   {
+    "meaning": "Containers / bed feet",
+    "legacy": "EST_CONTAINERS_REQUIRED",
+    "growhub": "order_cycle_planning.adjustedCalculatedSpaceQuantity (+ containerSpecificationsNumberofcontainersneeded)"
+   }
+  ],
+  "rules": [
+   {
+    "id": "SP-01",
+    "title": "Pure live seed (viable seeds per pound)",
+    "verdict": "differs",
+    "severity": "high",
+    "legacy": {
+     "formula": "seeds/lb × germ% × purity%. If it comes out 0 (no test data), the Calculate button refuses to compute seed and says \"No test data entered to calculate source\".",
+     "refs": [
+      {
+       "control": "Pure_Live_Seed",
+       "code": "Pure_Live_Seed = [GROSS_SOURCE_PER_UNIT]*([SOURCE_GERM_PCT]/100)*([SOURCE_PURITY_PCT]/100)",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Pure_Live_Seed",
+       "lang": "expr"
+      },
+      {
+       "vba": "Calculate_Click",
+       "from": "If Pure_Live_Seed > 0 Then",
+       "to": "(Forms!NMIS_AGREEMENT_LOTS!SOURCE_PURITY_PCT / 100))",
+       "code": "If Pure_Live_Seed > 0 Then\nREQ = (Forms!NMIS_AGREEMENT_LOTS!TOTAL_REQUEST * 1000)\nPLS = (Forms!NMIS_AGREEMENT_LOTS!GROSS_SOURCE_PER_UNIT * _\n      (Forms!NMIS_AGREEMENT_LOTS!SOURCE_GERM_PCT / 100) * _\n      (Forms!NMIS_AGREEMENT_LOTS!SOURCE_PURITY_PCT / 100))",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:49",
+       "lang": "vb"
+      },
+      {
+       "vba": "Calculate_Click",
+       "from": "MsgBox \"No test data",
+       "to": "MsgBox \"No test data",
+       "code": "MsgBox \"No test data entered to calculate source. Calculating containers only\"",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:78",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Same product, inlined in each calculation. But a germ% or purity% of 0 or blank is treated as 100%, so the calculation runs as if the seed were perfect.",
+     "refs": [
+      {
+       "fn": "calculateEstimatedSeed",
+       "code": "calculateEstimatedSeed(orderForm: any): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let totalAdjustmentFactor =\n    (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n      ? growRecControls.factor1.value / 100\n      : 1) *\n    (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n      ? growRecControls.factor2.value / 100\n      : 1) *\n    (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n      ? growRecControls.factor3.value / 100\n      : 1) *\n    (growRecControls.thinningProbability.value !== null &&\n    !isNaN(growRecControls.thinningProbability.value)\n      ? growRecControls.thinningProbability.value / 100\n      : 1) *\n    (growRecControls.pastInventoryPerformance.value !== null &&\n    !isNaN(growRecControls.pastInventoryPerformance.value)\n      ? growRecControls.pastInventoryPerformance.value / 100\n      : 1);\n\n  let estimate =\n    growRecControls.adjustedQuantityRequested.value /\n    (totalAdjustmentFactor *\n      ((this.castToFloat(growRecControls.germPercent.value) !== 0\n        ? this.castToFloat(growRecControls.germPercent.value)\n        : 100) /\n        100) *\n      ((this.castToFloat(growRecControls.purityPercent.value) !== 0\n        ? this.castToFloat(growRecControls.purityPercent.value)\n        : 100) /\n        100) *\n      growRecControls.seedPerPound.value);\n\n  if (this.sourceLot.unitOfMeasurement == 2) {\n    estimate = estimate * 453.6;\n  }\n\n  this.calculatedSeedQuantity = Number(estimate.toFixed(3));\n\n  return Number(estimate.toFixed(3));\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:866",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "With no test data, GrowHub silently assumes 100% germination and purity. It then under-orders seed by whatever the real germ and purity would have been, where legacy would have stopped.",
+    "question": "Should GrowHub block or warn when germ or purity is missing, as legacy did?"
+   },
+   {
+    "id": "SP-02",
+    "title": "Harvest factor product (and the multiply/divide operator)",
+    "verdict": "differs",
+    "severity": "high",
+    "legacy": {
+     "formula": "HFn = factor when the factor code's operator is '*', otherwise 10000 / factor (the inverse). Product = HF1 × HF2 × HF3 × HF4 × Harvest ASF, each as a fraction of 100.",
+     "refs": [
+      {
+       "control": "HF1",
+       "code": "HF1 = IIf([HF1_Formula_OP]=\"*\",[HARVEST_FACTOR_1],(10000/[HARVEST_FACTOR_1]))",
+       "where": "Form NMIS_AGREEMENT_LOTS › control HF1",
+       "lang": "expr"
+      },
+      {
+       "control": "Harvest_Factor",
+       "code": "Harvest_Factor = ([HF1]/100)*([HF2]/100)*([HF3]/100)*([HF4]/100)*([HARVEST_ASF_ADJUSTMENT]/100)*100",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Harvest_Factor",
+       "lang": "expr"
+      },
+      {
+       "vba": "Harvest_Factor_Tip_Click",
+       "code": "Private Sub Harvest_Factor_Tip_Click()\n\n    MsgBox \"Harvest Factors GREATER THAN 100% with an OP of / will INCREASE the amount of seed \" & _\n            \"and with an OP of * will REDUCE the amount of seed.\" & _\n            \"   Harvest Factors LESS THAN than 100% with an OP of / will REDUCE the amount of seed \" & _\n            \"and with an OP of * will INCREASE the amount of seed.\" & _\n            \"   A Harvest ASF adjustment GREATER THAN 100% will REDUCE the amount of seed and LESS THAN 100 \" & _\n            \"will INCREASE the amount of seed\", vbInformation, _\n            \"Harvest Factor Help\"\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:529",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "factor1/100 × factor2/100 × factor3/100. There's no operator, no factor 4 and no Harvest ASF. A blank factor counts as 1.",
+     "refs": [
+      {
+       "fn": "calculateEstimatedSeed",
+       "code": "calculateEstimatedSeed(orderForm: any): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let totalAdjustmentFactor =\n    (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n      ? growRecControls.factor1.value / 100\n      : 1) *\n    (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n      ? growRecControls.factor2.value / 100\n      : 1) *\n    (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n      ? growRecControls.factor3.value / 100\n      : 1) *\n    (growRecControls.thinningProbability.value !== null &&\n    !isNaN(growRecControls.thinningProbability.value)\n      ? growRecControls.thinningProbability.value / 100\n      : 1) *\n    (growRecControls.pastInventoryPerformance.value !== null &&\n    !isNaN(growRecControls.pastInventoryPerformance.value)\n      ? growRecControls.pastInventoryPerformance.value / 100\n      : 1);\n\n  let estimate =\n    growRecControls.adjustedQuantityRequested.value /\n    (totalAdjustmentFactor *\n      ((this.castToFloat(growRecControls.germPercent.value) !== 0\n        ? this.castToFloat(growRecControls.germPercent.value)\n        : 100) /\n        100) *\n      ((this.castToFloat(growRecControls.purityPercent.value) !== 0\n        ? this.castToFloat(growRecControls.purityPercent.value)\n        : 100) /\n        100) *\n      growRecControls.seedPerPound.value);\n\n  if (this.sourceLot.unitOfMeasurement == 2) {\n    estimate = estimate * 453.6;\n  }\n\n  this.calculatedSeedQuantity = Number(estimate.toFixed(3));\n\n  return Number(estimate.toFixed(3));\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:866",
+       "lang": "ts"
+      },
+      {
+       "fn": "getSeedFactorOptionSelection",
+       "code": "getSeedFactorOptionSelection(event: any) {\n  const planningControls =\n    this.orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex]\n      .controls;\n\n  // The \"None\" option lets the user clear a previously chosen sowing factor and\n  // revert the calculations to a blank state.\n  const selection = this.order.growRequest.speciesProduct.seedFactors.find(\n    (factor: SeedFactors) => factor?.uuid == event.value\n  );\n\n  this.factor1 = selection?.factor1 ?? null;\n  this.factor2 = selection?.factor2 ?? null;\n  this.factor3 = selection?.factor3 ?? null;\n  planningControls.factor1.patchValue(this.factor1);\n  planningControls.factor2.patchValue(this.factor2);\n  planningControls.factor3.patchValue(this.factor3);\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1298",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Any factor whose code uses the '/' operator moves the result the wrong way in GrowHub: 125 multiplies instead of dividing. The Access factor migration (admin/bin/access-migrations/species-product-factors-seed.ts) copies HARVEST_FACTOR_1–3 as-is and drops factor 4. In the four nurseries' NMIS_FACTORS exports, factor 4 is always 100, so dropping it from the defaults is harmless. On agreement lots it isn't: in the Oracle-era export (seed/NMIS_AGREEMENT_LOTS.json), 1,821 of 8,149 lots override factor 4, and 21 set a Harvest ASF.",
+    "evidence": "seed/access/*/NMIS_FACTORS.xml: HARVEST_FACTOR_4 = 100 in all 2,376 rows. seed/NMIS_AGREEMENT_LOTS.json: HARVEST_FACTOR_4 ≠ 100 on 1,821 lots.",
+    "question": "Which factor codes use the inverse operator (NMIS_FACTOR_CODES.FORMULA_INVERSE)? That table isn't in the frontend or the XML exports. Were those values converted before migration?"
+   },
+   {
+    "id": "SP-03",
+    "title": "Seed required (lb)",
+    "verdict": "differs",
+    "severity": "high",
+    "legacy": {
+     "formula": "(TOTAL_REQUEST × 1000) ÷ (pure live seed × harvest factor product × Harvest ASF), rounded to 3 decimals. The Calculate button leaves thinning probability out. A separate display field, Calc_Source, shows the figure with thinning included.",
+     "refs": [
+      {
+       "vba": "Calculate_Click",
+       "from": "If Pure_Live_Seed > 0 Then",
+       "to": "Source_Req = Round(",
+       "code": "If Pure_Live_Seed > 0 Then\nREQ = (Forms!NMIS_AGREEMENT_LOTS!TOTAL_REQUEST * 1000)\nPLS = (Forms!NMIS_AGREEMENT_LOTS!GROSS_SOURCE_PER_UNIT * _\n      (Forms!NMIS_AGREEMENT_LOTS!SOURCE_GERM_PCT / 100) * _\n      (Forms!NMIS_AGREEMENT_LOTS!SOURCE_PURITY_PCT / 100))\nASF = (Forms!NMIS_AGREEMENT_LOTS!HARVEST_ASF_ADJUSTMENT / 100)\nHARVEST_FACTOR = (Forms!NMIS_AGREEMENT_LOTS!HF1 / 100) * _\n                 (Forms!NMIS_AGREEMENT_LOTS!HF2 / 100) * _\n                 (Forms!NMIS_AGREEMENT_LOTS!HF3 / 100) * _\n                 (Forms!NMIS_AGREEMENT_LOTS!HF4 / 100)\nSource_Req = Round((REQ / (PLS * HARVEST_FACTOR * ASF)), 3)",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:49",
+       "lang": "vb"
+      },
+      {
+       "control": "Calc_Source",
+       "code": "Calc_Source = IIf([Pure_Live_Seed]>0,Round(([TOTAL_REQUEST]*1000)/[Pure_Live_Seed]/(([HF]/100)*[THINNING_PROBABILITY_PCT]/100),3),\"NA\")",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Calc_Source",
+       "lang": "expr"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "seedlings ÷ (factor1 × factor2 × factor3 × thinning × past inventory performance × germ × purity × seeds/lb), rounded to 3 decimals, × 453.6 when the source lot is measured in grams.",
+     "refs": [
+      {
+       "fn": "calculateEstimatedSeed",
+       "code": "calculateEstimatedSeed(orderForm: any): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let totalAdjustmentFactor =\n    (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n      ? growRecControls.factor1.value / 100\n      : 1) *\n    (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n      ? growRecControls.factor2.value / 100\n      : 1) *\n    (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n      ? growRecControls.factor3.value / 100\n      : 1) *\n    (growRecControls.thinningProbability.value !== null &&\n    !isNaN(growRecControls.thinningProbability.value)\n      ? growRecControls.thinningProbability.value / 100\n      : 1) *\n    (growRecControls.pastInventoryPerformance.value !== null &&\n    !isNaN(growRecControls.pastInventoryPerformance.value)\n      ? growRecControls.pastInventoryPerformance.value / 100\n      : 1);\n\n  let estimate =\n    growRecControls.adjustedQuantityRequested.value /\n    (totalAdjustmentFactor *\n      ((this.castToFloat(growRecControls.germPercent.value) !== 0\n        ? this.castToFloat(growRecControls.germPercent.value)\n        : 100) /\n        100) *\n      ((this.castToFloat(growRecControls.purityPercent.value) !== 0\n        ? this.castToFloat(growRecControls.purityPercent.value)\n        : 100) /\n        100) *\n      growRecControls.seedPerPound.value);\n\n  if (this.sourceLot.unitOfMeasurement == 2) {\n    estimate = estimate * 453.6;\n  }\n\n  this.calculatedSeedQuantity = Number(estimate.toFixed(3));\n\n  return Number(estimate.toFixed(3));\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:866",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "GrowHub always includes thinning and past performance in the seed figure. Legacy's saved SOURCE_REQUIRED excluded thinning. Even with the same inputs, GrowHub asks for more seed whenever thinning or past performance is below 100%.",
+    "question": "Should the saved seed quantity include thinning (like legacy's Calc_Source display) or not (like legacy's Calculate button)?"
+   },
+   {
+    "id": "SP-04",
+    "title": "Seed balance check when setting seed required",
+    "verdict": "differs",
+    "severity": "medium",
+    "legacy": {
+     "formula": "If seed required is more than the lot's balance: zero-balance lots show \"This is a Zero Balance Lot!\". Otherwise seed required is capped at the balance, with \"Insufficient Seed\". The same check runs whenever seed required is edited.",
+     "refs": [
+      {
+       "vba": "Calculate_Click",
+       "from": "If Source_Req <= ",
+       "to": "MsgBox \"Undetermined amount of source material.\"",
+       "code": "If Source_Req <= Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] Then\n        Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Source_Req\n    Else\n        If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] >= 0 Then\n            If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < 0.0001 Then\n                MsgBox \"This is a Zero Balance Lot!\"\n                Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Source_Req\n            Else\n                Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Round(Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS], 3)\n                MsgBox \"Insufficient Seed. Check Calculated for Request Adjustment\"\n            End If\n        Else\n            Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Source_Req\n            MsgBox \"Undetermined amount of source material.\"",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:61",
+       "lang": "vb"
+      },
+      {
+       "vba": "SOURCE_REQUIRED_AfterUpdate",
+       "code": "Private Sub SOURCE_REQUIRED_AfterUpdate()\n\n    If Not IsNull(SOURCE_REQUIRED) Then\n        If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < SOURCE_REQUIRED Then\n        If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < 0.0001 Then\n            MsgBox \"This is a Zero Balance Lot!\"\n            'Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Source_Req\n        Else\n            'Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Round(Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum of Activity_Units], 3)\n            MsgBox \"Insufficient Seed. Check Calculated for Request Adjustment\"\n        End If\n        End If\n    End If\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:714",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Two checks, neither on the planning step's figure. (1) The grow-request step sets an 'insufficient balance' flag when growRequest.estimatedLbsOfSeed is more than the lot balance (a warning, not a cap). (2) The production step's form validator rejects a withdrawal larger than the lot balance.",
+     "refs": [
+      {
+       "file": "frontend/src/app/routes/orders/order-grow-request/order-grow-request.component.ts",
+       "fn": "checkExistingBalance",
+       "code": "checkExistingBalance() {\n  if (this.order?.growRequest?.estimatedLbsOfSeed) {\n    this.insufficientBalance =\n      Number(this.order?.growRequest?.estimatedLbsOfSeed) > Number(this.sourceLot.lotBalance)\n        ? true\n        : false;\n  }\n}",
+       "where": "frontend/src/app/routes/orders/order-grow-request/order-grow-request.component.ts:257",
+       "lang": "ts"
+      },
+      {
+       "file": "frontend/src/app/routes/orders/order-grow-request/order-grow-request.component.ts",
+       "fn": "confirmAvailableBalance",
+       "code": "confirmAvailableBalance() {\n  let balance = Number(this.sourceLot.lotBalance);\n  let seedEstimate = Number(\n    this.orderForm.controls.growRequest.controls.estimatedLbsOfSeed.value\n  );\n  this.insufficientBalance = seedEstimate > balance ? true : false;\n}",
+       "where": "frontend/src/app/routes/orders/order-grow-request/order-grow-request.component.ts:870",
+       "lang": "ts"
+      },
+      {
+       "file": "frontend/src/app/routes/orders/orders-main/orders-main.component.ts",
+       "fn": "balanceValidation",
+       "code": "balanceValidation: ValidatorFn = (control) => {\n  const lbsOfSeedWithdrawn = control.get('lbsOfSeedWithdrawn')?.value;\n  let lotBalance = this.order?.cycles[0]?.cyclePlanning?.sourceLot?.lotBalance || 0;\n  return lbsOfSeedWithdrawn - this.originalWithdrawalBalance <= lotBalance ||\n    lbsOfSeedWithdrawn == null\n    ? null\n    : { balanceInvalid: 'Withdrawal amount exceeds available lot balance' };\n}",
+       "where": "frontend/src/app/routes/orders/orders-main/orders-main.component.ts:212",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Legacy capped the planned seed at the balance as soon as it was calculated. GrowHub lets planning compute and save more seed than the lot holds, flags it on the grow request, and stops it at withdrawal.",
+    "question": "Is a warning at grow request plus a hard stop at withdrawal enough, or should planning cap or warn as legacy did?"
+   },
+   {
+    "id": "SP-05",
+    "title": "Which seed balance",
+    "verdict": "needs SME",
+    "severity": "medium",
+    "legacy": {
+     "formula": "Sum of activity units for the lot over activity codes whose balance effect isn't NOEFFECT, with grams converted to pounds (× 0.002204623). The planning form's version (Seed_Balance3) has no date filter. A sibling query (Seed_Balance2) only counts activities dated today or earlier.",
+     "refs": [
+      {
+       "query": "Seed_Balance_MT Query",
+       "code": "MAKE TABLE NMIS_SOURCE_LOTS.CN, [Seed_Balance3 Query].[Sum Of ACTIVITY_UNITS], \"LB\" AS LastOfUNIT_CODE FROM NMIS_SOURCE_LOTS, Seed_Balance3 Query JOIN NMIS_SOURCE_LOTS↔Seed_Balance3 Query ON NMIS_SOURCE_LOTS.CN = [Seed_Balance3 Query].SOURCE_LOT_CN",
+       "where": "Saved query “Seed_Balance_MT Query”",
+       "lang": "sql"
+      },
+      {
+       "query": "Seed_Balance3 Query",
+       "code": "SELECT NMIS_ID_ACTIVITIES.SOURCE_LOT_CN, Round(Sum(IIf([NMIS_ID_ACTIVITIES].[unit_Code]=\"G\",[ACTIVITY_UNITS]*0.002204623,[Activity_Units])),4) AS Sum Of ACTIVITY_UNITS, \"LB\" AS UNIT_CODE FROM NMIS_ACTIVITY_CODES, NMIS_ID_ACTIVITIES JOIN NMIS_ACTIVITY_CODES↔NMIS_ID_ACTIVITIES ON NMIS_ACTIVITY_CODES.ACTIVITY_CODE = NMIS_ID_ACTIVITIES.ACTIVITY_CODE JOIN NMIS_ACTIVITY_CODES↔NMIS_ID_ACTIVITIES ON NMIS_ACTIVITY_CODES.ACTIVITY_CODE = NMIS_ID_ACTIVITIES.ACTIVITY_CODE WHERE (((NMIS_ACTIVITY_CODES.BALANCE_EFFECT)<>\"NOEFFECT\")) GROUP BY NMIS_ID_ACTIVITIES.SOURCE_LOT_CN, \"LB\"",
+       "where": "Saved query “Seed_Balance3 Query”",
+       "lang": "sql"
+      },
+      {
+       "query": "Seed_Balance2 Query",
+       "code": "SELECT NMIS_ID_ACTIVITIES.SOURCE_LOT_CN, Round(Sum(IIf([NMIS_ID_ACTIVITIES].[unit_Code]=\"G\",[ACTIVITY_UNITS]*0.002204623,[Activity_Units])),4) AS Sum Of ACTIVITY_UNITS, \"LB\" AS UNIT_CODE, NMIS_SOURCE_LOTS.ID, NMIS_SOURCE_LOTS.CATEGORY_CODE FROM NMIS_SOURCE_LOTS, NMIS_ACTIVITY_CODES, NMIS_ID_ACTIVITIES JOIN NMIS_ACTIVITY_CODES↔NMIS_ID_ACTIVITIES ON NMIS_ACTIVITY_CODES.ACTIVITY_CODE = NMIS_ID_ACTIVITIES.ACTIVITY_CODE JOIN NMIS_ACTIVITY_CODES↔NMIS_ID_ACTIVITIES ON NMIS_ACTIVITY_CODES.ACTIVITY_CODE = NMIS_ID_ACTIVITIES.ACTIVITY_CODE JOIN NMIS_SOURCE_LOTS↔NMIS_ID_ACTIVITIES ON NMIS_SOURCE_LOTS.CN = NMIS_ID_ACTIVITIES.SOURCE_LOT_CN WHERE (((NMIS_ACTIVITY_CODES.BALANCE_EFFECT)<>\"NOEFFECT\") AND ((NMIS_ID_ACTIVITIES.ACTIVITY_DATE)<=Date())) GROUP BY NMIS_ID_ACTIVITIES.SOURCE_LOT_CN, \"LB\", NMIS_SOURCE_LOTS.ID, NMIS_SOURCE_LOTS.CATEGORY_CODE",
+       "where": "Saved query “Seed_Balance2 Query”",
+       "lang": "sql"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "source_lot.lotBalance, maintained by the server from lot transactions.",
+     "refs": []
+    },
+    "impact": "Future-dated activities count toward the legacy planning balance. The activity-code crosswalk (Reference data › Activity codes) decides which codes move the GrowHub balance, and only 33% of Access codes are mapped so far.",
+    "question": "Does GrowHub's lotBalance include future-dated activities?"
+   },
+   {
+    "id": "SP-06",
+    "title": "Which test results feed planning",
+    "verdict": "differs",
+    "severity": "medium",
+    "legacy": {
+     "formula": "\"Use Last Test Data\" copies germ%, purity%, seeds/lb and stratified from one record: the lot's most recent test (max TEST_DATE). All four values come from that one test. Two tests on the same date give duplicate rows.",
+     "refs": [
+      {
+       "vba": "Use_Last_Test_Data_Click",
+       "code": "Private Sub Use_Last_Test_Data_Click()\nOn Error GoTo Err_Use_Last_Test_Data_Click\n\n    'If IsNull(Forms!NMIS_AGREEMENT_LOTS!SOURCE_GERM_PCT) Then\n        Forms!NMIS_AGREEMENT_LOTS!Source_Stratified = _\n            Forms!NMIS_AGREEMENT_LOTS![NMIS_SOURCE_LastTestData Query subform].Form!STRATIFIED\n        Forms!NMIS_AGREEMENT_LOTS!SOURCE_GERM_PCT = _\n            Forms!NMIS_AGREEMENT_LOTS![NMIS_SOURCE_LastTestData Query subform].Form!GERM_PCT\n        Forms!NMIS_AGREEMENT_LOTS!SOURCE_PURITY_PCT = _\n            Forms!NMIS_AGREEMENT_LOTS![NMIS_SOURCE_LastTestData Query subform].Form!PURITY_PCT\n        Forms!NMIS_AGREEMENT_LOTS!GROSS_SOURCE_PER_UNIT = _\n            Forms!NMIS_AGREEMENT_LOTS![NMIS_SOURCE_LastTestData Query subform].Form!GROSS_SOURCE_PER_UNIT\n    'End If\n\n    DoCmd.GoToControl \"Use_Default_Factors\"\n\nExit_Use_Last_Test_Data_Click:\n    Exit Sub\n\nErr_Use_Last_Test_Data_Click:\n    MsgBox Err.DESCRIPTION\n    Resume Exit_Use_Last_Test_Data_Click\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:914",
+       "lang": "vb"
+      },
+      {
+       "query": "NMIS_SOURCE_LastTestData_MT Query",
+       "code": "MAKE TABLE NMIS_SOURCE_LOTS.ID, [NMIS_SOURCE_LastTestDate Query].SOURCE_LOT_CN, NMIS_SOURCE_TESTS.TEST_DATE, NMIS_SOURCE_TESTS.GROSS_SOURCE_PER_UNIT, NMIS_SOURCE_TESTS.STRATIFIED, NMIS_SOURCE_TESTS.GERM_PCT, NMIS_SOURCE_TESTS.PURITY_PCT, NMIS_SOURCE_TESTS.CHECK_STRAT, NMIS_SOURCE_TESTS.FILLED_PCT, NMIS_SOURCE_TESTS.TYPE_OF_TEST FROM NMIS_SOURCE_LastTestDate Query, NMIS_SOURCE_LOTS, NMIS_SOURCE_TESTS JOIN NMIS_SOURCE_LastTestDate Query↔NMIS_SOURCE_TESTS ON [NMIS_SOURCE_LastTestDate Query].MaxOfTEST_DATE = NMIS_SOURCE_TESTS.TEST_DATE JOIN NMIS_SOURCE_LastTestDate Query↔NMIS_SOURCE_TESTS ON [NMIS_SOURCE_LastTestDate Query].SOURCE_LOT_CN = NMIS_SOURCE_TESTS.SOURCE_LOT_CN JOIN NMIS_SOURCE_LOTS↔NMIS_SOURCE_TESTS ON NMIS_SOURCE_LOTS.CN = NMIS_SOURCE_TESTS.SOURCE_LOT_CN ORDER BY NMIS_SOURCE_LOTS.ID",
+       "where": "Saved query “NMIS_SOURCE_LastTestData_MT Query”",
+       "lang": "sql"
+      },
+      {
+       "query": "NMIS_SOURCE_LastTestDate Query",
+       "code": "SELECT NMIS_SOURCE_TESTS.SOURCE_LOT_CN, Max(NMIS_SOURCE_TESTS.TEST_DATE) AS MaxOfTEST_DATE, Max(NMIS_SOURCE_TESTS.Index) AS MaxOfIndex FROM NMIS_SOURCE_TESTS, NMIS_SOURCE_LastTestDate1 Query JOIN NMIS_SOURCE_LastTestDate1 Query↔NMIS_SOURCE_TESTS ON [NMIS_SOURCE_LastTestDate1 Query].SOURCE_LOT_CN = NMIS_SOURCE_TESTS.SOURCE_LOT_CN JOIN NMIS_SOURCE_TESTS↔NMIS_SOURCE_LastTestDate1 Query ON NMIS_SOURCE_TESTS.TEST_DATE = [NMIS_SOURCE_LastTestDate1 Query].MaxOfTEST_DATE GROUP BY NMIS_SOURCE_TESTS.SOURCE_LOT_CN ORDER BY NMIS_SOURCE_TESTS.SOURCE_LOT_CN",
+       "where": "Saved query “NMIS_SOURCE_LastTestDate Query”",
+       "lang": "sql"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Takes the most recent test of each type separately: germ from t2, purity from t4, seeds/lb from t7. Fills them in when the field is empty or the source lot changes.",
+     "refs": [
+      {
+       "fn": "convertTestsEnumValue",
+       "code": "convertTestsEnumValue(sourceLotChange: boolean) {\n  this.tests = [];\n  if (sourceLotChange) {\n    this.orderForm.controls.growRequest.controls.planning.controls[\n      this.planningCycleIndex\n    ].controls.germPercent.patchValue(null);\n    this.orderForm.controls.growRequest.controls.planning.controls[\n      this.planningCycleIndex\n    ].controls.purityPercent.patchValue(null);\n    this.orderForm.controls.growRequest.controls.planning.controls[\n      this.planningCycleIndex\n    ].controls.seedPerPound.patchValue(null);\n    this.germTest = '';\n    this.purityTest = '';\n    this.seedPerPoundTest = 0;\n    this.mostRecentStratData = [];\n  }\n\n  let testTypes: any[] = this.sourceLotTests;\n  let typeVar: any;\n  let firstOfTestType: any[] = [];\n\n  const sortedDesc = testTypes.sort(\n    (objA, objB) => Number(new Date(objB.testDate)) - Number(new Date(objA.testDate))\n  );\n\n  //sorts tests by date descending and only displays the most recent of each type\n  sortedDesc.forEach((test: any) => {\n    if (firstOfTestType.includes(getEnumKeyByEnumValue(TestTypeEnum, test.testType ?? ''))) {\n      return;\n    } else {\n      switch (test.testType) {\n        case 't2':\n          this.germTest = test.testResults;\n          this.mostRecentGermNotes = test.notes;\n          this.mostRecentGermDate = test.testDate;\n          this.mostRecentStratData = test.stratificationData ?? [];\n          if (!this.cyclePlanningObject.germPercent || sourceLotChange) {\n            this.orderForm.controls.growRequest.controls.planning.controls[\n              this.planningCycleIndex\n            ].controls.germPercent.patchValue(test.testResults);\n          }\n          break;\n        case 't4':\n          this.purityTest = test.testResults;\n          if (!this.cyclePlanningObject.purityPercent || sourceLotChange) {\n            this.orderForm.controls.growRequest.controls.planning.controls[\n              this.planningCycleIndex\n            ].controls.purityPercent.patchValue(test.testResults);\n          }\n          break;\n        case 't7':\n          this.seedPerPoundTest = Number(test.testResults);\n          if (!this.cyclePlanningObject.seedPerPound || sourceLotChange) {\n            this.orderForm.controls.growRequest.controls.planning.controls[\n              this.planningCycleIndex\n            ].controls.seedPerPound.patchValue(Number(test.testResults));\n          }\n          break;\n      }\n\n      typeVar = test.testType;\n      test.testType = getEnumKeyByEnumValue(TestTypeEnum, typeVar ?? '');\n      this.tests.push(test);\n      firstOfTestType.push(test.testType);\n    }\n  });\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1317",
+       "lang": "ts"
+      },
+      {
+       "fn": "getSeedsPerPound",
+       "code": "getSeedsPerPound() {\n  for (let i = 0; i < this.sourceLotTests.length; i++) {\n    if (this.sourceLotTests[i].testType == 't7') {\n      this.seedsPerPound = this.sourceLotTests[i].testResults;\n    }\n  }\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1386",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "In GrowHub, germ, purity and seeds/lb can come from different test dates. TZ germination tests (t3, which the Access test migration creates for TZ / TZ-P / T-P-C) are never used for germ. Also, getSeedsPerPound runs after the tests are sorted newest-first, so its loop keeps the oldest t7. That variable looks display-only, since the form field uses the newest t7, but it's worth checking.",
+    "question": "Should TZ (t3) results count as germination in planning?"
+   },
+   {
+    "id": "SP-07",
+    "title": "Choosing the default factors",
+    "verdict": "differs",
+    "severity": "medium",
+    "legacy": {
+     "formula": "Automatic. Takes the NMIS_FACTORS row for the species product where the client ID starts with LIKE_ASSOCIATE. Otherwise it takes a generic row (LIKE_ASSOCIATE blank) whose germ range covers the lot's germ%. Client rows sort first. The elevation range is selected but not used. \"Use Default Factors\" copies harvest factors 1–4, container factors 1–3 and desired density, and resets thinning and container probability to 100%.",
+     "refs": [
+      {
+       "form": "NMIS_FACTORS_FOR_AGREEMENT_LOTS subform",
+       "code": "SELECT NMIS_FACTORS.SPECIES_PRODUCT_CN, NMIS_FACTORS.LIKE_ASSOCIATE, NMIS_FACTORS.GERM_MIN, NMIS_FACTORS.GERM_MAX, NMIS_FACTORS.HARVEST_FACTOR_1, NMIS_FACTORS.HARVEST_FACTOR_2, NMIS_FACTORS.HARVEST_FACTOR_3, NMIS_FACTORS.HARVEST_FACTOR_4, NMIS_FACTORS.HARVEST_FACTOR, NMIS_FACTORS.CONTAINER_FACTOR_1, NMIS_FACTORS.CONTAINER_FACTOR_2, NMIS_FACTORS.CONTAINER_FACTOR_3, NMIS_FACTORS.CONTAINER_FACTOR, NMIS_FACTORS.DESIRED_DENSITY, NMIS_FACTORS.MAXIMUM_DENSITY, NMIS_FACTORS.SOURCE_PER_AGREEMENT_UNIT, NMIS_FACTORS.GROSS_PER_CONTAINER, [Forms]![NMIS_AGREEMENT_LOTS]![NMIS_AGREEMENTS subform1].[Form]![CLIENT_ASSOCIATE] AS Associate, NMIS_FACTORS.ELEVATION_MIN, NMIS_FACTORS.ELEVATION_MAX FROM NMIS_FACTORS WHERE (((NMIS_FACTORS.SPECIES_PRODUCT_CN)=[Forms]![NMIS_AGREEMENT_LOTS]![SPECIES_PRODUCT_CN]) AND (([Forms]![NMIS_AGREEMENT_LOTS]![NMIS_AGREEMENTS subform1].[Form]![CLIENT_ASSOCIATE]) Like IIf([like_associate] Is Not Null,[like_associate] & \"*\",[like_associate]))) OR (((NMIS_FACTORS.SPECIES_PRODUCT_CN)=[Forms]![NMIS_AGREEMENT_LOTS]![SPECIES_PRODUCT_CN]) AND ((NMIS_FACTORS.LIKE_ASSOCIATE) Is Null) AND ((NMIS_FACTORS.GERM_MIN)<=Nz([Forms]![NMIS_AGREEMENT_LOTS]![SOURCE_GERM_PCT],0)) AND ((NMIS_FACTORS.GERM_MAX)>=Nz([Forms]![NMIS_AGREEMENT_LOTS]![SOURCE_GERM_PCT],100))) ORDER BY NMIS_FACTORS.LIKE_ASSOCIATE DESC;",
+       "where": "Form NMIS_FACTORS_FOR_AGREEMENT_LOTS subform › record source",
+       "lang": "sql"
+      },
+      {
+       "vba": "Use_Default_Factors_Click",
+       "code": "Private Sub Use_Default_Factors_Click()\nOn Error GoTo Err_Use_Default_Factors_Click\n\n    [NMIS_FACTORS subform].Requery\n\n    Forms!NMIS_AGREEMENT_LOTS!HARVEST_FACTOR_1 = [NMIS_FACTORS subform]![HARVEST_FACTOR_1]\n    Forms!NMIS_AGREEMENT_LOTS!HARVEST_FACTOR_2 = [NMIS_FACTORS subform]![HARVEST_FACTOR_2]\n    Forms!NMIS_AGREEMENT_LOTS!HARVEST_FACTOR_3 = [NMIS_FACTORS subform]![HARVEST_FACTOR_3]\n    Forms!NMIS_AGREEMENT_LOTS!HARVEST_FACTOR_4 = [NMIS_FACTORS subform]![HARVEST_FACTOR_4]\n    Forms!NMIS_AGREEMENT_LOTS!CONTAINER_FACTOR_1 = [NMIS_FACTORS subform]![CONTAINER_FACTOR_1]\n    Forms!NMIS_AGREEMENT_LOTS!CONTAINER_FACTOR_2 = [NMIS_FACTORS subform]![CONTAINER_FACTOR_2]\n    Forms!NMIS_AGREEMENT_LOTS!CONTAINER_FACTOR_3 = [NMIS_FACTORS subform]![CONTAINER_FACTOR_3]\n    Forms!NMIS_AGREEMENT_LOTS!DESIRED_DENSITY = [NMIS_FACTORS subform]![DESIRED_DENSITY]\n    Forms!NMIS_AGREEMENT_LOTS!THINNING_PROBABILITY_PCT = 100\n    Forms!NMIS_AGREEMENT_LOTS!CONTAINER_PROBABILITY_PCT = 100\n\n    DoCmd.GoToControl \"Calculate\"\n\nExit_Use_Default_Factors_Click:\n    Exit Sub\n\nErr_Use_Default_Factors_Click:\n    MsgBox Err.DESCRIPTION\n    Resume Exit_Use_Default_Factors_Click\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:940",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Manual. The planner picks from a dropdown of every seed factor for the species product, labelled with client, elevation and germ range. Choosing one copies factor1–3 only.",
+     "refs": [
+      {
+       "fn": "getSeedFactorOptionSelection",
+       "code": "getSeedFactorOptionSelection(event: any) {\n  const planningControls =\n    this.orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex]\n      .controls;\n\n  // The \"None\" option lets the user clear a previously chosen sowing factor and\n  // revert the calculations to a blank state.\n  const selection = this.order.growRequest.speciesProduct.seedFactors.find(\n    (factor: SeedFactors) => factor?.uuid == event.value\n  );\n\n  this.factor1 = selection?.factor1 ?? null;\n  this.factor2 = selection?.factor2 ?? null;\n  this.factor3 = selection?.factor3 ?? null;\n  planningControls.factor1.patchValue(this.factor1);\n  planningControls.factor2.patchValue(this.factor2);\n  planningControls.factor3.patchValue(this.factor3);\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1298",
+       "lang": "ts"
+      },
+      {
+       "fn": "displaySeedFactors",
+       "code": "displaySeedFactors(seedFactor: any) {\n  this.factor1 = seedFactor.factor1;\n  this.factor2 = seedFactor.factor2;\n  this.factor3 = seedFactor.factor3;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:385",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "GrowHub doesn't pre-select the client- or germ-matched row, and choosing a factor doesn't set desired density or reset thinning.",
+    "question": "Keep factor selection manual, or pre-select using legacy's client-prefix / germ-range rule?"
+   },
+   {
+    "id": "SP-08",
+    "title": "Bareroot space (bed feet / seedbed containers)",
+    "verdict": "differs",
+    "severity": "high",
+    "legacy": {
+     "formula": "For seedbed (SB) stock: containers = (seed required × pure live seed) × container factor product ÷ (target density × cells per container) × container ASF. It starts from the seed actually being sown.",
+     "refs": [
+      {
+       "vba": "Calculate_Click",
+       "from": "If [Type_of_Container] = \"SB\" Then",
+       "to": "CONTAINER_ASF)",
+       "code": "If [Type_of_Container] = \"SB\" Then\n    Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n    ((Source_Req2 * PLS) * CONTAINER_FACTOR / (TARGET_DENSITY * Cells_Per_Container) * _\n      CONTAINER_ASF)",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:93",
+       "lang": "vb"
+      },
+      {
+       "vba": "SOURCE_REQUIRED_Exit",
+       "code": "Private Sub SOURCE_REQUIRED_Exit(Cancel As Integer)\n'Relock Source_Required\n\n    If [SOURCE_REQUIRED].Locked = False Then\n        [SOURCE_REQUIRED].Locked = True\n    End If\n\n'Recalculate the container needs for bareroot if the source amount is changed\n\n   If [Type_of_Container] = \"SB\" Then\n\n    Dim ASF As Double\n    Dim Source_Req2 As Double\n    Dim PLS As Double\n    Dim CF1 As Double\n    Dim CF2 As Double\n    Dim CF3 As Double\n    Dim TARGET_DENSITY As Double\n    Dim Cells_Per_Container As Double\n    Dim CONTAINER_ASF As Double\n    Dim CONTAINER_FACTOR As Double\n\n\n'Calculate Grow Containers\n    If IsNull(SOURCE_REQUIRED) Then\n       MsgBox \"No Source Required Entered\"\n    Else\n    If [DESIRED_DENSITY] > 0 Then\n        Source_Req2 = Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED\n        If Not IsNull(Forms!NMIS_AGREEMENT_LOTS!GROSS_SOURCE_PER_UNIT) Then\n            PLS = (Forms!NMIS_AGREEMENT_LOTS!GROSS_SOURCE_PER_UNIT * _\n                (Forms!NMIS_AGREEMENT_LOTS!SOURCE_GERM_PCT / 100) * _\n                (Forms!NMIS_AGREEMENT_LOTS!SOURCE_PURITY_PCT / 100))\n        End If\n        CF1 = [CF1A] / 100\n        CF2 = [CF2A] / 100\n        CF3 = [CF3A] / 100\n        TARGET_DENSITY = [DESIRED_DENSITY]\n        Cells_Per_Container = _\n            [NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER subform1]![Cells_Per_Container]\n        CONTAINER_ASF = (Forms!NMIS_AGREEMENT_LOTS!CONTAINER_ASF_ADJUSTMENT / 100)\n        CONTAINER_FACTOR = CF1 * CF2 * CF3\n\n        Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n                ((Source_Req2 * PLS) * CONTAINER_FACTOR / (TARGET_DENSITY * Cells_Per_Container) * _\n                  CONTAINER_ASF)\n    Else\n        MsgBox \"No target density has been entered. Est Containers will not be calculated.\"\n    End If\n    End If\n   End If\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:770",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "round(((seedlings ÷ (factor1 × factor2 × factor3 × past performance)) × bareroot space) ÷ (target density × cells per container × survival)). It starts from the request and uses harvest factors, not container factors.",
+     "refs": [
+      {
+       "fn": "calculateEstimatedSpace",
+       "code": "calculateEstimatedSpace(orderForm: any, estimatedLbsOfSeed: number): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n  let barerootSpace = growRecControls.cellsFilled.value;\n  let desiredDensity = growRecControls.desiredDensity.value;\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let barerootSurvival = growRecControls.containerSurvival.value;\n  let quantity = growRecControls.adjustedQuantityRequested.value;\n  let totalAdjustmentFactor =\n    (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n      ? growRecControls.factor1.value / 100\n      : 1) *\n    (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n      ? growRecControls.factor2.value / 100\n      : 1) *\n    (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n      ? growRecControls.factor3.value / 100\n      : 1) *\n    (growRecControls.pastInventoryPerformance.value !== null &&\n    !isNaN(growRecControls.pastInventoryPerformance.value)\n      ? growRecControls.pastInventoryPerformance.value / 100\n      : 1);\n  let testResults =\n    ((this.castToFloat(growRecControls.germPercent.value) !== 0\n      ? this.castToFloat(growRecControls.germPercent.value)\n      : 100) /\n      100) *\n    ((this.castToFloat(growRecControls.purityPercent.value) !== 0\n      ? this.castToFloat(growRecControls.purityPercent.value)\n      : 100) /\n      100) *\n    growRecControls.seedPerPound.value;\n\n  let estimatedSpace = Math.round(\n    ((quantity / totalAdjustmentFactor) * barerootSpace) /\n      (desiredDensity * cellsPerContainer * barerootSurvival)\n  );\n  return estimatedSpace;\n  //(Seed Quantity in row * Germination * Purity * Seeds Per Pound) * Bareroot Space / (Desired Density * Cells Per Container) * Bareroot Survival\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:911",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Different starting point (request vs seed sown) and different factors. Legacy recalculated space from the seed actually sown whenever seed required was edited. GrowHub's space doesn't move when the planner adjusts seed.",
+    "question": "Should bareroot space follow the seed being sown (legacy) or the seedlings requested (GrowHub)?"
+   },
+   {
+    "id": "SP-09",
+    "title": "Container count (container stock)",
+    "verdict": "differs",
+    "severity": "medium",
+    "legacy": {
+     "formula": "Calculate button: (gross seedlings × 1000) ÷ (target density × cells per container) × container factor product + 0.35. Gross seedlings = TOTAL_REQUEST ÷ (harvest factors × Harvest ASF).",
+     "refs": [
+      {
+       "vba": "Calculate_Click",
+       "from": "Else 'For Containers",
+       "to": "+ 0.35",
+       "code": "Else 'For Containers\n    Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n    ((Calculated_Gross * 1000) * 1 / (TARGET_DENSITY * Cells_Per_Container) * _\n      CONTAINER_FACTOR) + 0.35",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:97",
+       "lang": "vb"
+      },
+      {
+       "control": "Calculated_Gross",
+       "code": "Calculated_Gross = Round(([TOTAL_REQUEST]/(([HF1]/100)*([HF2]/100)*([HF3]/100)*([HF4]/100)*([HARVEST_ASF_ADJUSTMENT]/100))),3)",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Calculated_Gross",
+       "lang": "expr"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "round(((seedlings ÷ (factor1 × factor2 × factor3 × past performance)) × cells filled) ÷ (target density × cells per container × survival) + 0.35).",
+     "refs": [
+      {
+       "fn": "calculateCTREstimatedSpace",
+       "code": "calculateCTREstimatedSpace(orderForm: any, estimatedLbsOfSeed: number): number {\n  let totalAdjustmentFactor;\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n  let seedlingQuantity = growRecControls.adjustedQuantityRequested.value;\n  let cellsFilled = growRecControls.cellsFilled.value;\n  let desiredDensity = growRecControls.desiredDensity.value;\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let containerSurvival = growRecControls.containerSurvival.value;\n  if (this.isBareroot) {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.thinningProbability.value !== null &&\n      !isNaN(growRecControls.thinningProbability.value)\n        ? growRecControls.thinningProbability.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1);\n  } else {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1);\n  }\n\n  totalAdjustmentFactor = Number(totalAdjustmentFactor.toFixed(3));\n\n  let estimatedSpace =\n    ((seedlingQuantity / totalAdjustmentFactor) * cellsFilled) /\n      (desiredDensity * cellsPerContainer * containerSurvival) +\n    0.35;\n\n  estimatedSpace = Math.round(estimatedSpace);\n  return estimatedSpace;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1128",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "The +0.35 rounding nudge carried over. Container factors and container ASF were replaced by cells-filled and survival percentages. The container factors are overridden on about 2,700 lots in the Oracle-era export, so migrated lots won't reproduce legacy container counts."
+   },
+   {
+    "id": "SP-10",
+    "title": "Legacy uses three different container formulas",
+    "verdict": "legacy bug",
+    "severity": "high",
+    "legacy": {
+     "formula": "The same EST_CONTAINERS_REQUIRED is recalculated by different handlers with different formulas:\n• Calculate button: × container factor, + 0.35, no container ASF\n• leaving Container ASF or Container Factor 1–3: × container factor × container ASF, no + 0.35\n• leaving Desired Density: × container ASF + 0.35, no container factor\nSo the stored value depends on which field the user left last.",
+     "refs": [
+      {
+       "vba": "Calculate_Click",
+       "from": "Else 'For Containers",
+       "to": "+ 0.35",
+       "code": "Else 'For Containers\n    Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n    ((Calculated_Gross * 1000) * 1 / (TARGET_DENSITY * Cells_Per_Container) * _\n      CONTAINER_FACTOR) + 0.35",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:97",
+       "lang": "vb"
+      },
+      {
+       "vba": "CONTAINER_ASF_ADJUSTMENT_Exit",
+       "from": "If [Type_of_Container]",
+       "to": "End If",
+       "code": "If [Type_of_Container] = \"SB\" Then\n    Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n    ((Source_Req2 * PLS) * CONTAINER_FACTOR / (TARGET_DENSITY * Cells_Per_Container) * _\n      CONTAINER_ASF)\nElse 'For Containers\n    Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n    ((Calculated_Gross * 1000) * CONTAINER_FACTOR / (TARGET_DENSITY * Cells_Per_Container) * _\n      CONTAINER_ASF)\nEnd If",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:132",
+       "lang": "vb"
+      },
+      {
+       "vba": "Desired_Density_Exit",
+       "from": "Else 'For Containers",
+       "to": "+ 0.35",
+       "code": "Else 'For Containers\n    Forms!NMIS_AGREEMENT_LOTS!EST_CONTAINERS_REQUIRED = _\n    ((Calculated_Gross * 1000) * 1 / (TARGET_DENSITY * Cells_Per_Container) * _\n      CONTAINER_ASF) + 0.35",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:305",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "One formula (SP-09).",
+     "refs": [
+      {
+       "fn": "calculateCTREstimatedSpace",
+       "code": "calculateCTREstimatedSpace(orderForm: any, estimatedLbsOfSeed: number): number {\n  let totalAdjustmentFactor;\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n  let seedlingQuantity = growRecControls.adjustedQuantityRequested.value;\n  let cellsFilled = growRecControls.cellsFilled.value;\n  let desiredDensity = growRecControls.desiredDensity.value;\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let containerSurvival = growRecControls.containerSurvival.value;\n  if (this.isBareroot) {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.thinningProbability.value !== null &&\n      !isNaN(growRecControls.thinningProbability.value)\n        ? growRecControls.thinningProbability.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1);\n  } else {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1);\n  }\n\n  totalAdjustmentFactor = Number(totalAdjustmentFactor.toFixed(3));\n\n  let estimatedSpace =\n    ((seedlingQuantity / totalAdjustmentFactor) * cellsFilled) /\n      (desiredDensity * cellsPerContainer * containerSurvival) +\n    0.35;\n\n  estimatedSpace = Math.round(estimatedSpace);\n  return estimatedSpace;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1128",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Migrated EST_CONTAINERS_REQUIRED values can't all be reproduced by one formula. Don't treat a mismatch on a migrated lot as a GrowHub bug before checking which legacy path produced it.",
+    "question": "Which legacy variant is the intended one?"
+   },
+   {
+    "id": "SP-11",
+    "title": "Seeds-per-cell (SPC) adjustment",
+    "verdict": "matches",
+    "severity": "low",
+    "legacy": {
+     "formula": "Seed for SPC = cells per container × seeds per cell × containers ÷ seeds/lb (gross seeds/lb, not pure live seed). Containers for SPC = seed required × seeds/lb ÷ (cells × seeds per cell). The \"Use\" buttons then back-solve a percentage into harvest factor 4 / container factor 3 or thinning / container probability so the main formulas reproduce the SPC figure.",
+     "refs": [
+      {
+       "control": "Source_Required_by_spc",
+       "code": "Source_Required_by_spc = IIf([Pure_Live_Seed]>0,Round(([NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER subform1].[Form]![CELLS_PER_CONTAINER]*[seed_per_cell_to_use])*[EST_CONTAINERS_REQUIRED]/[GROSS_SOURCE_PER_UNIT],3),\"NA\")",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Source_Required_by_spc",
+       "lang": "expr"
+      },
+      {
+       "control": "Containers_Required_by_spc",
+       "code": "Containers_Required_by_spc = IIf(Not IsNull([SOURCE_REQUIRED]),Round(([SOURCE_REQUIRED]*[GROSS_SOURCE_PER_UNIT])/([NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER subform1].[Form]![CELLS_PER_CONTAINER]*[seed_per_cell_to_use]),0),Round([TOTAL_REQUEST]*1000/[seed_per_cell_to_use]/[CELLS_PER_CONTAINER],0))",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Containers_Required_by_spc",
+       "lang": "expr"
+      },
+      {
+       "vba": "SPC_Use_Source_Click",
+       "code": "Private Sub SPC_Use_Source_Click()\n\n    If Pure_Live_Seed > 0 Then\n        If Not IsNull(Source_Required_by_spc) Then\n            If CONTAINER_PROBABILITY_PCT = 100 And THINNING_PROBABILITY_PCT = 100 Then\n                CONTAINER_PROBABILITY_PCT = Round(SOURCE_REQUIRED / Source_Required_by_spc * 100, 0)\n                THINNING_PROBABILITY_PCT = Round(SOURCE_REQUIRED / Source_Required_by_spc * 100, 0)\n                SOURCE_REQUIRED = Round(Source_Required_by_spc, 3)\n            End If\n\n            If Not IsNull(SOURCE_REQUIRED) Then\n                If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < SOURCE_REQUIRED Then\n                    If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < 0.0001 Then\n                        MsgBox \"This is a Zero Balance Lot!\"\n                        'Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Source_Req\n                    Else\n                        Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Round(Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS], 3)\n                        MsgBox \"Insufficient Seed. Check Calculated for Request Adjustment\"\n                    End If\n                End If\n            End If\n        End If\n    End If\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:845",
+       "lang": "vb"
+      },
+      {
+       "vba": "SPC_Use_Containers_Click",
+       "code": "Private Sub SPC_Use_Containers_Click()\n\n    'If Pure_Live_Seed > 0 Then\n        If Not IsNull(Containers_Required_by_spc) And THINNING_PROBABILITY_PCT = 100 Then\n            If CONTAINER_PROBABILITY_PCT = 100 And THINNING_PROBABILITY_PCT = 100 Then\n                THINNING_PROBABILITY_PCT = Round(Calc_Source / Source_Required_by_spc * 100, 0)\n                'CONTAINER_PROBABILITY_PCT = Round(EST_CONTAINERS_REQUIRED / Containers_Required_by_spc * 100, 0)\n                EST_CONTAINERS_REQUIRED = Containers_Required_by_spc\n            End If\n        End If\n    'End If\n\nEnd Sub",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:831",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Same two formulas, shown as a separate \"Calc. (SPC)\" row. Nothing is back-solved into the factors.",
+     "refs": [
+      {
+       "fn": "calcSPCSeedQuantity",
+       "code": "calcSPCSeedQuantity(orderForm: any, containers: number): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let seedsPerCell = growRecControls.seedPerCell.value;\n  let seedsPerLb = growRecControls.seedPerPound.value;\n\n  let estimatedSeed = (cellsPerContainer * seedsPerCell * containers) / seedsPerLb;\n  estimatedSeed = Number(estimatedSeed.toFixed(3));\n  return estimatedSeed;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:822",
+       "lang": "ts"
+      },
+      {
+       "fn": "calcSPCContainerQuantity",
+       "code": "calcSPCContainerQuantity(orderForm: any, estimatedSeed: number): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let seedsPerPound = growRecControls.seedPerPound.value;\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let seedsPerCell = growRecControls.seedPerCell.value;\n\n  let containerQuantity = Math.round(\n    (estimatedSeed * seedsPerPound) / (cellsPerContainer * seedsPerCell)\n  );\n  return containerQuantity;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:835",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "The formulas match. Legacy lots where planners clicked \"Use\" carry back-solved values in HARVEST_FACTOR_4 and CONTAINER_FACTOR_3, which explains the odd values in the export (CONTAINER_FACTOR_3 = 1, 2, 5 …). Those fields have no home in GrowHub."
+   },
+   {
+    "id": "SP-12",
+    "title": "Seedling yield (\"will grow\")",
+    "verdict": "differs",
+    "severity": "medium",
+    "legacy": {
+     "formula": "seed required × pure live seed × harvest factors × Harvest ASF (× thinning for container stock) ÷ 1000, rounded to 3 decimals. Bareroot leaves thinning out.",
+     "refs": [
+      {
+       "control": "Source_Will_Grow",
+       "code": "Source_Will_Grow = IIf([Type_of_Container]=\"SB\",IIf([SOURCE_REQUIRED]>0,IIf([Pure_Live_SEED]>0,Round(([SOURCE_REQUIRED]*[GROSS_SOURCE_PER_UNIT]*([SOURCE_GERM_PCT]/100)*([SOURCE_PURITY_PCT]/100)*([HF1]/100)*([HF2]/100)*([HF3]/100)*([HF4]/100)*([HARVEST_ASF_ADJUSTMENT]/100))/1000,3),0),\"NA\"),IIf([SOURCE_REQUIRED]>0,IIf([Pure_Live_SEED]>0,Round((([SOURCE_REQUIRED]*[GROSS_SOURCE_PER_UNIT]*([SOURCE_GERM_PCT]/100)*([SOURCE_PURITY_PCT]/100))*([HF1]/100)*([HF2]/100)*([HF3]/100)*([HF4]/100)*([HARVEST_ASF_ADJUSTMENT]/100)*([THINNING_PROBABILITY_PCT]/100))/1000,3),0),\"NA\"))",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Source_Will_Grow",
+       "lang": "expr"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "seed × factor1 × factor2 × factor3 × germ × purity (× thinning for container stock) × past performance × seeds/lb, rounded. Bareroot leaves thinning out.",
+     "refs": [
+      {
+       "fn": "calculateSeedlingYield",
+       "code": "calculateSeedlingYield(orderForm: any, seedQuantity: number): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n  let totalAdjustmentFactor;\n  if (this.isBareroot) {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.germPercent.value !== null && !isNaN(growRecControls.germPercent.value)\n        ? growRecControls.germPercent.value / 100\n        : 1) *\n      (growRecControls.purityPercent.value !== null && !isNaN(growRecControls.purityPercent.value)\n        ? growRecControls.purityPercent.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1) *\n      growRecControls.seedPerPound.value;\n  } else {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.germPercent.value !== null && !isNaN(growRecControls.germPercent.value)\n        ? growRecControls.germPercent.value / 100\n        : 1) *\n      (growRecControls.purityPercent.value !== null && !isNaN(growRecControls.purityPercent.value)\n        ? growRecControls.purityPercent.value / 100\n        : 1) *\n      (growRecControls.thinningProbability.value !== null &&\n      !isNaN(growRecControls.thinningProbability.value)\n        ? growRecControls.thinningProbability.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1) *\n      growRecControls.seedPerPound.value;\n  }\n\n  totalAdjustmentFactor = Number(totalAdjustmentFactor.toFixed(3));\n\n  //Seed Quantity * Seeds Per Pound * Germination * Purity * Survival * Harvest * Shippable * Past Performance\n  let seedYield = Math.round(seedQuantity * totalAdjustmentFactor);\n\n  return seedYield;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:972",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Same structure, including the bareroot/container thinning split. The differences are the ones in SP-02 (factor 4, ASF, operator), past performance being new, and units (legacy is in thousands)."
+   },
+   {
+    "id": "SP-13",
+    "title": "Shortage",
+    "verdict": "matches",
+    "severity": "low",
+    "legacy": {
+     "formula": "max(0, TOTAL_REQUEST − will grow), rounded to 3 decimals. Shows NA when there's no seed required.",
+     "refs": [
+      {
+       "control": "Shortage",
+       "code": "Shortage = IIf([SOURCE_REQUIRED]>0,IIf(Round([TOTAL_REQUEST]-[Source_Will_Grow],3)>0,Round([TOTAL_REQUEST]-[Source_Will_Grow],3),0),\"NA\")",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Shortage",
+       "lang": "expr"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "round(seedlings − yield). Shown as 0 when under 1.",
+     "refs": [
+      {
+       "fn": "calculateShortage",
+       "code": "calculateShortage(orderForm: any, seedYield: number): number {\n  //Seed Quantity in row - Seedling Yield in row\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let seedlingQuantity = growRecControls.adjustedQuantityRequested.value;\n  let shortage = Math.round(seedlingQuantity - seedYield);\n  return shortage;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1033",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Equivalent apart from units."
+   },
+   {
+    "id": "SP-14",
+    "title": "Propagule (NSP) orders",
+    "verdict": "missing",
+    "severity": "medium",
+    "legacy": {
+     "formula": "For category NSP: containers = TOTAL_REQUEST × the user nursery's propagule bed-feet-per-acre default (Default4N). Seed isn't calculated.",
+     "refs": [
+      {
+       "vba": "Calculate_Click",
+       "from": "If CATEGORY_CODE = \"NSP\" Then",
+       "to": "MsgBox \"NMIS does not currently",
+       "code": "If CATEGORY_CODE = \"NSP\" Then\n'Calculate Grow Containers\n    EST_CONTAINERS_REQUIRED = TOTAL_REQUEST * Propagule_BF_per_Acre\n'Calculate Source Needs\n    MsgBox \"NMIS does not currently calculate source needs. To be implemented at a later time.\"",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:40",
+       "lang": "vb"
+      },
+      {
+       "control": "Propagule_BF_per_Acre",
+       "code": "Propagule_BF_per_Acre = [Forms]![Switchboard]![NMIS_ACCESS_SET_USER_NURSERY subform].[Form]![Default4N]",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Propagule_BF_per_Acre",
+       "lang": "expr"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "No propagule branch found in the planning calculations.",
+     "refs": []
+    },
+    "impact": "Propagule orders would fall through to the seed-based formulas.",
+    "question": "Are propagule (native plant) orders in scope for GrowHub planning?"
+   },
+   {
+    "id": "SP-15",
+    "title": "Bareroot vs container branching",
+    "verdict": "needs SME",
+    "severity": "low",
+    "legacy": {
+     "formula": "Branches on the species product's begin container type: SB (seedbed) is bareroot. Containers_Will_Grow also treats SPB and TB as bareroot for B/N category lots.",
+     "refs": [
+      {
+       "control": "Type_of_Container",
+       "code": "Type_of_Container = [NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER subform1].Form!BEGIN_CONTAINER",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Type_of_Container",
+       "lang": "expr"
+      },
+      {
+       "control": "Containers_Will_Grow",
+       "code": "Containers_Will_Grow = Round(IIf((Left$([CATEGORY_CODE],1)=\"B\" Or Left$([CATEGORY_CODE],1)=\"N\") And ([Type_of_Container] In (\"sb\",\"SPB\",\"TB\")),[Calculated_Gross],[EST_CONTAINERS_REQUIRED]*[NMIS_SPECIES_PRODUCTS_BEGIN_CONTAINER subform1].[Form]![CELLS_PER_CONTAINER]/1000),3)",
+       "where": "Form NMIS_AGREEMENT_LOTS › control Containers_Will_Grow",
+       "lang": "expr"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Branches on the grow cycle's stock type (isBareroot).",
+     "refs": []
+    },
+    "impact": "Probably equivalent, but SPB / TB container types are worth checking against grow_unit.stockType."
+   },
+   {
+    "id": "SP-16",
+    "title": "Legacy bugs not to carry over",
+    "verdict": "legacy bug",
+    "severity": "low",
+    "legacy": {
+     "formula": "• Source_Required_by_spc_DblClick sets SOURCE_REQUIRED = Source_Req on a zero-balance lot, but Source_Req is never set in that procedure. With no Option Explicit, the field gets blanked.\n• Calculate_Click only sets pure live seed when test data exists, so for seedbed stock with no test data the container estimate is computed with PLS = 0.\n• Calculate_Click assigns Source_Req2 but declares Source_Reg2 (typo). It works only because Option Explicit is off.",
+     "refs": [
+      {
+       "vba": "Source_Required_by_spc_DblClick",
+       "from": "If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance",
+       "to": "Source_Req",
+       "code": "If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < SOURCE_REQUIRED Then\n    If Forms!NMIS_AGREEMENT_LOTS![Seed_Balance Query subform]![Sum Of ACTIVITY_UNITS] < 0.0001 Then\n        MsgBox \"This is a Zero Balance Lot!\"\n        Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED = Source_Req",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:741",
+       "lang": "vb"
+      },
+      {
+       "vba": "Calculate_Click",
+       "from": "Dim Source_Reg2",
+       "to": "Dim Source_Reg2",
+       "code": "Dim Source_Reg2 As Double",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:28",
+       "lang": "vb"
+      },
+      {
+       "vba": "Calculate_Click",
+       "from": "Source_Req2 = Forms",
+       "to": "Source_Req2 = Forms",
+       "code": "Source_Req2 = Forms!NMIS_AGREEMENT_LOTS!SOURCE_REQUIRED",
+       "where": "vba/Form_NMIS_AGREEMENT_LOTS.bas:83",
+       "lang": "vb"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "Not applicable.",
+     "refs": []
+    },
+    "impact": "Migrated lots touched by these paths may have blank seed required or zero container estimates."
+   },
+   {
+    "id": "SP-17",
+    "title": "Rounding and unit constants",
+    "verdict": "differs",
+    "severity": "low",
+    "legacy": {
+     "formula": "Pounds from grams × 0.002204623 (and 453.59 g/lb in the balance query). Results rounded at the end.",
+     "refs": [
+      {
+       "query": "Seed_Balance Query",
+       "code": "SELECT NMIS_ID_ACTIVITIES.SOURCE_LOT_CN, Round(Sum(IIf([NMIS_ID_ACTIVITIES].[unit_Code]=\"G\",[ACTIVITY_UNITS]*0.002204623,[Activity_Units])),4) AS Sum Of ACTIVITY_UNITS, \"LB\" AS UNIT_CODE, NMIS_SOURCE_LOTS.STORED_AT_ASSOCIATE, Round(Sum(IIf([NMIS_ID_ACTIVITIES].[unit_Code]=\"G\",[ACTIVITY_UNITS]*0.002204623,[Activity_Units]))*453.59,4) AS Sum Of ACTIVITY_UNITS_G FROM NMIS_SOURCE_LOTS, NMIS_ACTIVITY_CODES, NMIS_ID_ACTIVITIES JOIN NMIS_ACTIVITY_CODES↔NMIS_ID_ACTIVITIES ON NMIS_ACTIVITY_CODES.ACTIVITY_CODE = NMIS_ID_ACTIVITIES.ACTIVITY_CODE JOIN NMIS_ACTIVITY_CODES↔NMIS_ID_ACTIVITIES ON NMIS_ACTIVITY_CODES.ACTIVITY_CODE = NMIS_ID_ACTIVITIES.ACTIVITY_CODE JOIN NMIS_SOURCE_LOTS↔NMIS_ID_ACTIVITIES ON NMIS_SOURCE_LOTS.CN = NMIS_ID_ACTIVITIES.SOURCE_LOT_CN WHERE (((NMIS_ACTIVITY_CODES.BALANCE_EFFECT)<>\"NOEFFECT\") AND ((NMIS_ID_ACTIVITIES.SOURCE_LOT_CN) Is Not Null) AND ((NMIS_ID_ACTIVITIES.ACTIVITY_DATE)<=Date())) GROUP BY NMIS_ID_ACTIVITIES.SOURCE_LOT_CN, \"LB\", NMIS_SOURCE_LOTS.STORED_AT_ASSOCIATE",
+       "where": "Saved query “Seed_Balance Query”",
+       "lang": "sql"
+      }
+     ]
+    },
+    "growhub": {
+     "formula": "× 453.6 for grams. The container adjustment factor is rounded to 3 decimals before it's used, which drifts slightly when several factors are multiplied.",
+     "refs": [
+      {
+       "fn": "calculateEstimatedSeed",
+       "code": "calculateEstimatedSeed(orderForm: any): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let totalAdjustmentFactor =\n    (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n      ? growRecControls.factor1.value / 100\n      : 1) *\n    (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n      ? growRecControls.factor2.value / 100\n      : 1) *\n    (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n      ? growRecControls.factor3.value / 100\n      : 1) *\n    (growRecControls.thinningProbability.value !== null &&\n    !isNaN(growRecControls.thinningProbability.value)\n      ? growRecControls.thinningProbability.value / 100\n      : 1) *\n    (growRecControls.pastInventoryPerformance.value !== null &&\n    !isNaN(growRecControls.pastInventoryPerformance.value)\n      ? growRecControls.pastInventoryPerformance.value / 100\n      : 1);\n\n  let estimate =\n    growRecControls.adjustedQuantityRequested.value /\n    (totalAdjustmentFactor *\n      ((this.castToFloat(growRecControls.germPercent.value) !== 0\n        ? this.castToFloat(growRecControls.germPercent.value)\n        : 100) /\n        100) *\n      ((this.castToFloat(growRecControls.purityPercent.value) !== 0\n        ? this.castToFloat(growRecControls.purityPercent.value)\n        : 100) /\n        100) *\n      growRecControls.seedPerPound.value);\n\n  if (this.sourceLot.unitOfMeasurement == 2) {\n    estimate = estimate * 453.6;\n  }\n\n  this.calculatedSeedQuantity = Number(estimate.toFixed(3));\n\n  return Number(estimate.toFixed(3));\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:866",
+       "lang": "ts"
+      },
+      {
+       "fn": "calculateCTREstimatedSpace",
+       "code": "calculateCTREstimatedSpace(orderForm: any, estimatedLbsOfSeed: number): number {\n  let totalAdjustmentFactor;\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n  let seedlingQuantity = growRecControls.adjustedQuantityRequested.value;\n  let cellsFilled = growRecControls.cellsFilled.value;\n  let desiredDensity = growRecControls.desiredDensity.value;\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let containerSurvival = growRecControls.containerSurvival.value;\n  if (this.isBareroot) {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.thinningProbability.value !== null &&\n      !isNaN(growRecControls.thinningProbability.value)\n        ? growRecControls.thinningProbability.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1);\n  } else {\n    totalAdjustmentFactor =\n      (growRecControls.factor1.value !== null && !isNaN(growRecControls.factor1.value)\n        ? growRecControls.factor1.value / 100\n        : 1) *\n      (growRecControls.factor2.value !== null && !isNaN(growRecControls.factor2.value)\n        ? growRecControls.factor2.value / 100\n        : 1) *\n      (growRecControls.factor3.value !== null && !isNaN(growRecControls.factor3.value)\n        ? growRecControls.factor3.value / 100\n        : 1) *\n      (growRecControls.pastInventoryPerformance.value !== null &&\n      !isNaN(growRecControls.pastInventoryPerformance.value)\n        ? growRecControls.pastInventoryPerformance.value / 100\n        : 1);\n  }\n\n  totalAdjustmentFactor = Number(totalAdjustmentFactor.toFixed(3));\n\n  let estimatedSpace =\n    ((seedlingQuantity / totalAdjustmentFactor) * cellsFilled) /\n      (desiredDensity * cellsPerContainer * containerSurvival) +\n    0.35;\n\n  estimatedSpace = Math.round(estimatedSpace);\n  return estimatedSpace;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:1128",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "Small differences (under 0.1%) in parallel-run comparisons."
+   },
+   {
+    "id": "SP-18",
+    "title": "Seed-to-seed and later grow cycles",
+    "verdict": "GrowHub only",
+    "severity": "info",
+    "legacy": {
+     "formula": "No equivalent on this form. Multi-cycle stock was planned as separate agreement lots.",
+     "refs": []
+    },
+    "growhub": {
+     "formula": "Seed-to-seed pounds = bed feet × density ÷ (seeds/lb × purity × fill × germ). Later cycles: space = seedlings ÷ (cells filled × cells per container), or ÷ (bareroot space × density).",
+     "refs": [
+      {
+       "fn": "calculateSeedToSeedPoundsNeeded",
+       "code": "calculateSeedToSeedPoundsNeeded(orderForm: any): number {\n  const ctrl =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n  const bedFeet = Number.parseFloat(ctrl.adjustedQuantityRequested.value) || 0;\n  const density = Number.parseFloat(ctrl.desiredDensity.value) || 0;\n  const seedsPerPound = Number.parseFloat(ctrl.seedPerPound.value) || 0;\n  const purity = (Number.parseFloat(ctrl.purityPercent.value) || 0) / 100;\n  const fill = (Number.parseFloat(ctrl.cellsFilled.value) || 0) / 100;\n  const germ = (Number.parseFloat(ctrl.germPercent.value) || 0) / 100;\n\n  const divisor = seedsPerPound * purity * fill * germ;\n  if (divisor === 0) return 0;\n\n  const result = (bedFeet * density) / divisor;\n  return Number(result.toFixed(3));\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:849",
+       "lang": "ts"
+      },
+      {
+       "fn": "calculateAdditionalContainer",
+       "code": "calculateAdditionalContainer(orderForm: any): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let cellsFilled = growRecControls.cellsFilled.value / 100;\n  cellsFilled = Number(cellsFilled.toFixed(3));\n  let cellsPerContainer = this.growCycleObject?.growUnit?.cellsPerContainer;\n  let adjustedSeedlingQuantity = growRecControls.adjustedQuantityRequested.value;\n\n  let additionalBRSpace = Math.round(\n    adjustedSeedlingQuantity / (cellsFilled * cellsPerContainer)\n  );\n  return additionalBRSpace;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:614",
+       "lang": "ts"
+      },
+      {
+       "fn": "calculateAdditionalBRSpace",
+       "code": "calculateAdditionalBRSpace(orderForm: any): number {\n  let growRecControls =\n    orderForm.controls.growRequest.controls.planning.controls[this.planningCycleIndex].controls;\n\n  let barerootSpace = growRecControls.cellsFilled.value;\n  let desiredDensity = growRecControls.desiredDensity.value;\n  let adjustedSeedlingQuantity = growRecControls.adjustedQuantityRequested.value;\n\n  barerootSpace = Number.parseFloat(barerootSpace) / 100;\n\n  let additionalBRSpace = Math.round(adjustedSeedlingQuantity / (barerootSpace * desiredDensity));\n  return additionalBRSpace;\n}",
+       "where": "frontend/src/app/routes/orders/order-planning/order-planning.component.ts:629",
+       "lang": "ts"
+      }
+     ]
+    },
+    "impact": "New behaviour. Nothing in legacy to compare it with."
+   }
+  ]
+ }
+]

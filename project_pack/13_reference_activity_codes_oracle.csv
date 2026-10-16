@@ -1,0 +1,262 @@
+code,name,ghParent,ghCode,kind,balance
+ACQBT,Seed Acquired by Trade,Seed Receiving,Transfered Seed,Source,Add
+ADCO,Admin Determined Carry-Over,Seedling Production,,Seedling,Remove
+ADDCMB,Source Additions/Combinations,Seed Lot Adjustments,Lot Adjustment,Source,Add
+ADDNON,Non-WCF Source Additions,Seed Lot Adjustments,Lot Adjustment,Source,Add
+AMEND,Soil Amendments,,,Seedling,No Effect
+ASPIR,Aspirator Tester,Seed Processing,Seed Cleaning,Source,No Effect
+BEDFRM,Bed Form,,,Seedling,No Effect
+BEDINV,Seedling Bed Inventory,Seedling Inventory,,Seedling,No Effect
+BIO,Biological Control,,,Seedling,No Effect
+BNDL,Bundling,Seedling Pack Summary,,Seedling,No Effect
+BOIL,Boiling Cones For Flaring,Seed Processing,Seed Cleaning,Source,No Effect
+BP5SC,Five Screen Cleaner,Seed Processing,Seed Cleaning,Source,No Effect
+BRDCST,Broadcast Sow,Seedling Production,Production,Source,Remove
+BRFS,Broadcast Sow,Seedling Production,Production,Source,Remove
+BRSS,Bareroot Sow (Spring),Seedling Production,Production,Source,Remove
+BRSU,Bareroot Sow (Summer),Seedling Production,Production,Source,Remove
+BRUSH,Brush Machine,Seed Processing,Seed Cleaning,Source,No Effect
+BSY248,Contractor Sowing,Seed Shipping,Ship to Client,Source,Remove
+BULK,Bed Run,Seedling Lift Summary,,Seedling,Add
+CC,Cover Crop,,,Seedling,No Effect
+CCFERT,Fertilize Cover Crop,,,Seedling,No Effect
+CCHARV,Harvest Cover Crop,,,Seedling,No Effect
+CCINC,Incorporate Cover Crop,,,Seedling,No Effect
+CCIRR,Irrigate Cover Crop,,,Seedling,No Effect
+CCMOW,Mow Cover Crop,,,Seedling,No Effect
+CCSOW,Sow Cover Crop,,,Seedling,No Effect
+CDCO,Client Determine Carry-Over,Seedling Production,,Seedling,Remove
+CHEM,Chemical Control,,,Seedling,No Effect
+CKIN,Count and ck bags and tags,Seed Processing,Other Special Services,Source,No Effect
+CLEAN,Seed Cleaning,Seed Processing,Seed Cleaning,Source,No Effect
+CLIPER,Clipper used to dewing,Seed Processing,Seed Cleaning,Source,No Effect
+CLNHAN,Clean Seed by Hand,Seed Processing,Seed Cleaning,Source,No Effect
+CNDRY,Cone Drying,Seed Processing,Seed Drying,Source,No Effect
+CNEVAL,Cone Evaluation,Seed Processing,Cone Evaluation,Source,No Effect
+CNRECV,Cone Receiving,Seed Receiving,Cones,Source,No Effect
+CNSOAK,Cone - Water Soak,Seed Processing,Seed Cleaning,Source,No Effect
+CNSTOR,Cone Storage,,n/a,n/a,n/a
+CNTRAY,Cones on Tray for flaring bin,Seed Processing,Seed Drying,Source,No Effect
+CNTRLP,Controlled Pollination,Seed Processing,Other Special Services,Source,Remove
+COADM,Admin Carry-Over,Seedling Production,,Seedling,Add
+COCLI,Client Carry-Over,Seedling Production,,Seedling,Add
+CONE,Cone Handling,Seed Processing,Other Special Services,Source,No Effect
+CONFS,Container Sow (Fall),Seedling Production,Production,Source,Remove
+CONSS,Container Sow (Spring),Seedling Production,Production,Source,Remove
+COSH,Cone/Seed Handling,Seed Processing,Seed Cleaning,Source,No Effect
+CRGRD,Contract Grade,Seedling Pack Summary,,Seedling,Adjust
+CRHLF,Contract Handlift,Seedling Lift Summary,,Seedling,Remove
+CRMLF,Contract Mechanical Lift,Seedling Lift Summary,,Seedling,Remove
+CSTBLN,Custom Blend,,n/a,n/a,n/a
+CT,Cultural Treatments,,,Seedling,No Effect
+CTHAND,Container Hand Sow,Seedling Production,,Seedling,Add
+CTMECH,Container Mech Sow,Seedling Production,,Seedling,Add
+CTRCVD,Cuttings Received,Seed Receiving,Raw,Source,No Effect
+CTSTRK,Struck Cuttings,Seedling Production,Production,Seedling,Add
+DBLSRT,Double Sort,Seedling Pack Summary,,Seedling,No Effect
+DELIVR,Deliver,Seedling Shipping,Ship to Client,Seedling,Remove
+DESUNC,Destroy Uncleaned Source,Seed Processing,Non-Viable (destroy),Source,No Effect
+DEWCEM,Dewing using Cement Mixer,Seed Processing,Seed Cleaning,Source,No Effect
+DEWHAN,Dewing Seed by Hand,Seed Processing,Seed Cleaning,Source,No Effect
+DEWING,Seed Dewinging,Seed Processing,Seed Cleaning,Source,No Effect
+DEWMIS,Dewing using Missoula gadget,Seed Processing,Seed Cleaning,Source,No Effect
+DEWMOR,Dewing using Mortar Mixer,Seed Processing,Seed Cleaning,Source,No Effect
+DIRECT,Direct Seeding,Seed Shipping,Ship to Client,Source,Remove
+DISK,Disking,,,Seedling,No Effect
+DONANP,Donate Seed (NonProfit),Seed Shipping,Donation,Source,Remove
+DONAOT,Donate Seed (Other),Seed Receiving,Donation,Source,Add
+DONATI,Donate Seed (TI-Tree Improve),Seed Receiving,Donation,Source,Add
+DRYSD,Seed drying,Seed Processing,Seed Drying,Source,No Effect
+DYBVIG,Dybvig Separator,Seed Processing,Seed Cleaning,Source,No Effect
+ECIRR,Irrigation for Erosion Control,,,Seedling,No Effect
+ECMLCH,Mulch for Erosion Control,,,Seedling,No Effect
+ECWWM,Waterway Maintenance,,,Seedling,No Effect
+EROCTL,Erosion Control,,,Seedling,No Effect
+EVLDOC,Evaluating Protocols,Seed Processing,Other Special Services,Source,No Effect
+FAGRD,Force Account Grade,Seedling Pack Summary,,Seedling,Adjust
+FAHLF,Force Account Handlift,Seedling Lift Summary,,Seedling,Remove
+FAMHG,Force Acct Mech Harvest Grass,Seedling Lift Summary,,Seedling,No Effect
+FAMLF,Force Acct Mechanical Lift,Seedling Lift Summary,,Seedling,Remove
+FAMRG,Force Acct Mech Remove Grass,Seedling Lift Summary,,Seedling,Remove
+FDPROC,Food Processor (Berries),Seed Processing,Seed Cleaning,Source,No Effect
+FERTIR,Fertilizer Penetration Irrigat,,,Seedling,No Effect
+FINBED,Final Seedbed Inventory,Seedling Inventory,,Seedling,Add
+FININV,Final Inventory,Seedling Inventory,,Seedling,No Effect
+FINLOT,Final Seedlot Inventory,Seedling Inventory,,Seedling,Add
+FINRVS,Final Revised Inventory,Seedling Inventory,,Seedling,Adjust
+FIR,True Fir Machine,Seed Processing,Seed Cleaning,Source,No Effect
+FLDROP,Field Drop Seeder,,,Seedling,Add
+FLGRAS,Field Grass Seeder,,,Seedling,Add
+FLOAT,Floating berries/flesh/seed,Seed Processing,Seed Cleaning,Source,No Effect
+FOLIAR,Foliar Fertilizer,,,Seedling,No Effect
+FPACK,Field Pack,Seedling Pack Summary,,Seedling,Add
+FRSTCT,Frost Heave Prevention,,,Seedling,No Effect
+FRSTIR,Frost Protection Irrigation,,,Seedling,No Effect
+FRZR,Freezer Store,Seedling Production,,Seedling,Add
+FUMIG,Fumigation,,,Seedling,No Effect
+GLFAIL,Grow Lot Failure,Seedling Production,,Seedling,Remove
+GP,Ground Prep,,,Seedling,No Effect
+GRAVIT,Gravity table,Seed Processing,Seed Cleaning,Source,No Effect
+GRYS,Bareroot Sow for Yield,Seedling Production,Production,Source,Remove
+HARROW,Harrowing,,,Seedling,No Effect
+HEATIR,Heat Stress Irrigation,,,Seedling,No Effect
+HEEL,Heel-in,Seedling Lift Request,,Seedling,No Effect
+HNDTHN,Hand Thin,,,Seedling,No Effect
+HNDWD,Hand Weed,,,Seedling,No Effect
+HNDXPL,Hand Transplant,,,Seedling,Add
+HNTMBL,Hand Tumbler,Seed Processing,Seed Cleaning,Source,No Effect
+HOFMAN,Single Deck Vibrator,Seed Processing,Seed Cleaning,Source,No Effect
+HROOT,Horizontal Root Pruning,,,Seedling,No Effect
+HYDRO,Hydromulch,,,Seedling,No Effect
+INORG,Inorganic Amendments,,,Seedling,No Effect
+INTINV,Interim Inventory,Seedling Inventory,,Seedling,No Effect
+LGTMBL,Large lot Tumbler,Seed Processing,Seed Cleaning,Source,No Effect
+LIFT,Lifting,Seedling Lift Summary,,Seedling,No Effect
+LM,Land Management,,,Seedling,No Effect
+LOTINV,Seedling Lot Inventory,Seedling Inventory,,Seedling,No Effect
+LP998,Miscellaneous/Remarks,Seed Processing,Other Special Services,Source,No Effect
+M2B,Air/screen Separator,Seed Processing,Seed Cleaning,Source,No Effect
+MCHCLT,Mechanical Cultivation,,,Seedling,No Effect
+MCHTHN,Mechanical Thin,,,Seedling,No Effect
+MCHXPL,Mechanical Transplant,Seedling Production,,Seedling,Add
+MLCHCT,Mulch,,,Seedling,No Effect
+MSTCSV,Moisture Conservation,,,Seedling,No Effect
+MSTRIR,Moisture Stress Irrigation,,,Seedling,No Effect
+MYCOR,Mycorrhizae Treatment,,,Seedling,No Effect
+ORDER,Trees Ordered,Seedling Production,,Seedling,No Effect
+ORG,Organic Amendments,,,Seedling,No Effect
+OTHFDS,Other Federal Sowing,Seed Shipping,Ship to Client,Source,Remove
+OTHSRV,Other Special Services,Seedling Lift Request,,Seedling,No Effect
+OTHWD,Weed Control,,,Seedling,No Effect
+OVRHD,Other Special Services,Seed Processing,Other Special Services,Source,No Effect
+PACK,Grade and Pack,Seedling Pack Summary,,Seedling,No Effect
+PASTEU,Soil Pasteurization,,,Seedling,
+PESTSD,Pesticide Treatment of Seed,Seed Processing,Seed Treatment,Source,No Effect
+PICKUP,Pick Up,Seedling Shipping,Client Pick-up,Seedling,Remove
+PKMTL,Packing Material,Seedling Pack Summary,,Seedling,No Effect
+PLANE,Planing,,,Seedling,No Effect
+PLASTI,Plastic Seal Fumigation,,,Seedling,No Effect
+PLDCSR,Plants Declared Surplus,,,Seedling,No Effect
+PLDCXS,Plants Declared Excess,,,Seedling,No Effect
+PLNINV,Seedling Inventory,Seedling Inventory,,Seedling,No Effect
+PLNTFZ,Fertilizing,,,Seedling,No Effect
+PLNTIR,Irrigation of Plants,,,Seedling,No Effect
+PLNTPR,Plant Protection,,,Seedling,No Effect
+PLOW,Plowing,,,Seedling,No Effect
+PLSTOR,Storage of Processed Plants,Seedling Pack Summary,,Seedling,No Effect
+PNEUMA,Pneumatic Separator,Seed Processing,Seed Cleaning,Source,No Effect
+POSTPK,Post-Pack,Seedling Pack Summary,,Seedling,Add
+PRAGR,Pre-Agreement Lift,Seedling Lift Summary,,Seedling,Remove
+PRAGRN,Pre-Agreement New Lot,Seedling Production,,Seedling,No Effect
+PRECHL,Pre-Chill,Seedling Pack Summary,,Seedling,No Effect
+PROC,Stock Processing,Seedling Pack Summary,,Seedling,No Effect
+PRUNE,Pruning,,,Seedling,No Effect
+PSFERT,Fertilization (Pre-Sow),,,Seedling,No Effect
+PURCH,Purchase Source,Seed Receiving,Purchased Seed,Source,Add
+RECLN,Reclean Seed,Seed Processing,Reclean,Source,No Effect
+REDRY,Redry Seed,Seed Processing,Seed Drying,Source,No Effect
+REMDEB,Remove Debris,,,Seedling,No Effect
+REQ,Trees Requested,Seedling Lift Request,,Seedling,No Effect
+RETEST,Seed Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RETOWN,Seed Returned to Owner,Seed Shipping,Ship to Client,Source,Remove
+RIP,Ripping,,,Seedling,No Effect
+RMVCMB,Source Removal for Combination,Seed Lot Adjustments,Lot Adjustment,Source,Remove
+ROTERA,Roterra,,,Seedling,No Effect
+ROTOTL,Rototilling,,,Seedling,No Effect
+RTSCNT,Seed Count Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RTSGER,Germination Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RTSMST,Moisture Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RTSNXS,Noxious Weed Only Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RTSPUR,Purity Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RTSTZ,Tz Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RTXRAY,X-Ray Retest,Seed Shipping,Ship to Lab (ReTest),Source,Remove
+RVSINV,Intermediate revised Inventory,Seedling Inventory,,Seedling,No Effect
+SA3PTY,Third-Party Analysis,,,Seedling,No Effect
+SABLK,Bulk Density,,,Seedling,No Effect
+SAMST,Moisture Content,,,Seedling,No Effect
+SCALP,Seed Scalping,Seed Processing,Seed Cleaning,Source,No Effect
+SCRIFY,Scarify Seed,Seed Processing,Seed Treatment,Source,No Effect
+SDACPT,Seed Accepted by Bank,Seed Receiving,Transferred Seed,Source,Add
+SDADJ,Source Inventory Adjustment,,N/A,Source,No Effect
+SDCOAT,Seed Coating,Seed Processing,Seed Treatment,Source,No Effect
+SDDCSR,Seed Declared Surplus,Seed Status,Surplus,Source,No Effect
+SDDCXS,Seed Declared Excess,Seed Status,Surplus,Source,No Effect
+SDDEST,Source Destruction,Seed Shipping,Non-Viable (dispose),Source,Remove
+SDFURN,Seed Furnished from Bank,Seed Shipping,Transfer,Source,Remove
+SDINV,Source Inventory,Seed Lot Adjustments,Lot Adjustment,Source,Adjust (Add/Remove)
+SDPACK,Packaging Source,Seed Processing,Seed Cleaning,Source,No Effect
+SDPROC,Source Processing,Seed Processing,Seed Cleaning,Source,No Effect
+SDSOW,Seed Transactions for Sowing,,N/A,Source,No Effect
+SDTRAN,Source Transactions,,N/A,Source,No Effect
+SDTRMT,Seed Treatment,Seed Processing,Seed Treatment,Source,No Effect
+SDXTRC,Seed Extraction,Seed Processing,Seed Cleaning,Source,No Effect
+SEEDPR,Seed Protection,,,Seedling,
+SELINE,Air Column Separator,Seed Processing,Seed Cleaning,Source,No Effect
+SELL,Ship/Sell Seed for Sowing,Seed Shipping,Ship to Client,Source,Remove
+SFCDRY,Surface Dry Seed,Seed Processing,Seed Drying,Source,No Effect
+SHADE,Shade Screening,,,Seedling,No Effect
+SHIP,Shipping of Seedlings,Seedling Shipping,Ship to Client,Seedling,No Effect
+SHUNEX,Ship Unprocessed Source,Seed Processing,Non-viable (Destroy),Source,No Effect
+SIDEFZ,Side Dressed Fertilizer,,,Seedling,
+SIEVE,Sieves/screens,Seed Processing,Seed Cleaning,Source,No Effect
+SIZE,Seed Sizing,Seed Processing,Seed Cleaning,Source,No Effect
+SMP,Supplemental Pollination,Seed Processing,Other Special Services,Source,Remove
+SMTMBL,Small Lot Tumbler,Seed Processing,Seed Cleaning,Source,No Effect
+SOAKSD,Soak Seed,,,Seedling,No Effect
+SOILAN,Soil Analysis,,,Seedling,No Effect
+SOILFZ,Soil Incorporated Fertilizer,,,Seedling,No Effect
+SOILMO,Soil Modification,,,Seedling,No Effect
+SOW,Sow Seed,Seedling Production,,Seedling,No Effect
+SPCSRV,Special Services,Seedling Lift Request,,Seedling,No Effect
+SRFDS,Surplus Plants Field Destroy,Seedling Shipping,Non-viable (Destroy),Seedling,Remove
+SRPKDS,Surplus Packed Plants Destroy,Seedling Shipping,Non-viable (Destroy),Seedling,Remove
+SRPLSL,Surplus Plants Sold,Seedling Shipping,Surplus,Seedling,Remove
+SRSDCT,Surplus Seed Contributed,Seed Shipping,Donations,Source,Remove
+SRSDDS,Surplus Seed Destroyed,Seed Shipping,Non-Viable (dispose),Source,Remove
+SRSDSL,Surplus Seed Sold,Seed Shipping,Ship to Client,Source,Remove
+STONON,Return for Storage,Seed Receiving,Return for Storage,Source,Add
+STRAT,Stratification,Seed Processing,Seed Treatment,Source,No Effect
+TERACE,Terracing for Erosion Control,,,Seedling,No Effect
+TEST,Seed Test,Seed Processing,Test,Source,No Effect
+THAW,Thaw for Shipment,,,Seedling,No Effect
+THIN,Thinning,,,Seedling,No Effect
+TIDONA,Donate Seed -TreeImprov remove,Seed Shipping,Donations,Source,Remove
+TOP,Top Pruning,,,Seedling,No Effect
+TOPDRS,Top Dressing,,,Seedling,No Effect
+TRPSRT,Triple Sort,Seedling Pack Summary,,Seedling,No Effect
+TSTCNT,Seed Count Test,Seed Processing,Test,Source,No Effect
+TSTGER,Germination Test,Seed Processing,Test,Source,No Effect
+TSTMST,Moisture Test,Seed Processing,Test,Source,No Effect
+TSTNXS,Noxious Weed Only Test,Seed Processing,Test,Source,No Effect
+TSTPUR,Purity Test,Seed Processing,Test,Source,No Effect
+TSTTZ,Tz Test,Seed Processing,Test,Source,No Effect
+TXRAY,X-Ray Test,Seed Processing,Test,Source,No Effect
+UNACMB,Unprocessed Source Add/Combd,Seed Receiving,Raw,Source,No Effect
+UNCLSD,Receive Uncleaned Seed,Seed Receiving,Raw,Source,No Effect
+UNDCUT,Undercutter,,,Seedling,No Effect
+UNRCMB,Unprocessed Source Remov/Combd,Seed Processing,Non-viable (Destroy),Source,No Effect
+VROOT,Vertical Root Pruning,,,Seedling,No Effect
+WATER,Water-in Fumigation,,,Seedling,No Effect
+WATRTM,Water Treat Amendments,,,Seedling,No Effect
+WEED,Weeding,,,Seedling,No Effect
+WEIGH,Original Yield - weigh,,,,
+WNDBRK,Windbreak,,,Seedling,No Effect
+WRENCH,Wrencher,,,Seedling,No Effect
+WREUND,Wrench Undercut,,,Seedling,No Effect
+WRNCH,Wrenching,,,Seedling,No Effect
+XCRHLF,Contract Handlift - Xplant,Seedling Lift Summary,,Seedling,Remove
+XCRMLF,Contract Mechlift - Xplant,Seedling Lift Summary,,Seedling,Remove
+XFAHLF,Force Account Handlift -Xplant,Seedling Lift Summary,,Seedling,Remove
+XFAMLF,Force Account Mechlift -Xplant,Seedling Lift Summary,,Seedling,Remove
+XFRIN1,Seed Transferred In-1,Seed Receiving,Transfered Seed,Source,Add
+XFRIN2,Seed Transferred In-2,Seed Receiving,Transfered Seed,Source,Add
+XFROTH,Seed Transferred Out Other,Seed Shipping,Transfer,Source,Remove
+XFROUT,Seed Transferred Out,Seed Shipping,Transfer,Source,Remove
+XPLT,Transplanting,Seedling Production,,Seedling,No Effect
+XSPLSL,Excess Plants Sold,Seedling Shipping,Ship to Client,Seedling,Remove
+XSPLXN,Excess Plants Exchanged,Seedling Shipping,Transfer,Seedling,Remove
+XSSDSL,Excess Seed Sold,Seed Shipping,Ship to Client,Source,Remove
+XSSDXN,Excess Seed Exchanged,Seed Shipping,Ship to Client,Source,Remove
+XSSDXN,Excess Seed Exchanged,Seed Receiving,Transfered Seed,Source,Add
+XSSRPL,Excess/Surplus,Seed Status,Surplus,Source,No Effect
+XSSRSD,Excess/Surplus Seed,Seed Status,Surplus,Source,No Effect

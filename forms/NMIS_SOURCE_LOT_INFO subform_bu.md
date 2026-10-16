@@ -1,0 +1,48 @@
+# Form: NMIS_SOURCE_LOT_INFO subform_bu
+
+**Caption:** NMIS_SOURCE_LOT_INFO subform  
+**Record source:**
+
+```sql
+SELECT [NMIS_SOURCE_LOTS].[CN], [NMIS_SOURCE_LOTS].[NOTE], [NMIS_SOURCE_LOTS].[SOURCE_CODE], [NMIS_SOURCE_LOTS].[GEOGRAPHIC_LOCATION], [NMIS_SOURCE_LOTS].[CERT_CODE], [NMIS_SOURCE_LOTS].[PROAG_ELEVATION], [NMIS_SOURCE_LOTS].[DATE_COLLECTED], [NMIS_SOURCE_LOTS].[COLLECT_METHOD], [NMIS_SOURCE_LOTS].[ORIGIN_ELEVATION], [NMIS_SOURCE_LOTS].[BREEDING_ZONE], [NMIS_SOURCE_LOTS].[HUC], [NMIS_SOURCE_LOTS].[GENETIC_BASE], [NMIS_SOURCE_LOTS].[HABITAT], [NMIS_SOURCE_LOTS].[SEED_ZONE], [NMIS_SOURCE_LOTS].[STORED_FOR_ASSOCIATE], [NMIS_SOURCE_LOTS].[STORED_AT_ASSOCIATE], [NMIS_SOURCE_LOTS].[COLLECTED_BY_ASSOCIATE], [NMIS_SOURCE_LOTS].[CATEGORY_CODE], [NMIS_SOURCE_LOTS].[PLNTMSTR_SYMBOL], [NMIS_SOURCE_LOTS].[ID], [NMIS_SOURCE_LOTS].[ID2], [NMIS_SOURCE_LOTS].[PRODUCT_CN], [NMIS_SOURCE_LOTS].[INSERTED_BY], [NMIS_SOURCE_LOTS].[INSERTED_DATE], [NMIS_SOURCE_LOTS].[INSERTED_INSTANCE], [NMIS_SOURCE_LOTS].[MODIFIED_BY], [NMIS_SOURCE_LOTS].[MODIFIED_DATE], [NMIS_SOURCE_LOTS].[MODIFIED_INSTANCE], [NMIS_SOURCE_LOTS].[TRANSFERRED_BY], [NMIS_SOURCE_LOTS].[TRANSFERRED_DATE], [NMIS_SOURCE_LOTS].[TRANSFERRED_INSTANCE] FROM NMIS_SOURCE_LOTS;
+```
+
+**Backend tables referenced:** `NMIS_CATEGORIES`, `NMIS_PRODUCTS`, `NMIS_SOURCE_LOTS`, `NMIS_SPECIES`  
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TextBox | STORED_FOR_ASSOCIATE | Stored For: | STORED_FOR_ASSOCIATE |  |  | 1.12, 0.29, 0.78, 0.20 |
+| TextBox | STORED_AT_ASSOCIATE | Stored  At: | STORED_AT_ASSOCIATE |  |  | 1.12, 0.53, 0.79, 0.20 |
+| TextBox | DATE_COLLECTED | Date Collected: | DATE_COLLECTED |  |  | 1.12, 0.76, 0.75, 0.20 |
+| TextBox | BREEDING_ZONE | Breeding Zone: | BREEDING_ZONE |  |  | 4.11, 0.53, 0.68, 0.20 |
+| TextBox | SEED_ZONE | Seed Zone: | SEED_ZONE |  |  | 4.11, 0.76, 0.64, 0.20 |
+| TextBox | COLLECT_METHOD | Collect Method: | COLLECT_METHOD |  |  | 8.39, 0.53, 0.75, 0.20 |
+| TextBox | ORIGIN_ELEVATION | Elevation: | ORIGIN_ELEVATION |  |  | 4.11, 0.99, 0.75, 0.20 |
+| TextBox | PROAG_ELEVATION | Proag Elevation: | PROAG_ELEVATION |  |  | 6.17, 0.76, 0.75, 0.20 |
+| TextBox | HUC | HUC: | HUC |  |  | 6.17, 0.99, 0.64, 0.20 |
+| TextBox | CERT_CODE | Cert Code: | CERT_CODE |  |  | 6.17, 0.53, 0.75, 0.20 |
+| TextBox | HABITAT | Habitat: | HABITAT |  |  | 8.39, 0.28, 0.64, 0.20 |
+| TextBox | GENETIC_BASE | Genetic Base: | GENETIC_BASE |  |  | 6.17, 0.29, 0.64, 0.20 |
+| TextBox | GEOGRAPHIC_LOCATION | Geographic Location: | GEOGRAPHIC_LOCATION |  |  | 6.17, 1.23, 3.25, 0.20 |
+| TextBox | COLLECTED_BY_ASSOCIATE | Collected By: | COLLECTED_BY_ASSOCIATE |  |  | 8.39, 0.76, 0.75, 0.20 |
+| TextBox | ID2 | 'Old' ID: | ID2 |  |  | 8.39, 0.99, 1.22, 0.20 |
+| TextBox | NOTE | Note | NOTE |  |  | 0.53, 1.47, 9.07, 0.21 |
+| TextBox | INSERTED_BY | Inserted By: | INSERTED_BY |  |  | 1.62, 3.48, 1.05, 0.20 |
+| TextBox | INSERTED_DATE | Inserted Date: | =[NMIS_SOURCE_LOTS_Select subform].Form!INSERTED_DATE |  |  | 1.62, 3.72, 1.06, 0.20 |
+| TextBox | INSERTED_INSTANCE | Inserted  Instance: | INSERTED_INSTANCE |  |  | 1.62, 3.96, 1.07, 0.20 |
+| TextBox | MODIFIED_BY | Modified By: | MODIFIED_BY |  |  | 4.49, 3.48, 1.07, 0.20 |
+| TextBox | MODIFIED_DATE | Modified Date: | MODIFIED_DATE |  |  | 4.49, 3.72, 1.07, 0.20 |
+| TextBox | MODIFIED_INSTANCE | Modified Instance: | MODIFIED_INSTANCE |  |  | 4.49, 3.96, 1.07, 0.20 |
+| TextBox | TRANSFERRED_BY | Transferred By: | TRANSFERRED_BY |  |  | 7.65, 3.48, 1.07, 0.20 |
+| TextBox | TRANSFERRED_DATE | Transferred Date: | TRANSFERRED_DATE |  |  | 7.65, 3.72, 1.07, 0.20 |
+| Rectangle | Box149 |  |  |  |  | 0.00, 2.98, 9.04, 1.25 |
+| TextBox | TRANSFERRED_INSTANCE | Transferred Instance: | TRANSFERRED_INSTANCE |  |  | 7.65, 3.96, 1.07, 0.20 |
+| Label | Label151 | Inserted Modified Transferred (IMT) |  |  |  | 0.07, 3.08, 2.34, 0.20 |
+| ComboBox | CATEGORY_CODE | Category: | CATEGORY_CODE | SELECT [NMIS_CATEGORIES].[CATEGORY_CODE], [NMIS_CATEGORIES].[CATEGORY_DESC] FROM NMIS_CATEGORIES;  |  | 1.12, 0.99, 2.12, 0.20 |
+| TextBox | ID |  | ID |  |  | 0.04, 0.03, 1.79, 0.22 |
+| TextBox | Source_Code |  | SOURCE_CODE |  |  | 2.23, 0.03, 4.15, 0.22 |
+| TextBox | PLNTMSTR_SYMBOL | Species Code: | PLNTMSTR_SYMBOL |  |  | 4.11, 0.29, 0.75, 0.20 |
+| ComboBox | Text62 |  | PLNTMSTR_SYMBOL | SELECT [NMIS_SPECIES].[PLNTMSTR_SYMBOL], [NMIS_SPECIES].[VERNACULAR] FROM NMIS_SPECIES;  |  | 6.48, 0.03, 3.12, 0.22 |
+| ComboBox | PRODUCT_CN | Product: | PRODUCT_CN | SELECT [NMIS_PRODUCTS].[CN], [NMIS_PRODUCTS].[PRODUCT_DESC] FROM NMIS_PRODUCTS;  |  | 1.12, 1.23, 2.12, 0.20 |

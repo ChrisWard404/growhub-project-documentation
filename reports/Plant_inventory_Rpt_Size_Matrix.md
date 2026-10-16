@@ -1,0 +1,74 @@
+# Report: Plant_inventory_Rpt_Size_Matrix
+
+**Backend tables referenced:** `NMIS_PRODUCT_INVENTORIES`, `NMIS_PRODUCT_INVENTORY_SAMPLES`, `NMIS_PRODUCT_INVENTORY_SIZES`  
+**Subforms/subreports:** `Report.Plant_Inventory_Inv_Dist_Client_Associate Subreport`, `Report.Plant_inventory_Size_Matrix_Count subreport`, `Report.Plant_inventory_Size_Matrix_PCT subreport`, `Report.NMIS_PRODUCT_INVENTORY_matrix_Location_Subreport`  
+**Opened from (VBA):** `Form_**********dbdNMIS_PRODUCT_INVENTORIES`, `Form_NMIS_PRODUCT_INVENTORIES`  
+
+## Section: ReportHeader
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| Label | Label32 | Nursery Management Information System |  |  |  | 2.59, 0.16, 2.81, 0.19 |
+| TextBox | Text91 |  | =Forms!Switchboard![NMIS_ACCESS_SET_USER_NURSERY subform].Form!User_Nursery |  |  | 2.38, 0.35, 3.24, 0.20 |
+| Label | Label31 | USDA Forest Service |  |  |  | 2.38, 0.00, 3.24, 0.16 |
+| Label | Label24 | Inventory Size Distribution |  |  |  | 2.92, 0.56, 2.16, 0.23 |
+| TextBox | ID | Lot ID: | ID |  |  | 0.71, 0.84, 2.58, 0.35 |
+| Subform | Plant_Inventory_Worksheet_Client_Associate Subreport |  | Report.Plant_Inventory_Inv_Dist_Client_Associate Subreport (master: CN → child: AGREEMENT_LOT_CN) |  |  | 5.62, 0.80, 2.29, 0.78 |
+| TextBox | ID_SOURCE2 | Source Lot: | ID_SOURCE2 |  |  | 1.00, 1.60, 4.72, 0.23 |
+| TextBox | What_It_Is_Longest |  | What_It_Is_Longest |  |  | 0.08, 1.83, 7.83, 0.23 |
+| TextBox | TOTAL_REQUEST |  | TOTAL_REQUEST |  |  | 1.22, 1.39, 0.78, 0.22 |
+| Label | Label45 | Total Request: |  |  |  | 0.08, 1.38, 1.10, 0.23 |
+
+## Section: PageHeaderSection
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| Line | Line20 |  |  |  |  | 0.00, 0.00, 7.96, 0.00 |
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| Subform | Plant_inventory_Size_Matrix_Count subreport |  | Report.Plant_inventory_Size_Matrix_Count subreport |  |  | 0.00, 0.07, 6.12, 3.51 |
+| Subform | Plant_inventory_Size_Matrix_PCT subreport |  | Report.Plant_inventory_Size_Matrix_PCT subreport |  |  | 0.00, 3.67, 6.12, 3.79 |
+| Label | Label21 | Gross Inv (M): |  |  |  | 6.16, 4.43, 1.11, 0.23 |
+| Label | Label22 | Net Inv (M): |  |  |  | 6.43, 5.77, 0.95, 0.23 |
+| Label | Label23 | Samples: |  |  |  | 6.57, 3.62, 0.70, 0.23 |
+| Label | Label25 | Total Count: |  |  |  | 6.30, 3.90, 0.97, 0.23 |
+| Label | Label26 | Total Sized: |  |  |  | 6.36, 4.18, 0.91, 0.23 |
+| Label | Label27 | Percent at Spec: |  |  |  | 6.18, 5.24, 1.20, 0.23 |
+| Label | Label28 | Ship Factor (%): |  |  |  | 6.11, 5.52, 1.26, 0.23 |
+| TextBox | Text29 |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORIES subform1].Form!SAMPLES+NZ(Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORIES subform1].Form!ADDITIONAL_SAMPLES,0) |  |  | 7.30, 3.62, 0.44, 0.23 |
+| TextBox | Text31 |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORY_SAMPLES subform1].Form!Sum_of_Sample_Count |  |  | 7.30, 3.90, 0.44, 0.23 |
+| TextBox | Text32 |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORY_SIZES subform].Form!TOTAL_SIZED |  |  | 7.30, 4.18, 0.44, 0.23 |
+| TextBox | Text33 |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORIES subform1].Form!TARGET_FACTOR |  |  | 7.41, 5.24, 0.54, 0.23 |
+| TextBox | Text35 |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORIES subform1].Form!Shipping_Factor |  |  | 7.41, 5.52, 0.54, 0.23 |
+| TextBox | Gross |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORIES subform1].Form!GROSS_INV |  |  | 7.30, 4.43, 0.55, 0.23 |
+| TextBox | net |  | =Forms!NMIS_PRODUCT_INVENTORIES![NMIS_PRODUCT_INVENTORIES subform1].Form!NET_INV |  |  | 7.41, 5.77, 0.54, 0.23 |
+| TextBox | SIZE_SPEC_STRING |  | NMIS_PRODUCT_INVENTORY_SIZE_SPEC_STRING.SIZE_SPEC_STRING |  |  | 6.25, 4.96, 1.60, 0.26 |
+| Rectangle | Box40 |  |  |  |  | 6.12, 3.29, 1.83, 4.36 |
+| Label | Label41 | Summary |  |  |  | 6.11, 3.31, 1.71, 0.29 |
+| Label | Label46 | Alt Net Inv (M): |  |  |  | 6.18, 7.12, 1.20, 0.23 |
+| Label | Label47 | Percent at Spec: |  |  |  | 6.18, 6.61, 1.20, 0.23 |
+| Label | Label48 | Ship Factor (%): |  |  |  | 6.11, 6.88, 1.26, 0.23 |
+| TextBox | Text49 |  | =[Forms]![NMIS_PRODUCT_INVENTORIES]![NMIS_PRODUCT_INVENTORIES subform1].[Form]![TARGET_FACTOR_ALT] |  |  | 7.41, 6.61, 0.54, 0.23 |
+| TextBox | Text50 |  | =[Forms]![NMIS_PRODUCT_INVENTORIES]![NMIS_PRODUCT_INVENTORIES subform1].[Form]![Shipping_Factor_ALT] |  |  | 7.41, 6.88, 0.54, 0.23 |
+| TextBox | Text51 |  | =[Forms]![NMIS_PRODUCT_INVENTORIES]![NMIS_PRODUCT_INVENTORIES subform1].[Form]![NET_INV_ALT] |  |  | 7.41, 7.12, 0.54, 0.23 |
+| TextBox | AltSpecString |  | SIZE_SPEC_STRING_ALT |  |  | 6.25, 6.33, 1.60, 0.26 |
+| TextBox | Standard |  | Standard |  |  | 6.25, 4.70, 1.61, 0.26 |
+| Label | Label54 | Alternate Specs |  |  |  | 6.24, 6.04, 1.61, 0.29 |
+| Line | Line55 |  |  |  |  | 6.12, 4.70, 1.83, 0.00 |
+| Line | Line56 |  |  |  |  | 6.12, 6.04, 1.83, 0.00 |
+| Label | Label19 | Inventory Date |  |  |  | 6.35, 0.06, 1.18, 0.23 |
+| TextBox | ACTIVITY_DATE |  | ACTIVITY_DATE |  |  | 6.55, 0.31, 0.78, 0.25 |
+| TextBox | Req |  | TOTAL_REQUEST |  |  | 6.60, 0.91, 0.78, 0.22 |
+| Label | Label62 | Total Request |  |  |  | 6.44, 0.66, 1.04, 0.23 |
+| Subform | *******dbd map |  | Report.NMIS_PRODUCT_INVENTORY_matrix_Location_Subreport (master: CN → child: AGREEMENT_LOT_CN) |  |  | 6.21, 1.17, 1.70, 2.00 |
+
+## Section: PageFooterSection
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TextBox | Text3 |  | =Now() |  |  | 0.00, 0.14, 3.50, 0.19 |
+| Line | Line6 |  |  |  |  | 0.00, 0.01, 7.96, 0.00 |
+| TextBox | Text15 |  | ID |  |  | 5.21, 0.05, 2.58, 0.35 |

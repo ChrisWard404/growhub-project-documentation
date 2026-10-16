@@ -1,0 +1,562 @@
+<title>Seed and Space Discrepancies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column; each case is a ruled section with a legacy | GrowHub formula pair and a worked-example table. */
+:root {
+  --bg: #f6f7f6;
+  --surface: #ffffff;
+  --ink: #1d2523;
+  --muted: #5b6763;
+  --rule: #d8dedb;
+  --accent: #2f5d50;
+  --accent-soft: #e3ece8;
+  --legacy: #6b4f2a;
+  --legacy-soft: #f3ece1;
+  --gh: #24507a;
+  --gh-soft: #e4ecf4;
+  --high: #a3322a;
+  --high-soft: #f7e3e1;
+  --med: #8a5a00;
+  --med-soft: #f8edd6;
+  --low: #4c5b57;
+  --low-soft: #e8ecea;
+  --code-bg: #eef1ef;
+  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131816; --surface: #1a201e; --ink: #e3e8e6; --muted: #9aa7a2; --rule: #2e3734;
+    --accent: #8cc2b0; --accent-soft: #20302b;
+    --legacy: #d9b98a; --legacy-soft: #2c261d; --gh: #9cc2ea; --gh-soft: #1c2733;
+    --high: #f0998f; --high-soft: #3a2220; --med: #e8c070; --med-soft: #352b17; --low: #b3c0bb; --low-soft: #242b29;
+    --code-bg: #202725; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131816; --surface: #1a201e; --ink: #e3e8e6; --muted: #9aa7a2; --rule: #2e3734;
+  --accent: #8cc2b0; --accent-soft: #20302b;
+  --legacy: #d9b98a; --legacy-soft: #2c261d; --gh: #9cc2ea; --gh-soft: #1c2733;
+  --high: #f0998f; --high-soft: #3a2220; --med: #e8c070; --med-soft: #352b17; --low: #b3c0bb; --low-soft: #242b29;
+  --code-bg: #202725; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+.page { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 80px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.55rem; padding-top: 8px; }
+h3 { font-size: 1.25rem; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--accent); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+.eyebrow { font-size: 0.75rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+header.top { display: grid; gap: 14px; }
+.lede { font-size: 1.08rem; color: var(--ink); }
+.meta { color: var(--muted); font-size: 0.9rem; }
+.stack { display: grid; gap: 14px; }
+.callout { background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--high); padding: 16px 18px; border-radius: 4px; display: grid; gap: 8px; }
+.callout.info { border-left-color: var(--accent); }
+.chip { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.chip.high { color: var(--high); background: var(--high-soft); }
+.chip.med { color: var(--med); background: var(--med-soft); }
+.chip.low { color: var(--low); background: var(--low-soft); }
+.chip.scope { color: var(--accent); background: var(--accent-soft); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td.legacy { color: var(--legacy); }
+td.gh { color: var(--gh); }
+.index td:first-child { white-space: nowrap; font-family: var(--font-mono); font-size: 0.82rem; }
+.index a { text-decoration: none; }
+.index a:hover { text-decoration: underline; }
+section.group { display: grid; gap: 28px; }
+section.group > .group-head { display: grid; gap: 6px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+article.case { display: grid; gap: 14px; padding-top: 6px; }
+article.case + article.case { border-top: 1px solid var(--rule); padding-top: 28px; }
+.case-head { display: grid; gap: 8px; }
+.case-id { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.side { min-width: 0; border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; }
+.side.legacy { background: var(--legacy-soft); }
+.side.gh { background: var(--gh-soft); }
+.side .label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.side.legacy .label { color: var(--legacy); }
+.side.gh .label { color: var(--gh); }
+.side p { font-size: 0.93rem; }
+.formula { font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; }
+.src { font-size: 0.82rem; color: var(--muted); }
+.ask { font-size: 0.95rem; border-left: 3px solid var(--accent); padding-left: 12px; }
+.ask strong { color: var(--accent); }
+.inputs { font-size: 0.85rem; color: var(--muted); }
+ul { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; max-width: 70ch; }
+@media (max-width: 640px) {
+  .pair { grid-template-columns: 1fr; }
+  h1 { font-size: 1.75rem; }
+}
+</style>
+
+<div class="page">
+
+<header class="top">
+  <div class="eyebrow">NMIS Access → GrowHub · Seedling planning</div>
+  <h1>Seed and space calculation discrepancies</h1>
+  <p class="lede">This page compares how NMIS Access and GrowHub calculate seed required, containers or bed feet, seedlings that will grow, and seeds per cell. It covers container and bareroot lots. Each case below gives the formula on each side, a worked example, what the difference does to the output, and a question for the SME.</p>
+  <p class="meta">Legacy sources: the saved queries and the <code>NMIS_AGREEMENT_LOTS</code> form VBA in <code>nmis_Demo.mdb</code>. GrowHub source: <code>order-planning.component.ts</code> and <code>orders-main.component.ts</code> in Nursery-GrowHub-Frontend, as of 16 Oct 2026.</p>
+</header>
+
+<div class="callout info">
+  <strong>How to read the worked examples</strong>
+  <p>The examples use two illustrative lots, one container and one bareroot, with realistic inputs. They are not real lots. The lot export we have from the Oracle era is column-shifted (see M1), so its factors can't be trusted for a lot-by-lot replay yet. Every number was calculated with the exact legacy and GrowHub formulas, including their rounding.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Input</th><th>Container lot</th><th>Bareroot lot</th></tr></thead>
+      <tbody>
+        <tr><td>Seedlings requested</td><td>50,000 (TOTAL_REQUEST 50)</td><td>100,000 (TOTAL_REQUEST 100)</td></tr>
+        <tr><td>Seeds/lb · germ · purity</td><td>40,000 · 85% · 98%</td><td>120,000 · 88% · 97%</td></tr>
+        <tr><td>Pure live seed per lb</td><td>33,320</td><td>102,432</td></tr>
+        <tr><td>Harvest factors 1–4 · harvest ASF</td><td>80 · 90 · 100 · 95 · 100</td><td>60 · blank · 70 · 105 · 100</td></tr>
+        <tr><td>Thinning probability</td><td>85%</td><td>90%</td></tr>
+        <tr><td>Target density · cells per container</td><td>1 per cell · 98 cells</td><td>25 per sq ft · 4 sq ft per bed foot</td></tr>
+        <tr><td>Container factors 1–3 · container ASF</td><td>110 · 100 · 100 · 100</td><td>100 · 100 · 100 · 100</td></tr>
+        <tr><td>GrowHub cells filled · survival</td><td>110% · 100%</td><td>100% · 100%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<section class="stack" aria-labelledby="summary-h">
+  <h2 id="summary-h">All cases</h2>
+  <p>The SME reported container lots first. The cases most likely to explain that are C1 and C2, followed by S1, S2 and M1, which affect every stock type.</p>
+  <div class="table-wrap">
+    <table class="index">
+      <thead><tr><th>Case</th><th>What differs</th><th>Stock</th><th>Severity</th></tr></thead>
+      <tbody>
+        <tr><td><a href="#C1">C1</a></td><td>Legacy caps "will grow" at containers × cells. GrowHub has no cap.</td><td>Container</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#C2">C2</a></td><td>Container count: three legacy formulas, none in a query. GrowHub uses a fourth.</td><td>Container</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#B1">B1</a></td><td>"Will grow" for bareroot: the query applies thinning, the form and GrowHub don't.</td><td>Bareroot</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#B2">B2</a></td><td>Bareroot bed feet: legacy starts from seed sown, GrowHub from seedlings requested.</td><td>Bareroot</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#S1">S1</a></td><td>Three different "seed required" figures, depending on thinning.</td><td>Both</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#S2">S2</a></td><td>GrowHub has no harvest factor 4 and no harvest ASF.</td><td>Both</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#S3">S3</a></td><td>GrowHub can't divide by a factor (the legacy "/" operator).</td><td>Both</td><td><span class="chip high">High</span></td></tr>
+        <tr><td><a href="#S4">S4</a></td><td>Legacy plans seed without thinning, then reports "will grow" with thinning.</td><td>Container</td><td><span class="chip med">Medium</span></td></tr>
+        <tr><td><a href="#S5">S5</a></td><td>Which lots count as bareroot differs between the form, the queries and GrowHub.</td><td>Both</td><td><span class="chip med">Medium</span></td></tr>
+        <tr><td><a href="#S6">S6</a></td><td>GrowHub treats a 0% germ or purity two different ways.</td><td>Both</td><td><span class="chip med">Medium</span></td></tr>
+        <tr><td><a href="#S7">S7</a></td><td>Rounding: harvest factors, seeds per cell, the container count.</td><td>Both</td><td><span class="chip low">Low</span></td></tr>
+        <tr><td><a href="#S8">S8</a></td><td>Legacy splits containers across agreements. No GrowHub counterpart found.</td><td>Both</td><td><span class="chip low">Low</span></td></tr>
+        <tr><td><a href="#M1">M1</a></td><td>Migrated lots get wrong or missing factors, thinning and container inputs.</td><td>Both</td><td><span class="chip high">High</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================ CONTAINER ============================ -->
+<section class="group" aria-labelledby="g-ctr">
+  <div class="group-head">
+    <div class="eyebrow">Group 1</div>
+    <h2 id="g-ctr">Container lots</h2>
+  </div>
+
+  <article class="case" id="C1">
+    <div class="case-head">
+      <div class="case-id">C1</div>
+      <h3>"Will grow" is capped at containers × cells in legacy, not in GrowHub</h3>
+      <div class="chips"><span class="chip scope">Container</span><span class="chip high">High</span></div>
+    </div>
+    <p>In legacy, a container lot can never "grow" more seedlings than it has cells. The <code>Actual_Sow_Calculated</code> query takes the smaller of the seed-based yield and containers × cells per container. That query feeds the sow order, the request summary and about 30 inventory and charge reports. GrowHub's seedling yield uses only the seed, so when a planner reduces the container count, GrowHub's yield and shortage don't change.</p>
+    <div class="pair">
+      <div class="side legacy">
+        <span class="label">Legacy · Actual_Sow_Calculated query</span>
+        <pre class="formula">yield = SOURCE_REQUIRED × seeds/lb × germ × purity
+        × HF1..HF4 (each rounded to 2 dp)
+        × harvest ASF × thinning ÷ 1000
+cap   = EST_CONTAINERS_REQUIRED × CELLS_PER_CONTAINER ÷ 1000
+will grow = min(yield, cap)        (container stock only)</pre>
+      </div>
+      <div class="side gh">
+        <span class="label">GrowHub · calculateSeedlingYield</span>
+        <pre class="formula">yield = round(seed × round3(factor1 × factor2 × factor3
+        × germ × purity × thinning
+        × past performance × seeds/lb))
+No containers term.</pre>
+      </div>
+    </div>
+    <p class="inputs">Container example lot. Both sides use the same seed (2.194 lb). Only the container count changes.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Containers</th><th class="num">Cap (cells)</th><th class="num">Legacy will grow</th><th class="num">Legacy shortage</th><th class="num">GrowHub yield</th><th class="num">GrowHub shortage</th></tr></thead>
+        <tbody>
+          <tr><td>821 (as calculated)</td><td class="num">80,458</td><td class="num legacy">42,503</td><td class="num legacy">7,497</td><td class="num gh">44,740</td><td class="num gh">5,260</td></tr>
+          <tr><td>400 (planner reduced)</td><td class="num">39,200</td><td class="num legacy">39,200</td><td class="num legacy">10,800</td><td class="num gh">44,740</td><td class="num gh">5,260</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Effect:</strong> whenever the container count is below what the seed would fill, GrowHub reports more seedlings and a smaller shortage than the legacy reports. On the first row the two sides also differ by 2,237 seedlings, because GrowHub has no harvest factor 4 (S2).</p>
+    <p class="src">Legacy: saved queries <code>Actual_Sow_Calculated Query</code> and <code>Actual_Sow_Calculated_with_unit_multiplier Query</code> (MAX_TOTAL column). GrowHub: <code>order-planning.component.ts:1073</code> (calculateSeedlingYield), <code>:1134</code> (calculateShortage).</p>
+    <p class="ask"><strong>For the SME:</strong> should GrowHub's yield be capped at containers × cells per container, as the legacy reports are?</p>
+  </article>
+
+  <article class="case" id="C2">
+    <div class="case-head">
+      <div class="case-id">C2</div>
+      <h3>Container count: no query calculates it, legacy has three formulas, and GrowHub has a fourth</h3>
+      <div class="chips"><span class="chip scope">Container</span><span class="chip high">High</span></div>
+    </div>
+    <p>No saved query calculates <code>EST_CONTAINERS_REQUIRED</code>. Every report reads the value the planning form stored, and the form calculates it three different ways depending on which field the user edited last. So a legacy container count can't be traced to one formula. GrowHub uses its own formula. It replaces legacy container factors 1–3 and container ASF with "cells filled" ÷ "survival", it has no harvest factor 4 or harvest ASF (S2), and it rounds the factor product to 3 decimals before using it.</p>
+    <div class="pair">
+      <div class="side legacy">
+        <span class="label">Legacy · form VBA (three paths)</span>
+        <pre class="formula">gross = round3(TOTAL_REQUEST ÷ (HF1..HF4 × harvest ASF))
+
+A  Calculate button:
+   gross×1000 ÷ (density × cells) × CF1×CF2×CF3 + 0.35
+B  leaving Container ASF or CF1–3:
+   gross×1000 × CF1×CF2×CF3 ÷ (density × cells) × container ASF
+C  leaving Desired Density:
+   gross×1000 ÷ (density × cells) × container ASF + 0.35</pre>
+      </div>
+      <div class="side gh">
+        <span class="label">GrowHub · calculateCTREstimatedSpace</span>
+        <pre class="formula">a = round3(factor1 × factor2 × factor3 × past performance)
+containers = round( (seedlings ÷ a) × cells filled
+             ÷ (density × cells per container × survival) + 0.35 )
+
+cells filled defaults to the grow cycle's containerFactor,
+otherwise 100. Survival defaults to 100.</pre>
+      </div>
+    </div>
+    <p class="inputs">Container example lot (CF1 = 110 on the legacy side, cells filled = 110% on the GrowHub side).</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Formula</th><th class="num">Containers</th><th>Why it differs</th></tr></thead>
+        <tbody>
+          <tr><td class="legacy">Legacy A · Calculate</td><td class="num legacy">820.85</td><td>Container factor applied, container ASF ignored, +0.35, not rounded</td></tr>
+          <tr><td class="legacy">Legacy B · after editing a container factor or ASF</td><td class="num legacy">820.50</td><td>No +0.35</td></tr>
+          <tr><td class="legacy">Legacy C · after editing density</td><td class="num legacy">746.26</td><td>Container factor dropped (−9%)</td></tr>
+          <tr><td class="gh">GrowHub</td><td class="num gh">780</td><td>No harvest factor 4 (95%), so 5% fewer containers than A</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Effect:</strong> for one set of inputs, the legacy count can be about 746 or 821 depending on editing history, and GrowHub gives 780. When a lot overrides its container factors (as many legacy lots do), GrowHub uses the grow cycle's single default instead, unless the planner types the override into "cells filled".</p>
+    <p class="src">Legacy: <code>vba/Form_NMIS_AGREEMENT_LOTS.bas:97</code> (A), <code>:132</code> (B), <code>:305</code> (C), and the form controls <code>Calculated_Gross</code> and <code>CF1A–CF3A</code>. GrowHub: <code>order-planning.component.ts:1229</code>, defaults in <code>orders-main.component.ts:124–126</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> which legacy path is the intended one: A, B or C? Should GrowHub's "cells filled" be treated as the product of container factors 1–3 × container ASF? If so, should it hold the lot's own overrides?</p>
+  </article>
+</section>
+
+<!-- ============================ BAREROOT ============================ -->
+<section class="group" aria-labelledby="g-br">
+  <div class="group-head">
+    <div class="eyebrow">Group 2</div>
+    <h2 id="g-br">Bareroot lots</h2>
+  </div>
+
+  <article class="case" id="B1">
+    <div class="case-head">
+      <div class="case-id">B1</div>
+      <h3>Bareroot "will grow": the reports apply thinning, but the form and GrowHub don't</h3>
+      <div class="chips"><span class="chip scope">Bareroot</span><span class="chip high">High</span></div>
+    </div>
+    <p>Legacy gives two different "will grow" figures for bareroot. The planning form's <code>Source_Will_Grow</code> leaves thinning out for seedbed (SB) stock. The <code>Actual_Sow_Calculated</code> query that the reports use applies thinning to every stock type. GrowHub follows the form. So GrowHub matches the planning screen the SME remembers but not the sow-order or request-summary reports.</p>
+    <div class="pair">
+      <div class="side legacy">
+        <span class="label">Legacy</span>
+        <pre class="formula">Form (SB):  seed × PLS × HF1..HF4 × harvest ASF ÷ 1000
+Query:      seed × PLS × HF1..HF4 (2 dp) × harvest ASF
+            × thinning ÷ 1000</pre>
+      </div>
+      <div class="side gh">
+        <span class="label">GrowHub · calculateSeedlingYield (bareroot branch)</span>
+        <pre class="formula">round(seed × round3(factor1 × factor2 × factor3
+      × germ × purity × past performance × seeds/lb))
+No thinning, no HF4, no harvest ASF.</pre>
+      </div>
+    </div>
+    <p class="inputs">Bareroot example lot, all on the same seed (2.214 lb).</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Source</th><th class="num">Will grow</th><th class="num">Shortage vs 100,000</th></tr></thead>
+        <tbody>
+          <tr><td class="legacy">Legacy form (Source_Will_Grow)</td><td class="num legacy">100,012</td><td class="num legacy">0</td></tr>
+          <tr><td class="legacy">Legacy reports (Actual_Sow_Calculated)</td><td class="num legacy">90,011</td><td class="num legacy">9,989</td></tr>
+          <tr><td class="gh">GrowHub</td><td class="num gh">95,249</td><td class="num gh">4,751</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Effect:</strong> the same lot produces three answers. GrowHub falls between the two legacy figures because it leaves out thinning (like the form) and harvest factor 4 = 105% (S2).</p>
+    <p class="src">Legacy: form control <code>Source_Will_Grow</code>, saved query <code>Actual_Sow_Calculated Query</code>. GrowHub: <code>order-planning.component.ts:1073</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> for bareroot, which figure is right: with thinning (the reports) or without (the planning form)?</p>
+  </article>
+
+  <article class="case" id="B2">
+    <div class="case-head">
+      <div class="case-id">B2</div>
+      <h3>Bareroot bed feet: legacy starts from the seed being sown, GrowHub from the seedlings requested</h3>
+      <div class="chips"><span class="chip scope">Bareroot</span><span class="chip high">High</span></div>
+    </div>
+    <p>For seedbed stock, legacy calculates bed feet from the seed actually being sown (seed required × pure live seed). It recalculates whenever seed required changes, for example when seed is capped at the lot balance. GrowHub starts from seedlings requested, so bed feet don't move when the planner adjusts seed. GrowHub's function also computes germ × purity × seeds/lb and then never uses it. Its comment describes the legacy seed-based formula, but the code doesn't implement it.</p>
+    <div class="pair">
+      <div class="side legacy">
+        <span class="label">Legacy · form VBA, SB branch</span>
+        <pre class="formula">bed feet = SOURCE_REQUIRED × PLS × CF1×CF2×CF3
+           ÷ (density × cells per container) × container ASF</pre>
+      </div>
+      <div class="side gh">
+        <span class="label">GrowHub · calculateEstimatedSpace</span>
+        <pre class="formula">bed feet = round( (seedlings ÷ (factor1×factor2×factor3
+           × past performance)) × bareroot space
+           ÷ (density × cells per container × survival) )
+
+// comment in code:
+// (Seed Quantity × Germination × Purity × Seeds Per Pound)
+//   × Bareroot Space ÷ (Desired Density × Cells Per Container)
+//   × Bareroot Survival</pre>
+      </div>
+    </div>
+    <p class="inputs">Bareroot example lot.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th class="num">Legacy bed feet</th><th class="num">GrowHub bed feet</th></tr></thead>
+        <tbody>
+          <tr><td>Seed as calculated (2.214 lb)</td><td class="num legacy">2,268</td><td class="num gh">2,381</td></tr>
+          <tr><td>Seed capped at 2.0 lb (balance limit)</td><td class="num legacy">2,049</td><td class="num gh">2,381</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Effect:</strong> on the same inputs GrowHub plans 5% more bed feet, because it has no harvest factor 4 (S2). When seed is reduced, legacy shrinks the bed but GrowHub doesn't, which gives 16% more bed than the seed can fill in this example.</p>
+    <p class="src">Legacy: <code>vba/Form_NMIS_AGREEMENT_LOTS.bas:93</code> and <code>SOURCE_REQUIRED_Exit</code> (<code>:770</code>). GrowHub: <code>order-planning.component.ts:1012</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> should bareroot bed feet follow the seed being sown (legacy) or the seedlings requested (GrowHub)?</p>
+  </article>
+</section>
+
+<!-- ============================ BOTH ============================ -->
+<section class="group" aria-labelledby="g-both">
+  <div class="group-head">
+    <div class="eyebrow">Group 3</div>
+    <h2 id="g-both">Container and bareroot lots</h2>
+  </div>
+
+  <article class="case" id="S1">
+    <div class="case-head">
+      <div class="case-id">S1</div>
+      <h3>Three different "seed required" figures</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip high">High</span></div>
+    </div>
+    <p>The seed the legacy form saves (<code>SOURCE_REQUIRED</code>, from the Calculate button) leaves thinning out. The seed-bank work order and source-calcs reports recompute it as <code>SOURCE_CALC</code> with thinning in. GrowHub includes thinning, like the reports, but has no harvest factor 4 or harvest ASF (S2) and adds past performance. Depending on which legacy figure the SME compares against, GrowHub can look either too high or too low.</p>
+    <div class="pair">
+      <div class="side legacy">
+        <span class="label">Legacy</span>
+        <pre class="formula">Saved (form):  request×1000 ÷ (PLS × HF1..HF4 × harvest ASF)
+Reports:       same ÷ thinning      (SOURCE_CALC)</pre>
+      </div>
+      <div class="side gh">
+        <span class="label">GrowHub · calculateEstimatedSeed</span>
+        <pre class="formula">seedlings ÷ (factor1×factor2×factor3 × thinning
+  × past performance × germ × purity × seeds/lb)
+× 453.6 if the source lot is in grams</pre>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Seed required (lb)</th><th class="num">Container lot</th><th class="num">Bareroot lot</th></tr></thead>
+        <tbody>
+          <tr><td class="legacy">Legacy, saved by the form (no thinning)</td><td class="num legacy">2.194</td><td class="num legacy">2.214</td></tr>
+          <tr><td class="legacy">Legacy, reports (SOURCE_CALC, with thinning)</td><td class="num legacy">2.581</td><td class="num legacy">2.460</td></tr>
+          <tr><td class="gh">GrowHub (with thinning, no HF4)</td><td class="num gh">2.452</td><td class="num gh">2.583</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Effect:</strong> for the container lot, GrowHub is 12% above the saved figure and 5% below the report figure. For the bareroot lot it's above both, because there harvest factor 4 is 105% (it reduces seed in legacy).</p>
+    <p class="src">Legacy: <code>vba/Form_NMIS_AGREEMENT_LOTS.bas:49</code>; <code>SOURCE_CALC</code> in <code>Seed_Bank_Work_Order_Report query</code> and the <code>Agreement_Lot_Source_Calcs</code> report. GrowHub: <code>order-planning.component.ts:967</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> which legacy seed figure do planners treat as the answer: the saved one or the report one? Should the saved GrowHub seed include thinning?</p>
+  </article>
+
+  <article class="case" id="S2">
+    <div class="case-head">
+      <div class="case-id">S2</div>
+      <h3>GrowHub has no harvest factor 4 and no harvest ASF</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip high">High</span></div>
+    </div>
+    <p>Legacy multiplies four harvest factors and a harvest ASF (an over-sow adjustment). GrowHub has fields for factors 1–3 only. Anything a lot carried in factor 4 or the ASF is lost, and this flows into seed, containers or bed feet, and will grow. In legacy, the seeds-per-cell "Use" button also back-solved values into factor 4, so factor 4 often holds a real adjustment.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Harvest factor 4 or ASF</th><th>Effect in legacy</th><th>Effect of dropping it in GrowHub</th></tr></thead>
+        <tbody>
+          <tr><td>95 (container example)</td><td>Seed and containers +5.3%</td><td>Seed and containers 5% lower; will grow 5% higher</td></tr>
+          <tr><td>105 (bareroot example)</td><td>Seed and bed feet −4.8%</td><td>Seed and bed feet 5% higher; will grow 5% lower</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">Legacy: form controls <code>HF1–HF4</code>, <code>Harvest_Factor</code>, <code>Calculated_Gross</code>. GrowHub: planning form has <code>factor1–factor3</code> only (<code>order-planning.component.ts:967, 1012, 1073, 1229</code>).</p>
+    <p class="ask"><strong>For the SME:</strong> does GrowHub need a fourth factor and an over-sow (ASF) field, or should those be folded into factors 1–3 when lots are migrated?</p>
+  </article>
+
+  <article class="case" id="S3">
+    <div class="case-head">
+      <div class="case-id">S3</div>
+      <h3>GrowHub can't divide by a factor</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip high">High</span></div>
+    </div>
+    <p>Each legacy factor code has an operator. With <code>*</code> the factor multiplies (125 means ×1.25). With <code>/</code> it divides (125 means ×0.80). The form and every query honour this. GrowHub always multiplies, so a "/" factor moves the result the wrong way.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Factor 2 = 125, operator "/"</th><th class="num">Factor used</th><th class="num">Seed relative to legacy</th></tr></thead>
+        <tbody>
+          <tr><td class="legacy">Legacy</td><td class="num legacy">0.80</td><td class="num legacy">100%</td></tr>
+          <tr><td class="gh">GrowHub</td><td class="num gh">1.25</td><td class="num gh">64% (36% too little seed)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">Legacy: <code>IIf([HFn_Formula_OP]="*", F, 10000/F)</code> on the form, and the same test in <code>SOURCE_CALC</code> and <code>Actual_Sow_Calculated</code>. Operators come from <code>NMIS_FACTOR_CODES.FORMULA_OP</code>, which isn't in any export we have. GrowHub: no operator anywhere in planning.</p>
+    <p class="ask"><strong>For the SME:</strong> which factor codes use "/"? Were those values inverted before they were loaded into GrowHub?</p>
+  </article>
+
+  <article class="case" id="S4">
+    <div class="case-head">
+      <div class="case-id">S4</div>
+      <h3>Legacy plans seed without thinning, then reports "will grow" with it</h3>
+      <div class="chips"><span class="chip scope">Container</span><span class="chip med">Medium</span></div>
+    </div>
+    <p>This is a legacy inconsistency, but it affects what the SME expects to see. The Calculate button sizes seed to meet the request without thinning. The reports then apply thinning when they calculate "will grow". So a container lot planned for exactly 50,000 shows a shortage in the legacy reports. GrowHub sizes seed with thinning, so the same lot shows no shortage in GrowHub's own calculation.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Container example lot</th><th class="num">Seed (lb)</th><th class="num">Will grow</th><th class="num">Shortage</th></tr></thead>
+        <tbody>
+          <tr><td class="legacy">Legacy: seed from Calculate, will grow from the report</td><td class="num legacy">2.194</td><td class="num legacy">42,503</td><td class="num legacy">7,497</td></tr>
+          <tr><td class="gh">GrowHub: its own seed and yield</td><td class="num gh">2.452</td><td class="num gh">≈ 50,000</td><td class="num gh">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">Legacy: <code>vba/Form_NMIS_AGREEMENT_LOTS.bas:49</code> against <code>Actual_Sow_Calculated Query</code>. GrowHub: <code>order-planning.component.ts:967, 1073</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> is a built-in shortage on legacy container lots expected, for example because planners rely on thinning to over-sow?</p>
+  </article>
+
+  <article class="case" id="S5">
+    <div class="case-head">
+      <div class="case-id">S5</div>
+      <h3>Which lots count as bareroot</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip med">Medium</span></div>
+    </div>
+    <p>Bareroot and container lots take different formula branches, and each place decides "bareroot" differently. A lot can therefore get the container formula in one place and the bareroot formula in another.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Where</th><th>Bareroot when the begin container is</th></tr></thead>
+        <tbody>
+          <tr><td class="legacy">Form Calculate and Source_Will_Grow</td><td>SB only</td></tr>
+          <tr><td class="legacy">Form Containers_Will_Grow</td><td>SB, SPB, TB (B or N category)</td></tr>
+          <tr><td class="legacy">Actual_Sow_Calculated query</td><td>SB, or anything starting with TB</td></tr>
+          <tr><td class="gh">GrowHub</td><td>Grow unit stock type is Bareroot: SB8, SPB, STB, TB5, TB9</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Effect:</strong> a TB lot used the container formula on the legacy form (with +0.35 and gross × 1000) but the bareroot branch in the reports. An SPB or STB lot got the container cap (C1) in the reports. In GrowHub, all of these are bareroot.</p>
+    <p class="src">Legacy: form controls <code>Type_of_Container</code> and <code>Containers_Will_Grow</code>, and the <code>B_or_C</code> column in <code>Actual_Sow_Calculated Query</code>. GrowHub: <code>order-planning.component.ts:376</code> (<code>isBareroot</code>), grow-unit crosswalk.</p>
+    <p class="ask"><strong>For the SME:</strong> are transplant beds (TB) and seed production beds (SPB) planned as bareroot?</p>
+  </article>
+
+  <article class="case" id="S6">
+    <div class="case-head">
+      <div class="case-id">S6</div>
+      <h3>GrowHub treats a missing or 0% germ or purity two different ways</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip med">Medium</span></div>
+    </div>
+    <p>When the planning form loads, a blank germ or purity becomes 100%. In the seed calculation, 0 is also treated as 100%, so seed is planned as if the seed were perfect. In the yield calculation, 0 stays 0, so yield is 0 and the whole request shows as shortage. Legacy refuses to calculate seed without test data ("No test data entered to calculate source").</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Germ % entered</th><th>GrowHub seed</th><th>GrowHub yield</th><th>Legacy</th></tr></thead>
+        <tbody>
+          <tr><td>blank</td><td class="gh">as if 100%</td><td class="gh">as if 100%</td><td class="legacy">No seed calculated</td></tr>
+          <tr><td>0</td><td class="gh">as if 100%</td><td class="gh">0 (shortage = full request)</td><td class="legacy">No seed calculated</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">GrowHub: <code>orders-main.component.ts:110–111</code> (defaults), <code>order-planning.component.ts:967</code> (seed: 0 → 100), <code>:1073</code> (yield: blank → 1, 0 stays 0). Legacy: <code>vba/Form_NMIS_AGREEMENT_LOTS.bas:78</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> should GrowHub stop or warn when germ or purity is missing, as legacy did?</p>
+  </article>
+
+  <article class="case" id="S7">
+    <div class="case-head">
+      <div class="case-id">S7</div>
+      <h3>Rounding differences</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip low">Low</span></div>
+    </div>
+    <p>These are small but show up in side-by-side checks.</p>
+    <ul>
+      <li>The <code>Actual_Sow_Calculated</code> query rounds each harvest factor to 2 decimals: 87.5% becomes 0.88, a 0.6% change per factor. The form and GrowHub don't.</li>
+      <li>Seeds per cell: same formula on both sides (seeds/lb × seed ÷ (containers × cells)), but legacy reports round to 1 decimal and GrowHub to 2.</li>
+      <li>GrowHub rounds the container factor product to 3 decimals before dividing, then rounds the container count to a whole number after adding 0.35. Legacy stores the count unrounded (820.85 in C2).</li>
+      <li>Grams to pounds: GrowHub multiplies by 453.6, the legacy balance query uses 453.59 and 0.002204623.</li>
+    </ul>
+    <p class="src">Legacy: <code>Seed_Per_Cell</code> in <code>Agreement_Lot_Sow_Order</code>, <code>Seed_Bank_Work_Order_Report query</code>. GrowHub: <code>order-planning.component.ts:1285</code> (seedsPerCell), <code>:1229</code>.</p>
+  </article>
+
+  <article class="case" id="S8">
+    <div class="case-head">
+      <div class="case-id">S8</div>
+      <h3>Legacy splits containers across agreements</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip low">Low</span></div>
+    </div>
+    <p>When an agreement lot serves several client agreements, the legacy sow order and confirmation reports show each agreement's share: containers × (amount requested ÷ total request), rounded to a whole number on the sow order and to 1 decimal elsewhere. Seed is split the same way. I didn't find an equivalent in GrowHub planning. If the SME is comparing a per-client figure, the totals may agree while the per-client numbers don't.</p>
+    <p class="src">Legacy: <code>Agreement_PCT_of_Total Query</code>, <code>Agreement_Lot_Sow_Order</code>, <code>Agreement_Lot_Confirmation_Query</code>, <code>Request_Summary</code>.</p>
+    <p class="ask"><strong>For the SME:</strong> are the differences you're seeing on lot totals or on per-client lines?</p>
+  </article>
+</section>
+
+<!-- ============================ MIGRATION ============================ -->
+<section class="group" aria-labelledby="g-mig">
+  <div class="group-head">
+    <div class="eyebrow">Group 4</div>
+    <h2 id="g-mig">Migrated lots</h2>
+  </div>
+
+  <article class="case" id="M1">
+    <div class="case-head">
+      <div class="case-id">M1</div>
+      <h3>Migrated lots get wrong or missing factors, thinning and container inputs</h3>
+      <div class="chips"><span class="chip scope">Both</span><span class="chip high">High</span></div>
+    </div>
+    <p>If the lots showing discrepancies came over from the old system, the inputs may be wrong before any formula runs. The Oracle-era lot export (<code>seed/NMIS_AGREEMENT_LOTS.json</code>) appears to have its factor columns shifted, and the migration script reads those columns by name. Several planning inputs also aren't migrated at all, so GrowHub fills in its defaults.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Column in the export</th><th>What it actually holds</th><th>Where it goes in GrowHub</th></tr></thead>
+        <tbody>
+          <tr><td><code>HARVEST_FACTOR_2</code></td><td>Blank on all but 22 of 8,149 lots</td><td><code>factor2</code>, so blank (treated as 100%)</td></tr>
+          <tr><td><code>HARVEST_FACTOR_4</code></td><td>Equals <code>DESIRED_DENSITY</code> on 1,689 of 1,714 lots</td><td>Not migrated</td></tr>
+          <tr><td><code>CONTAINER_FACTOR_1</code>, <code>_2</code></td><td>Cell counts (160, 112, 98, 240…)</td><td>Multiplied into <code>containerSpecifications.nurseryFactors</code></td></tr>
+          <tr><td><code>CONTAINER_FACTOR_3</code></td><td>1–5 (looks like seeds per cell)</td><td>Same as above</td></tr>
+          <tr><td>Container lots: harvest factors, density, thinning</td><td>Blank on 3,270 of 3,526 container lots</td><td>GrowHub defaults</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Fields with no Access source in the mapping workbook, and the default GrowHub uses instead:</p>
+    <ul>
+      <li><strong>Thinning probability:</strong> defaults to 100%, so seed comes out lower than legacy <code>SOURCE_CALC</code> by the lot's thinning (85% thinning → 15% less seed).</li>
+      <li><strong>Cells filled:</strong> the grow cycle's container factor, otherwise 100%. Lot-level container factor overrides are lost.</li>
+      <li><strong>Survival:</strong> 100%.</li>
+      <li><strong>Past inventory performance:</strong> blank (treated as 100%) until a source lot is picked, then set to 100%.</li>
+    </ul>
+    <p class="src">Migration: <code>admin/bin/oracle-seedling-seed.ts:250–295, 465–483</code> (Nursery-GrowHub-Backend). Mapping workbook rows 26, 30, 32 and 33 (Planning). GrowHub defaults: <code>orders-main.component.ts:110–126</code>. <code>nurseryFactors</code> only appears in the seedling-bank report, not in planning calculations.</p>
+    <p class="ask"><strong>For the SME:</strong> were the lots showing discrepancies migrated, or entered fresh in GrowHub? If migrated, can you share one or two lot IDs with the legacy screen values so we can compare them field by field?</p>
+  </article>
+</section>
+
+<section class="stack" aria-labelledby="next-h">
+  <h2 id="next-h">Next step: replay on real lots</h2>
+  <p>The replay script (<code>tools/calc_replay.py</code>) runs every formula above on real agreement lots and reports, for each case, how many lots differ and by how much. It is built and runs, but on the current export its figures aren't trustworthy because of M1. It needs a clean export of these tables from the Access backend (<code>NmisData.mdb</code>):</p>
+  <ul>
+    <li><code>NMIS_AGREEMENT_LOTS</code>: all factors, density, thinning, stored seed and containers</li>
+    <li><code>NMIS_UNITS</code>: cells per container</li>
+    <li><code>NMIS_FACTOR_CODES</code>: the "/" operator for S3</li>
+    <li><code>NMIS_SPECIES_PRODUCT_CYCLES</code>: begin container for each species product</li>
+  </ul>
+  <p>The existing seedling-planning rules in the explorer (SP-01 to SP-18) cover the form-VBA side of several of these cases in more depth.</p>
+</section>
+
+</div>

@@ -1,0 +1,173 @@
+nursery,code,type,description,cellDims,cellsPerContainer,ghCode,approved
+JHSN,D16,G,Deepot 16 cu. in.,"2"" dia X 7"" deep (5x10)",50,D16,Yes
+JHSN,D25L,G,Deepot 25 cu. In.,"2.0"" dia X 10"" deep (5x10)",50,D25L,Yes
+JHSN,D40,G,Deepot 40 cu. In.,"2.5"" dia X 10"" deep (4x5)",20,D40,Yes
+JHSN,FLAT,G,Flat for germination,"16"" X 16"" X 2"" deep",1,FLAT,Yes
+JHSN,FT128,G,FT128 Forestry Tray 8 cu. In,"1.55"" dia X 6"" deep (8x16)",128,FT128,Yes
+JHSN,HB200,G,Hortiblock 200 19ml,"1.0"" dia X 2.25"" deep (10x20)",200,HB200,Yes
+JHSN,MT251,G,Mini-Treepot MT2510 52 cu. in.,"2.5"" X 2.5"" X 10"" deep",36,TP2510,Yes
+JHSN,RL10,G,Ray Leach Cell 10 cu. In.,"1.5"" dia X 8.25"" deep (7x14)",98,RL10,Yes
+JHSN,RL3,G,Ray Leach Cell 3 cu. in.,"1"" dia X 4.75"" deep (10x20)",200,RL3,Yes
+JHSN,RL7,G,Ray Leach Cell 7 cu. in.,"1.5"" dia X 5.5"" deep (7x14)",98,RL7,Yes
+JHSN,S112,G,112/105 Styro 6 - 6.6 cu. In.,"1.4"" dia X 5.9"" deep (8x14)",112,S112,Yes
+JHSN,S112D,G,"112/164 Styro 10D - 10 8"" deep","1.4"" dia X 8"" deep (8x14)",112,S112D,Yes
+JHSN,S144,G,144/95 Styro 6A - 5.8 cu. In.,"1.3"" dia X 5.2"" deep",144,S144,Yes
+JHSN,S160,G,160/90 Styro 5 - 5.5 cu. In.,"1.2"" dia X 6"" deep (10x16)",160,S160,Yes
+JHSN,S160D,G,160/120 Styro 7 - 7.3 cu. In.,"1.2"" dia X 9"" deep (10x16)",160,S160D,Yes
+JHSN,S198,G,198/50 Styro 2.9 cu. In.,"1.1"" dia X 4.8"" deep (11x18)",198,S198,Yes
+JHSN,S198D,G,198/60 Styro 4A 3.7 cu. In.,"1.1"" dia X 5.2"" deep (11x18)",198,S198D,Yes
+JHSN,S240,G,240/40 Styro 2A - 2.4 cu. In.,"1"" dia X 4.5"" deep (12x20)",240,S240,Yes
+JHSN,S408,G,408/116 Styro 1 - 1 cu. In.,"0.66"" dia X 4.1"" deep (17x24)",408,S408,Yes
+JHSN,S45,G,45/340 Styro 20 - 20.5 cu. In.,"2.4"" dia X 6"" deep (5x9)",45,S45,Yes
+JHSN,S45C,G,45/340 Styro 20 - Copper,"2.4"" dia X 6"" deep (5x9)",45,S45C,Yes
+JHSN,S45D,G,45/450 Styro 28 - 26.9 cu. In.,"2.4"" dia X 8"" deep (5x9)",45,S45D,Yes
+JHSN,S60,G,60/250 Styro 15 - 15.3 cu. In.,"2"" dia X 6"" deep (6x10)",60,S60,Yes
+JHSN,S60C,G,60/250 Styro 15 - Copper,"2"" dia X 6"" deep (6x10)",60,S60C,Yes
+JHSN,S77,G,77/170 Styro 10 - 9.8 cu. In.,"1.7"" dia X 6"" deep (7x11)",77,S77,Yes
+JHSN,S77C,G,77/170 Styro 10 - Copper,"1.7"" dia X 6"" deep (7x11)",77,S77C,Yes
+JHSN,S91,G,91/130 Styro 8 - 7.9 cu. In.,"1.5"" dia X 6"" deep (7x13)",91,S91,Yes
+JHSN,SB,G,Seed Bed,1' X 1',4,SB8,Yes
+JHSN,SPB,G,Seed Production Bed,1' X 6.333' (0.0001458 Ac),4,SPB,Yes
+JHSN,STB,G,Stoolbed,1' X 1',4,STB,Yes
+JHSN,TB,G,Transplant Bed,1' X 1',4,TB5,Yes
+JHSN,TB3G,G,Tree Bag 3 Gallon,10w x 8 1/2h grey #3,1,TB3G,Yes
+JHSN,TB9,G,Transplant Bed 9 row,1' X 1',4,TB9,Yes
+JHSN,TP2G,G,Tree Pot 2 Gallon,"6"" X 6"" X 16"" deep",1,TP2G,Yes
+JHSN,TP3G,G,Tree Pot 3 Gallon,"7"" X 7"" X 14"" deep",1,TP3G,Yes
+JHSN,TP414,G,Tree Pot Tall One 175 cu.in.,"4"" X 4"" X 14"" deep",16,TP414,Yes
+JHSN,TP49,G,Tree Pot Short One 100 cu.in.,"4"" X 4"" X 9.5"" deep",16,TP49,Yes
+JHSN,TP4G,G,Tree Pot 4 Gallon,"7"" X 7"" X 18"" deep",1,TP4G,Yes
+JHSN,TP5G,G,Tree Pot 5 Gallon,"10"" dia X 20"" deep",1,TP5G,Yes
+JHSN,TP8G,G,Tree Pot 8 Gallon,"11"" dia X 24"" deep",1,TP8G,Yes
+LPN,D16,G,Deepot 16 cu. in.,"2"" dia X 7"" deep (5x10)",50,D16,Yes
+LPN,D40,G,Deepot 40 cu. In.,"2.5"" dia X 10"" deep (4x5)",20,D40,Yes
+LPN,FT128,G,FT128 Forestry Tray 8 cu. In.,"1.55"" dia. 6"" deep (8x16)",128,FT128,Yes
+LPN,HB200,G,Hortiblock 200 19ml,"1.0"" dia X 2.25"" deep (10x20)",200,HB200,Yes
+LPN,JPOT,G,Jiffy Pot,,1,JPOT,Yes
+LPN,PAP3,G,"Paper Pot 3""",,192,PAP3,Yes
+LPN,RL10,G,Ray Leach Cell 10 cu. In.,"1.5"" dia X 8.25"" deep (7x14)",98,RL10,Yes
+LPN,RL3,G,Ray Leach Cell 3 cu. in.,"1"" dia X 4.75"" deep (10x20)",200,RL3,Yes
+LPN,RL7,G,Ray Leach Cell 7 cu. in.,"1.5"" dia X 5.5"" deep (7x14)",98,RL7,Yes
+LPN,RP1G,G,Round Pot 1 Gallon,"6"" dia X 7"" deep",1,RP1G,Yes
+LPN,RP5G,G,Round Pot 5 Gallon,"10"" dia X 20"" deep",1,RP5G,Yes
+LPN,RT10,G,Rootrainer 10.5 cu. in.,"1.5"" X 1.5"" X 5"" deep",32,RT10,Yes
+LPN,RT20,G,Rootrainer 21.5 cu. in.,"1.5"" X 2"" X 8"" deep",40,RT20,Yes
+LPN,S112,G,112/105 Styro 6 - 6.6 cu. In.,"1.4"" dia X 5.9"" deep (8x14)",112,S112,Yes
+LPN,S112D,G,"112/164 Styro 10D - 10 8"" deep","1.4"" dia X 8"" deep (8x14)",112,S112D,Yes
+LPN,S144,G,144/95 Styro 6A - 5.8 cu. In.,"1.3"" dia X 5.2"" deep",144,S144,Yes
+LPN,S160,G,160/90 Styro 5 - 5.5 cu. In.,"1.2"" dia X 6"" deep (10x16)",120,S160,Yes
+LPN,S160D,G,160/120 Styro 7 - 7.3 cu. In.,"1.2"" dia X 9"" deep (10x16)",160,S160D,Yes
+LPN,S198,G,198/60 Styro 4A - 3.7 cu. In.,"1.1"" dia X 5.2"" deep (11x18)",198,S198,Yes
+LPN,S240,G,240/40 Styro 2A - 2.4 cu. In.,"1"" dia X 4.5"" deep (12x20)",240,S240,Yes
+LPN,S408,G,408/116 Styro 1 - 1 cu. In.,"0.66"" dia X 4.1"" deep (17x24)",408,S408,Yes
+LPN,S45,G,45/340 Styro 20 - 20.5 cu. In.,"2.4"" dia X 6"" deep (5x9)",45,S45,Yes
+LPN,S45C,G,45/340 Styro 20 - Copper,"2.4"" dia X 6"" deep (5x9)",45,S45C,Yes
+LPN,S45D,G,45/450 Styro 28 - 26.9 cu. In.,"2.4"" dia X 8"" deep (5x9)",45,S45D,Yes
+LPN,S60,G,60/250 Styro 15 - 15.3 cu. In.,"2"" dia X 6"" deep (6x10)",60,S60,Yes
+LPN,S60C,G,60/250 Styro 15 - Copper,"2"" dia X 6"" deep (6x10)",60,S60C,Yes
+LPN,S77,G,77/170 Styro 10 - 9.8 cu. In.,"1.7"" dia X 6"" deep (7x11)",77,S77,Yes
+LPN,S77C,G,77/170 Styro 10 - Copper,"1.7"" dia X 6"" deep (7x11)",77,S77C,Yes
+LPN,S91,G,91/130 Styro 8 - 7.9 cu. In.,"1.6"" dia X 6"" deep (7x13)",91,S91,Yes
+LPN,SB,G,Seed Bed,1/2' X 1' (8 drill rows),8,SB8,Yes
+LPN,SP37,G,"Square Pot, 3.5""x3.5""x3""","3.5"" X 3.5"" X 3"" deep",1,SP37,Yes
+LPN,SP56,G,"Square Pot, 4""x4""x3.5""","4"" X 4"" X 3.5"" deep",1,SP56,Yes
+LPN,SPB,G,Seed Production Bed,,4,SPB,Yes
+LPN,STB,G,Stoolbed,,4,STB,Yes
+LPN,STP,G,Short Tree Pot,"3.75"" X 9.5"" deep",1,TP49,Yes
+LPN,TB,G,Transplant Bed,1' X 1',4,TB5,Yes
+LPN,TB9,G,Transplant Bed 9 row,1' X 1',4,TB9,Yes
+LPN,TP2G,G,Tree Pot 2 Gallon,"6"" X 6"" X 16"" deep",1,TP2G,Yes
+LPN,TP3G,G,Tree Pot 3 Gallon,"7"" X 7"" X 14"" deep",1,TP3G,Yes
+LPN,TP414,G,Tree Pot Tall One 175 cu. In.,"4"" X 4"" X 14"" deep",1,TP414,Yes
+LPN,TP4G,G,Tree Pot 4 Gallon,"7"" X 7"" X 18"" deep",1,TP4G,Yes
+LPN,TP5G,G,Tree Pot 5 Gallon,"10"" dia X 20"" deep",1,TP5G,Yes
+LPN,TP8G,G,Tree Pot 8 Gallon,"11"" dia X 24"" deep",1,TP8G,Yes
+PVN,D16,G,Deepot 16 cu. in.,"2"" dia X 7"" deep (5x10)",50,D16,Yes
+PVN,D40,G,Deepot 40 cu. In.,"2.5"" dia X 10"" deep (4x5)",20,D40,Yes
+PVN,HB200,G,Hortiblock 200 19ml,"1.0"" dia X 2.25"" deep (10x20)",200,HB200,Yes
+PVN,JPOT,G,Jiffy Pot,,1,JPOT,Yes
+PVN,PAP3,G,"Paper Pot 3""",,192,PAP3,Yes
+PVN,RL10,G,Ray Leach Cell 10 cu. In.,"1.5"" dia X 8.25"" deep (7x14)",98,RL10,Yes
+PVN,RL3,G,Ray Leach Cell 3 cu. in.,"1"" dia X 4.75"" deep (10x20)",200,RL3,Yes
+PVN,RL7,G,Ray Leach Cell 7 cu. in.,"1.5"" dia X 5.5"" deep (7x14)",98,RL7,Yes
+PVN,RP1G,G,Round Pot 1 Gallon,"6"" dia X 7"" deep",1,RP1G,Yes
+PVN,RT10,G,Rootrainer 10.5 cu. in.,"1.5"" X 1.5"" X 5"" deep",32,RT10,Yes
+PVN,RT20,G,Rootrainer 21.5 cu. in.,"1.5"" X 2"" X 8"" deep",40,RT20,Yes
+PVN,SB,G,Seed Bed,1' X 1',4,SB8,Yes
+PVN,SP37,G,"Square Pot, 3.5""x3.5""x3""","3.5"" X 3.5"" X 3"" deep",1,SP37,Yes
+PVN,SP56,G,"Square Pot, 4""x4""x3.5""","4"" X 4"" X 3.5"" deep",1,SP56,Yes
+PVN,SPB,G,Seed Production Bed,,4,SPB,Yes
+PVN,ST10C,G,Styro 10 - Copper,"1.7"" dia X 6"" deep (7x11)",77,S77C,Yes
+PVN,ST10D,G,"Styro 10D - 10 8"" deep","1.4"" dia X 8"" deep (8x14)",112,S112D,Yes
+PVN,ST15C,G,Styro 15 - Copper,"2"" dia X 6"" deep (6x10)",60,S60C,Yes
+PVN,ST20C,G,Styro 20 - Copper,"2.4"" dia X 6"" deep (5x9)",45,S45C,Yes
+PVN,STB,G,Stoolbed,,4,STB,Yes
+PVN,STP,G,Short Tree Pot,"3.75"" X 9.5"" deep",1,TP49,Yes
+PVN,STY10,G,Styro 10 - 9.8 cu. in.,"1.7"" dia X 6"" deep (7x11)",77,S77,Yes
+PVN,STY15,G,Styro 15 - 15.3 cu. in.,"2"" dia X 6"" deep (10x16)",60,S60,Yes
+PVN,STY20,G,Styro 20 - 20.5 cu. in.,"2.4"" dia X 6"" deep (5x9)",45,S45,Yes
+PVN,STY28,G,Styro 28 - 26.9 cu. in.,"2.4"" dia X 8"" deep (5x9)",45,S45D,Yes
+PVN,STY2A,G,Styro 2A - 2.4 cu. in.,"1"" dia X 4.5"" deep (12x20)",240,S240,Yes
+PVN,STY4A,G,Styro 4A - 3.7 cu. in.,"1.1"" dia X 5.2"" deep (11x18)",198,S198D,Yes
+PVN,STY5,G,Styro 5 - 4.5 cu. in.,"1.2"" dia X 6"" deep (10x16)",120,S160,Yes
+PVN,STY6,G,Styro 6 - 6.6 cu. in.,"1.4"" dia X 5.9"" deep (8x14)",112,S112,Yes
+PVN,STY6A,G,Styro 6A - 5.8 cu. in.,"1.3"" dia X 5.2"" deep",144,S144,Yes
+PVN,STY7,G,Styro 7 - 7.3 cu. in.,"1.2"" dia X 9"" deep (10x16)",160,S160D,Yes
+PVN,STY8,G,Styro 8 - 7.5 cu. in.,"1.6"" dia X 6"" deep (7x13)",91,S91,Yes
+PVN,STYM,G,Styro 1 - 1 cu. in.,"0.66"" dia X 4.1"" deep",408,S408,Yes
+PVN,T12,G,"PVC Tube 12""x3""","3"" dia X 12"" deep",1,T12,Yes
+PVN,T18,G,"PVC Tube 18""x3""","3"" dia X 18"" deep",1,T18,Yes
+PVN,T24,G,"PVC Tube 24""x3""","3"" dia X 24"" deep",1,T24,Yes
+PVN,TB,G,Transplant Bed,1' X 1',4,TB5,Yes
+PVN,TB9,G,Transplant Bed 9 row,1' X 1',4,TB9,Yes
+PVN,TP1G,G,Tree Pot 1 Gallon,"4"" X 4"" X 14"" deep",1,TP1G,Yes
+PVN,TP2G,G,Tree Pot 2 Gallon,"6"" X 6"" X 16"" deep",1,TP2G,Yes
+PVN,TP3G,G,Tree Pot 3 Gallon,"7"" X 7"" X 14"" deep",1,TP3G,Yes
+PVN,TP4G,G,Tree Pot 4 Gallon,"7"" X 7"" X 18"" deep",1,TP4G,Yes
+PVN,TP5G,G,Tree Pot 5 Gallon,"10"" dia X 20"" deep",1,TP5G,Yes
+PVN,TP8G,G,Tree Pot 8 Gallon,"11"" dia X 24"" deep",1,TP8G,Yes
+TN,D16,G,Deepot 16 cu. in.,"2"" dia X 7"" deep (5x10)",50,D16,Yes
+TN,D40,G,Deepot 40 cu. In.,"2.5"" dia X 10"" deep (4x5)",20,D40,Yes
+TN,FT128,G,FT128 Forestry Tray 8 cu. In.,"1.55"" dia. 6"" deep (8x16)",128,FT128,Yes
+TN,HB200,G,Hortiblock 200 19ml,"1.0"" dia X 2.25"" deep (10x20)",200,HB200,Yes
+TN,JPOT,G,Jiffy Pot,,1,JPOT,Yes
+TN,PAP3,G,"Paper Pot 3""",,192,PAP3,Yes
+TN,RL10,G,Ray Leach Cell 10 cu. In.,"1.5"" dia X 8.25"" deep (7x14)",98,RL10,Yes
+TN,RL3,G,Ray Leach Cell 3 cu. in.,"1"" dia X 4.75"" deep (10x20)",200,RL3,Yes
+TN,RL7,G,Ray Leach Cell 7 cu. in.,"1.5"" dia X 5.5"" deep (7x14)",98,RL7,Yes
+TN,RP1G,G,Round Pot 1 Gallon,"6"" dia X 7"" deep",1,RP1G,Yes
+TN,RP5G,G,Round Pot 5 Gallon,"10"" dia X 20"" deep",1,RP5G,Yes
+TN,RT10,G,Rootrainer 10.5 cu. in.,"1.5"" X 1.5"" X 5"" deep",32,RT10,Yes
+TN,RT20,G,Rootrainer 21.5 cu. in.,"1.5"" X 2"" X 8"" deep",40,RT20,Yes
+TN,S112,G,112/105 Styro 6 - 6.6 cu. In.,"1.4"" dia X 5.9"" deep (8x14)",112,S112,Yes
+TN,S112D,G,"112/164 Styro 10D - 10 8"" deep","1.4"" dia X 8"" deep (8x14)",112,S112D,Yes
+TN,S144,G,144/95 Styro 6A - 5.8 cu. In.,"1.3"" dia X 5.2"" deep",144,S144,Yes
+TN,S160,G,160/90 Styro 5 - 5.5 cu. In.,"1.2"" dia X 6"" deep (10x16)",160,S160,Yes
+TN,S160D,G,160/120 Styro 7 - 7.3 cu. In.,"1.2"" dia X 9"" deep (10x16)",160,S160D,Yes
+TN,S198,G,198/60 Styro 4A - 3.7 cu. In.,"1.1"" dia X 5.2"" deep (11x18)",198,S198,Yes
+TN,S240,G,240/40 Styro 2A - 2.4 cu. In.,"1"" dia X 4.5"" deep (12x20)",240,S240,Yes
+TN,S408,G,408/116 Styro 1 - 1 cu. In.,"0.66"" dia X 4.1"" deep (17x24)",408,S408,Yes
+TN,S45,G,45/340 Styro 20 - 20.5 cu. In.,"2.4"" dia X 6"" deep (5x9)",45,S45,Yes
+TN,S45C,G,45/340 Styro 20 - Copper,"2.4"" dia X 6"" deep (5x9)",45,S45C,Yes
+TN,S45D,G,45/450 Styro 28 - 26.9 cu. In.,"2.4"" dia X 8"" deep (5x9)",45,S45D,Yes
+TN,S60,G,60/250 Styro 15 - 15.3 cu. In.,"2"" dia X 6"" deep (6x10)",60,S60,Yes
+TN,S60C,G,60/250 Styro 15 - Copper,"2"" dia X 6"" deep (6x10)",60,S60C,Yes
+TN,S77,G,77/170 Styro 10 - 9.8 cu. In.,"1.7"" dia X 6"" deep (7x11)",77,S77,Yes
+TN,S77C,G,77/170 Styro 10 - Copper,"1.7"" dia X 6"" deep (7x11)",77,S77C,Yes
+TN,S91,G,91/130 Styro 8 - 7.9 cu. In.,"1.6"" dia X 6"" deep (7x13)",91,S91,Yes
+TN,SB,G,Seed Bed,1/2' X 1' (8 drill rows),4,SB8,Yes
+TN,SP37,G,"Square Pot, 3.5""x3.5""x3""","3.5"" X 3.5"" X 3"" deep",1,SP37,Yes
+TN,SP56,G,"Square Pot, 4""x4""x3.5""","4"" X 4"" X 3.5"" deep",1,SP56,Yes
+TN,SPB,G,Seed Production Bed,,4,SPB,Yes
+TN,STB,G,Stoolbed,,4,STB,Yes
+TN,STP,G,Short Tree Pot,"3.75"" X 9.5"" deep",1,TP49,Yes
+TN,TB,G,Transplant Bed,1' X 1',4,TB5,Yes
+TN,TB9,G,Transplant Bed 9 row,1' X 1',4,TB9,Yes
+TN,TP2G,G,Tree Pot 2 Gallon,"6"" X 6"" X 16"" deep",1,TP2G,Yes
+TN,TP3G,G,Tree Pot 3 Gallon,"7"" X 7"" X 14"" deep",1,TP3G,Yes
+TN,TP414,G,Tree Pot Tall One 175 cu. In.,"4"" X 4"" X 14"" deep",1,TP414,Yes
+TN,TP49,G,Tree Pot Short One 100 cu. In.,"4"" x 4"" x 9.5"" deep",1,TP49,Yes
+TN,TP4G,G,Tree Pot 4 Gallon,"7"" X 7"" X 18"" deep",1,TP4G,Yes
+TN,TP5G,G,Tree Pot 5 Gallon,"10"" dia X 20"" deep",1,TP5G,Yes
+TN,TP8G,G,Tree Pot 8 Gallon,"11"" dia X 24"" deep",1,TP8G,Yes
+TN,E150,G,Ellepot Airtray 150,30mm dia x 90mm deep (10x15),150,EA150,Yes

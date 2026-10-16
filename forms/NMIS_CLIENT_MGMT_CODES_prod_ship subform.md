@@ -1,0 +1,21 @@
+# Form: NMIS_CLIENT_MGMT_CODES_prod_ship subform
+
+**Caption:** NMIS_CLIENT_MGMT_CODES_prod_ship subform  
+**Record source:**
+
+```sql
+SELECT NMIS_CLIENT_MGMT_CODES.ACTIVITY_ID_CN, NMIS_CLIENT_MGMT_CODES.CLIENT_ASSOCIATE, NMIS_CLIENT_MGMT_CODES.FISCAL_YEAR_USED, NMIS_CLIENT_MGMT_CODES.MGMT_CODE, NMIS_CLIENT_MGMT_CODES.MGMT_CODE_PCT FROM NMIS_CLIENT_MGMT_CODES WHERE (((NMIS_CLIENT_MGMT_CODES.ACTIVITY_ID_CN) Is Not Null));
+```
+
+**Backend tables referenced:** `NMIS_CLIENT_MGMT_CODES`, `NMIS_FISCAL_YEARS`  
+**Embedded in:** `Form:NMIS_SHIPPING_TICKET subform`  
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TextBox | ACTIVITY_ID_CN |  | ACTIVITY_ID_CN |  |  | 0.04, 0.04, 0.52, 0.17 |
+| TextBox | CLIENT_ASSOCIATE |  | CLIENT_ASSOCIATE |  |  | 0.57, 0.04, 0.66, 0.17 |
+| ComboBox | FISCAL_YEAR_USED |  | FISCAL_YEAR_USED | SELECT NMIS_FISCAL_YEARS.FISCAL_YEAR, NMIS_FISCAL_YEARS.BEGIN_DATE, NMIS_FISCAL_YEARS.END_DATE FROM NMIS_FISCAL_YEARS;  |  | 1.27, 0.04, 0.68, 0.17 |
+| TextBox | MGMT_CODE |  | MGMT_CODE |  |  | 2.04, 0.04, 0.42, 0.00 |
+| TextBox | MGMT_CODE_PCT |  | MGMT_CODE_PCT |  |  | 2.54, 0.04, 0.46, 0.00 |

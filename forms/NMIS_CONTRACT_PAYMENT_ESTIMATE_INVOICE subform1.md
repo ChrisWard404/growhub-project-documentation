@@ -1,0 +1,17 @@
+# Form: NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE subform1
+
+**Caption:** NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE subform1  
+**Record source:**
+
+```sql
+SELECT NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE.CONTRACT_NO, Max(NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE.END_DATE) AS MaxOfEND_DATE, Max(NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE.ESTIMATE_NO) AS MaxOfESTIMATE_NO FROM NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE GROUP BY NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE.CONTRACT_NO;
+```
+
+**Backend tables referenced:** `NMIS_CONTRACT_PAYMENT_ESTIMATE_INVOICE`  
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TextBox | END_DATE |  | MaxOfEND_DATE |  |  | 0.12, 0.04, 0.54, 0.21 |
+| TextBox | Last_Estimate |  | MaxOfESTIMATE_NO |  |  | 0.72, 0.04, 0.46, 0.21 |

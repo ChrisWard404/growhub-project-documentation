@@ -1,0 +1,40 @@
+# Form: NMIS_PRODUCT_MGMT_CODES1 Subform2
+
+**Caption:** NMIS_PRODUCT_MGMT_CODES  
+**Record source:**
+
+```sql
+SELECT [FISCAL_YEAR] & [PRODUCT_CN] & [CATEGORY_CODE] & [ACTIVITY_CODE] & [PRODUCT_GRADE] AS PMC_LINK, NMIS_PRODUCT_MGMT_CODES.ACTIVITY_CODE, NMIS_PRODUCT_MGMT_CODES.PRODUCT_GRADE, NMIS_PRODUCT_MGMT_CODES.PRODUCT_CN, NMIS_PRODUCT_MGMT_CODES.CATEGORY_CODE, NMIS_PRODUCT_MGMT_CODES.FISCAL_YEAR, NMIS_PRODUCT_MGMT_CODES.MGMT_CODE, NMIS_PRODUCT_MGMT_CODES.PERCENT_OF_CHARGE FROM NMIS_PRODUCT_MGMT_CODES WHERE ((([FISCAL_YEAR] & [PRODUCT_CN] & [CATEGORY_CODE] & [ACTIVITY_CODE] & [PRODUCT_GRADE])=[Forms]![NMIS_PRODUCT_CHARGES2]![PMC_LINK] Or ([FISCAL_YEAR] & [PRODUCT_CN] & [CATEGORY_CODE] & [ACTIVITY_CODE] & [PRODUCT_GRADE]) Is Null));
+```
+
+**Backend tables referenced:** `NMIS_ACTIVITY_CODES`, `NMIS_CATEGORIES`, `NMIS_PRODUCT_GRADES`, `NMIS_PRODUCT_MGMT_CODES`  
+**Embedded in:** `Form:NMIS_PRODUCT_CHARGES2`  
+
+## Section: FormHeader
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| Label | CATEGORY_CODE_Label | Category Code |  |  |  | 0.58, 0.03, 0.67, 0.37 |
+| Label | ACTIVITY_CODE_Label | Activity Code |  |  |  | 1.32, 0.03, 0.79, 0.37 |
+| Label | PRODUCT_GRADE_Label | Product Grade |  |  |  | 2.18, 0.03, 0.98, 0.37 |
+| Label | FISCAL_YEAR_Label | Fiscal Year |  |  |  | 0.07, 0.03, 0.45, 0.37 |
+| Label | MGMT_CODE_Label | Job Code |  |  |  | 3.22, 0.03, 0.64, 0.37 |
+| Label | PERCENT_OF_CHARGE_Label | Percent |  |  |  | 3.91, 0.03, 0.58, 0.37 |
+
+## Section: Detail
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TextBox | PRODUCT_CN |  | PRODUCT_CN |  |  | 4.61, 0.03, 0.58, 0.21 |
+| TextBox | FISCAL_YEAR |  | FISCAL_YEAR |  |  | 0.07, 0.03, 0.45, 0.21 |
+| TextBox | MGMT_CODE |  | MGMT_CODE |  |  | 3.22, 0.03, 0.61, 0.21 |
+| TextBox | PERCENT_OF_CHARGE |  | PERCENT_OF_CHARGE |  |  | 3.91, 0.03, 0.58, 0.21 |
+| ComboBox | CATEGORY_CODE |  | CATEGORY_CODE | SELECT [NMIS_CATEGORIES].[CATEGORY_CODE], [NMIS_CATEGORIES].[CATEGORY_DESC] FROM NMIS_CATEGORIES;  |  | 0.58, 0.03, 0.69, 0.21 |
+| ComboBox | ACTIVITY_CODE |  | ACTIVITY_CODE | SELECT NMIS_ACTIVITY_CODES.ACTIVITY_CODE, NMIS_ACTIVITY_CODES.ACTIVITY_NAME FROM NMIS_ACTIVITY_CODES WHERE (((NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="ORDER" Or (NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="LIFT" Or (NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="PROC" Or (NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="SPCSVC" Or (NMIS_ACTIVITY_CODES.PARENT_ACTIVITY_CODE)="SHIP")); |  | 1.32, 0.03, 0.80, 0.21 |
+| ComboBox | PRODUCT_GRADE |  | PRODUCT_GRADE | SELECT [NMIS_PRODUCT_GRADES].[PRODUCT_GRADE] FROM NMIS_PRODUCT_GRADES; |  | 2.18, 0.03, 0.99, 0.21 |
+
+## Section: FormFooter
+
+| Type | Name | Label/Caption | Bound to / Source | Row source | Events | Position (L,T,W,H in) |
+|---|---|---|---|---|---|---|
+| TextBox | Text27 |  | =Sum([PERCENT_OF_CHARGE]) |  |  | 3.92, 0.03, 0.58, 0.21 |
